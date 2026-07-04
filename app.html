@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<title>we're in love — Votre dispute</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF4F8;--white:#fff;--ink:#1F1B2E;--gris:#6B6480;
+  --rose:#FF2D75;--rose-deep:#E81A66;--violet:#7C4DFF;--violet-deep:#6234E8;
+  --grad:linear-gradient(90deg,var(--rose),var(--violet));
+  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
+  --r:22px;--shadow:0 24px 60px -24px rgba(90,40,120,.28);
+  --font:"Plus Jakarta Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{color-scheme:only light;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh}
+::selection{background:var(--rose);color:#fff}
+
+header{display:flex;flex-direction:column;align-items:center;padding:24px 20px 8px;text-align:center}
+.logo{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
+.logo svg{width:52px;height:auto}
+.logo .txt{font-weight:800;font-size:17px;color:var(--ink)}
+.logo .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+main{max-width:560px;margin:0 auto;padding:18px 20px 80px}
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:30px 26px;margin-top:18px}
+h1{font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+h2{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.sub{color:var(--gris);font-size:15px;margin-top:8px}
+.grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+label{display:block;font-weight:700;font-size:14px;margin:18px 0 8px}
+input[type=text],input[type=email],input[type=password],select,textarea{
+  width:100%;border:1.5px solid rgba(31,27,46,.14);border-radius:14px;
+  padding:14px 16px;font-family:var(--font);font-size:15px;color:var(--ink);
+  background:#fff;outline:none;transition:border .2s,box-shadow .2s;
+}
+textarea{min-height:150px;resize:vertical;line-height:1.6}
+input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.12)}
+.hint{font-size:12.5px;color:var(--gris);margin-top:6px}
+.count{font-size:12.5px;color:var(--gris);text-align:right;margin-top:4px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:var(--grad-btn);color:#fff;border:none;border-radius:100px;
+  padding:16px 26px;font-family:var(--font);font-size:15.5px;font-weight:700;cursor:pointer;
+  box-shadow:0 10px 26px -10px rgba(232,26,102,.55);
+  transition:transform .2s,box-shadow .2s,opacity .2s;text-decoration:none;margin-top:20px;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid rgba(31,27,46,.14);box-shadow:none}
+.btn-google{background:#fff;color:var(--ink);border:1.5px solid rgba(31,27,46,.14);box-shadow:none}
+.btn-sm{width:auto;padding:11px 20px;font-size:13.5px;margin-top:0}
+
+.pillnote{
+  display:flex;gap:12px;align-items:flex-start;
+  background:#ECE4FF;border-radius:14px;padding:14px 16px;
+  font-size:13.5px;color:#3E2E75;margin-top:18px;
+}
+.pillnote b{color:var(--violet-deep)}
+.error{background:#FDE4EF;color:#B3123F;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:600;margin-top:14px;display:none}
+.error.show{display:block}
+.divider{display:flex;align-items:center;gap:14px;margin:20px 0;color:var(--gris);font-size:13px;font-weight:600}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:rgba(31,27,46,.1)}
+
+/* thread */
+.msg{border-radius:18px;padding:16px 18px;margin-top:14px;max-width:92%}
+.msg .who{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.msg p{font-size:14.5px;line-height:1.6;white-space:pre-wrap}
+.msg-a{background:#FDE4EF;margin-right:auto}
+.msg-a .who{color:var(--rose-deep)}
+.msg-b{background:#ECE4FF;margin-left:auto}
+.msg-b .who{color:var(--violet-deep)}
+.status-line{
+  display:flex;align-items:center;gap:10px;justify-content:center;
+  font-size:13px;font-weight:600;color:var(--gris);margin-top:18px;text-align:center;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--rose);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* lien de partage */
+.linkbox{
+  display:flex;gap:10px;margin-top:16px;
+  background:#F6EFF5;border-radius:14px;padding:8px 8px 8px 16px;align-items:center;
+}
+.linkbox input{border:none;background:transparent;padding:8px 0;font-size:13.5px;flex:1;min-width:0}
+.share-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.share-row .btn{flex:1;min-width:130px}
+
+/* verdict */
+.vbar{display:flex;height:44px;border-radius:13px;overflow:hidden;font-weight:800;font-size:14px;margin-top:16px;color:#fff}
+.vbar .a{background:var(--rose);display:flex;align-items:center;padding-left:14px;min-width:15%}
+.vbar .b{background:var(--violet);display:flex;align-items:center;justify-content:flex-end;padding-right:14px;flex:1}
+.pacte{background:#FBF4F8;border-left:3px solid var(--rose);border-radius:12px;padding:14px 16px;margin-top:12px;font-size:14px}
+.pacte b{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--rose-deep);margin-bottom:5px}
+.pacte.p-b{border-left-color:var(--violet)}
+.pacte.p-b b{color:var(--violet-deep)}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.topbar .out{font-size:13px;color:var(--gris);background:none;border:none;cursor:pointer;font-family:var(--font);font-weight:600;text-decoration:underline}
+.screen{display:none}
+.screen.active{display:block;animation:fadeUp .45s cubic-bezier(.22,1,.36,1)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.loader{display:flex;justify-content:center;padding:50px 0}
+.loader span{width:12px;height:12px;border-radius:50%;background:var(--rose);margin:0 5px;animation:bounce 1s infinite}
+.loader span:nth-child(2){background:#C13BEF;animation-delay:.15s}
+.loader span:nth-child(3){background:var(--violet);animation-delay:.3s}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">
+    <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
+      <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
+      <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
+    </svg>
+    <span class="txt">we're <span class="in">in</span> love</span>
+  </a>
+</header>
+
+<main>
+  <div class="topbar">
+    <span id="hello" style="font-size:13.5px;color:var(--gris)"></span>
+    <button class="out" id="btn-logout" style="display:none">Se déconnecter</button>
+  </div>
+
+  <!-- ÉCRAN : CHARGEMENT -->
+  <div class="screen active" id="s-loading">
+    <div class="loader"><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- ÉCRAN : CONFIG MANQUANTE -->
+  <div class="screen" id="s-config">
+    <div class="card">
+      <h1>⚙️ Dernière étape technique</h1>
+      <p class="sub">Cette page est prête, mais elle attend vos clés. Ouvrez <b>app.html</b> et remplacez, tout en haut du <b>&lt;script&gt;</b> :</p>
+      <div class="pillnote" style="margin-top:16px">1️⃣ <span>Le bloc <b>firebaseConfig</b> — copiez-le depuis console.firebase.google.com → Paramètres du projet → Vos applications.</span></div>
+      <div class="pillnote">2️⃣ <span><b>WORKER_URL</b> — l'adresse de votre Worker Cloudflare (voir worker.js).</span></div>
+      <p class="hint" style="margin-top:16px">Le guide complet pas à pas est dans INSTALLATION.md.</p>
+    </div>
+  </div>
+
+  <!-- ÉCRAN : AUTH -->
+  <div class="screen" id="s-auth">
+    <div class="card">
+      <h1 id="auth-title">Bienvenue 💞</h1>
+      <p class="sub" id="auth-sub">Connectez-vous pour commencer votre analyse.</p>
+      <button class="btn btn-google" id="btn-google">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+        Continuer avec Google
+      </button>
+      <div class="divider">ou par email</div>
+      <label for="auth-email">Email</label>
+      <input type="email" id="auth-email" autocomplete="email" placeholder="vous@exemple.fr">
+      <label for="auth-pass">Mot de passe</label>
+      <input type="password" id="auth-pass" autocomplete="current-password" placeholder="6 caractères minimum">
+      <div class="error" id="auth-error"></div>
+      <button class="btn" id="btn-email">Continuer</button>
+      <p class="hint" style="text-align:center;margin-top:14px">Pas encore de compte ? Il sera créé automatiquement.</p>
+    </div>
+  </div>
+
+  <!-- ÉCRAN : ONBOARDING (créateur uniquement) -->
+  <div class="screen" id="s-onboard">
+    <div class="card">
+      <h1>Faisons <span class="grad-txt">connaissance</span></h1>
+      <p class="sub">Trois questions pour que l'IA comprenne votre couple. Plus elle vous connaît, mieux elle vous réconcilie.</p>
+      <label for="ob-prenom">Votre prénom</label>
+      <input type="text" id="ob-prenom" placeholder="Chloé" maxlength="30">
+      <label for="ob-partner">Le prénom de votre partenaire</label>
+      <input type="text" id="ob-partner" placeholder="Esteban" maxlength="30">
+      <label for="ob-duree">Depuis combien de temps êtes-vous en couple ?</label>
+      <select id="ob-duree">
+        <option value="">Choisir…</option>
+        <option>Moins de 6 mois</option>
+        <option>6 mois à 2 ans</option>
+        <option>2 à 5 ans</option>
+        <option>5 à 10 ans</option>
+        <option>Plus de 10 ans</option>
+      </select>
+      <label for="ob-vie">Vous vivez…</label>
+      <select id="ob-vie">
+        <option value="">Choisir…</option>
+        <option>Ensemble</option>
+        <option>Chacun chez soi</option>
+        <option>À distance</option>
+      </select>
+      <div class="error" id="ob-error"></div>
+      <button class="btn" id="btn-onboard">C'est parti 💘</button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN : ONBOARDING EXPRESS (partenaire invité) -->
+  <div class="screen" id="s-onboard-quick">
+    <div class="card">
+      <h1 id="oq-title">On vous attend 💌</h1>
+      <p class="sub" id="oq-sub">Quelqu'un veut vous entendre. Juste votre prénom et c'est parti.</p>
+      <label for="oq-prenom">Votre prénom</label>
+      <input type="text" id="oq-prenom" placeholder="Esteban" maxlength="30">
+      <div class="error" id="oq-error"></div>
+      <button class="btn" id="btn-onboard-quick">Découvrir la dispute</button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN : CRÉER UNE DISPUTE -->
+  <div class="screen" id="s-create">
+    <div class="card">
+      <h1>Créer une <span class="grad-txt">dispute</span></h1>
+      <p class="sub">Racontez ce qui s'est passé, avec vos mots, sans filtre. Votre partenaire ne verra votre version qu'au moment où vous lui enverrez le lien.</p>
+      <label for="c-title">Donnez-lui un titre</label>
+      <input type="text" id="c-title" placeholder="Ex : La soirée annulée" maxlength="60">
+      <label for="c-text">Votre version</label>
+      <textarea id="c-text" maxlength="2000" placeholder="Raconte ce qui s'est passé et ce que tu as ressenti…"></textarea>
+      <div class="count"><span id="c-count">0</span>/2000</div>
+      <div class="pillnote">💡 <span>Après la réponse de votre partenaire, vous pourrez <b>compléter votre point de vue jusqu'à 3 fois</b> avant le verdict de l'IA.</span></div>
+      <div class="error" id="c-error"></div>
+      <button class="btn" id="btn-create">Créer ma dispute</button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN : LIEN À PARTAGER -->
+  <div class="screen" id="s-share">
+    <div class="card">
+      <h1>Dispute créée ✅</h1>
+      <p class="sub">Envoyez ce lien unique à <b id="sh-partner">votre partenaire</b>. Il pourra lire votre version et donner la sienne — quand il sera prêt.</p>
+      <div class="linkbox">
+        <input type="text" id="sh-link" readonly>
+        <button class="btn btn-sm" id="btn-copy">Copier</button>
+      </div>
+      <div class="share-row">
+        <a class="btn btn-ghost btn-sm" id="btn-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="btn btn-ghost btn-sm" id="btn-sms">📱 SMS</a>
+      </div>
+      <button class="btn btn-ghost" id="btn-goto-dispute" style="margin-top:24px">Voir ma dispute</button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN : LA DISPUTE -->
+  <div class="screen" id="s-dispute">
+    <div class="card">
+      <h2 id="d-title">…</h2>
+      <p class="sub" id="d-sub"></p>
+      <div id="d-thread"></div>
+      <div class="status-line" id="d-status"></div>
+      <div id="d-replybox" style="display:none">
+        <label for="d-text" id="d-reply-label">Votre réponse</label>
+        <textarea id="d-text" maxlength="2000" placeholder="Exprime ta version, ce que tu as ressenti…"></textarea>
+        <div class="count"><span id="d-count">0</span>/2000 · <span id="d-left"></span></div>
+        <div class="error" id="d-error"></div>
+        <button class="btn" id="btn-reply">Envoyer</button>
+      </div>
+      <div id="d-actions" style="display:none">
+        <button class="btn" id="btn-verdict">💜 Demander le verdict de l'IA</button>
+        <button class="btn btn-ghost" id="btn-reshare">Renvoyer le lien à l'autre</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÉCRAN : VERDICT -->
+  <div class="screen" id="s-verdict">
+    <div class="card">
+      <h2 id="v-title">Le verdict 💘</h2>
+      <div class="vbar"><div class="a" id="v-bar-a">50%</div><div class="b" id="v-bar-b">50%</div></div>
+      <p style="margin-top:18px;font-size:15px;line-height:1.7" id="v-analyse"></p>
+      <h2 style="margin-top:26px;font-size:17px">Et maintenant, on vous rabiboche 💞</h2>
+      <div class="pacte" id="v-pacte-a"></div>
+      <div class="pacte p-b" id="v-pacte-b"></div>
+      <p style="margin-top:18px;font-size:14.5px;color:var(--gris);font-style:italic" id="v-mot"></p>
+      <button class="btn" id="btn-new">Créer une nouvelle dispute</button>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+/* ============================================================
+   CONFIGURATION — À REMPLACER par les clés de VOTRE projet
+   Firebase (console.firebase.google.com → nouveau projet
+   "wereinlove" → Authentification + Firestore activés)
+   ============================================================ */
+const firebaseConfig = {
+  apiKey: "AIzaSyDEUPsPd9UpVFFFpJO3XooVPkKUX4NLxHU",
+  authDomain: "wereinlove-93a23.firebaseapp.com",
+  projectId: "wereinlove-93a23",
+  appId: "1:224364413943:web:d0027db19a7c89cb17a4f2"
+};
+// URL de votre Worker Cloudflare (voir worker.js)
+const WORKER_URL = "https://wereinlove-verdict.mxm-lefevre.workers.dev";
+const MAX_COMPLEMENTS = 3; // compléments par personne, après la version initiale
+
+/* ============================================================ */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
+         createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, addDoc, updateDoc, collection,
+         onSnapshot, arrayUnion, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const DEMO = new URLSearchParams(location.search).get("demo") === "1";
+let app, auth, db;
+if (!DEMO) {
+  // Clés non renseignées → écran d'explication au lieu d'un loader infini
+  if (firebaseConfig.apiKey.includes("VOTRE") || WORKER_URL.includes("VOTRE")) {
+    document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+    document.getElementById("s-config").classList.add("active");
+    throw new Error("Configuration Firebase/Worker manquante — voir INSTALLATION.md");
+  }
+  app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+}
+
+const $ = id => document.getElementById(id);
+const show = id => {
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  $(id).classList.add("active");
+  window.scrollTo({top:0});
+};
+const err = (id,msg) => { const e=$(id); e.textContent=msg; e.classList.add("show"); };
+const clearErr = id => $(id).classList.remove("show");
+
+const params = new URLSearchParams(location.search);
+const disputeId = params.get("d");   // présent = on arrive par un lien de dispute
+let me = null;        // user Firebase
+let profile = null;   // doc users/{uid}
+let dispute = null;   // doc de la dispute courante
+let unsubDispute = null;
+
+/* ---------- AUTH ---------- */
+if (!DEMO) onAuthStateChanged(auth, async user => {
+  me = user;
+  if (!user) {
+    $("btn-logout").style.display="none";
+    $("hello").textContent="";
+    if (disputeId) { $("auth-title").textContent="On vous attend 💌"; $("auth-sub").textContent="Créez votre accès en 10 secondes pour découvrir la dispute."; }
+    show("s-auth");
+    return;
+  }
+  $("btn-logout").style.display="block";
+  const snap = await getDoc(doc(db,"users",user.uid));
+  profile = snap.exists() ? snap.data() : null;
+
+  if (!profile) {
+    // Nouveau compte : onboarding complet si créateur, express si invité par lien
+    show(disputeId ? "s-onboard-quick" : "s-onboard");
+    return;
+  }
+  $("hello").textContent = `Connecté·e : ${profile.prenom}`;
+  route();
+});
+
+function route(){
+  if (disputeId) openDispute(disputeId);
+  else show("s-create");
+}
+
+$("btn-google").onclick = async () => {
+  clearErr("auth-error");
+  try { await signInWithPopup(auth, new GoogleAuthProvider()); }
+  catch(e){ err("auth-error","Connexion Google impossible. Réessayez."); }
+};
+$("btn-email").onclick = async () => {
+  clearErr("auth-error");
+  const email=$("auth-email").value.trim(), pass=$("auth-pass").value;
+  if(!email || pass.length<6) return err("auth-error","Email valide et mot de passe de 6 caractères minimum.");
+  try { await signInWithEmailAndPassword(auth,email,pass); }
+  catch(e){
+    if(e.code==="auth/user-not-found" || e.code==="auth/invalid-credential"){
+      try { await createUserWithEmailAndPassword(auth,email,pass); }
+      catch(e2){ err("auth-error","Impossible de créer le compte ("+e2.code+")."); }
+    } else err("auth-error","Connexion impossible ("+e.code+").");
+  }
+};
+$("btn-logout").onclick = () => signOut(auth);
+
+/* ---------- ONBOARDING ---------- */
+$("btn-onboard").onclick = async () => {
+  clearErr("ob-error");
+  const prenom=$("ob-prenom").value.trim(), partner=$("ob-partner").value.trim();
+  const duree=$("ob-duree").value, vie=$("ob-vie").value;
+  if(!prenom||!partner||!duree||!vie) return err("ob-error","Répondez aux quatre questions — l'IA en a besoin pour bien vous comprendre.");
+  profile = { prenom, partnerPrenom:partner, coupleDuree:duree, viePratique:vie, createdAt:serverTimestamp() };
+  await setDoc(doc(db,"users",me.uid), profile);
+  $("hello").textContent = `Connecté·e : ${prenom}`;
+  route();
+};
+$("btn-onboard-quick").onclick = async () => {
+  clearErr("oq-error");
+  const prenom=$("oq-prenom").value.trim();
+  if(!prenom) return err("oq-error","Il nous faut juste votre prénom.");
+  profile = { prenom, invited:true, createdAt:serverTimestamp() };
+  await setDoc(doc(db,"users",me.uid), profile);
+  $("hello").textContent = `Connecté·e : ${prenom}`;
+  route();
+};
+
+/* ---------- CRÉATION DE DISPUTE ---------- */
+$("c-text").addEventListener("input", e => $("c-count").textContent = e.target.value.length);
+$("btn-create").onclick = async () => {
+  clearErr("c-error");
+  const title=$("c-title").value.trim(), text=$("c-text").value.trim();
+  if(!title) return err("c-error","Donnez un titre à votre dispute.");
+  if(text.length<40) return err("c-error","Racontez un peu plus — l'IA a besoin de matière (40 caractères minimum).");
+  $("btn-create").disabled = true;
+  try {
+    const ref = await addDoc(collection(db,"disputes"), {
+      title,
+      createdBy: me.uid,
+      creatorName: profile.prenom,
+      partnerName: profile.partnerPrenom || "votre partenaire",
+      partnerUid: null,
+      coupleContext: { duree: profile.coupleDuree||null, vie: profile.viePratique||null },
+      status: "waiting_partner",
+      messages: [{ role:"A", name:profile.prenom, text, ts:Date.now() }],
+      verdict: null,
+      createdAt: serverTimestamp()
+    });
+    const link = location.origin + location.pathname + "?d=" + ref.id;
+    $("sh-link").value = link;
+    $("sh-partner").textContent = profile.partnerPrenom || "votre partenaire";
+    const msg = encodeURIComponent(`${profile.prenom} a quelque chose à te dire sur we're in love 💌 Découvre sa version et donne la tienne : ${link}`);
+    $("btn-wa").href = "https://wa.me/?text="+msg;
+    $("btn-sms").href = "sms:?&body="+msg;
+    $("btn-goto-dispute").onclick = () => location.href = link;
+    show("s-share");
+  } catch(e){ err("c-error","Création impossible : "+e.message); }
+  $("btn-create").disabled = false;
+};
+$("btn-copy").onclick = async () => {
+  await navigator.clipboard.writeText($("sh-link").value);
+  $("btn-copy").textContent="Copié ✓";
+  setTimeout(()=>$("btn-copy").textContent="Copier",2000);
+};
+
+/* ---------- VUE DISPUTE ---------- */
+async function openDispute(id){
+  if (unsubDispute) unsubDispute();
+  unsubDispute = onSnapshot(doc(db,"disputes",id), async snap => {
+    if(!snap.exists()){ show("s-create"); return; }
+    dispute = { id:snap.id, ...snap.data() };
+
+    // Le partenaire qui ouvre le lien devient le participant B
+    if (!dispute.partnerUid && me.uid !== dispute.createdBy) {
+      await updateDoc(doc(db,"disputes",id), { partnerUid: me.uid, partnerName: profile.prenom, status:"in_progress" });
+      return; // le snapshot suivant re-rendra
+    }
+    render();
+  });
+}
+
+function myRole(){ return me.uid === dispute.createdBy ? "A" : "B"; }
+function countFor(role){ return dispute.messages.filter(m=>m.role===role).length; }
+
+function render(){
+  if (dispute.verdict) return renderVerdict();
+  const role = myRole();
+  const nameA = dispute.creatorName, nameB = dispute.partnerName;
+
+  $("d-title").textContent = dispute.title;
+  $("d-sub").textContent = role==="A"
+    ? `Votre dispute avec ${nameB}`
+    : `${nameA} vous a raconté sa version. À vous.`;
+
+  // fil de messages : B ne voit rien tant qu'il n'a pas cliqué ? Non : B découvre la version de A.
+  $("d-thread").innerHTML = dispute.messages.map(m => `
+    <div class="msg msg-${m.role.toLowerCase()}">
+      <div class="who">${m.name}</div>
+      <p>${escapeHtml(m.text)}</p>
+    </div>`).join("");
+
+  const myCount = countFor(role);
+  const maxMine = role==="A" ? 1+MAX_COMPLEMENTS : MAX_COMPLEMENTS+1; // version initiale + 3
+  const lastMsg = dispute.messages[dispute.messages.length-1];
+  const myTurn = lastMsg.role !== role;
+  const canReply = myCount < maxMine && myTurn;
+  const left = maxMine - myCount;
+
+  $("d-replybox").style.display = canReply ? "block" : "none";
+  if (canReply){
+    $("d-reply-label").textContent = myCount===0 ? "Votre version" : "Complétez votre point de vue";
+    $("d-left").textContent = myCount===0 ? "" : `Il vous reste ${left} intervention${left>1?"s":""}`;
+  }
+
+  // statut
+  if (dispute.status==="waiting_partner" && role==="A"){
+    $("d-status").innerHTML = `<span class="dot"></span> En attente de ${nameB}… Renvoyez-lui le lien si besoin.`;
+  } else if (!myTurn && countFor(role==="A"?"B":"A") <= countFor(role)){
+    $("d-status").innerHTML = `<span class="dot"></span> Au tour de ${role==="A"?nameB:nameA} — ou demandez le verdict.`;
+  } else {
+    $("d-status").innerHTML = "";
+  }
+
+  // actions : verdict possible dès que chacun a parlé au moins une fois
+  const bothSpoke = countFor("A")>=1 && countFor("B")>=1;
+  $("d-actions").style.display = bothSpoke ? "block" : "none";
+  $("btn-reshare").onclick = async () => {
+    const link = location.origin + location.pathname + "?d=" + dispute.id;
+    await navigator.clipboard.writeText(link);
+    $("btn-reshare").textContent = "Lien copié ✓ — envoyez-le !";
+    setTimeout(()=>$("btn-reshare").textContent="Renvoyer le lien à l'autre",2500);
+  };
+  show("s-dispute");
+}
+
+$("d-text").addEventListener("input", e => $("d-count").textContent = e.target.value.length);
+$("btn-reply").onclick = async () => {
+  clearErr("d-error");
+  const text = $("d-text").value.trim();
+  if(text.length<20) return err("d-error","Exprimez-vous un peu plus (20 caractères minimum).");
+  $("btn-reply").disabled = true;
+  try{
+    await updateDoc(doc(db,"disputes",dispute.id), {
+      messages: arrayUnion({ role:myRole(), name:profile.prenom, text, ts:Date.now() }),
+      status: "in_progress"
+    });
+    $("d-text").value = ""; $("d-count").textContent = "0";
+  } catch(e){ err("d-error","Envoi impossible : "+e.message); }
+  $("btn-reply").disabled = false;
+};
+
+/* ---------- VERDICT ---------- */
+$("btn-verdict").onclick = async () => {
+  $("btn-verdict").disabled = true;
+  $("btn-verdict").textContent = "L'IA écoute vos deux versions…";
+  try{
+    const r = await fetch(WORKER_URL, {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        disputeId: dispute.id,
+        title: dispute.title,
+        nameA: dispute.creatorName, nameB: dispute.partnerName,
+        context: dispute.coupleContext,
+        messages: dispute.messages.map(m=>({role:m.role,name:m.name,text:m.text}))
+      })
+    });
+    if(!r.ok) throw new Error("worker "+r.status);
+    const v = await r.json();
+    await updateDoc(doc(db,"disputes",dispute.id), { verdict: v, status:"resolved" });
+  } catch(e){
+    $("btn-verdict").textContent = "Réessayer le verdict";
+    $("btn-verdict").disabled = false;
+    alert("Le verdict n'a pas pu être rendu. Réessayez dans un instant.");
+  }
+};
+
+function renderVerdict(){
+  const v = dispute.verdict;
+  $("v-title").textContent = `Verdict : ${dispute.title}`;
+  $("v-bar-a").style.width = v.pctA+"%";
+  $("v-bar-a").textContent = `${dispute.creatorName} · ${v.pctA}%`;
+  $("v-bar-b").textContent = `${v.pctB}% · ${dispute.partnerName}`;
+  $("v-analyse").textContent = v.analyse;
+  $("v-pacte-a").innerHTML = `<b>Le pacte de ${dispute.creatorName}</b>${escapeHtml(v.pacteA)}`;
+  $("v-pacte-b").innerHTML = `<b>Le pacte de ${dispute.partnerName}</b>${escapeHtml(v.pacteB)}`;
+  $("v-mot").textContent = v.motDeLaFin || "";
+  $("btn-new").onclick = () => location.href = location.pathname + (DEMO ? "?demo=1" : "");
+  show("s-verdict");
+}
+
+function escapeHtml(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ---------- MODE DÉMO (app.html?demo=1) : visite complète sans compte ---------- */
+if (DEMO) {
+  me = { uid: "A" };
+  profile = { prenom:"Chloé", partnerPrenom:"Esteban", coupleDuree:"2 à 5 ans", viePratique:"Ensemble" };
+
+  const banner = document.createElement("div");
+  banner.style.cssText = "position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:#1F1B2E;color:#fff;font-size:12.5px;font-weight:700;padding:8px 18px;border-radius:100px;z-index:99;opacity:.92";
+  banner.textContent = "MODE DÉMO — aucune donnée enregistrée";
+  document.body.appendChild(banner);
+  $("hello").textContent = "Mode démo";
+
+  dispute = {
+    id:"demo", createdBy:"A", creatorName:"Chloé", partnerName:"Esteban",
+    coupleContext:{ duree:profile.coupleDuree, vie:profile.viePratique },
+    status:"in_progress", verdict:null,
+    messages:[
+      { role:"A", name:"Chloé", text:"Tu as encore annulé notre soirée au dernier moment. J'avais bloqué ma soirée, refusé un resto avec les filles… et à 18h40 tu m'envoies « on remet ça ». J'ai besoin de sentir que notre temps à deux compte pour toi.", ts:1 },
+      { role:"B", name:"Esteban", text:"Je comprends que tu sois déçue, mais mon patron a posé la réunion à 19h, je n'avais pas le choix. Et trois messages en une heure pour me dire que je me fiche de nous… ça m'a bloqué. Ce n'est pas juste.", ts:2 }
+    ]
+  };
+
+  // Onboarding pré-rempli pour la visite
+  $("ob-prenom").value="Chloé"; $("ob-partner").value="Esteban";
+  $("ob-duree").value="2 à 5 ans"; $("ob-vie").value="Ensemble";
+  $("btn-onboard").onclick = () => { $("c-title").value="La soirée annulée"; show("s-create"); };
+
+  $("btn-create").onclick = () => {
+    const link = "https://wereinlove.app/app.html?d=demo123";
+    $("sh-link").value = link;
+    $("sh-partner").textContent = "Esteban";
+    $("btn-wa").removeAttribute("href"); $("btn-sms").removeAttribute("href");
+    $("btn-goto-dispute").onclick = () => render();
+    show("s-share");
+  };
+
+  $("btn-reply").onclick = () => {
+    clearErr("d-error");
+    const t = $("d-text").value.trim();
+    if (t.length < 20) return err("d-error","Exprimez-vous un peu plus (20 caractères minimum).");
+    dispute.messages.push({ role:"A", name:"Chloé", text:t, ts:Date.now() });
+    $("d-text").value=""; $("d-count").textContent="0";
+    render();
+  };
+
+  $("btn-verdict").onclick = () => {
+    $("btn-verdict").disabled = true;
+    $("btn-verdict").textContent = "L'IA écoute vos deux versions…";
+    setTimeout(() => {
+      dispute.verdict = {
+        pctA:64, pctB:36,
+        analyse:"Esteban, une réunion imposée, ça arrive — mais annuler par un simple « on remet ça » à 18h40, c'est traiter votre soirée comme une option. Point pour Chloé. Chloé, tes trois messages n'étaient plus des questions : Esteban ne pouvait plus qu'encaisser. Le vrai sujet n'est pas la soirée. Chloé demande une place protégée dans ton agenda, Esteban ; et toi, tu demandes qu'on te fasse confiance quand la vie déborde. Bonne nouvelle : vous réclamez la même chose — compter l'un pour l'autre.",
+        pacteA:"La prochaine fois, je pose une question, une seule — et je laisse Esteban revenir vers moi.",
+        pacteB:"Si je dois annuler, j'appelle au lieu de texter, et je propose une nouvelle date dans la foulée.",
+        motDeLaFin:"Une soirée s'annule, pas vous deux : réservez-la, cette nouvelle date. 💞"
+      };
+      renderVerdict();
+    }, 1600);
+  };
+
+  show("s-onboard");
+}
+</script>
+</body>
+</html>
