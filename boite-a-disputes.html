@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<title>we're in love — La boîte à disputes</title>
+<meta name="description" content="Les disputes les plus folles tranchées par we're in love. Qui a raison ? Découvrez, riez, partagez.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D55'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF4F8;--white:#fff;--ink:#1F1B2E;--gris:#6B6480;
+  --rose:#FF2D75;--rose-deep:#E81A66;--violet:#7C4DFF;--violet-deep:#6234E8;
+  --grad:linear-gradient(90deg,var(--rose),var(--violet));
+  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
+  --r:22px;--shadow:0 24px 60px -24px rgba(90,40,120,.28);
+  --font:"Plus Jakarta Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{color-scheme:only light;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh}
+::selection{background:var(--rose);color:#fff}
+img{display:block;max-width:100%}
+
+header{display:flex;flex-direction:column;align-items:center;padding:24px 20px 6px;text-align:center}
+.logo{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
+.logo svg{width:52px;height:auto}
+.logo .txt{font-weight:800;font-size:17px;color:var(--ink)}
+.logo .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+main{max-width:1080px;margin:0 auto;padding:12px 20px 90px}
+.topnav{display:flex;justify-content:center;gap:16px;font-size:13px;font-weight:700;margin-top:4px;flex-wrap:wrap}
+.topnav a{color:var(--violet-deep);text-decoration:none}
+.topnav a:hover{text-decoration:underline}
+
+.intro{text-align:center;margin-top:22px}
+.intro h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.025em;line-height:1.12}
+.intro h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro p{color:var(--gris);font-size:16px;margin-top:12px;max-width:52ch;margin-inline:auto}
+
+/* filtres */
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.chip{border:1.5px solid rgba(31,27,46,.14);background:#fff;border-radius:100px;padding:9px 18px;font-family:var(--font);font-size:13.5px;font-weight:700;color:var(--ink);cursor:pointer;transition:.15s}
+.chip:hover{border-color:rgba(255,45,117,.4)}
+.chip.active{background:var(--grad);color:#fff;border-color:transparent}
+
+/* grille de disputes */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:28px}
+.dcard{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;cursor:pointer;transition:transform .18s;display:flex;flex-direction:column}
+.dcard:hover{transform:translateY(-4px)}
+.dcard .top{background:linear-gradient(150deg,#1F1B2E,#3A2352);padding:20px 20px 18px;color:#fff;position:relative}
+.dcard .cat{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.dcard .emoji{font-size:34px;line-height:1;margin-top:4px}
+.dcard .t{font-size:18px;font-weight:800;line-height:1.25;margin-top:8px}
+.dcard .body{padding:16px 20px 20px;flex:1;display:flex;flex-direction:column}
+.dcard .hook{font-size:14px;color:var(--gris);font-style:italic;flex:1}
+.dcard .who{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:12.5px;font-weight:700}
+.dcard .vs{color:var(--gris)}
+.dcard .na{color:var(--rose-deep)}.dcard .nb{color:var(--violet-deep)}
+.dcard .go{margin-top:14px;display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:800;color:var(--violet-deep)}
+.dcard .verdict-mini{font-size:11.5px;font-weight:800;color:#fff;background:var(--grad);padding:3px 10px;border-radius:100px}
+
+/* ===== VISIONNEUSE STORIES ===== */
+.viewer{position:fixed;inset:0;background:rgba(15,10,25,.92);display:none;align-items:center;justify-content:center;z-index:300;padding:16px}
+.viewer.active{display:flex}
+.frame-wrap{position:relative;width:100%;max-width:420px}
+/* barres de progression style stories */
+.pbars{display:flex;gap:5px;position:absolute;top:-14px;left:0;right:0;z-index:5}
+.pbars span{flex:1;height:4px;border-radius:100px;background:rgba(255,255,255,.3);overflow:hidden}
+.pbars span i{display:block;height:100%;width:0;background:#fff;border-radius:100px}
+.pbars span.done i{width:100%}
+.pbars span.active i{width:100%;transition:none}
+
+/* la frame = ratio 9:16 screenable */
+.frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:26px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);background:#1F1B2E;display:flex;flex-direction:column}
+.frame-head{display:flex;align-items:center;gap:9px;padding:18px 20px 6px;color:#fff}
+.frame-head svg{width:26px;height:auto}
+.frame-head .brand{font-weight:800;font-size:14px}
+.frame-head .brand .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.frame-head .cat{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:.65}
+.frame-title{color:#fff;font-weight:800;font-size:19px;line-height:1.25;padding:6px 22px 0}
+.frame-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:18px 20px}
+
+/* bulles de message dans la frame */
+.bubble{max-width:86%;padding:14px 16px;border-radius:20px;font-size:14.5px;line-height:1.5;position:relative}
+.bubble .nm{font-size:11.5px;font-weight:800;margin-bottom:4px;opacity:.85}
+.bubble.a{align-self:flex-start;background:#fff;color:var(--ink);border-bottom-left-radius:6px}
+.bubble.a .nm{color:var(--rose-deep)}
+.bubble.b{align-self:flex-end;background:var(--violet);color:#fff;border-bottom-right-radius:6px}
+.bubble.b .nm{color:#fff}
+
+/* frame d'intro (hook) */
+.frame-intro{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;gap:16px}
+.frame-intro .emoji{font-size:60px}
+.frame-intro .t{color:#fff;font-size:24px;font-weight:800;line-height:1.2}
+.frame-intro .hook{color:rgba(255,255,255,.8);font-size:16px;font-style:italic}
+.frame-intro .cta{margin-top:8px;font-size:13px;font-weight:800;color:#fff;background:rgba(255,255,255,.14);padding:9px 20px;border-radius:100px}
+
+/* frame verdict */
+.frame-verdict{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:26px 22px;overflow-y:auto}
+.fv-badge{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.fv-pcts{display:flex;align-items:baseline;gap:12px;margin-top:8px}
+.fv-pcts .p{font-size:40px;font-weight:800;line-height:1}
+.fv-pcts .pa{background:linear-gradient(90deg,#FF2D75,#FF8FB3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fv-pcts .pb{background:linear-gradient(90deg,#A98BFF,#7C4DFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fv-pcts .vs{color:rgba(255,255,255,.5);font-weight:800;font-size:14px}
+.fv-names{display:flex;gap:12px;font-size:12.5px;font-weight:800;margin-top:2px}
+.fv-names .na{color:#FF8FB3}.fv-names .nb{color:#A98BFF}
+.fv-bar{display:flex;width:100%;height:12px;border-radius:100px;overflow:hidden;margin-top:14px}
+.fv-bar .a{background:linear-gradient(90deg,#FF2D75,#FF8FB3)}
+.fv-bar .b{background:linear-gradient(90deg,#A98BFF,#7C4DFF)}
+.fv-analyse{color:rgba(255,255,255,.92);font-size:13px;line-height:1.55;margin-top:16px;text-align:left}
+.fv-mot{color:#fff;font-size:14px;font-style:italic;font-weight:600;margin-top:16px}
+
+.frame-foot{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;background:rgba(0,0,0,.25);color:#fff;font-weight:800;font-size:13px}
+.frame-foot svg{width:22px;height:auto}
+.frame-foot .url{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* zones de tap invisibles (précédent / suivant) */
+.tap-l,.tap-r{position:absolute;top:0;bottom:0;width:32%;z-index:10;cursor:pointer}
+.tap-l{left:0}.tap-r{right:0}
+
+/* contrôles */
+.v-close{position:absolute;top:-14px;right:0;background:rgba(255,255,255,.15);border:none;color:#fff;width:34px;height:34px;border-radius:100px;font-size:18px;cursor:pointer;z-index:20}
+.v-actions{position:absolute;bottom:-58px;left:0;right:0;display:flex;gap:10px;justify-content:center;z-index:20}
+.v-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:100px;padding:12px 20px;font-family:var(--font);font-size:13.5px;font-weight:800;cursor:pointer}
+.v-btn.tiktok{background:#0F0F0F;color:#fff}
+.v-btn.ghost{background:rgba(255,255,255,.16);color:#fff}
+
+.cta-final{text-align:center;margin-top:50px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:36px 26px}
+.cta-final h2{font-size:24px;font-weight:800}
+.cta-final p{color:var(--gris);margin-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--grad-btn);color:#fff;border:none;border-radius:100px;padding:15px 30px;font-family:var(--font);font-size:15px;font-weight:800;cursor:pointer;margin-top:18px;text-decoration:none;box-shadow:0 14px 30px -12px rgba(232,26,102,.55)}
+
+@media(max-width:560px){
+  .frame-title{font-size:17px}
+  .bubble{font-size:13.5px}
+  .v-actions{bottom:-54px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">
+    <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
+    <span class="txt">we're <span class="in">in</span> love</span>
+  </a>
+  <nav class="topnav">
+    <a href="app.html">💬 Nouvelle dispute</a>
+    <a href="compatibilite.html">💘 Test compatibilité</a>
+    <a href="espace-client.html">👤 Mon espace</a>
+  </nav>
+</header>
+
+<main>
+  <div class="intro">
+    <h1>La <span class="grad">boîte à disputes</span></h1>
+    <p>Les disputes les plus folles, tranchées par we're in love. Qui a raison ? Ouvrez, faites défiler comme une story… et devinez le verdict avant nous.</p>
+  </div>
+
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+
+  <div class="cta-final">
+    <h2>Et vous, qui a raison ?</h2>
+    <p>Réglez votre vraie dispute. we're in love tranche, sans jamais faire 50/50.</p>
+    <a href="app.html" class="btn">Créer ma dispute ✨</a>
+  </div>
+</main>
+
+<!-- VISIONNEUSE STORIES -->
+<div class="viewer" id="viewer">
+  <div class="frame-wrap">
+    <button class="v-close" id="v-close">✕</button>
+    <div class="pbars" id="pbars"></div>
+    <div class="frame" id="frame"></div>
+    <div class="tap-l" id="tap-l"></div>
+    <div class="tap-r" id="tap-r"></div>
+    <div class="v-actions">
+      <button class="v-btn tiktok" id="v-tiktok">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5.1 20.14a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.14-.14z"/></svg>
+        Partager
+      </button>
+      <button class="v-btn ghost" id="v-newdispute">Créer la mienne</button>
+    </div>
+  </div>
+</div>
+
+<script src="disputes-data.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DISPUTES = window.DISPUTES || [];
+
+const LOGO_SVG = `<svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>`;
+
+/* ---------- FILTRES ---------- */
+let currentCat = "Tout";
+const cats = ["Tout", ...[...new Set(DISPUTES.map(d=>d.cat))]];
+$("filters").innerHTML = cats.map(c =>
+  `<button class="chip${c==="Tout"?" active":""}" data-cat="${c}">${c}</button>`).join("");
+document.querySelectorAll(".chip").forEach(ch => ch.onclick = () => {
+  currentCat = ch.dataset.cat;
+  document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
+  ch.classList.add("active");
+  renderGrid();
+});
+
+/* ---------- GRILLE ---------- */
+function renderGrid(){
+  const list = currentCat==="Tout" ? DISPUTES : DISPUTES.filter(d=>d.cat===currentCat);
+  $("grid").innerHTML = list.map(d => `
+    <div class="dcard" data-id="${d.id}">
+      <div class="top">
+        <div class="cat">${esc(d.cat)}</div>
+        <div class="emoji">${d.emoji}</div>
+        <div class="t">${esc(d.title)}</div>
+      </div>
+      <div class="body">
+        <div class="hook">« ${esc(d.hook)} »</div>
+        <div class="who"><span class="na">${esc(d.a)}</span><span class="vs">vs</span><span class="nb">${esc(d.b)}</span></div>
+        <div class="go"><span>Ouvrir l'affaire</span><span class="verdict-mini">Verdict</span></div>
+      </div>
+    </div>`).join("");
+  document.querySelectorAll(".dcard").forEach(el =>
+    el.onclick = () => openViewer(el.dataset.id));
+}
+renderGrid();
+
+/* ---------- VISIONNEUSE STORIES ---------- */
+let viewD=null, frames=[], idx=0, timer=null;
+
+function buildFrames(d){
+  const f = [];
+  // frame 0 : intro / hook
+  f.push({type:"intro"});
+  // frames messages
+  d.msgs.forEach((m,i)=> f.push({type:"msg", upto:i}));
+  // frame verdict
+  f.push({type:"verdict"});
+  return f;
+}
+
+function openViewer(id){
+  viewD = DISPUTES.find(x=>x.id===id);
+  if(!viewD) return;
+  frames = buildFrames(viewD);
+  idx = 0;
+  $("pbars").innerHTML = frames.map(()=>`<span><i></i></span>`).join("");
+  $("viewer").classList.add("active");
+  document.body.style.overflow="hidden";
+  renderFrame();
+}
+function closeViewer(){
+  $("viewer").classList.remove("active");
+  document.body.style.overflow="";
+  clearTimeout(timer);
+}
+
+function renderFrame(){
+  const fr = frames[idx];
+  const d = viewD;
+  // barres de progression
+  [...$("pbars").children].forEach((s,i)=>{
+    s.classList.remove("done","active");
+    if(i<idx) s.classList.add("done");
+    else if(i===idx) s.classList.add("active");
+  });
+
+  const head = `
+    <div class="frame-head">
+      ${LOGO_SVG}
+      <span class="brand">we're <span class="in">in</span> love</span>
+      <span class="cat">${esc(d.cat)}</span>
+    </div>`;
+  const foot = `
+    <div class="frame-foot">
+      ${LOGO_SVG}<span class="url">wereinlove.app</span>
+    </div>`;
+
+  let inner="";
+  if(fr.type==="intro"){
+    inner = head + `
+      <div class="frame-intro">
+        <div class="emoji">${d.emoji}</div>
+        <div class="t">${esc(d.title)}</div>
+        <div class="hook">« ${esc(d.hook)} »</div>
+        <div class="cta">👆 Tape pour lire l'affaire</div>
+      </div>` + foot;
+  } else if(fr.type==="msg"){
+    const shown = d.msgs.slice(0, fr.upto+1);
+    inner = head +
+      `<div class="frame-title">${esc(d.title)}</div>
+      <div class="frame-body">` +
+      shown.map(m=>`
+        <div class="bubble ${m.r.toLowerCase()}">
+          <div class="nm">${esc(m.n)}</div>${esc(m.t)}
+        </div>`).join("") +
+      `</div>` + foot;
+  } else if(fr.type==="verdict"){
+    const v=d.v;
+    inner = head + `
+      <div class="frame-verdict">
+        <div class="fv-badge">⚖️ Le verdict</div>
+        <div class="fv-pcts">
+          <span class="p pa">${v.pctA}%</span>
+          <span class="vs">VS</span>
+          <span class="p pb">${v.pctB}%</span>
+        </div>
+        <div class="fv-names"><span class="na">${esc(d.a)}</span><span class="nb">${esc(d.b)}</span></div>
+        <div class="fv-bar"><div class="a" style="width:${v.pctA}%"></div><div class="b" style="width:${v.pctB}%"></div></div>
+        <div class="fv-analyse">${esc(v.analyse)}</div>
+        <div class="fv-mot">${esc(v.mot)}</div>
+      </div>` + foot;
+  }
+  $("frame").innerHTML = inner;
+  $("frame").scrollTop = 0;
+
+  // auto-avance (sauf sur le verdict, qu'on laisse lire)
+  clearTimeout(timer);
+  const activeBar = $("pbars").children[idx]?.querySelector("i");
+  if(fr.type!=="verdict"){
+    const dur = fr.type==="intro" ? 2600 : 4200;
+    if(activeBar){ activeBar.style.transition="none"; activeBar.style.width="0"; void activeBar.offsetWidth; activeBar.style.transition=`width ${dur}ms linear`; activeBar.style.width="100%"; }
+    timer = setTimeout(()=>next(), dur);
+  } else {
+    if(activeBar){ activeBar.style.transition="none"; activeBar.style.width="100%"; }
+  }
+}
+function next(){ if(idx<frames.length-1){ idx++; renderFrame(); } else { clearTimeout(timer); } }
+function prev(){ if(idx>0){ idx--; renderFrame(); } }
+
+$("tap-r").onclick = next;
+$("tap-l").onclick = prev;
+$("v-close").onclick = closeViewer;
+$("viewer").onclick = e => { if(e.target===$("viewer")) closeViewer(); };
+$("v-newdispute").onclick = () => location.href="app.html";
+$("v-tiktok").onclick = async () => {
+  const d = viewD;
+  const text = `${d.a} ${d.v.pctA}% vs ${d.b} ${d.v.pctB}% : "${d.title}" — verdict we're in love 💘`;
+  const url = "https://wereinlove.app";
+  if(navigator.share){
+    try{ await navigator.share({title:"we're in love", text, url}); return; }catch(e){ if(e.name==="AbortError") return; }
+  }
+  try{ await navigator.clipboard.writeText(text+" "+url); }catch(e){}
+  window.open("https://www.tiktok.com/upload","_blank");
+  alert("Texte copié ✓ Screene la story, publie ta vidéo TikTok et colle le texte en légende !");
+};
+document.addEventListener("keydown", e=>{
+  if(!$("viewer").classList.contains("active")) return;
+  if(e.key==="ArrowRight") next();
+  if(e.key==="ArrowLeft") prev();
+  if(e.key==="Escape") closeViewer();
+});
+</script>
+</body>
+</html>
