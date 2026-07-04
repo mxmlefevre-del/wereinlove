@@ -43,6 +43,24 @@ input[type=text],input[type=email],input[type=password],select,textarea{
   background:#fff;outline:none;transition:border .2s,box-shadow .2s;
 }
 textarea{min-height:150px;resize:vertical;line-height:1.6}
+.textarea-wrap{position:relative}
+.textarea-wrap textarea{width:100%;padding-right:52px}
+.btn-mic{position:absolute;right:10px;bottom:12px;width:36px;height:36px;border-radius:100px;border:none;background:var(--bg);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.btn-mic:hover{background:#F0E4EC}
+.btn-mic.listening{background:var(--rose);animation:pulse-mic 1.1s infinite}
+@keyframes pulse-mic{0%,100%{box-shadow:0 0 0 0 rgba(255,45,117,.4)}50%{box-shadow:0 0 0 8px rgba(255,45,117,0)}}
+.btn-mic[disabled]{opacity:.3;cursor:not-allowed}
+
+/* ---------- MODAL DE VALIDATION (version brute vs we're in love) ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(31,27,46,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
+.modal-overlay.active{display:flex}
+.modal-card{background:var(--white);border-radius:var(--r-l);box-shadow:var(--shadow);max-width:480px;width:100%;padding:28px 26px;text-align:center}
+.modal-badge{display:inline-block;background:var(--grad);color:#fff;font-size:12.5px;font-weight:800;padding:6px 16px;border-radius:100px;margin-bottom:14px}
+.modal-hint{font-size:13.5px;color:var(--gris);margin-bottom:16px;line-height:1.5}
+.modal-text{background:var(--bg);border-radius:16px;padding:16px 18px;font-size:15px;line-height:1.6;text-align:left;margin-bottom:18px;max-height:280px;overflow-y:auto;white-space:pre-wrap}
+.btn-link{display:block;width:100%;background:none;border:none;color:var(--violet-deep);font-size:14px;font-weight:700;padding:12px 0 4px;cursor:pointer}
+.btn-link:hover{text-decoration:underline}
+.btn-link-muted{color:var(--gris);font-weight:600;font-size:13px}
 input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.12)}
 .hint{font-size:12.5px;color:var(--gris);margin-top:6px}
 .count{font-size:12.5px;color:var(--gris);text-align:right;margin-top:4px}
@@ -221,7 +239,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 
       <label for="c-title">Donnez-lui un titre</label>
       <input type="text" id="c-title" placeholder="Ex : La soirée annulée" maxlength="60">
       <label for="c-text">Votre version</label>
-      <textarea id="c-text" maxlength="2000" placeholder="Raconte ce qui s'est passé et ce que tu as ressenti…"></textarea>
+      <div class="textarea-wrap">
+        <textarea id="c-text" maxlength="2000" placeholder="Raconte ce qui s'est passé et ce que tu as ressenti…"></textarea>
+        <button type="button" class="btn-mic" id="mic-c-text" title="Dicter à la voix">🎤</button>
+      </div>
       <div class="count"><span id="c-count">0</span>/2000</div>
       <div class="pillnote">💡 <span>Après la réponse de votre partenaire, vous pourrez <b>compléter votre point de vue jusqu'à 3 fois</b> avant le verdict de l'IA.</span></div>
       <div class="error" id="c-error"></div>
@@ -233,7 +254,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 
   <div class="screen" id="s-share">
     <div class="card">
       <h1>Dispute créée ✅</h1>
-      <p class="sub">Envoyez ce lien unique à <b id="sh-partner">votre partenaire</b>. Il pourra lire votre version et donner la sienne — quand il sera prêt.</p>
+      <p class="sub">Envoyez ce lien unique à <b id="sh-partner">votre partenaire</b>. Cette personne pourra lire votre version et donner la sienne, dès qu'elle sera prête.</p>
       <div class="linkbox">
         <input type="text" id="sh-link" readonly>
         <button class="btn btn-sm" id="btn-copy">Copier</button>
@@ -255,7 +276,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 
       <div class="status-line" id="d-status"></div>
       <div id="d-replybox" style="display:none">
         <label for="d-text" id="d-reply-label">Votre réponse</label>
-        <textarea id="d-text" maxlength="2000" placeholder="Exprime ta version, ce que tu as ressenti…"></textarea>
+        <div class="textarea-wrap">
+          <textarea id="d-text" maxlength="2000" placeholder="Exprime ta version, ce que tu as ressenti…"></textarea>
+          <button type="button" class="btn-mic" id="mic-d-text" title="Dicter à la voix">🎤</button>
+        </div>
         <div class="count"><span id="d-count">0</span>/2000 · <span id="d-left"></span></div>
         <div class="error" id="d-error"></div>
         <button class="btn" id="btn-reply">Envoyer</button>
@@ -301,6 +325,7 @@ const MAX_COMPLEMENTS = 3; // compléments par personne, après la version initi
 /* ============================================================ */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
+         signInWithRedirect, getRedirectResult,
          createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, doc, getDoc, setDoc, addDoc, updateDoc, collection,
@@ -330,6 +355,35 @@ const show = id => {
 const err = (id,msg) => { const e=$(id); e.textContent=msg; e.classList.add("show"); };
 const clearErr = id => $(id).classList.remove("show");
 
+/* ---------- DICTÉE VOCALE (Web Speech API) ---------- */
+function setupMic(micId, textareaId, onInput){
+  const micBtn = $(micId), area = $(textareaId);
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { micBtn.disabled = true; micBtn.title = "Dictée vocale non supportée par ce navigateur"; return; }
+  const rec = new SR();
+  rec.lang = "fr-FR";
+  rec.continuous = true;
+  rec.interimResults = true;
+  let listening = false, baseText = "";
+  rec.onresult = e => {
+    let finalTxt = "", interimTxt = "";
+    for (let i=0; i<e.results.length; i++){
+      const t = e.results[i][0].transcript;
+      if (e.results[i].isFinal) finalTxt += t; else interimTxt += t;
+    }
+    area.value = (baseText + " " + finalTxt + " " + interimTxt).trim();
+    onInput();
+  };
+  rec.onerror = () => { listening=false; micBtn.classList.remove("listening"); };
+  rec.onend = () => { listening=false; micBtn.classList.remove("listening"); };
+  micBtn.onclick = () => {
+    if (listening){ rec.stop(); return; }
+    baseText = area.value ? area.value + " " : "";
+    listening = true; micBtn.classList.add("listening");
+    try { rec.start(); } catch(e){ listening=false; micBtn.classList.remove("listening"); }
+  };
+}
+
 const params = new URLSearchParams(location.search);
 const disputeId = params.get("d");   // présent = on arrive par un lien de dispute
 let me = null;        // user Firebase
@@ -353,6 +407,20 @@ if (!DEMO) onAuthStateChanged(auth, async user => {
 
   if (!profile) {
     // Nouveau compte : onboarding complet si créateur, express si invité par lien
+    if (disputeId) {
+      // On a déjà le prénom donné par le créateur : on pré-remplit au lieu de le redemander.
+      try {
+        const dsnap = await getDoc(doc(db,"disputes",disputeId));
+        if (dsnap.exists()) {
+          const d = dsnap.data();
+          if (d.partnerName && d.partnerName !== "votre partenaire") {
+            $("oq-prenom").value = d.partnerName;
+            $("oq-title").textContent = `Bonjour ${d.partnerName} 💌`;
+            $("oq-sub").textContent = `${d.creatorName} a pensé à vous. Confirmez votre prénom pour continuer.`;
+          }
+        }
+      } catch(e) { /* silencieux : on retombe sur le champ vide */ }
+    }
     show(disputeId ? "s-onboard-quick" : "s-onboard");
     return;
   }
@@ -368,8 +436,20 @@ function route(){
 $("btn-google").onclick = async () => {
   clearErr("auth-error");
   try { await signInWithPopup(auth, new GoogleAuthProvider()); }
-  catch(e){ err("auth-error","Connexion Google impossible. Réessayez."); }
+  catch(e){
+    // Le popup peut être bloqué par le navigateur (mobile, Safari, bloqueur…) : on bascule sur la redirection.
+    if (["auth/popup-blocked","auth/popup-closed-by-user","auth/cancelled-popup-request"].includes(e.code)) {
+      try { await signInWithRedirect(auth, new GoogleAuthProvider()); return; }
+      catch(e2){ err("auth-error","Connexion Google impossible ("+e2.code+")."); return; }
+    }
+    if (e.code === "auth/unauthorized-domain") {
+      err("auth-error","Ce domaine n'est pas autorisé pour Google — ajoutez-le dans Firebase Console → Authentication → Settings → Domaines autorisés.");
+      return;
+    }
+    err("auth-error","Connexion Google impossible ("+e.code+"). Réessayez.");
+  }
 };
+if (!DEMO) getRedirectResult(auth).catch(e => err("auth-error","Connexion Google impossible ("+e.code+")."));
 $("btn-email").onclick = async () => {
   clearErr("auth-error");
   const email=$("auth-email").value.trim(), pass=$("auth-pass").value;
@@ -405,15 +485,54 @@ $("btn-onboard-quick").onclick = async () => {
   route();
 };
 
+/* ---------- REFORMULATION IA + CHOIX DE LA VERSION À ENVOYER ---------- */
+async function fetchReformulation(text, authorName, recipientName){
+  try{
+    const r = await fetch(WORKER_URL, {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ action:"reformulate", text, authorName, recipientName })
+    });
+    if(!r.ok) return text; // fallback silencieux : pas de version proposée, on gardera le texte brut
+    const data = await r.json();
+    return data.reformulated || text;
+  } catch(e){ return text; }
+}
+
+function showReviewModal(rawText, wilText){
+  return new Promise(resolve => {
+    $("review-text-wil").textContent = wilText;
+    $("review-overlay").classList.add("active");
+    $("btn-review-validate").onclick = () => { $("review-overlay").classList.remove("active"); resolve(wilText); };
+    $("btn-review-raw").onclick = () => { $("review-overlay").classList.remove("active"); resolve(rawText); };
+    $("btn-review-cancel").onclick = () => { $("review-overlay").classList.remove("active"); resolve(null); };
+  });
+}
+
+// Reformule, propose le choix à l'utilisateur, renvoie le texte choisi (ou null si annulé).
+// Cette même version choisie sera vue par l'auteur ET par son/sa partenaire — il n'y a qu'un seul texte final.
+async function reviewAndChoose(rawText, authorName, recipientName){
+  const wilText = await fetchReformulation(rawText, authorName, recipientName);
+  if (wilText.trim() === rawText.trim()) return rawText; // rien à proposer (échec silencieux ou texte inchangé)
+  return await showReviewModal(rawText, wilText);
+}
+
 /* ---------- CRÉATION DE DISPUTE ---------- */
 $("c-text").addEventListener("input", e => $("c-count").textContent = e.target.value.length);
+setupMic("mic-c-text","c-text", () => $("c-count").textContent = $("c-text").value.length);
 $("btn-create").onclick = async () => {
   clearErr("c-error");
   const title=$("c-title").value.trim(), text=$("c-text").value.trim();
   if(!title) return err("c-error","Donnez un titre à votre dispute.");
   if(text.length<40) return err("c-error","Racontez un peu plus — l'IA a besoin de matière (40 caractères minimum).");
   $("btn-create").disabled = true;
+  $("btn-create").textContent = "L'IA relit votre message…";
   try {
+    const finalText = await reviewAndChoose(text, profile.prenom, profile.partnerPrenom);
+    if (finalText === null) { // annulé : on revient au formulaire, rien n'est envoyé
+      $("btn-create").disabled = false;
+      $("btn-create").textContent = "Créer ma dispute";
+      return;
+    }
     const ref = await addDoc(collection(db,"disputes"), {
       title,
       createdBy: me.uid,
@@ -422,7 +541,7 @@ $("btn-create").onclick = async () => {
       partnerUid: null,
       coupleContext: { duree: profile.coupleDuree||null, vie: profile.viePratique||null },
       status: "waiting_partner",
-      messages: [{ role:"A", name:profile.prenom, text, ts:Date.now() }],
+      messages: [{ role:"A", name:profile.prenom, text:finalText, ts:Date.now() }],
       verdict: null,
       createdAt: serverTimestamp()
     });
@@ -436,6 +555,7 @@ $("btn-create").onclick = async () => {
     show("s-share");
   } catch(e){ err("c-error","Création impossible : "+e.message); }
   $("btn-create").disabled = false;
+  $("btn-create").textContent = "Créer ma dispute";
 };
 $("btn-copy").onclick = async () => {
   await navigator.clipboard.writeText($("sh-link").value);
@@ -514,19 +634,30 @@ function render(){
 }
 
 $("d-text").addEventListener("input", e => $("d-count").textContent = e.target.value.length);
+setupMic("mic-d-text","d-text", () => $("d-count").textContent = $("d-text").value.length);
 $("btn-reply").onclick = async () => {
   clearErr("d-error");
   const text = $("d-text").value.trim();
   if(text.length<20) return err("d-error","Exprimez-vous un peu plus (20 caractères minimum).");
   $("btn-reply").disabled = true;
+  const originalLabel = $("btn-reply").textContent;
+  $("btn-reply").textContent = "L'IA relit votre message…";
   try{
+    const recipientName = myRole()==="A" ? dispute.partnerName : dispute.creatorName;
+    const finalText = await reviewAndChoose(text, profile.prenom, recipientName);
+    if (finalText === null) { // annulé : rien n'est envoyé, on revient au formulaire
+      $("btn-reply").disabled = false;
+      $("btn-reply").textContent = originalLabel;
+      return;
+    }
     await updateDoc(doc(db,"disputes",dispute.id), {
-      messages: arrayUnion({ role:myRole(), name:profile.prenom, text, ts:Date.now() }),
+      messages: arrayUnion({ role:myRole(), name:profile.prenom, text:finalText, ts:Date.now() }),
       status: "in_progress"
     });
     $("d-text").value = ""; $("d-count").textContent = "0";
   } catch(e){ err("d-error","Envoi impossible : "+e.message); }
   $("btn-reply").disabled = false;
+  $("btn-reply").textContent = originalLabel;
 };
 
 /* ---------- VERDICT ---------- */
@@ -632,5 +763,17 @@ if (DEMO) {
   show("s-onboard");
 }
 </script>
+  <!-- MODAL : VALIDATION DE LA VERSION (brute ou reformulée par l'IA) -->
+  <div class="modal-overlay" id="review-overlay">
+    <div class="modal-card">
+      <div class="modal-badge">✨ Version we're in love</div>
+      <p class="modal-hint">L'IA a adouci le ton pour que ce soit lu plus facilement — les faits restent les mêmes. Choisissez la version à envoyer.</p>
+      <div class="modal-text" id="review-text-wil"></div>
+      <button class="btn" id="btn-review-validate">Envoyer cette version</button>
+      <button class="btn-link" id="btn-review-raw">Garder ma version brute, telle quelle</button>
+      <button class="btn-link btn-link-muted" id="btn-review-cancel">Annuler</button>
+    </div>
+  </div>
+
 </body>
 </html>

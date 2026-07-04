@@ -26,6 +26,43 @@ export default {
     try { body = await request.json(); }
     catch { return json({ error: "JSON invalide" }, 400); }
 
+    // Reformulation d'un message avant affichage au partenaire (ton adouci, mêmes faits)
+    if (body && body.action === "reformulate") {
+      const { text, authorName, recipientName } = body;
+      if (!text || !authorName) return json({ error: "Texte ou auteur manquant." }, 400);
+
+      const sys = `Tu reformules le message d'une personne en couple avant que son/sa partenaire ne le lise sur "we're in love".
+Objectif : garder exactement les mêmes faits et le même ressenti, mais adoucir le ton pour que ce soit lisible et constructif — sans minimiser, sans accuser, sans juger.
+Écris à la première personne, comme si ${authorName} parlait directement à ${recipientName || "son/sa partenaire"}.
+Renvoie UNIQUEMENT le texte reformulé, sans préambule, sans guillemets, sans backticks, 1 à 2 phrases de plus que l'original maximum.`;
+
+      try {
+        const r = await fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": env.ANTHROPIC_API_KEY,
+            "anthropic-version": "2023-06-01",
+          },
+          body: JSON.stringify({
+            model: "claude-sonnet-4-6",
+            max_tokens: 500,
+            system: sys,
+            messages: [{ role: "user", content: text.slice(0, 2200) }],
+          }),
+        });
+        if (!r.ok) {
+          const t = await r.text();
+          return json({ error: "API Anthropic: " + r.status, detail: t.slice(0, 300) }, 502);
+        }
+        const data = await r.json();
+        const reformulated = (data.content || []).map(c => c.text || "").join("").trim();
+        return json({ reformulated: reformulated || text }, 200);
+      } catch (e) {
+        return json({ error: "Erreur interne: " + e.message }, 500);
+      }
+    }
+
     const { title, nameA, nameB, context, messages } = body || {};
     if (!title || !nameA || !nameB || !Array.isArray(messages) || messages.length < 2)
       return json({ error: "Il faut les deux versions avant le verdict." }, 400);
