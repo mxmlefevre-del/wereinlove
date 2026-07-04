@@ -82,10 +82,11 @@ main{max-width:1080px;margin:0 auto;padding:12px 20px 90px}
 .frame-head .brand .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .frame-head .cat{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:.65}
 .frame-title{color:#fff;font-weight:800;font-size:19px;line-height:1.25;padding:6px 22px 0}
-.frame-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:18px 20px}
+.frame-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:18px 20px;overflow:hidden}
 
 /* bulles de message dans la frame */
-.bubble{max-width:86%;padding:14px 16px;border-radius:20px;font-size:14.5px;line-height:1.5;position:relative}
+.bubble{max-width:92%;padding:18px 20px;border-radius:22px;font-size:16px;line-height:1.55;position:relative}
+.bubble .nm{font-size:12.5px;font-weight:800;margin-bottom:6px}
 .bubble .nm{font-size:11.5px;font-weight:800;margin-bottom:4px;opacity:.85}
 .bubble.a{align-self:flex-start;background:#fff;color:var(--ink);border-bottom-left-radius:6px}
 .bubble.a .nm{color:var(--rose-deep)}
@@ -232,7 +233,7 @@ function renderGrid(){
 renderGrid();
 
 /* ---------- VISIONNEUSE STORIES ---------- */
-let viewD=null, frames=[], idx=0, timer=null;
+let viewD=null, frames=[], idx=0;
 
 function buildFrames(d){
   const f = [];
@@ -258,7 +259,7 @@ function openViewer(id){
 function closeViewer(){
   $("viewer").classList.remove("active");
   document.body.style.overflow="";
-  clearTimeout(timer);
+  cancelAnimationFrame(rafId);
 }
 
 function renderFrame(){
@@ -292,15 +293,15 @@ function renderFrame(){
         <div class="cta">👆 Tape pour lire l'affaire</div>
       </div>` + foot;
   } else if(fr.type==="msg"){
-    const shown = d.msgs.slice(0, fr.upto+1);
+    // Un seul message par frame : lisibilité maximale, zéro débordement (idéal TikTok)
+    const m = d.msgs[fr.upto];
     inner = head +
       `<div class="frame-title">${esc(d.title)}</div>
-      <div class="frame-body">` +
-      shown.map(m=>`
+      <div class="frame-body">
         <div class="bubble ${m.r.toLowerCase()}">
           <div class="nm">${esc(m.n)}</div>${esc(m.t)}
-        </div>`).join("") +
-      `</div>` + foot;
+        </div>
+      </div>` + foot;
   } else if(fr.type==="verdict"){
     const v=d.v;
     inner = head + `
@@ -320,22 +321,62 @@ function renderFrame(){
   $("frame").innerHTML = inner;
   $("frame").scrollTop = 0;
 
-  // auto-avance (sauf sur le verdict, qu'on laisse lire)
-  clearTimeout(timer);
-  const activeBar = $("pbars").children[idx]?.querySelector("i");
-  if(fr.type!=="verdict"){
-    const dur = fr.type==="intro" ? 2600 : 4200;
-    if(activeBar){ activeBar.style.transition="none"; activeBar.style.width="0"; void activeBar.offsetWidth; activeBar.style.transition=`width ${dur}ms linear`; activeBar.style.width="100%"; }
-    timer = setTimeout(()=>next(), dur);
-  } else {
-    if(activeBar){ activeBar.style.transition="none"; activeBar.style.width="100%"; }
-  }
+  // (re)démarre la progression de la frame
+  frameDuration = fr.type==="verdict" ? 0 : (fr.type==="intro" ? 2600 : 4600);
+  frameElapsed = 0;
+  startProgress();
 }
-function next(){ if(idx<frames.length-1){ idx++; renderFrame(); } else { clearTimeout(timer); } }
-function prev(){ if(idx>0){ idx--; renderFrame(); } }
 
-$("tap-r").onclick = next;
-$("tap-l").onclick = prev;
+/* ---------- PROGRESSION AVEC PAUSE ---------- */
+let frameDuration=0, frameElapsed=0, rafId=null, lastTs=0, paused=false;
+
+function startProgress(){
+  cancelAnimationFrame(rafId);
+  const activeBar = $("pbars").children[idx]?.querySelector("i");
+  if(frameDuration===0){ // verdict : barre pleine, pas d'auto-avance
+    if(activeBar){ activeBar.style.transition="none"; activeBar.style.width="100%"; }
+    return;
+  }
+  lastTs = performance.now();
+  const tick = ts => {
+    if(paused){ lastTs=ts; rafId=requestAnimationFrame(tick); return; }
+    frameElapsed += ts - lastTs;
+    lastTs = ts;
+    const pct = Math.min(1, frameElapsed/frameDuration);
+    if(activeBar){ activeBar.style.transition="none"; activeBar.style.width=(pct*100)+"%"; }
+    if(pct>=1){ next(); return; }
+    rafId = requestAnimationFrame(tick);
+  };
+  rafId = requestAnimationFrame(tick);
+}
+function pauseProgress(){ paused=true; }
+function resumeProgress(){ if(paused){ paused=false; lastTs=performance.now(); } }
+
+function next(){ cancelAnimationFrame(rafId); if(idx<frames.length-1){ idx++; renderFrame(); } }
+function prev(){ cancelAnimationFrame(rafId); if(idx>0){ idx--; renderFrame(); } }
+
+/* ---------- TAP COURT = naviguer · MAINTIEN = pause (comme Insta/TikTok) ---------- */
+const HOLD_MS = 220; // au-delà, c'est un maintien → pause
+function bindTap(el, action){
+  let holdTimer=null, held=false;
+  const down = e => {
+    held=false;
+    holdTimer = setTimeout(()=>{ held=true; pauseProgress(); }, HOLD_MS);
+  };
+  const up = e => {
+    clearTimeout(holdTimer);
+    if(held){ resumeProgress(); }      // on relâche après un maintien → reprise
+    else { action(); }                  // tap court → navigation
+    held=false;
+  };
+  el.addEventListener("pointerdown", down);
+  el.addEventListener("pointerup", up);
+  el.addEventListener("pointerleave", ()=>{ clearTimeout(holdTimer); if(held){ resumeProgress(); held=false; } });
+  el.addEventListener("contextmenu", e=>e.preventDefault()); // évite le menu au maintien mobile
+}
+bindTap($("tap-r"), next);
+bindTap($("tap-l"), prev);
+
 $("v-close").onclick = closeViewer;
 $("viewer").onclick = e => { if(e.target===$("viewer")) closeViewer(); };
 $("v-newdispute").onclick = () => location.href="app.html";
