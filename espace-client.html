@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<title>we're in love — Mon espace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF4F8;--white:#fff;--ink:#1F1B2E;--gris:#6B6480;
+  --rose:#FF2D75;--rose-deep:#E81A66;--violet:#7C4DFF;--violet-deep:#6234E8;
+  --grad:linear-gradient(90deg,var(--rose),var(--violet));
+  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
+  --r:22px;--shadow:0 24px 60px -24px rgba(90,40,120,.28);
+  --font:"Plus Jakarta Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{color-scheme:only light;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh}
+::selection{background:var(--rose);color:#fff}
+
+header{display:flex;flex-direction:column;align-items:center;padding:24px 20px 8px;text-align:center}
+.logo{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
+.logo svg{width:52px;height:auto}
+.logo .txt{font-weight:800;font-size:17px;color:var(--ink)}
+.logo .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+main{max-width:640px;margin:0 auto;padding:18px 20px 80px}
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:30px 26px;margin-top:18px}
+h1{font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+h2{font-size:19px;font-weight:800;letter-spacing:-.02em}
+.sub{color:var(--gris);font-size:15px;margin-top:8px}
+.grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+label{display:block;font-weight:700;font-size:14px;margin:18px 0 8px}
+input[type=text],input[type=email],input[type=password]{
+  width:100%;border:1.5px solid rgba(31,27,46,.14);border-radius:14px;
+  padding:14px 16px;font-family:var(--font);font-size:15px;color:var(--ink);
+  background:#fff;outline:none;transition:border .2s,box-shadow .2s;
+}
+input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:var(--grad-btn);color:#fff;border:none;border-radius:100px;
+  padding:16px 24px;font-family:var(--font);font-size:15.5px;font-weight:800;
+  cursor:pointer;margin-top:20px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 14px 30px -12px rgba(232,26,102,.55)}
+.btn:hover{transform:translateY(-1px)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.btn-ghost{background:none;color:var(--ink);border:1.5px solid rgba(31,27,46,.16);box-shadow:none}
+.btn-sm{width:auto;padding:10px 20px;font-size:13.5px;margin-top:0}
+.btn-google{background:#fff;color:var(--ink);border:1.5px solid rgba(31,27,46,.16);box-shadow:none}
+.divider{display:flex;align-items:center;gap:12px;color:var(--gris);font-size:12.5px;font-weight:700;margin:20px 0 4px;text-transform:uppercase;letter-spacing:.05em}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:rgba(31,27,46,.1)}
+.error{display:none;background:#FFECF1;color:var(--rose-deep);font-size:13.5px;font-weight:600;border-radius:12px;padding:11px 14px;margin-top:14px}
+.error.show{display:block}
+.hint{font-size:12.5px;color:var(--gris)}
+
+.screen{display:none}
+.screen.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:12px;flex-wrap:wrap}
+.topbar .out{font-size:13px;color:var(--gris);background:none;border:none;cursor:pointer;font-family:var(--font);font-weight:600;text-decoration:underline}
+.topnav{display:flex;gap:14px;font-size:13px;font-weight:700}
+.topnav a{color:var(--violet-deep);text-decoration:none}
+.topnav a:hover{text-decoration:underline}
+
+/* profil */
+.profile-row{display:flex;align-items:center;gap:18px}
+.avatar-big{width:84px;height:84px;border-radius:100px;overflow:hidden;background:var(--bg);flex-shrink:0;position:relative;cursor:pointer;border:3px solid #fff;box-shadow:0 8px 22px -10px rgba(90,40,120,.4)}
+.avatar-big img{width:100%;height:100%;object-fit:cover}
+.avatar-big .ph{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:30px}
+.avatar-big .edit{position:absolute;bottom:0;left:0;right:0;background:rgba(31,27,46,.55);color:#fff;font-size:10px;font-weight:800;text-align:center;padding:3px 0}
+.plan-badge{display:inline-block;background:var(--bg);color:var(--violet-deep);font-size:11.5px;font-weight:800;padding:4px 12px;border-radius:100px;margin-top:6px;text-transform:uppercase;letter-spacing:.04em}
+.plan-badge.premium{background:var(--grad);color:#fff}
+
+.stats-row{display:flex;gap:12px;margin-top:20px}
+.stat{flex:1;background:var(--bg);border-radius:16px;padding:14px 10px;text-align:center}
+.stat b{display:block;font-size:22px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:11.5px;color:var(--gris);font-weight:700}
+
+/* partenaires */
+.partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:18px}
+.pcard{background:var(--bg);border-radius:18px;padding:18px 12px;text-align:center;cursor:pointer;transition:transform .15s;border:2px solid transparent}
+.pcard:hover{transform:translateY(-2px);border-color:rgba(255,45,117,.3)}
+.pcard .avatar{width:62px;height:62px;border-radius:100px;overflow:hidden;background:#fff;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:24px;border:2.5px solid #fff;box-shadow:0 6px 16px -8px rgba(90,40,120,.4)}
+.pcard .avatar img{width:100%;height:100%;object-fit:cover}
+.pcard .name{font-weight:800;font-size:15px}
+.pcard .meta{font-size:11.5px;color:var(--gris);font-weight:600;margin-top:2px}
+.pcard.add{border:2px dashed rgba(31,27,46,.18);background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:130px;color:var(--gris);font-weight:700;font-size:13.5px}
+.pcard.add:hover{border-color:var(--rose);color:var(--rose)}
+.pcard.add .plus{font-size:26px;line-height:1}
+
+/* détail partenaire */
+.pdetail-head{display:flex;align-items:center;gap:16px}
+.back{background:none;border:none;font-family:var(--font);font-size:13.5px;font-weight:700;color:var(--violet-deep);cursor:pointer;padding:0;text-decoration:underline}
+.list-item{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--bg);border-radius:14px;padding:14px 16px;margin-top:10px;text-decoration:none;color:var(--ink);transition:transform .12s}
+.list-item:hover{transform:translateX(3px)}
+.list-item .t{font-weight:700;font-size:14.5px}
+.list-item .s{font-size:12px;color:var(--gris);font-weight:600}
+.list-item .pct{font-size:15px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.tag{font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:100px;white-space:nowrap}
+.tag.res{background:#E8FAEF;color:#1B8A4B}
+.tag.wait{background:#FFF4E0;color:#B36B00}
+.empty{color:var(--gris);font-size:13.5px;text-align:center;padding:18px 0}
+
+/* abonnement */
+.sub-feature{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin-top:10px}
+.sub-feature .ic{flex-shrink:0}
+.price{font-size:30px;font-weight:800}
+.price small{font-size:14px;color:var(--gris);font-weight:600}
+
+/* modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(31,27,46,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
+.modal-overlay.active{display:flex}
+.modal-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);max-width:420px;width:100%;padding:28px 26px}
+.btn-link{display:block;width:100%;background:none;border:none;color:var(--gris);font-size:13px;font-weight:600;padding:12px 0 0;cursor:pointer;font-family:var(--font)}
+.btn-link:hover{text-decoration:underline}
+
+.loader{display:flex;gap:8px;justify-content:center;padding:60px 0}
+.loader span{width:12px;height:12px;border-radius:100px;background:var(--rose);animation:b 1s infinite alternate}
+.loader span:nth-child(2){background:var(--violet);animation-delay:.2s}
+.loader span:nth-child(3){background:var(--rose);animation-delay:.4s}
+@keyframes b{to{transform:translateY(-8px);opacity:.5}}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">
+    <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
+    <span class="txt">we're <span class="in">in</span> love</span>
+  </a>
+</header>
+
+<main>
+  <div class="topbar">
+    <span id="hello" style="font-size:13.5px;color:var(--gris)"></span>
+    <nav class="topnav">
+      <a href="app.html">💬 Nouvelle dispute</a>
+      <a href="compatibilite.html">💘 Test compatibilité</a>
+    </nav>
+    <button class="out" id="btn-logout" style="display:none">Se déconnecter</button>
+  </div>
+
+  <!-- CHARGEMENT -->
+  <div class="screen active" id="s-loading">
+    <div class="loader"><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- AUTH -->
+  <div class="screen" id="s-auth">
+    <div class="card">
+      <h1>Mon <span class="grad-txt">espace</span></h1>
+      <p class="sub">Connectez-vous pour retrouver vos disputes, vos tests et vos partenaires.</p>
+      <button class="btn btn-google" id="btn-google">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+        Continuer avec Google
+      </button>
+      <div class="divider">ou par email</div>
+      <label for="auth-email">Email</label>
+      <input type="email" id="auth-email" autocomplete="email" placeholder="vous@exemple.fr">
+      <label for="auth-pass">Mot de passe</label>
+      <input type="password" id="auth-pass" autocomplete="current-password" placeholder="6 caractères minimum">
+      <div class="error" id="auth-error"></div>
+      <button class="btn" id="btn-email">Continuer</button>
+    </div>
+  </div>
+
+  <!-- ESPACE PRINCIPAL -->
+  <div class="screen" id="s-main">
+
+    <!-- Profil -->
+    <div class="card">
+      <div class="profile-row">
+        <div class="avatar-big" id="my-avatar" title="Changer ma photo">
+          <span class="ph">🙂</span>
+          <span class="edit">MODIFIER</span>
+        </div>
+        <div>
+          <h1 id="my-name">…</h1>
+          <span class="plan-badge" id="my-plan">Plan gratuit</span>
+        </div>
+      </div>
+      <input type="file" id="file-me" accept="image/*" style="display:none">
+      <div class="stats-row">
+        <div class="stat"><b id="st-disputes">0</b><span>disputes</span></div>
+        <div class="stat"><b id="st-resolved">0</b><span>résolues</span></div>
+        <div class="stat"><b id="st-raison">—</b><span>taux de raison</span></div>
+      </div>
+    </div>
+
+    <!-- Partenaires -->
+    <div class="card">
+      <h2>Mes <span class="grad-txt">partenaires</span></h2>
+      <p class="sub">Amoureux·se, ami·e, famille — chaque relation a sa fiche, ses disputes et ses tests.</p>
+      <div class="partners-grid" id="partners-grid"></div>
+    </div>
+
+    <!-- Abonnement -->
+    <div class="card">
+      <h2>Mon <span class="grad-txt">abonnement</span></h2>
+      <div id="sub-free">
+        <p class="sub" style="margin-top:12px"><b>Plan gratuit</b> — votre première dispute est offerte, puis 1,99 € par dispute.</p>
+        <div class="divider" style="margin-top:22px">Passer à l'illimité</div>
+        <p class="price">7,99 € <small>/ mois, sans engagement</small></p>
+        <div class="sub-feature"><span class="ic">💬</span><span>Disputes <b>illimitées</b></span></div>
+        <div class="sub-feature"><span class="ic">💘</span><span>Tests de compatibilité illimités</span></div>
+        <div class="sub-feature"><span class="ic">✨</span><span>Reformulation IA de vos messages incluse</span></div>
+        <div class="sub-feature"><span class="ic">🔒</span><span>Historique complet conservé</span></div>
+        <button class="btn" id="btn-upgrade">Passer à l'illimité</button>
+        <p class="hint" style="text-align:center;margin-top:10px">Paiement sécurisé Stripe — bientôt disponible.</p>
+      </div>
+      <div id="sub-premium" style="display:none">
+        <p class="sub" style="margin-top:12px">Vous êtes en <b>illimité</b> 💜 Merci de faire confiance à we're in love.</p>
+        <button class="btn btn-ghost" id="btn-manage-sub">Gérer mon abonnement</button>
+      </div>
+    </div>
+
+    <!-- Compte -->
+    <div class="card">
+      <h2>Mon compte</h2>
+      <label for="edit-prenom">Mon prénom</label>
+      <input type="text" id="edit-prenom" maxlength="30">
+      <div class="error" id="account-error"></div>
+      <button class="btn btn-ghost" id="btn-save-account">Enregistrer</button>
+    </div>
+  </div>
+
+  <!-- DÉTAIL PARTENAIRE -->
+  <div class="screen" id="s-partner">
+    <div class="card">
+      <button class="back" id="btn-back">← Retour à mon espace</button>
+      <div class="pdetail-head" style="margin-top:18px">
+        <div class="avatar-big" id="p-avatar" title="Changer sa photo">
+          <span class="ph">🙂</span>
+          <span class="edit">MODIFIER</span>
+        </div>
+        <div>
+          <h1 id="p-name">…</h1>
+          <p class="hint" id="p-meta"></p>
+        </div>
+      </div>
+      <input type="file" id="file-partner" accept="image/*" style="display:none">
+    </div>
+
+    <div class="card">
+      <h2>💬 Nos disputes</h2>
+      <div id="p-disputes"></div>
+      <a class="btn btn-ghost" href="app.html" style="text-decoration:none">Nouvelle dispute</a>
+    </div>
+
+    <div class="card">
+      <h2>💘 Nos tests de compatibilité</h2>
+      <div id="p-tests"></div>
+      <a class="btn btn-ghost" href="compatibilite.html" style="text-decoration:none">Nouveau test</a>
+    </div>
+  </div>
+</main>
+
+<!-- MODAL : AJOUTER UN PARTENAIRE -->
+<div class="modal-overlay" id="add-overlay">
+  <div class="modal-card">
+    <h2>Ajouter un <span class="grad-txt">partenaire</span></h2>
+    <label for="add-name">Son prénom</label>
+    <input type="text" id="add-name" maxlength="30" placeholder="Ex : Julie">
+    <div class="error" id="add-error"></div>
+    <button class="btn" id="btn-add-confirm">Ajouter</button>
+    <button class="btn-link" id="btn-add-cancel">Annuler</button>
+  </div>
+</div>
+
+<script type="module">
+/* ============================================================
+   CONFIGURATION
+   ============================================================ */
+const firebaseConfig = {
+  apiKey: "AIzaSyDEUPsPd9UpVFFFpJO3XooVPkKUX4NLxHU",
+  authDomain: "wereinlove-93a23.firebaseapp.com",
+  projectId: "wereinlove-93a23",
+  appId: "1:224364413943:web:d0027db19a7c89cb17a4f2"
+};
+/* ============================================================ */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
+         signInWithRedirect, getRedirectResult,
+         createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, collection,
+         getDocs, query, where, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const $ = id => document.getElementById(id);
+const show = id => { document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active")); $(id).classList.add("active"); window.scrollTo({top:0}); };
+const err = (id,msg) => { const e=$(id); e.textContent=msg; e.classList.add("show"); };
+const clearErr = id => $(id).classList.remove("show");
+const norm = s => (s||"").trim().toLowerCase();
+const escapeHtml = s => String(s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+let me=null, profile=null;
+let partners=[];   // fiches stockées users/{uid}/partners
+let disputes=[];   // toutes mes disputes
+let tests=[];      // tous mes tests de compatibilité
+let currentPartnerKey=null;
+
+/* ---------- AUTH ---------- */
+onAuthStateChanged(auth, async user => {
+  me = user;
+  if (!user){ $("btn-logout").style.display="none"; $("hello").textContent=""; show("s-auth"); return; }
+  $("btn-logout").style.display="block";
+  const snap = await getDoc(doc(db,"users",user.uid));
+  profile = snap.exists() ? snap.data() : { prenom:"Vous" };
+  $("hello").textContent = `Connecté·e : ${profile.prenom||""}`;
+  await loadAll();
+  renderMain();
+  show("s-main");
+});
+$("btn-google").onclick = async () => {
+  clearErr("auth-error");
+  try { await signInWithPopup(auth, new GoogleAuthProvider()); }
+  catch(e){
+    if (["auth/popup-blocked","auth/popup-closed-by-user","auth/cancelled-popup-request"].includes(e.code)){
+      try { await signInWithRedirect(auth, new GoogleAuthProvider()); return; } catch(e2){}
+    }
+    err("auth-error","Connexion Google impossible ("+e.code+").");
+  }
+};
+getRedirectResult(auth).catch(()=>{});
+$("btn-email").onclick = async () => {
+  clearErr("auth-error");
+  const email=$("auth-email").value.trim(), pass=$("auth-pass").value;
+  if(!email || pass.length<6) return err("auth-error","Email valide et mot de passe de 6 caractères minimum.");
+  try { await signInWithEmailAndPassword(auth,email,pass); }
+  catch(e){
+    if(e.code==="auth/user-not-found" || e.code==="auth/invalid-credential"){
+      try { await createUserWithEmailAndPassword(auth,email,pass); }
+      catch(e2){ err("auth-error","Impossible de créer le compte ("+e2.code+")."); }
+    } else err("auth-error","Connexion impossible ("+e.code+").");
+  }
+};
+$("btn-logout").onclick = () => signOut(auth);
+
+/* ---------- CHARGEMENT DES DONNÉES ---------- */
+async function loadAll(){
+  // fiches partenaires stockées
+  const psnap = await getDocs(collection(db,"users",me.uid,"partners"));
+  partners = psnap.docs.map(d => ({ id:d.id, ...d.data() }));
+
+  // disputes où je suis créateur OU partenaire
+  const [q1,q2] = await Promise.all([
+    getDocs(query(collection(db,"disputes"), where("createdBy","==",me.uid))),
+    getDocs(query(collection(db,"disputes"), where("partnerUid","==",me.uid)))
+  ]);
+  const seen = new Set();
+  disputes = [...q1.docs, ...q2.docs].filter(d => !seen.has(d.id) && seen.add(d.id))
+    .map(d => ({ id:d.id, ...d.data() }));
+
+  // tests de compatibilité
+  const [t1,t2] = await Promise.all([
+    getDocs(query(collection(db,"compat"), where("createdBy","==",me.uid))),
+    getDocs(query(collection(db,"compat"), where("partnerUid","==",me.uid)))
+  ]);
+  const seenT = new Set();
+  tests = [...t1.docs, ...t2.docs].filter(d => !seenT.has(d.id) && seenT.add(d.id))
+    .map(d => ({ id:d.id, ...d.data() }));
+}
+
+// Nom de "l'autre" dans une dispute ou un test, de mon point de vue
+function otherName(item){
+  return item.createdBy === me.uid ? (item.partnerName||"?") : (item.creatorName||"?");
+}
+
+// Fusionne fiches stockées + noms trouvés dans les disputes/tests
+function partnerList(){
+  const map = new Map();
+  partners.forEach(p => map.set(norm(p.name), { key:norm(p.name), name:p.name, photoB64:p.photoB64||null, docId:p.id }));
+  [...disputes, ...tests].forEach(item => {
+    const n = otherName(item);
+    const k = norm(n);
+    if (!k || k==="votre partenaire") return;
+    if (!map.has(k)) map.set(k, { key:k, name:n, photoB64:null, docId:null });
+  });
+  return [...map.values()];
+}
+const disputesOf = key => disputes.filter(d => norm(otherName(d))===key);
+const testsOf = key => tests.filter(t => norm(otherName(t))===key);
+
+/* ---------- RENDU PRINCIPAL ---------- */
+function renderMain(){
+  $("my-name").textContent = profile.prenom || "Vous";
+  $("edit-prenom").value = profile.prenom || "";
+  setAvatar($("my-avatar"), profile.photoB64);
+  const premium = profile.plan === "premium";
+  $("my-plan").textContent = premium ? "Illimité 💜" : "Plan gratuit";
+  $("my-plan").classList.toggle("premium", premium);
+  $("sub-free").style.display = premium ? "none" : "block";
+  $("sub-premium").style.display = premium ? "block" : "none";
+
+  // stats
+  $("st-disputes").textContent = disputes.length;
+  const resolved = disputes.filter(d=>d.verdict);
+  $("st-resolved").textContent = resolved.length;
+  const pcts = resolved.map(d => d.createdBy===me.uid ? d.verdict.pctA : d.verdict.pctB).filter(p=>typeof p==="number");
+  $("st-raison").textContent = pcts.length ? Math.round(pcts.reduce((a,b)=>a+b,0)/pcts.length)+"%" : "—";
+
+  // partenaires
+  const list = partnerList();
+  $("partners-grid").innerHTML = list.map(p => `
+    <div class="pcard" data-key="${p.key}">
+      <div class="avatar">${p.photoB64 ? `<img src="${p.photoB64}" alt="">` : "🙂"}</div>
+      <div class="name">${escapeHtml(p.name)}</div>
+      <div class="meta">${disputesOf(p.key).length} dispute${disputesOf(p.key).length>1?"s":""} · ${testsOf(p.key).length} test${testsOf(p.key).length>1?"s":""}</div>
+    </div>`).join("")
+    + `<div class="pcard add" id="pcard-add"><span class="plus">+</span>Ajouter</div>`;
+
+  document.querySelectorAll(".pcard[data-key]").forEach(el =>
+    el.onclick = () => openPartner(el.dataset.key));
+  $("pcard-add").onclick = () => { clearErr("add-error"); $("add-name").value=""; $("add-overlay").classList.add("active"); };
+}
+
+function setAvatar(el, b64){
+  el.innerHTML = (b64 ? `<img src="${b64}" alt="">` : `<span class="ph">🙂</span>`) + `<span class="edit">MODIFIER</span>`;
+}
+
+/* ---------- DÉTAIL PARTENAIRE ---------- */
+function openPartner(key){
+  currentPartnerKey = key;
+  const p = partnerList().find(x=>x.key===key);
+  if (!p) return;
+  $("p-name").textContent = p.name;
+  setAvatar($("p-avatar"), p.photoB64);
+  const ds = disputesOf(key), ts = testsOf(key);
+  $("p-meta").textContent = `${ds.length} dispute${ds.length>1?"s":""} · ${ts.length} test${ts.length>1?"s":""} de compatibilité`;
+
+  $("p-disputes").innerHTML = ds.length ? ds
+    .sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0))
+    .map(d => `
+    <a class="list-item" href="app.html?d=${d.id}">
+      <div><div class="t">${escapeHtml(d.title)}</div>
+      <div class="s">${d.verdict ? `Verdict : ${d.createdBy===me.uid?d.verdict.pctA:d.verdict.pctB}% de raison pour vous` : "En cours"}</div></div>
+      <span class="tag ${d.verdict?"res":"wait"}">${d.verdict?"Résolue":"En cours"}</span>
+    </a>`).join("") : `<div class="empty">Aucune dispute avec ${escapeHtml(p.name)} — c'est plutôt bon signe 😄</div>`;
+
+  $("p-tests").innerHTML = ts.length ? ts
+    .sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0))
+    .map(t => `
+    <a class="list-item" href="compatibilite.html?t=${t.id}">
+      <div><div class="t">Test de compatibilité</div>
+      <div class="s">${t.result ? "Terminé" : "En attente de l'autre"}</div></div>
+      ${t.result ? `<span class="pct">${t.result.global}%</span>` : `<span class="tag wait">En cours</span>`}
+    </a>`).join("") : `<div class="empty">Aucun test pour l'instant. Lancez le premier 💘</div>`;
+
+  show("s-partner");
+}
+$("btn-back").onclick = () => { renderMain(); show("s-main"); };
+
+/* ---------- AJOUT MANUEL D'UN PARTENAIRE ---------- */
+$("btn-add-cancel").onclick = () => $("add-overlay").classList.remove("active");
+$("btn-add-confirm").onclick = async () => {
+  clearErr("add-error");
+  const name = $("add-name").value.trim();
+  if(!name) return err("add-error","Un prénom, et c'est tout.");
+  if (partnerList().some(p=>p.key===norm(name))) return err("add-error","Cette fiche existe déjà.");
+  const ref = doc(collection(db,"users",me.uid,"partners"));
+  await setDoc(ref, { name, photoB64:null, createdAt:serverTimestamp() });
+  partners.push({ id:ref.id, name, photoB64:null });
+  $("add-overlay").classList.remove("active");
+  renderMain();
+};
+
+/* ---------- PHOTOS (compressées en base64, stockées dans Firestore) ---------- */
+function compressImage(file){
+  return new Promise((resolve,reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const S = 256;
+      const c = document.createElement("canvas");
+      const ratio = Math.max(S/img.width, S/img.height);
+      c.width = S; c.height = S;
+      const ctx = c.getContext("2d");
+      const w = img.width*ratio, h = img.height*ratio;
+      ctx.drawImage(img, (S-w)/2, (S-h)/2, w, h);
+      resolve(c.toDataURL("image/jpeg", .8));
+    };
+    img.onerror = reject;
+    img.src = URL.createObjectURL(file);
+  });
+}
+$("my-avatar").onclick = () => $("file-me").click();
+$("file-me").onchange = async e => {
+  const f = e.target.files[0]; if(!f) return;
+  const b64 = await compressImage(f);
+  await setDoc(doc(db,"users",me.uid), { photoB64:b64 }, { merge:true });
+  profile.photoB64 = b64;
+  setAvatar($("my-avatar"), b64);
+};
+$("p-avatar").onclick = () => $("file-partner").click();
+$("file-partner").onchange = async e => {
+  const f = e.target.files[0]; if(!f) return;
+  const b64 = await compressImage(f);
+  let p = partnerList().find(x=>x.key===currentPartnerKey);
+  if (!p.docId){
+    // fiche "virtuelle" issue d'une dispute : on la matérialise pour stocker la photo
+    const ref = doc(collection(db,"users",me.uid,"partners"));
+    await setDoc(ref, { name:p.name, photoB64:b64, createdAt:serverTimestamp() });
+    partners.push({ id:ref.id, name:p.name, photoB64:b64 });
+  } else {
+    await updateDoc(doc(db,"users",me.uid,"partners",p.docId), { photoB64:b64 });
+    partners.find(x=>x.id===p.docId).photoB64 = b64;
+  }
+  setAvatar($("p-avatar"), b64);
+};
+
+/* ---------- COMPTE & ABONNEMENT ---------- */
+$("btn-save-account").onclick = async () => {
+  clearErr("account-error");
+  const prenom = $("edit-prenom").value.trim();
+  if(!prenom) return err("account-error","Votre prénom ne peut pas être vide.");
+  await setDoc(doc(db,"users",me.uid), { prenom }, { merge:true });
+  profile.prenom = prenom;
+  $("my-name").textContent = prenom;
+  $("hello").textContent = `Connecté·e : ${prenom}`;
+  $("btn-save-account").textContent = "Enregistré ✓";
+  setTimeout(()=>$("btn-save-account").textContent="Enregistrer", 2000);
+};
+$("btn-upgrade").onclick = () => {
+  alert("Le paiement Stripe arrive très bientôt ! En attendant, chaque dispute reste à 1,99 € après la première offerte.");
+};
+if ($("btn-manage-sub")) $("btn-manage-sub").onclick = () => {
+  alert("La gestion d'abonnement arrive avec l'intégration Stripe.");
+};
+</script>
+</body>
+</html>

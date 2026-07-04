@@ -54,6 +54,7 @@ header.top{
 .logo-mark .domain{font-size:12.5px;font-weight:600;color:var(--gris);letter-spacing:.03em}
 .top .cta-corner{
   position:absolute;top:22px;right:clamp(16px,4vw,44px);
+  display:flex;gap:10px;align-items:center;
 }
 
 /* ============ BOUTONS ============ */
@@ -276,8 +277,8 @@ section{padding:clamp(76px,9vw,120px) clamp(20px,4.5vw,56px)}
 /* ============ TARIFS ============ */
 .pricing{background:linear-gradient(160deg,#FDF0F6,#F1EAFE)}
 .plans{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
-  margin-top:54px;align-items:stretch;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  margin-top:54px;align-items:stretch;max-width:960px;margin-inline:auto;
 }
 .plan{
   background:var(--white);border-radius:var(--r-l);
@@ -379,6 +380,7 @@ footer{
 }
 @media (max-width:560px){
   .top .cta-corner .btn{padding:9px 16px;font-size:12.5px}
+  .top .cta-corner .ec-label{display:none}
   .phones{padding:16px 0 8px}
   .pw-1{margin-right:-14px;margin-top:18px}
   .pw-2{margin-left:-14px}
@@ -420,6 +422,7 @@ footer{
     <span class="txt">we're <span class="in">in</span> love</span>
   </a>
   <div class="cta-corner">
+    <a href="espace-client.html" class="btn btn-ghost btn-sm">👤<span class="ec-label"> Espace client</span></a>
     <a href="app.html" class="btn btn-sm">Commencer</a>
   </div>
 </header>
@@ -433,7 +436,7 @@ footer{
       <a href="app.html" class="btn btn-lg">Démarrer une dispute ✨</a>
       <a href="#comment" class="btn btn-ghost btn-lg">▶ Voir comment ça marche</a>
     </div>
-    <p class="micro"><b>Première dispute offerte</b> · puis à partir de 1,99 €</p>
+    <p class="micro"><b>Vos deux premières disputes offertes</b> · puis dès 3,99 € / mois</p>
     <!-- BLOC AVIS — à activer quand vous aurez vos premiers vrais avis (retirez ces balises de commentaire) :
     <div class="rating">
       <span class="stars" aria-hidden="true">★★★★★</span>
@@ -556,6 +559,35 @@ footer{
   </div>
 </section>
 
+<section class="compat" id="compatibilite">
+  <div class="shell center">
+    <span class="eyebrow">Nouveau 💘</span>
+    <h2 class="section-title">Le test de <span class="grad">compatibilité</span></h2>
+    <p class="section-sub">25 questions, 5 univers — <b>JE</b>, <b>TU</b>, <b>ENTRE NOUS</b> 🔥, <b>NOUS</b> et <b>LE FUTUR</b>. Vous répondez chacun de votre côté, l'IA compare vos deux visions et vous dit où vous vous rejoignez… et où ça coince.</p>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">💑</div>
+        <h3>Avec votre partenaire</h3>
+        <p>Mesurez votre complicité réelle, du quotidien jusqu'aux projets d'avenir. Résultat détaillé univers par univers.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">💌</div>
+        <h3>Avec votre crush</h3>
+        <p>Vous vous tournez autour ? Envoyez-lui le test. <b>Prétexte parfait</b> pour engager la conversation — et vérifier si ça matche vraiment.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">🔒</div>
+        <h3>Réponses secrètes</h3>
+        <p>Chacun répond sans voir les réponses de l'autre. Tout se dévoile <b>uniquement au résultat final</b>.</p>
+      </div>
+    </div>
+    <div class="hero-cta" style="justify-content:center;margin-top:38px">
+      <a href="compatibilite.html" class="btn btn-lg">Lancer le test 💘</a>
+    </div>
+    <p class="micro" style="margin-top:14px">≈ 4 minutes · résultat instantané dès que l'autre a répondu</p>
+  </div>
+</section>
+
 <section class="pricing" id="tarifs">
   <div class="shell center">
     <span class="eyebrow">Tarifs</span>
@@ -565,50 +597,38 @@ footer{
       <div class="plan reveal">
         <span class="p-name">Découverte</span>
         <div class="p-price">0 <small>€</small></div>
-        <p class="p-under">votre première dispute</p>
+        <p class="p-under">vos deux premières disputes</p>
         <ul>
-          <li><span class="k">✦</span> 1 dispute complète offerte</li>
+          <li><span class="k">✦</span> 2 disputes complètes offertes</li>
           <li><span class="k">✦</span> Les deux versions + 3 réponses chacun</li>
           <li><span class="k">✦</span> Analyse complète de l'IA</li>
         </ul>
         <a href="app.html" class="btn btn-ghost">Essayer gratuitement</a>
       </div>
 
-      <div class="plan reveal">
-        <span class="p-name">À la dispute</span>
-        <div class="p-price">1,99 <small>€ / dispute</small></div>
-        <p class="p-under">sans engagement</p>
-        <ul>
-          <li><span class="k">✦</span> Payez uniquement quand ça chauffe</li>
-          <li><span class="k">✦</span> Toutes les fonctionnalités incluses</li>
-          <li><span class="k">✦</span> Aucun abonnement</li>
-        </ul>
-        <a href="app.html" class="btn btn-ghost">Créer une dispute</a>
-      </div>
-
       <div class="plan plan-hero reveal">
-        <span class="badge">Meilleur prix</span>
-        <span class="p-name">Pack 10 disputes</span>
-        <div class="p-price">14,99 <small>€</small></div>
-        <p class="p-under">soit 1,50 € la dispute</p>
-        <ul>
-          <li><span class="k">✦</span> 10 disputes à utiliser quand vous voulez</li>
-          <li><span class="k">✦</span> Le pack n'expire jamais</li>
-          <li><span class="k">✦</span> Toutes les fonctionnalités incluses</li>
-        </ul>
-        <a href="app.html" class="btn">Prendre le pack</a>
-      </div>
-
-      <div class="plan reveal">
+        <span class="badge">Formule la plus populaire</span>
         <span class="p-name">Abonnement couple</span>
-        <div class="p-price">7,99 <small>€ / mois</small></div>
-        <p class="p-under">jusqu'à 30 disputes par mois</p>
+        <div class="p-price">3,99 <small>€ / mois</small></div>
+        <p class="p-under"><s style="opacity:.55">9,99 €</s> · jusqu'à 30 disputes par mois</p>
         <ul>
-          <li><span class="k">✦</span> Pour les couples qui communiquent beaucoup</li>
+          <li><span class="k">✦</span> 30 disputes par mois pour votre couple</li>
           <li><span class="k">✦</span> L'IA suit votre relation dans la durée</li>
           <li><span class="k">✦</span> Résiliable à tout moment</li>
         </ul>
-        <a href="app.html" class="btn btn-ghost">S'abonner</a>
+        <a href="app.html" class="btn">S'abonner</a>
+      </div>
+
+      <div class="plan reveal">
+        <span class="p-name">Illimité</span>
+        <div class="p-price">14,99 <small>€ / mois</small></div>
+        <p class="p-under">zéro limite, zéro compte à rebours</p>
+        <ul>
+          <li><span class="k">✦</span> Disputes <b>illimitées</b></li>
+          <li><span class="k">✦</span> Toutes les fonctionnalités incluses</li>
+          <li><span class="k">✦</span> Résiliable à tout moment</li>
+        </ul>
+        <a href="app.html" class="btn btn-ghost">Passer à l'illimité</a>
       </div>
     </div>
 
