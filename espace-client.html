@@ -114,6 +114,8 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
 .sub-feature .ic{flex-shrink:0}
 .price{font-size:30px;font-weight:800}
 .price small{font-size:14px;color:var(--gris);font-weight:600}
+.plan-box{background:var(--bg);border-radius:18px;padding:20px 20px;margin-top:12px}
+.plan-box.hero{background:linear-gradient(160deg,#FFF0F6,#F1EAFE);border:1.5px solid rgba(255,45,117,.25)}
 
 /* modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(31,27,46,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
@@ -179,7 +181,7 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
     <div class="card">
       <div class="profile-row">
         <div class="avatar-big" id="my-avatar" title="Changer ma photo">
-          <span class="ph">🙂</span>
+          <span class="ph"><svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:58%;height:58%"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/></svg></span>
           <span class="edit">MODIFIER</span>
         </div>
         <div>
@@ -206,18 +208,28 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
     <div class="card">
       <h2>Mon <span class="grad-txt">abonnement</span></h2>
       <div id="sub-free">
-        <p class="sub" style="margin-top:12px"><b>Plan gratuit</b> — votre première dispute est offerte, puis 1,99 € par dispute.</p>
-        <div class="divider" style="margin-top:22px">Passer à l'illimité</div>
-        <p class="price">7,99 € <small>/ mois, sans engagement</small></p>
-        <div class="sub-feature"><span class="ic">💬</span><span>Disputes <b>illimitées</b></span></div>
-        <div class="sub-feature"><span class="ic">💘</span><span>Tests de compatibilité illimités</span></div>
-        <div class="sub-feature"><span class="ic">✨</span><span>Reformulation IA de vos messages incluse</span></div>
-        <div class="sub-feature"><span class="ic">🔒</span><span>Historique complet conservé</span></div>
-        <button class="btn" id="btn-upgrade">Passer à l'illimité</button>
-        <p class="hint" style="text-align:center;margin-top:10px">Paiement sécurisé Stripe — bientôt disponible.</p>
+        <p class="sub" style="margin-top:12px"><b>Plan gratuit</b> — vos <b>deux premières disputes</b> sont offertes.</p>
+
+        <div class="divider" style="margin-top:22px">Formule la plus populaire</div>
+        <div class="plan-box hero">
+          <p class="price">3,99 € <small>/ mois · couple</small></p>
+          <p class="hint" style="margin-top:2px"><s style="opacity:.55">9,99 €</s> · jusqu'à 30 disputes par mois</p>
+          <div class="sub-feature"><span class="ic">💬</span><span>30 disputes par mois pour votre couple</span></div>
+          <div class="sub-feature"><span class="ic">💘</span><span>Tests de compatibilité inclus</span></div>
+          <div class="sub-feature"><span class="ic">✨</span><span>Reformulation IA de vos messages</span></div>
+          <button class="btn" id="btn-upgrade-couple">Choisir cette formule</button>
+        </div>
+
+        <div class="divider" style="margin-top:24px">Ou en illimité</div>
+        <div class="plan-box">
+          <p class="price">14,99 € <small>/ mois</small></p>
+          <p class="hint" style="margin-top:2px">Disputes <b>illimitées</b>, zéro compteur</p>
+          <button class="btn btn-ghost" id="btn-upgrade-unlimited">Passer à l'illimité</button>
+        </div>
+        <p class="hint" style="text-align:center;margin-top:14px">Paiement sécurisé Stripe — bientôt disponible.</p>
       </div>
       <div id="sub-premium" style="display:none">
-        <p class="sub" style="margin-top:12px">Vous êtes en <b>illimité</b> 💜 Merci de faire confiance à we're in love.</p>
+        <p class="sub" style="margin-top:12px">Vous êtes abonné·e 💜 Merci de faire confiance à we're in love.</p>
         <button class="btn btn-ghost" id="btn-manage-sub">Gérer mon abonnement</button>
       </div>
     </div>
@@ -238,7 +250,7 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
       <button class="back" id="btn-back">← Retour à mon espace</button>
       <div class="pdetail-head" style="margin-top:18px">
         <div class="avatar-big" id="p-avatar" title="Changer sa photo">
-          <span class="ph">🙂</span>
+          <span class="ph"><svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:58%;height:58%"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/></svg></span>
           <span class="edit">MODIFIER</span>
         </div>
         <div>
@@ -305,6 +317,9 @@ const err = (id,msg) => { const e=$(id); e.textContent=msg; e.classList.add("sho
 const clearErr = id => $(id).classList.remove("show");
 const norm = s => (s||"").trim().toLowerCase();
 const escapeHtml = s => String(s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// Logo we're in love utilisé comme photo par défaut (tant que l'utilisateur n'a pas mis la sienne)
+const LOGO_PH = `<svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:58%;height:58%"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/></svg>`;
 
 let me=null, profile=null;
 let partners=[];   // fiches stockées users/{uid}/partners
@@ -431,7 +446,7 @@ function renderMain(){
   const list = partnerList();
   $("partners-grid").innerHTML = list.map(p => `
     <div class="pcard" data-key="${p.key}">
-      <div class="avatar">${p.photoB64 ? `<img src="${p.photoB64}" alt="">` : "🙂"}</div>
+      <div class="avatar">${p.photoB64 ? `<img src="${p.photoB64}" alt="">` : LOGO_PH}</div>
       <div class="name">${escapeHtml(p.name)}</div>
       <div class="meta">${disputesOf(p.key).length} dispute${disputesOf(p.key).length>1?"s":""} · ${testsOf(p.key).length} test${testsOf(p.key).length>1?"s":""}</div>
     </div>`).join("")
@@ -443,7 +458,7 @@ function renderMain(){
 }
 
 function setAvatar(el, b64){
-  el.innerHTML = (b64 ? `<img src="${b64}" alt="">` : `<span class="ph">🙂</span>`) + `<span class="edit">MODIFIER</span>`;
+  el.innerHTML = (b64 ? `<img src="${b64}" alt="">` : `<span class="ph">${LOGO_PH}</span>`) + `<span class="edit">MODIFIER</span>`;
 }
 
 /* ---------- DÉTAIL PARTENAIRE ---------- */
@@ -547,8 +562,11 @@ $("btn-save-account").onclick = async () => {
   $("btn-save-account").textContent = "Enregistré ✓";
   setTimeout(()=>$("btn-save-account").textContent="Enregistrer", 2000);
 };
-$("btn-upgrade").onclick = () => {
-  alert("Le paiement Stripe arrive très bientôt ! En attendant, chaque dispute reste à 1,99 € après la première offerte.");
+$("btn-upgrade-couple").onclick = () => {
+  alert("Formule couple à 3,99 €/mois — le paiement Stripe arrive très bientôt ! On vous préviendra dès que c'est disponible.");
+};
+$("btn-upgrade-unlimited").onclick = () => {
+  alert("Formule illimitée à 14,99 €/mois — le paiement Stripe arrive très bientôt !");
 };
 if ($("btn-manage-sub")) $("btn-manage-sub").onclick = () => {
   alert("La gestion d'abonnement arrive avec l'intégration Stripe.");

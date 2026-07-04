@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<title>we're in love — Test de compatibilité</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF4F8;--white:#fff;--ink:#1F1B2E;--gris:#6B6480;
+  --rose:#FF2D75;--rose-deep:#E81A66;--violet:#7C4DFF;--violet-deep:#6234E8;
+  --grad:linear-gradient(90deg,var(--rose),var(--violet));
+  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
+  --r:22px;--shadow:0 24px 60px -24px rgba(90,40,120,.28);
+  --font:"Plus Jakarta Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{color-scheme:only light;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh}
+::selection{background:var(--rose);color:#fff}
+
+header{display:flex;flex-direction:column;align-items:center;padding:24px 20px 8px;text-align:center}
+.logo{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
+.logo svg{width:52px;height:auto}
+.logo .txt{font-weight:800;font-size:17px;color:var(--ink)}
+.logo .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+main{max-width:560px;margin:0 auto;padding:18px 20px 80px}
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:30px 26px;margin-top:18px}
+h1{font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+h2{font-size:19px;font-weight:800}
+.sub{color:var(--gris);font-size:15px;margin-top:8px}
+.grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+label{display:block;font-weight:700;font-size:14px;margin:18px 0 8px}
+input[type=text],input[type=email],input[type=password]{
+  width:100%;border:1.5px solid rgba(31,27,46,.14);border-radius:14px;
+  padding:14px 16px;font-family:var(--font);font-size:15px;color:var(--ink);
+  background:#fff;outline:none;transition:border .2s,box-shadow .2s}
+input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  background:var(--grad-btn);color:#fff;border:none;border-radius:100px;
+  padding:16px 24px;font-family:var(--font);font-size:15.5px;font-weight:800;
+  cursor:pointer;margin-top:20px;transition:transform .15s;
+  box-shadow:0 14px 30px -12px rgba(232,26,102,.55)}
+.btn:hover{transform:translateY(-1px)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.btn-ghost{background:none;color:var(--ink);border:1.5px solid rgba(31,27,46,.16);box-shadow:none}
+.btn-sm{width:auto;padding:10px 20px;font-size:13.5px;margin-top:0}
+.btn-google{background:#fff;color:var(--ink);border:1.5px solid rgba(31,27,46,.16);box-shadow:none}
+.divider{display:flex;align-items:center;gap:12px;color:var(--gris);font-size:12.5px;font-weight:700;margin:20px 0 4px;text-transform:uppercase;letter-spacing:.05em}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:rgba(31,27,46,.1)}
+.error{display:none;background:#FFECF1;color:var(--rose-deep);font-size:13.5px;font-weight:600;border-radius:12px;padding:11px 14px;margin-top:14px}
+.error.show{display:block}
+.hint{font-size:12.5px;color:var(--gris)}
+
+.screen{display:none}
+.screen.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.topbar .out{font-size:13px;color:var(--gris);background:none;border:none;cursor:pointer;font-family:var(--font);font-weight:600;text-decoration:underline}
+.topnav a{color:var(--violet-deep);text-decoration:none;font-size:13px;font-weight:700}
+
+/* quiz */
+.progress{display:flex;gap:6px;margin-top:20px}
+.progress span{flex:1;height:6px;border-radius:100px;background:rgba(31,27,46,.08);transition:.3s}
+.progress span.done{background:var(--grad)}
+.uni-badge{display:inline-block;background:var(--grad);color:#fff;font-size:12px;font-weight:800;padding:5px 16px;border-radius:100px;text-transform:uppercase;letter-spacing:.06em}
+.q-block{margin-top:26px}
+.q-block .q{font-weight:800;font-size:16px;line-height:1.4}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.opt{display:flex;align-items:center;gap:10px;border:1.5px solid rgba(31,27,46,.12);border-radius:14px;padding:12px 14px;cursor:pointer;font-size:14px;font-weight:600;transition:.15s;background:#fff}
+.opt:hover{border-color:rgba(255,45,117,.4)}
+.opt.sel{border-color:var(--rose);background:#FFF2F7;box-shadow:0 0 0 3px rgba(255,45,117,.1)}
+.opt .dot{width:16px;height:16px;border-radius:100px;border:2px solid rgba(31,27,46,.25);flex-shrink:0;transition:.15s}
+.opt.sel .dot{border-color:var(--rose);background:var(--rose);box-shadow:inset 0 0 0 3px #fff}
+
+/* partage */
+.linkbox{display:flex;gap:8px;margin-top:20px}
+.linkbox input{flex:1;font-size:13px;background:var(--bg);border:none}
+.share-row{display:flex;gap:10px;margin-top:12px}
+.share-row .btn{flex:1;text-decoration:none}
+
+/* résultat */
+.score-hero{text-align:center;padding:10px 0 4px}
+.score-hero .big{font-size:64px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}
+.score-hero .verdict-t{font-size:19px;font-weight:800;margin-top:4px}
+.uni-row{margin-top:18px}
+.uni-row .head{display:flex;justify-content:space-between;font-size:13.5px;font-weight:800;margin-bottom:6px}
+.uni-row .bar{height:12px;border-radius:100px;background:rgba(31,27,46,.07);overflow:hidden}
+.uni-row .fill{height:100%;border-radius:100px;background:var(--grad);transition:width 1s ease}
+.insight{background:var(--bg);border-radius:16px;padding:16px 18px;font-size:14px;margin-top:18px}
+.insight b{display:block;margin-bottom:4px}
+
+.loader{display:flex;gap:8px;justify-content:center;padding:60px 0}
+.loader span{width:12px;height:12px;border-radius:100px;background:var(--rose);animation:b 1s infinite alternate}
+.loader span:nth-child(2){background:var(--violet);animation-delay:.2s}
+.loader span:nth-child(3){background:var(--rose);animation-delay:.4s}
+@keyframes b{to{transform:translateY(-8px);opacity:.5}}
+
+/* ============ CARTE MAGIQUE ============ */
+.magic-zone{perspective:1200px;margin-top:6px}
+.magic-card{position:relative;width:100%;min-height:520px;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.2,.8,.25,1);cursor:pointer}
+.magic-card.flipped{transform:rotateY(180deg);cursor:default}
+.magic-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;overflow:hidden;box-shadow:0 30px 70px -28px rgba(90,40,120,.45)}
+.magic-front{background:linear-gradient(150deg,#1F1B2E 0%,#3A2352 55%,#5B2A6E 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#fff;text-align:center;padding:30px}
+.magic-front .mf-logo{width:86px;filter:drop-shadow(0 8px 24px rgba(255,45,117,.55));animation:mf-float 2.6s ease-in-out infinite}
+@keyframes mf-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.magic-front .mf-brand{font-weight:800;font-size:19px}
+.magic-front .mf-brand .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.magic-front .mf-tap{font-size:14px;font-weight:700;opacity:.85;background:rgba(255,255,255,.12);padding:10px 22px;border-radius:100px;animation:mf-pulse 1.6s infinite}
+@keyframes mf-pulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
+.magic-back{background:#fff;transform:rotateY(180deg);display:flex;flex-direction:column}
+.magic-inner{flex:1;padding:26px 22px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;overflow-y:auto}
+.magic-brandbar{background:linear-gradient(90deg,#1F1B2E,#3A2352);color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;font-weight:800;font-size:14px}
+.magic-brandbar svg{width:24px;height:auto}
+.magic-brandbar .url{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.sparkle{position:absolute;pointer-events:none;z-index:50;animation:spark-fly 1.4s ease-out forwards}
+@keyframes spark-fly{0%{transform:translate(0,0) scale(.4) rotate(0);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1.15) rotate(var(--rot));opacity:0}}
+.mv-title{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+.mv-big{font-size:70px;font-weight:800;line-height:1;margin-top:6px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mv-verdict{font-size:18px;font-weight:800;margin-top:2px}
+.mv-names{font-size:13.5px;color:var(--gris);font-weight:700;margin-top:2px}
+.mv-unirow{width:100%;margin-top:12px}
+.mv-unirow .h{display:flex;justify-content:space-between;font-size:12px;font-weight:800;margin-bottom:4px}
+.mv-unirow .bar{height:9px;border-radius:100px;background:rgba(31,27,46,.08);overflow:hidden}
+.mv-unirow .fill{height:100%;border-radius:100px;background:var(--grad)}
+.post-reveal{display:none;animation:fade .5s ease}
+.post-reveal.show{display:block}
+.share-tiktok{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#0F0F0F;color:#fff;border:none;border-radius:100px;padding:16px 24px;font-family:var(--font);font-size:15.5px;font-weight:800;cursor:pointer;margin-top:16px;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);transition:transform .15s}
+.share-tiktok:hover{transform:translateY(-1px)}
+.share-hint{font-size:12.5px;color:var(--gris);text-align:center;margin-top:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">
+    <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
+    <span class="txt">we're <span class="in">in</span> love</span>
+  </a>
+</header>
+
+<main>
+  <div class="topbar">
+    <span id="hello" style="font-size:13.5px;color:var(--gris)"></span>
+    <nav class="topnav"><a href="espace-client.html">👤 Mon espace</a></nav>
+    <button class="out" id="btn-logout" style="display:none">Se déconnecter</button>
+  </div>
+
+  <div class="screen active" id="s-loading">
+    <div class="loader"><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- AUTH -->
+  <div class="screen" id="s-auth">
+    <div class="card">
+      <h1 id="auth-title">Test de <span class="grad-txt">compatibilité</span></h1>
+      <p class="sub" id="auth-sub">25 questions, 2 points de vue, 1 vérité. Connectez-vous pour commencer.</p>
+      <button class="btn btn-google" id="btn-google">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+        Continuer avec Google
+      </button>
+      <div class="divider">ou par email</div>
+      <label for="auth-email">Email</label>
+      <input type="email" id="auth-email" autocomplete="email" placeholder="vous@exemple.fr">
+      <label for="auth-pass">Mot de passe</label>
+      <input type="password" id="auth-pass" autocomplete="current-password" placeholder="6 caractères minimum">
+      <div class="error" id="auth-error"></div>
+      <button class="btn" id="btn-email">Continuer</button>
+    </div>
+  </div>
+
+  <!-- ONBOARDING EXPRESS (invité) -->
+  <div class="screen" id="s-onboard-quick">
+    <div class="card">
+      <h1 id="oq-title">On vous attend 💘</h1>
+      <p class="sub" id="oq-sub">Confirmez votre prénom pour découvrir le test.</p>
+      <label for="oq-prenom">Votre prénom</label>
+      <input type="text" id="oq-prenom" maxlength="30">
+      <div class="error" id="oq-error"></div>
+      <button class="btn" id="btn-onboard-quick">C'est parti</button>
+    </div>
+  </div>
+
+  <!-- INTRO CRÉATEUR -->
+  <div class="screen" id="s-intro">
+    <div class="card">
+      <h1>Êtes-vous vraiment <span class="grad-txt">compatibles</span> ?</h1>
+      <p class="sub">25 questions en 5 univers : <b>JE</b>, <b>TU</b>, <b>ENTRE NOUS</b> 🔥, <b>NOUS</b> et <b>LE FUTUR</b>. Vous répondez, l'autre répond aux mêmes questions — et l'IA compare vos deux visions.</p>
+      <label for="i-partner">Avec qui faites-vous ce test ?</label>
+      <input type="text" id="i-partner" maxlength="30" placeholder="Son prénom">
+      <div class="error" id="i-error"></div>
+      <button class="btn" id="btn-start">Commencer le test</button>
+      <p class="hint" style="text-align:center;margin-top:12px">≈ 4 minutes · vos réponses restent secrètes jusqu'au résultat</p>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="screen" id="s-quiz">
+    <div class="card">
+      <span class="uni-badge" id="qz-badge"></span>
+      <h1 id="qz-title" style="margin-top:12px"></h1>
+      <p class="sub" id="qz-sub"></p>
+      <div class="progress" id="qz-progress"><span></span><span></span><span></span><span></span><span></span></div>
+      <div id="qz-questions"></div>
+      <div class="error" id="qz-error"></div>
+      <button class="btn" id="btn-next">Continuer</button>
+    </div>
+  </div>
+
+  <!-- PARTAGE (créateur) -->
+  <div class="screen" id="s-share">
+    <div class="card">
+      <h1>À <b id="sh-partner">l'autre</b> de jouer 💌</h1>
+      <p class="sub">Vos réponses sont enregistrées, bien au chaud et secrètes. Envoyez ce lien — le résultat s'affichera quand vous aurez répondu tous les deux.</p>
+      <div class="linkbox">
+        <input type="text" id="sh-link" readonly>
+        <button class="btn btn-sm" id="btn-copy">Copier</button>
+      </div>
+      <div class="share-row">
+        <a class="btn btn-ghost btn-sm" id="btn-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="btn btn-ghost btn-sm" id="btn-sms">📱 SMS</a>
+      </div>
+      <a class="btn btn-ghost" href="espace-client.html" style="margin-top:24px;text-decoration:none">Retrouver ce test dans mon espace</a>
+    </div>
+  </div>
+
+  <!-- ATTENTE (l'autre n'a pas fini) -->
+  <div class="screen" id="s-waiting">
+    <div class="card" style="text-align:center">
+      <h1>En attente de <span class="grad-txt" id="w-name">l'autre</span>…</h1>
+      <p class="sub">Vos réponses sont enregistrées. Le résultat apparaîtra ici automatiquement dès que l'autre aura terminé.</p>
+      <button class="btn btn-ghost" id="btn-resend">Renvoyer le lien</button>
+    </div>
+  </div>
+
+  <!-- RÉSULTAT -->
+  <div class="screen" id="s-result">
+    <div class="magic-zone">
+      <div class="magic-card" id="magic-card">
+        <div class="magic-face magic-front">
+          <svg class="mf-logo" viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
+            <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
+            <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
+          </svg>
+          <div class="mf-brand">we're <span class="in">in</span> love</div>
+          <div style="font-size:15px;font-weight:700;opacity:.9">Votre compatibilité est prête…</div>
+          <div class="mf-tap">👆 Touchez pour révéler</div>
+        </div>
+        <div class="magic-face magic-back">
+          <div class="magic-inner">
+            <div class="mv-title">💘 Compatibilité</div>
+            <div class="mv-big" id="r-global">—%</div>
+            <div class="mv-verdict" id="r-verdict"></div>
+            <div class="mv-names" id="r-names"></div>
+            <div id="r-bars" style="width:100%;margin-top:14px"></div>
+          </div>
+          <div class="magic-brandbar">
+            <svg viewBox="0 0 64 50" fill="none"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/></svg>
+            <span class="url">wereinlove.app</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-reveal" id="post-reveal">
+      <button class="share-tiktok" id="btn-share-tiktok">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5.1 20.14a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.14-.14z"/></svg>
+        Partager sur TikTok
+      </button>
+      <p class="share-hint">📸 Ou screene la carte et poste-la — le lien wereinlove.app est déjà dessus.</p>
+      <div class="card">
+        <div class="insight" id="r-force"></div>
+        <div class="insight" id="r-chantier"></div>
+        <a class="btn" href="compatibilite.html" style="text-decoration:none">Refaire un test</a>
+        <a class="btn btn-ghost" href="espace-client.html" style="text-decoration:none">Voir dans mon espace</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+/* ============================================================
+   CONFIGURATION
+   ============================================================ */
+const firebaseConfig = {
+  apiKey: "AIzaSyDEUPsPd9UpVFFFpJO3XooVPkKUX4NLxHU",
+  authDomain: "wereinlove-93a23.firebaseapp.com",
+  projectId: "wereinlove-93a23",
+  appId: "1:224364413943:web:d0027db19a7c89cb17a4f2"
+};
+/* ============================================================ */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
+         signInWithRedirect, getRedirectResult,
+         createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, addDoc, updateDoc, collection,
+         onSnapshot, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const $ = id => document.getElementById(id);
+const show = id => { document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active")); $(id).classList.add("active"); window.scrollTo({top:0}); };
+const err = (id,msg) => { const e=$(id); e.textContent=msg; e.classList.add("show"); };
+const clearErr = id => $(id).classList.remove("show");
+const escapeHtml = s => String(s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ---------- LES 25 QUESTIONS (5 univers × 5 questions × 5 intensités) ---------- */
+const UNIVERSES = [
+  { key:"je", badge:"JE", title:"Parlons de vous", sub:"Répondez pour vous, honnêtement — pas pour faire joli.",
+    questions:[
+      { q:"Pour me ressourcer, j'ai besoin…", opts:["D'être totalement seul·e","Plutôt de solitude","Des deux, selon les jours","Plutôt d'être à deux","D'être avec l'autre, toujours"] },
+      { q:"Exprimer mes émotions, pour moi c'est…", opts:["Mission impossible","Difficile","Ça dépend du sujet","Plutôt naturel","Un réflexe, je dis tout"] },
+      { q:"Face à un conflit, mon premier réflexe :", opts:["Je fuis","J'évite tant que je peux","J'attends que ça passe","J'en parle calmement","Je crève l'abcès direct"] },
+      { q:"Mon besoin d'indépendance dans le couple :", opts:["Quasi nul","Léger","Équilibré","Important","Vital"] },
+      { q:"Pardonner, pour moi c'est…", opts:["Presque impossible","Long, très long","Possible avec du temps","Plutôt facile","Immédiat, je ne garde rien"] },
+    ]},
+  { key:"tu", badge:"TU", title:"Parlons de l'autre", sub:"Comment vous vivez la relation de votre côté.",
+    questions:[
+      { q:"Je me sens écouté·e par l'autre…", opts:["Jamais","Rarement","Une fois sur deux","Souvent","Toujours"] },
+      { q:"Je peux tout lui dire, vraiment tout :", opts:["Non, beaucoup de sujets tabous","Pas grand-chose","Certaines choses","Presque tout","Absolument tout"] },
+      { q:"L'autre me fait rire…", opts:["Presque jamais","De temps en temps","Régulièrement","Souvent","Tous les jours"] },
+      { q:"La confiance que je lui accorde :", opts:["Fragile","Limitée","Correcte","Solide","Aveugle"] },
+      { q:"Je me sens soutenu·e dans mes projets :", opts:["Pas du tout","Un peu","Moyennement","Beaucoup","À fond, c'est mon premier fan"] },
+    ]},
+  { key:"nous2", badge:"ENTRE NOUS 🔥", title:"Entre nous…", sub:"Zone tendresse et intimité — restez sincère, c'est confidentiel.",
+    questions:[
+      { q:"Pour moi, la fréquence idéale des moments intimes :", opts:["Très rare","1 à 2 fois par mois","1 fois par semaine","Plusieurs fois par semaine","Le plus souvent possible"] },
+      { q:"La tendresse au quotidien (câlins, bisous, mains) :", opts:["Peu importante","Agréable sans plus","Importante","Très importante","Essentielle, non négociable"] },
+      { q:"Oser proposer des nouveautés à deux :", opts:["Jamais, trop gênant","Rarement","Parfois","Souvent","Tout le temps, j'adore surprendre"] },
+      { q:"Parler de nos désirs ouvertement :", opts:["Impossible pour moi","Très difficile","Faisable","Plutôt facile","Totalement naturel"] },
+      { q:"La séduction entre nous, aujourd'hui :", opts:["Éteinte","En veille","Tranquille","Bien vivante","Brûlante 🔥"] },
+    ]},
+  { key:"nous", badge:"NOUS", title:"Parlons de vous deux", sub:"Votre fonctionnement en équipe, au quotidien.",
+    questions:[
+      { q:"Les décisions importantes, on les prend…", opts:["Chacun de son côté","Souvent séparément","Ça dépend des sujets","Souvent ensemble","Toujours ensemble"] },
+      { q:"Nos disputes se terminent en général…", opts:["En silence radio","En bouderie prolongée","Ça retombe tout seul","En vraie discussion","En câlin de réconciliation"] },
+      { q:"Le temps de qualité rien qu'à deux, par semaine :", opts:["Presque zéro","Une petite heure","Quelques heures","Beaucoup","Énormément, c'est sacré"] },
+      { q:"Nos valeurs de fond (famille, argent, priorités) :", opts:["Opposées","Assez différentes","Compatibles","Proches","Identiques"] },
+      { q:"Notre complicité, je la note…", opts:["Faible","Moyenne","Bonne","Très bonne","Fusionnelle"] },
+    ]},
+  { key:"futur", badge:"LE FUTUR", title:"Et demain ?", sub:"Là où vous vous voyez aller — ensemble ou pas.",
+    questions:[
+      { q:"Je nous projette dans 10 ans…", opts:["Difficilement","Avec des doutes","Pourquoi pas","Plutôt oui","Sans aucun doute"] },
+      { q:"Fonder (ou agrandir) une famille :", opts:["Pas pour moi","Peu probable","J'hésite encore","J'aimerais bien","C'est un grand oui"] },
+      { q:"Vivre ensemble / un projet logement commun :", opts:["Pas envisagé","Pas pour tout de suite","Un jour peut-être","C'est prévu","C'est LA priorité"] },
+      { q:"Construire des projets à deux (voyages, business, maison…) :", opts:["Peu important","Secondaire","Sympa","Important","Essentiel"] },
+      { q:"Un engagement officiel (mariage, pacs…) :", opts:["Pas pour moi","Bof","Pourquoi pas","J'aimerais","J'en rêve"] },
+    ]},
+];
+const UNI_LABELS = { je:"JE", tu:"TU", nous2:"ENTRE NOUS", nous:"NOUS", futur:"LE FUTUR" };
+
+/* ---------- ÉTAT ---------- */
+const params = new URLSearchParams(location.search);
+const testId = params.get("t"); // présent = invité ou retour au résultat
+let me=null, profile=null, test=null, unsubTest=null;
+let answers = [];      // 25 réponses (0-4)
+let screenIndex = 0;   // 0..4
+
+/* ---------- AUTH ---------- */
+onAuthStateChanged(auth, async user => {
+  me = user;
+  if (!user){
+    $("btn-logout").style.display="none"; $("hello").textContent="";
+    if (testId){ $("auth-title").innerHTML = "On vous attend 💘"; $("auth-sub").textContent = "Créez votre accès en 10 secondes pour répondre au test."; }
+    show("s-auth"); return;
+  }
+  $("btn-logout").style.display="block";
+  const snap = await getDoc(doc(db,"users",user.uid));
+  profile = snap.exists() ? snap.data() : null;
+
+  if (!profile){
+    if (testId){
+      try{
+        const t = await getDoc(doc(db,"compat",testId));
+        if (t.exists() && t.data().partnerName){
+          $("oq-prenom").value = t.data().partnerName;
+          $("oq-title").textContent = `Bonjour ${t.data().partnerName} 💘`;
+          $("oq-sub").textContent = `${t.data().creatorName} veut savoir à quel point vous êtes compatibles. Confirmez votre prénom.`;
+        }
+      }catch(e){}
+      show("s-onboard-quick");
+    } else {
+      // pas de profil et pas d'invitation : mini-onboarding via l'écran express aussi
+      $("oq-title").textContent = "Faisons connaissance 💘";
+      $("oq-sub").textContent = "Juste votre prénom et on commence.";
+      show("s-onboard-quick");
+    }
+    return;
+  }
+  $("hello").textContent = `Connecté·e : ${profile.prenom}`;
+  route();
+});
+function route(){
+  if (testId) openTest(testId);
+  else { $("i-partner").value = profile.partnerPrenom || ""; show("s-intro"); }
+}
+$("btn-google").onclick = async () => {
+  clearErr("auth-error");
+  try { await signInWithPopup(auth, new GoogleAuthProvider()); }
+  catch(e){
+    if (["auth/popup-blocked","auth/popup-closed-by-user","auth/cancelled-popup-request"].includes(e.code)){
+      try { await signInWithRedirect(auth, new GoogleAuthProvider()); return; } catch(e2){}
+    }
+    err("auth-error","Connexion Google impossible ("+e.code+").");
+  }
+};
+getRedirectResult(auth).catch(()=>{});
+$("btn-email").onclick = async () => {
+  clearErr("auth-error");
+  const email=$("auth-email").value.trim(), pass=$("auth-pass").value;
+  if(!email || pass.length<6) return err("auth-error","Email valide et mot de passe de 6 caractères minimum.");
+  try { await signInWithEmailAndPassword(auth,email,pass); }
+  catch(e){
+    if(e.code==="auth/user-not-found" || e.code==="auth/invalid-credential"){
+      try { await createUserWithEmailAndPassword(auth,email,pass); }
+      catch(e2){ err("auth-error","Impossible de créer le compte ("+e2.code+")."); }
+    } else err("auth-error","Connexion impossible ("+e.code+").");
+  }
+};
+$("btn-logout").onclick = () => signOut(auth);
+$("btn-onboard-quick").onclick = async () => {
+  clearErr("oq-error");
+  const prenom = $("oq-prenom").value.trim();
+  if(!prenom) return err("oq-error","Il nous faut juste votre prénom.");
+  profile = { prenom, invited:!!testId, createdAt:serverTimestamp() };
+  await setDoc(doc(db,"users",me.uid), profile, { merge:true });
+  $("hello").textContent = `Connecté·e : ${prenom}`;
+  route();
+};
+
+/* ---------- INTRO → QUIZ (créateur) ---------- */
+$("btn-start").onclick = () => {
+  clearErr("i-error");
+  const partner = $("i-partner").value.trim();
+  if(!partner) return err("i-error","Le prénom de l'autre, et on y va.");
+  window._partnerName = partner;
+  startQuiz();
+};
+
+/* ---------- QUIZ ---------- */
+function startQuiz(){
+  answers = []; screenIndex = 0;
+  renderScreen();
+  show("s-quiz");
+}
+function renderScreen(){
+  const uni = UNIVERSES[screenIndex];
+  $("qz-badge").textContent = uni.badge;
+  $("qz-title").textContent = uni.title;
+  $("qz-sub").textContent = uni.sub;
+  [...$("qz-progress").children].forEach((s,i)=>s.classList.toggle("done", i<=screenIndex));
+  clearErr("qz-error");
+
+  $("qz-questions").innerHTML = uni.questions.map((qu,qi)=>`
+    <div class="q-block" data-q="${qi}">
+      <div class="q">${qi+1}. ${escapeHtml(qu.q)}</div>
+      <div class="opts">
+        ${qu.opts.map((o,oi)=>`<div class="opt" data-v="${oi}"><span class="dot"></span>${escapeHtml(o)}</div>`).join("")}
+      </div>
+    </div>`).join("");
+
+  document.querySelectorAll(".q-block").forEach(block => {
+    block.querySelectorAll(".opt").forEach(opt => {
+      opt.onclick = () => {
+        block.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel"));
+        opt.classList.add("sel");
+      };
+    });
+  });
+  $("btn-next").textContent = screenIndex===4 ? "Terminer le test 💘" : "Continuer";
+}
+$("btn-next").onclick = async () => {
+  clearErr("qz-error");
+  const blocks = [...document.querySelectorAll(".q-block")];
+  const vals = blocks.map(b => { const s=b.querySelector(".opt.sel"); return s ? +s.dataset.v : null; });
+  if (vals.includes(null)) return err("qz-error","Répondez aux 5 questions avant de continuer.");
+  answers.push(...vals);
+  if (screenIndex < 4){ screenIndex++; renderScreen(); window.scrollTo({top:0}); return; }
+  // fini
+  $("btn-next").disabled = true;
+  try { await finishQuiz(); } catch(e){ err("qz-error","Enregistrement impossible : "+e.message); }
+  $("btn-next").disabled = false;
+};
+
+async function finishQuiz(){
+  if (!testId){
+    // CRÉATEUR : on crée le test et on partage
+    const ref = await addDoc(collection(db,"compat"), {
+      createdBy: me.uid,
+      creatorName: profile.prenom,
+      partnerName: window._partnerName,
+      partnerUid: null,
+      answersA: answers,
+      answersB: null,
+      result: null,
+      status: "waiting_partner",
+      createdAt: serverTimestamp()
+    });
+    const link = location.origin + location.pathname + "?t=" + ref.id;
+    $("sh-link").value = link;
+    $("sh-partner").textContent = window._partnerName;
+    const msg = encodeURIComponent(`${profile.prenom} veut tester votre compatibilité sur we're in love 💘 25 questions, résultat en direct : ${link}`);
+    $("btn-wa").href = "https://wa.me/?text="+msg;
+    $("btn-sms").href = "sms:?&body="+msg;
+    show("s-share");
+  } else {
+    // INVITÉ : on enregistre B et on calcule le résultat
+    const result = computeResult(test.answersA, answers);
+    await updateDoc(doc(db,"compat",testId), {
+      partnerUid: me.uid,
+      partnerName: profile.prenom,
+      answersB: answers,
+      result,
+      status: "done"
+    });
+    // le onSnapshot affichera le résultat
+  }
+}
+$("btn-copy").onclick = async () => {
+  await navigator.clipboard.writeText($("sh-link").value);
+  $("btn-copy").textContent="Copié ✓";
+  setTimeout(()=>$("btn-copy").textContent="Copier",2000);
+};
+
+/* ---------- OUVERTURE D'UN TEST EXISTANT (?t=ID) ---------- */
+function openTest(id){
+  if (unsubTest) unsubTest();
+  unsubTest = onSnapshot(doc(db,"compat",id), snap => {
+    if(!snap.exists()){ show("s-intro"); return; }
+    test = { id:snap.id, ...snap.data() };
+
+    if (test.result) return renderResult();
+
+    if (me.uid === test.createdBy){
+      // créateur qui revient : en attente de l'autre
+      $("w-name").textContent = test.partnerName || "l'autre";
+      $("btn-resend").onclick = async () => {
+        const link = location.origin + location.pathname + "?t=" + test.id;
+        await navigator.clipboard.writeText(link);
+        $("btn-resend").textContent = "Lien copié ✓";
+        setTimeout(()=>$("btn-resend").textContent="Renvoyer le lien",2000);
+      };
+      show("s-waiting");
+    } else {
+      // invité : répond au quiz (une seule fois)
+      if (!test.answersB && !document.querySelector("#s-quiz.active")) startQuiz();
+    }
+  });
+}
+
+/* ---------- CALCUL & RENDU DU RÉSULTAT ---------- */
+function computeResult(a, b){
+  const perUni = {};
+  let total = 0;
+  UNIVERSES.forEach((uni,ui) => {
+    let s = 0;
+    for (let i=0;i<5;i++){
+      const idx = ui*5+i;
+      s += (4 - Math.abs(a[idx]-b[idx])) / 4;
+    }
+    perUni[uni.key] = Math.round(s/5*100);
+    total += s;
+  });
+  return { global: Math.round(total/25*100), perUni };
+}
+function verdictText(g){
+  if (g>=85) return "Fusionnels 🔥";
+  if (g>=70) return "Très complices 💞";
+  if (g>=55) return "Solides, avec des zones à explorer";
+  if (g>=40) return "Des différences qui méritent discussion";
+  return "Deux planètes — parlez-vous 🪐";
+}
+function renderResult(){
+  const r = test.result;
+  $("r-global").textContent = r.global+"%";
+  $("r-verdict").textContent = verdictText(r.global);
+  $("r-names").textContent = `${test.creatorName} & ${test.partnerName}`;
+  $("r-bars").innerHTML = Object.entries(r.perUni).map(([k,v])=>`
+    <div class="mv-unirow">
+      <div class="h"><span>${UNI_LABELS[k]}</span><span>${v}%</span></div>
+      <div class="bar"><div class="fill" style="width:${v}%"></div></div>
+    </div>`).join("");
+  const entries = Object.entries(r.perUni);
+  const best = entries.reduce((a,b)=>b[1]>a[1]?b:a);
+  const worst = entries.reduce((a,b)=>b[1]<a[1]?b:a);
+  $("r-force").innerHTML = `<b>💪 Votre force : ${UNI_LABELS[best[0]]} (${best[1]}%)</b>C'est là que vos deux visions se rejoignent le plus. Appuyez-vous dessus.`;
+  $("r-chantier").innerHTML = `<b>🔧 Votre chantier : ${UNI_LABELS[worst[0]]} (${worst[1]}%)</b>Vos réponses divergent ici — le sujet parfait pour votre prochaine vraie conversation (ou votre prochaine dispute we're in love 😉).`;
+
+  const card = $("magic-card");
+  card.classList.remove("flipped");
+  $("post-reveal").classList.remove("show");
+  let revealed = false;
+  card.onclick = () => {
+    if (revealed) return;
+    revealed = true;
+    burstSparkles(card);
+    card.classList.add("flipped");
+    setTimeout(()=>$("post-reveal").classList.add("show"), 700);
+  };
+  $("btn-share-tiktok").onclick = () => shareResult(
+    `${test.creatorName} & ${test.partnerName} : ${r.global}% de compatibilité 💘 Testez la vôtre sur we're in love`
+  );
+  show("s-result");
+}
+
+function burstSparkles(container){
+  const emojis = ["✨","💫","⭐","💖","🌟","💕"];
+  const rect = container.getBoundingClientRect();
+  const cx = rect.width/2, cy = rect.height/2;
+  for (let i=0;i<26;i++){
+    const s = document.createElement("span");
+    s.className = "sparkle";
+    s.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    const ang = Math.random()*Math.PI*2, dist = 90+Math.random()*180;
+    s.style.left = cx+"px"; s.style.top = cy+"px";
+    s.style.setProperty("--dx", Math.cos(ang)*dist+"px");
+    s.style.setProperty("--dy", Math.sin(ang)*dist+"px");
+    s.style.setProperty("--rot", (Math.random()*720-360)+"deg");
+    s.style.fontSize = (12+Math.random()*14)+"px";
+    s.style.animationDelay = (Math.random()*.25)+"s";
+    container.appendChild(s);
+    setTimeout(()=>s.remove(), 1800);
+  }
+}
+async function shareResult(text){
+  const url = "https://wereinlove.app";
+  if (navigator.share){
+    try { await navigator.share({ title:"we're in love", text, url }); return; }
+    catch(e){ if(e.name==="AbortError") return; }
+  }
+  try { await navigator.clipboard.writeText(text+" "+url); } catch(e){}
+  window.open("https://www.tiktok.com/upload", "_blank");
+  alert("Texte copié ✓ Screene la carte, publie ta vidéo TikTok et colle le texte en légende !");
+}
+</script>
+</body>
+</html>
