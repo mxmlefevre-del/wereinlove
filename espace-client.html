@@ -317,12 +317,25 @@ onAuthStateChanged(auth, async user => {
   me = user;
   if (!user){ $("btn-logout").style.display="none"; $("hello").textContent=""; show("s-auth"); return; }
   $("btn-logout").style.display="block";
-  const snap = await getDoc(doc(db,"users",user.uid));
-  profile = snap.exists() ? snap.data() : { prenom:"Vous" };
-  $("hello").textContent = `Connecté·e : ${profile.prenom||""}`;
-  await loadAll();
-  renderMain();
-  show("s-main");
+  try {
+    const snap = await getDoc(doc(db,"users",user.uid));
+    profile = snap.exists() ? snap.data() : { prenom:"Vous" };
+    $("hello").textContent = `Connecté·e : ${profile.prenom||""}`;
+    await loadAll();
+    renderMain();
+    show("s-main");
+  } catch(e){
+    // Ne jamais rester bloqué sur le loader : on affiche l'espace avec ce qu'on a
+    console.error("Espace client:", e);
+    profile = profile || { prenom:"Vous" };
+    partners = partners || []; disputes = disputes || []; tests = tests || [];
+    $("hello").textContent = `Connecté·e : ${profile.prenom||""}`;
+    renderMain();
+    show("s-main");
+    if (String(e.code||e.message).includes("permission")) {
+      alert("Vos données ne se chargent pas complètement : les règles Firestore doivent être mises à jour (voir la console Firebase → Firestore → Règles).");
+    }
+  }
 });
 $("btn-google").onclick = async () => {
   clearErr("auth-error");
@@ -351,23 +364,25 @@ $("btn-logout").onclick = () => signOut(auth);
 
 /* ---------- CHARGEMENT DES DONNÉES ---------- */
 async function loadAll(){
+  const safe = async (p, fallback) => { try { return await p; } catch(e){ console.warn(e); return fallback; } };
+
   // fiches partenaires stockées
-  const psnap = await getDocs(collection(db,"users",me.uid,"partners"));
+  const psnap = await safe(getDocs(collection(db,"users",me.uid,"partners")), { docs:[] });
   partners = psnap.docs.map(d => ({ id:d.id, ...d.data() }));
 
   // disputes où je suis créateur OU partenaire
   const [q1,q2] = await Promise.all([
-    getDocs(query(collection(db,"disputes"), where("createdBy","==",me.uid))),
-    getDocs(query(collection(db,"disputes"), where("partnerUid","==",me.uid)))
+    safe(getDocs(query(collection(db,"disputes"), where("createdBy","==",me.uid))), { docs:[] }),
+    safe(getDocs(query(collection(db,"disputes"), where("partnerUid","==",me.uid))), { docs:[] })
   ]);
   const seen = new Set();
   disputes = [...q1.docs, ...q2.docs].filter(d => !seen.has(d.id) && seen.add(d.id))
     .map(d => ({ id:d.id, ...d.data() }));
 
-  // tests de compatibilité
+  // tests de compatibilité (peuvent échouer si la collection compat n'est pas encore autorisée)
   const [t1,t2] = await Promise.all([
-    getDocs(query(collection(db,"compat"), where("createdBy","==",me.uid))),
-    getDocs(query(collection(db,"compat"), where("partnerUid","==",me.uid)))
+    safe(getDocs(query(collection(db,"compat"), where("createdBy","==",me.uid))), { docs:[] }),
+    safe(getDocs(query(collection(db,"compat"), where("partnerUid","==",me.uid))), { docs:[] })
   ]);
   const seenT = new Set();
   tests = [...t1.docs, ...t2.docs].filter(d => !seenT.has(d.id) && seenT.add(d.id))
