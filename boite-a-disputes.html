@@ -24,29 +24,82 @@ html{color-scheme:only light;background:#0F0B14}
 body{font-family:var(--font);background:#0F0B14;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;height:100svh;overflow:hidden}
 ::selection{background:var(--rose);color:#fff}
 img{display:block;max-width:100%}
+button{font-family:var(--font)}
 
 /* ===== BARRE SUPÉRIEURE FIXE ===== */
-.topbar{position:fixed;top:0;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:linear-gradient(180deg,rgba(0,0,0,.55),transparent)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:linear-gradient(180deg,rgba(0,0,0,.5),transparent);pointer-events:none}
+.topbar a{pointer-events:auto}
 .logo{display:flex;align-items:center;gap:8px;text-decoration:none}
 .logo svg{width:30px;height:auto}
 .logo .txt{font-weight:800;font-size:15px;color:#fff}
 .logo .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .topbar .close{background:rgba(255,255,255,.14);border:none;color:#fff;width:36px;height:36px;border-radius:100px;font-size:16px;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center}
 
-/* ===== FEED VERTICAL STYLE TIKTOK ===== */
+/* ===== FEED VERTICAL (une dispute = un écran, swipe haut/bas) ===== */
 .feed{height:100svh;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch}
-.feed-card{height:100svh;width:100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;overflow:hidden}
-.feed-card .bgtxt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 40px}
-.feed-card .emoji{font-size:min(24vw,120px);line-height:1;filter:drop-shadow(0 10px 30px rgba(0,0,0,.35))}
-.feed-card .hook{color:rgba(255,255,255,.88);font-size:17px;font-style:italic;font-weight:600;margin-top:22px;max-width:30ch;line-height:1.5}
-.feed-card .cat-badge{position:absolute;top:78px;left:20px;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:100px}
-.feed-card .overlay{position:relative;z-index:5;padding:24px 22px 34px;background:linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,.35) 60%,transparent)}
-.feed-card .names{display:flex;align-items:center;gap:8px;font-size:21px;font-weight:800;color:#fff}
-.feed-card .names .vs{font-size:13px;font-weight:700;color:rgba(255,255,255,.55)}
-.feed-card .title{color:rgba(255,255,255,.85);font-size:14.5px;margin-top:4px;font-weight:600}
-.feed-card .tap-hint{display:flex;align-items:center;gap:6px;margin-top:14px;font-size:12.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.16);width:fit-content;padding:8px 16px;border-radius:100px}
-.feed-card .swipe-hint{position:absolute;bottom:14px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:3px;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;animation:bob 1.8s infinite}
+.feed-card{height:100svh;width:100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden}
+
+/* ===== CARROUSEL HORIZONTAL À L'INTÉRIEUR D'UNE DISPUTE ===== */
+.carousel{display:flex;height:100%;width:100%;overflow-x:scroll;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;position:relative}
+.slide-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:78px 26px 10px;overflow-y:auto}
+
+/* points de position (dots) */
+.dots{flex:0 0 auto;display:flex;gap:6px;justify-content:center;padding-bottom:12px}
+.dot{width:6px;height:6px;border-radius:100px;background:rgba(255,255,255,.32);transition:.2s}
+.dot.active{width:18px;background:#fff}
+
+/* bandeau de marque, toujours visible en bas — pour le screenshot/partage */
+.brandbar{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;background:rgba(0,0,0,.28);color:#fff;font-weight:800;font-size:12px}
+.brandbar svg{width:20px;height:auto}
+.brandbar .url{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* flèches de navigation (desktop uniquement) */
+.nav-arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:100px;background:rgba(255,255,255,.14);color:#fff;border:none;font-size:15px;cursor:pointer;z-index:8;align-items:center;justify-content:center;display:none}
+@media (hover:hover) and (pointer:fine){ .nav-arrow{display:flex} }
+.nav-arrow.left{left:12px}
+.nav-arrow.right{right:12px}
+.nav-arrow:disabled{opacity:0;pointer-events:none}
+
+/* ---- slide "intro" (accroche) ---- */
+.cat-badge{position:absolute;top:78px;left:20px;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:100px;z-index:6}
+.s-emoji{font-size:min(22vw,96px);line-height:1;filter:drop-shadow(0 10px 30px rgba(0,0,0,.35))}
+.s-hook{color:rgba(255,255,255,.9);font-size:17px;font-style:italic;font-weight:600;margin-top:20px;max-width:30ch;line-height:1.5}
+.s-names{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:800;color:#fff;margin-top:22px}
+.s-names .vs{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.55)}
+.s-title{color:rgba(255,255,255,.75);font-size:13.5px;margin-top:4px;font-weight:600}
+.swipe-h{display:flex;align-items:center;gap:6px;margin-top:20px;font-size:12.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.16);padding:8px 16px;border-radius:100px;animation:nudge 1.6s infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+.swipe-v{position:absolute;bottom:88px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:3px;color:rgba(255,255,255,.5);font-size:11px;font-weight:700;animation:bob 1.8s infinite;z-index:6}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ---- slide "message" ---- */
+.cat-mini{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+.imsg-row{display:flex;flex-direction:column;max-width:100%;width:100%;align-items:center}
+.imsg-name{font-size:12px;font-weight:700;margin-bottom:7px;color:rgba(255,255,255,.5)}
+.bubble{padding:15px 19px;border-radius:22px;font-size:16.5px;line-height:1.5;max-width:340px;text-align:left}
+.bubble.a{background:#EDEDF0;color:#111;border-bottom-left-radius:6px}
+.bubble.b{background:linear-gradient(160deg,#1F8CFF,#0A6BDE);color:#fff;border-bottom-right-radius:6px}
+
+/* ---- slide "verdict" ---- */
+.fv-badge{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.fv-pcts{display:flex;align-items:baseline;gap:12px;margin-top:8px}
+.fv-pcts .p{font-size:42px;font-weight:800;line-height:1}
+.fv-pcts .pa{background:linear-gradient(90deg,#FF2D75,#FF8FB3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fv-pcts .pb{background:linear-gradient(90deg,#A98BFF,#7C4DFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fv-pcts .vs{color:rgba(255,255,255,.5);font-weight:800;font-size:14px}
+.fv-names2{display:flex;gap:12px;font-size:12.5px;font-weight:800;margin-top:2px}
+.fv-names2 .na{color:#FF8FB3}.fv-names2 .nb{color:#A98BFF}
+.fv-bar{display:flex;width:100%;max-width:320px;height:12px;border-radius:100px;overflow:hidden;margin-top:14px}
+.fv-bar .a{background:linear-gradient(90deg,#FF2D75,#FF8FB3)}
+.fv-bar .b{background:linear-gradient(90deg,#A98BFF,#7C4DFF)}
+.fv-analyse{color:rgba(255,255,255,.92);font-size:13.5px;line-height:1.6;margin-top:16px;text-align:left;max-width:340px}
+.fv-mot{color:#fff;font-size:14.5px;font-style:italic;font-weight:600;margin-top:16px;max-width:320px}
+.verdict-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.v-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:100px;padding:11px 18px;font-family:var(--font);font-size:13px;font-weight:800;cursor:pointer;text-decoration:none}
+.v-btn.tiktok{background:#0F0F0F;color:#fff}
+.v-btn.ghost{background:rgba(255,255,255,.16);color:#fff}
 
 /* fin de feed */
 .feed-end{height:100svh;width:100%;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#241a33,#0F0B14)}
@@ -57,76 +110,10 @@ img{display:block;max-width:100%}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--grad-btn);color:#fff;border:none;border-radius:100px;padding:15px 30px;font-family:var(--font);font-size:15px;font-weight:800;cursor:pointer;margin-top:22px;text-decoration:none;box-shadow:0 14px 30px -12px rgba(232,26,102,.55)}
 .btn-ghost2{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.14);color:#fff;border:none;border-radius:100px;padding:12px 22px;font-family:var(--font);font-size:13.5px;font-weight:800;cursor:pointer;margin-top:12px;text-decoration:none}
 
-/* ===== VISIONNEUSE STORIES (frame par frame) ===== */
-.viewer{position:fixed;inset:0;background:rgba(6,4,10,.96);display:none;align-items:center;justify-content:center;z-index:300;padding:16px}
-.viewer.active{display:flex}
-.frame-wrap{position:relative;width:100%;max-width:420px}
-.pbars{display:flex;gap:5px;position:absolute;top:-14px;left:0;right:0;z-index:5}
-.pbars span{flex:1;height:4px;border-radius:100px;background:rgba(255,255,255,.3);overflow:hidden}
-.pbars span i{display:block;height:100%;width:0;background:#fff;border-radius:100px}
-.pbars span.done i{width:100%}
-.pbars span.active i{width:100%;transition:none}
-
-.frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:26px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);background:#1C1626;display:flex;flex-direction:column}
-.frame-head{display:flex;align-items:center;gap:9px;padding:18px 20px 6px;color:#fff}
-.frame-head svg{width:26px;height:auto}
-.frame-head .brand{font-weight:800;font-size:14px}
-.frame-head .brand .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.frame-head .cat{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:.65}
-.frame-title{color:#fff;font-weight:800;font-size:19px;line-height:1.25;padding:6px 22px 0}
-.frame-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:18px 20px;overflow:hidden}
-
-/* bulles façon Apple / iMessage */
-.imsg-row{display:flex;flex-direction:column;max-width:88%}
-.imsg-row.a{align-self:flex-start;align-items:flex-start}
-.imsg-row.b{align-self:flex-end;align-items:flex-end}
-.imsg-name{font-size:11.5px;font-weight:700;margin-bottom:6px;padding:0 6px;color:rgba(255,255,255,.5)}
-.bubble{padding:13px 17px;border-radius:20px;font-size:16px;line-height:1.48;position:relative;max-height:64svh;overflow-y:auto}
-.bubble.a{background:#EDEDF0;color:#111;border-bottom-left-radius:6px}
-.bubble.b{background:linear-gradient(160deg,#1F8CFF,#0A6BDE);color:#fff;border-bottom-right-radius:6px}
-
-/* frame d'intro (hook) */
-.frame-intro{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;gap:16px}
-.frame-intro .emoji{font-size:60px}
-.frame-intro .t{color:#fff;font-size:23px;font-weight:800;line-height:1.22}
-.frame-intro .hook{color:rgba(255,255,255,.8);font-size:15.5px;font-style:italic}
-.frame-intro .cta{margin-top:8px;font-size:13px;font-weight:800;color:#fff;background:rgba(255,255,255,.14);padding:9px 20px;border-radius:100px}
-
-/* frame verdict */
-.frame-verdict{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:26px 22px;overflow-y:auto}
-.fv-badge{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.fv-pcts{display:flex;align-items:baseline;gap:12px;margin-top:8px}
-.fv-pcts .p{font-size:40px;font-weight:800;line-height:1}
-.fv-pcts .pa{background:linear-gradient(90deg,#FF2D75,#FF8FB3);-webkit-background-clip:text;background-clip:text;color:transparent}
-.fv-pcts .pb{background:linear-gradient(90deg,#A98BFF,#7C4DFF);-webkit-background-clip:text;background-clip:text;color:transparent}
-.fv-pcts .vs{color:rgba(255,255,255,.5);font-weight:800;font-size:14px}
-.fv-names{display:flex;gap:12px;font-size:12.5px;font-weight:800;margin-top:2px}
-.fv-names .na{color:#FF8FB3}.fv-names .nb{color:#A98BFF}
-.fv-bar{display:flex;width:100%;height:12px;border-radius:100px;overflow:hidden;margin-top:14px}
-.fv-bar .a{background:linear-gradient(90deg,#FF2D75,#FF8FB3)}
-.fv-bar .b{background:linear-gradient(90deg,#A98BFF,#7C4DFF)}
-.fv-analyse{color:rgba(255,255,255,.92);font-size:13px;line-height:1.55;margin-top:16px;text-align:left}
-.fv-mot{color:#fff;font-size:14px;font-style:italic;font-weight:600;margin-top:16px}
-
-.frame-foot{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;background:rgba(0,0,0,.25);color:#fff;font-weight:800;font-size:13px}
-.frame-foot svg{width:22px;height:auto}
-.frame-foot .url{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-.tap-l,.tap-r{position:absolute;top:0;bottom:0;width:32%;z-index:10;cursor:pointer}
-.tap-l{left:0}.tap-r{right:0}
-
-.v-close{position:absolute;top:-14px;right:0;background:rgba(255,255,255,.15);border:none;color:#fff;width:34px;height:34px;border-radius:100px;font-size:18px;cursor:pointer;z-index:20}
-.v-actions{position:absolute;bottom:-58px;left:0;right:0;display:flex;gap:10px;justify-content:center;z-index:20}
-.v-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:100px;padding:12px 20px;font-family:var(--font);font-size:13.5px;font-weight:800;cursor:pointer}
-.v-btn.tiktok{background:#0F0F0F;color:#fff}
-.v-btn.ghost{background:rgba(255,255,255,.16);color:#fff}
-
 @media(max-width:560px){
-  .frame-title{font-size:17px}
-  .bubble{font-size:14.5px}
-  .v-actions{bottom:-54px}
-  .feed-card .names{font-size:19px}
-  .feed-card .emoji{font-size:min(28vw,110px)}
+  .s-names{font-size:17px}
+  .s-emoji{font-size:min(26vw,90px)}
+  .bubble{font-size:15px}
 }
 </style>
 </head>
@@ -142,24 +129,6 @@ img{display:block;max-width:100%}
 
 <div class="feed" id="feed"></div>
 
-<!-- VISIONNEUSE STORIES -->
-<div class="viewer" id="viewer">
-  <div class="frame-wrap">
-    <button class="v-close" id="v-close">✕</button>
-    <div class="pbars" id="pbars"></div>
-    <div class="frame" id="frame"></div>
-    <div class="tap-l" id="tap-l"></div>
-    <div class="tap-r" id="tap-r"></div>
-    <div class="v-actions">
-      <button class="v-btn tiktok" id="v-tiktok">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5.1 20.14a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.14-.14z"/></svg>
-        Partager
-      </button>
-      <button class="v-btn ghost" id="v-newdispute">Créer la mienne</button>
-    </div>
-  </div>
-</div>
-
 <script src="disputes-data.js"></script>
 <script>
 const $ = id => document.getElementById(id);
@@ -168,7 +137,6 @@ const DISPUTES = window.DISPUTES || [];
 
 const LOGO_SVG = `<svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>`;
 
-/* Dégradé de fond par catégorie, pour repérer visuellement le thème d'un coup d'œil */
 const CAT_GRAD = {
   "Intime":  "linear-gradient(155deg,#3D0F2E 0%,#8A1856 100%)",
   "Couple":  "linear-gradient(155deg,#1F1B2E 0%,#3A2352 100%)",
@@ -176,23 +144,87 @@ const CAT_GRAD = {
   "Famille": "linear-gradient(155deg,#1E2E1A 0%,#2C5024 100%)",
   "Amis":    "linear-gradient(155deg,#332512 0%,#5C3E12 100%)",
 };
+const DARK = "#1C1626";
 
-/* ---------- FEED VERTICAL STYLE TIKTOK ---------- */
-function renderFeed(){
-  const cards = DISPUTES.map((d,i) => `
-    <div class="feed-card" data-id="${d.id}" style="background:${CAT_GRAD[d.cat]||CAT_GRAD.Couple}">
+/* ---------- CONSTRUCTION DES SLIDES D'UNE DISPUTE (carrousel horizontal) ---------- */
+function buildSlides(d, isFirstCard){
+  const nSlides = 1 + d.msgs.length + 1;
+  const dotsHtml = i => `<div class="dots">${Array.from({length:nSlides}).map((_,k)=>`<span class="dot${k===i?" active":""}"></span>`).join("")}</div>`;
+  const brand = `<div class="brandbar">${LOGO_SVG}<span class="url">wereinlove.app</span></div>`;
+
+  const slides = [];
+
+  // Slide 0 : intro / accroche
+  slides.push(`
+    <div class="slide" style="background:${CAT_GRAD[d.cat]||CAT_GRAD.Couple}">
       <span class="cat-badge">${esc(d.cat)}</span>
-      <div class="bgtxt">
-        <div class="emoji">${d.emoji}</div>
-        <div class="hook">« ${esc(d.hook)} »</div>
+      <div class="slide-content">
+        <div class="s-emoji">${d.emoji}</div>
+        <div class="s-hook">« ${esc(d.hook)} »</div>
+        <div class="s-names"><span class="na">${esc(d.a)}</span><span class="vs">vs</span><span class="nb">${esc(d.b)}</span></div>
+        <div class="s-title">${esc(d.title)}</div>
+        <div class="swipe-h">👉 Glissez pour lire l'affaire</div>
       </div>
-      <div class="overlay">
-        <div class="names"><span class="na">${esc(d.a)}</span><span class="vs">vs</span><span class="nb">${esc(d.b)}</span></div>
-        <div class="title">${esc(d.title)}</div>
-        <div class="tap-hint">👆 Toucher pour lire l'affaire</div>
+      ${isFirstCard ? `<div class="swipe-v"><span>▲</span><span>Glissez vers le haut pour changer d'affaire</span></div>` : ``}
+      ${dotsHtml(0)}
+      ${brand}
+    </div>`);
+
+  // Slides messages (un seul message par slide)
+  d.msgs.forEach((m,i) => {
+    slides.push(`
+      <div class="slide" style="background:${DARK}">
+        <div class="slide-content">
+          <div class="cat-mini">${esc(d.title)}</div>
+          <div class="imsg-row">
+            <div class="imsg-name">${esc(m.n)}</div>
+            <div class="bubble ${m.r.toLowerCase()}">${esc(m.t)}</div>
+          </div>
+        </div>
+        ${dotsHtml(i+1)}
+        ${brand}
+      </div>`);
+  });
+
+  // Slide verdict
+  const v = d.v;
+  slides.push(`
+    <div class="slide" style="background:${DARK}">
+      <div class="slide-content">
+        <div class="fv-badge">⚖️ Le verdict</div>
+        <div class="fv-pcts">
+          <span class="p pa">${v.pctA}%</span><span class="vs">VS</span><span class="p pb">${v.pctB}%</span>
+        </div>
+        <div class="fv-names2"><span class="na">${esc(d.a)}</span><span class="nb">${esc(d.b)}</span></div>
+        <div class="fv-bar"><div class="a" style="width:${v.pctA}%"></div><div class="b" style="width:${v.pctB}%"></div></div>
+        <div class="fv-analyse">${esc(v.analyse)}</div>
+        <div class="fv-mot">${esc(v.mot)}</div>
+        <div class="verdict-actions">
+          <button class="v-btn tiktok" data-share-id="${d.id}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5.1 20.14a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.14-.14z"/></svg>
+            Partager
+          </button>
+          <a href="app.html" class="v-btn ghost">Créer la mienne</a>
+        </div>
       </div>
-      ${i===0 ? `<div class="swipe-hint"><span>▲</span><span>Glissez vers le haut</span></div>` : ``}
-    </div>`).join("");
+      ${dotsHtml(nSlides-1)}
+      ${brand}
+    </div>`);
+
+  return { html: slides.join(""), nSlides };
+}
+
+/* ---------- FEED VERTICAL ---------- */
+function renderFeed(){
+  const cardsHtml = DISPUTES.map((d,i) => {
+    const { html, nSlides } = buildSlides(d, i===0);
+    return `
+    <div class="feed-card" data-id="${d.id}" data-n="${nSlides}">
+      <button class="nav-arrow left" aria-label="Précédent">‹</button>
+      <div class="carousel">${html}</div>
+      <button class="nav-arrow right" aria-label="Suivant">›</button>
+    </div>`;
+  }).join("");
 
   const end = `
     <div class="feed-end">
@@ -205,167 +237,66 @@ function renderFeed(){
       </div>
     </div>`;
 
-  $("feed").innerHTML = cards + end;
+  $("feed").innerHTML = cardsHtml + end;
 
-  document.querySelectorAll(".feed-card").forEach(el =>
-    el.addEventListener("click", () => openViewer(el.dataset.id)));
+  // Un dot-tracker + navigation par carte
+  document.querySelectorAll(".feed-card").forEach(card => {
+    const carousel = card.querySelector(".carousel");
+    const dotsGroups = card.querySelectorAll(".dots");
+    const n = +card.dataset.n;
+    const leftArrow = card.querySelector(".nav-arrow.left");
+    const rightArrow = card.querySelector(".nav-arrow.right");
+
+    function updateUI(){
+      const idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
+      dotsGroups.forEach(g => {
+        [...g.children].forEach((dot,k) => dot.classList.toggle("active", k===idx));
+      });
+      leftArrow.disabled = idx<=0;
+      rightArrow.disabled = idx>=n-1;
+    }
+    let ticking=false;
+    carousel.addEventListener("scroll", () => {
+      if(ticking) return; ticking=true;
+      requestAnimationFrame(()=>{ updateUI(); ticking=false; });
+    });
+    leftArrow.onclick = () => carousel.scrollBy({left:-carousel.clientWidth, behavior:"smooth"});
+    rightArrow.onclick = () => carousel.scrollBy({left:carousel.clientWidth, behavior:"smooth"});
+    updateUI();
+  });
+
+  // Partage TikTok
+  document.querySelectorAll("[data-share-id]").forEach(btn => {
+    btn.onclick = async () => {
+      const d = DISPUTES.find(x=>x.id===btn.dataset.shareId);
+      const text = `${d.a} ${d.v.pctA}% vs ${d.b} ${d.v.pctB}% : "${d.title}" — verdict we're in love 💘`;
+      const url = "https://wereinlove.app";
+      if(navigator.share){
+        try{ await navigator.share({title:"we're in love", text, url}); return; }catch(e){ if(e.name==="AbortError") return; }
+      }
+      try{ await navigator.clipboard.writeText(text+" "+url); }catch(e){}
+      window.open("https://www.tiktok.com/upload","_blank");
+      alert("Texte copié ✓ Screene la carte, publie ta vidéo TikTok et colle le texte en légende !");
+    };
+  });
 
   $("btn-back-top").onclick = () => $("feed").scrollTo({top:0, behavior:"smooth"});
 }
 renderFeed();
 
-/* ---------- VISIONNEUSE STORIES (frame par frame) ---------- */
-let viewD=null, frames=[], idx=0;
+/* ---------- NAVIGATION CLAVIER (bonus desktop) ---------- */
+let currentCard = null;
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting && e.intersectionRatio>0.6) currentCard = e.target; });
+}, { threshold:0.6 });
+document.querySelectorAll(".feed-card").forEach(c => io.observe(c));
 
-function buildFrames(d){
-  const f = [];
-  f.push({type:"intro"});
-  d.msgs.forEach((m,i)=> f.push({type:"msg", upto:i}));
-  f.push({type:"verdict"});
-  return f;
-}
-
-function openViewer(id){
-  viewD = DISPUTES.find(x=>x.id===id);
-  if(!viewD) return;
-  frames = buildFrames(viewD);
-  idx = 0;
-  $("pbars").innerHTML = frames.map(()=>`<span><i></i></span>`).join("");
-  $("viewer").classList.add("active");
-  document.body.style.overflow="hidden";
-  renderFrame();
-}
-function closeViewer(){
-  $("viewer").classList.remove("active");
-  document.body.style.overflow="";
-  cancelAnimationFrame(rafId);
-}
-
-function renderFrame(){
-  const fr = frames[idx];
-  const d = viewD;
-  [...$("pbars").children].forEach((s,i)=>{
-    s.classList.remove("done","active");
-    if(i<idx) s.classList.add("done");
-    else if(i===idx) s.classList.add("active");
-  });
-
-  const head = `
-    <div class="frame-head">
-      ${LOGO_SVG}
-      <span class="brand">we're <span class="in">in</span> love</span>
-      <span class="cat">${esc(d.cat)}</span>
-    </div>`;
-  const foot = `
-    <div class="frame-foot">
-      ${LOGO_SVG}<span class="url">wereinlove.app</span>
-    </div>`;
-
-  let inner="";
-  if(fr.type==="intro"){
-    inner = head + `
-      <div class="frame-intro">
-        <div class="emoji">${d.emoji}</div>
-        <div class="t">${esc(d.title)}</div>
-        <div class="hook">« ${esc(d.hook)} »</div>
-        <div class="cta">👆 Tape pour lire l'affaire</div>
-      </div>` + foot;
-  } else if(fr.type==="msg"){
-    // Un seul message par frame, en bulle façon Apple Messages : lisibilité maximale, zéro débordement
-    const m = d.msgs[fr.upto];
-    inner = head +
-      `<div class="frame-title">${esc(d.title)}</div>
-      <div class="frame-body">
-        <div class="imsg-row ${m.r.toLowerCase()}">
-          <div class="imsg-name">${esc(m.n)}</div>
-          <div class="bubble ${m.r.toLowerCase()}">${esc(m.t)}</div>
-        </div>
-      </div>` + foot;
-  } else if(fr.type==="verdict"){
-    const v=d.v;
-    inner = head + `
-      <div class="frame-verdict">
-        <div class="fv-badge">⚖️ Le verdict</div>
-        <div class="fv-pcts">
-          <span class="p pa">${v.pctA}%</span>
-          <span class="vs">VS</span>
-          <span class="p pb">${v.pctB}%</span>
-        </div>
-        <div class="fv-names"><span class="na">${esc(d.a)}</span><span class="nb">${esc(d.b)}</span></div>
-        <div class="fv-bar"><div class="a" style="width:${v.pctA}%"></div><div class="b" style="width:${v.pctB}%"></div></div>
-        <div class="fv-analyse">${esc(v.analyse)}</div>
-        <div class="fv-mot">${esc(v.mot)}</div>
-      </div>` + foot;
-  }
-  $("frame").innerHTML = inner;
-  $("frame").scrollTop = 0;
-
-  frameDuration = fr.type==="verdict" ? 0 : (fr.type==="intro" ? 2600 : 5200);
-  frameElapsed = 0;
-  startProgress();
-}
-
-/* ---------- PROGRESSION AVEC PAUSE (maintien = pause, comme Insta/TikTok) ---------- */
-let frameDuration=0, frameElapsed=0, rafId=null, lastTs=0, paused=false;
-
-function startProgress(){
-  cancelAnimationFrame(rafId);
-  const activeBar = $("pbars").children[idx]?.querySelector("i");
-  if(frameDuration===0){
-    if(activeBar){ activeBar.style.transition="none"; activeBar.style.width="100%"; }
-    return;
-  }
-  lastTs = performance.now();
-  const tick = ts => {
-    if(paused){ lastTs=ts; rafId=requestAnimationFrame(tick); return; }
-    frameElapsed += ts - lastTs;
-    lastTs = ts;
-    const pct = Math.min(1, frameElapsed/frameDuration);
-    if(activeBar){ activeBar.style.transition="none"; activeBar.style.width=(pct*100)+"%"; }
-    if(pct>=1){ next(); return; }
-    rafId = requestAnimationFrame(tick);
-  };
-  rafId = requestAnimationFrame(tick);
-}
-function pauseProgress(){ paused=true; }
-function resumeProgress(){ if(paused){ paused=false; lastTs=performance.now(); } }
-
-function next(){ cancelAnimationFrame(rafId); if(idx<frames.length-1){ idx++; renderFrame(); } }
-function prev(){ cancelAnimationFrame(rafId); if(idx>0){ idx--; renderFrame(); } }
-
-/* ---------- TAP COURT = naviguer · MAINTIEN = pause ---------- */
-const HOLD_MS = 220;
-function bindTap(el, action){
-  let holdTimer=null, held=false;
-  const down = () => { held=false; holdTimer = setTimeout(()=>{ held=true; pauseProgress(); }, HOLD_MS); };
-  const up = () => { clearTimeout(holdTimer); if(held){ resumeProgress(); } else { action(); } held=false; };
-  el.addEventListener("pointerdown", down);
-  el.addEventListener("pointerup", up);
-  el.addEventListener("pointerleave", ()=>{ clearTimeout(holdTimer); if(held){ resumeProgress(); held=false; } });
-  el.addEventListener("contextmenu", e=>e.preventDefault());
-}
-bindTap($("tap-r"), next);
-bindTap($("tap-l"), prev);
-
-$("v-close").onclick = closeViewer;
-$("viewer").onclick = e => { if(e.target===$("viewer")) closeViewer(); };
-$("v-newdispute").onclick = () => location.href="app.html";
-$("v-tiktok").onclick = async () => {
-  const d = viewD;
-  const text = `${d.a} ${d.v.pctA}% vs ${d.b} ${d.v.pctB}% : "${d.title}" — verdict we're in love 💘`;
-  const url = "https://wereinlove.app";
-  if(navigator.share){
-    try{ await navigator.share({title:"we're in love", text, url}); return; }catch(e){ if(e.name==="AbortError") return; }
-  }
-  try{ await navigator.clipboard.writeText(text+" "+url); }catch(e){}
-  window.open("https://www.tiktok.com/upload","_blank");
-  alert("Texte copié ✓ Screene la story, publie ta vidéo TikTok et colle le texte en légende !");
-};
-document.addEventListener("keydown", e=>{
-  if(!$("viewer").classList.contains("active")) return;
-  if(e.key==="ArrowRight") next();
-  if(e.key==="ArrowLeft") prev();
-  if(e.key==="Escape") closeViewer();
+document.addEventListener("keydown", e => {
+  if(!currentCard) return;
+  const carousel = currentCard.querySelector(".carousel");
+  if(!carousel) return;
+  if(e.key==="ArrowRight") carousel.scrollBy({left:carousel.clientWidth, behavior:"smooth"});
+  if(e.key==="ArrowLeft") carousel.scrollBy({left:-carousel.clientWidth, behavior:"smooth"});
 });
 </script>
 </body>
