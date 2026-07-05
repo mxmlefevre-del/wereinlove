@@ -108,6 +108,11 @@ textarea{min-height:150px;resize:vertical;line-height:1.6}
   cursor:pointer;margin-top:14px;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);transition:transform .15s}
 .share-tiktok:hover{transform:translateY(-1px)}
 .share-hint{font-size:12.5px;color:var(--gris);text-align:center;margin-top:10px}
+.consent-choices{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.consent-btn{flex:1;min-width:180px;margin-top:0}
+.consent-btn.selected{outline:3px solid rgba(255,45,117,.35);outline-offset:2px}
+.consent-status{font-size:13px;font-weight:700;color:var(--violet-deep);margin-top:12px;display:none}
+.consent-status.show{display:block}
 input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.12)}
 .hint{font-size:12.5px;color:var(--gris);margin-top:6px}
 .count{font-size:12.5px;color:var(--gris);text-align:right;margin-top:4px}
@@ -386,6 +391,20 @@ input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 
         Partager sur TikTok
       </button>
       <p class="share-hint">📸 Ou screene la carte ci-dessus et poste-la — le lien est déjà dessus.</p>
+
+      <div class="card" id="consent-card">
+        <h2>🍿 On adore votre histoire</h2>
+        <p style="margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--gris)">
+          On aimerait peut-être la partager, anonymisée, dans notre <b>Boîte à disputes</b> pour inspirer d'autres couples.
+          Seul votre <b>prénom</b> serait affiché — jamais votre nom, votre photo, ni aucune info permettant de vous identifier.
+          Vous décidez, et vous pouvez changer d'avis à tout moment en nous écrivant.
+        </p>
+        <div class="consent-choices">
+          <button class="btn consent-btn" id="btn-consent-yes">✅ Oui, avec mon prénom</button>
+          <button class="btn btn-ghost consent-btn" id="btn-consent-no">Non, je préfère rester privé</button>
+        </div>
+        <p class="consent-status" id="consent-status"></p>
+      </div>
 
       <div class="card">
         <h2>Ce que l'IA a vu 👀</h2>
@@ -791,6 +810,7 @@ function renderVerdict(){
   $("v-analyse").textContent = v.analyse;
   $("v-pacte-a").innerHTML = `<b>Le pacte de ${escapeHtml(dispute.creatorName)}</b>${escapeHtml(v.pacteA)}`;
   $("v-pacte-b").innerHTML = `<b>Le pacte de ${escapeHtml(dispute.partnerName)}</b>${escapeHtml(v.pacteB)}`;
+  renderConsent();
   $("btn-new").onclick = () => location.href = location.pathname + (DEMO ? "?demo=1" : "");
 
   // Réinitialise l'état de la carte (au cas où on revient dessus)
@@ -812,7 +832,34 @@ function renderVerdict(){
   show("s-verdict");
 }
 
-/* ---------- PAILLETTES DE MAGIE ---------- */
+/* ---------- CONSENTEMENT : PUBLICATION DANS LA BOÎTE À DISPUTES ---------- */
+function renderConsent(){
+  if (DEMO) { $("consent-card").style.display="none"; return; }
+  const yesBtn = $("btn-consent-yes"), noBtn = $("btn-consent-no"), status = $("consent-status");
+
+  function paint(){
+    yesBtn.classList.toggle("selected", dispute.shareConsent===true);
+    noBtn.classList.toggle("selected", dispute.shareConsent===false);
+    if (dispute.shareConsent===true){ status.textContent="Merci ! Votre choix est enregistré : partage autorisé (prénom seul)."; status.classList.add("show"); }
+    else if (dispute.shareConsent===false){ status.textContent="C'est noté, votre dispute restera privée."; status.classList.add("show"); }
+    else status.classList.remove("show");
+  }
+  paint();
+
+  async function choose(val){
+    yesBtn.disabled = true; noBtn.disabled = true;
+    try{
+      await updateDoc(doc(db,"disputes",dispute.id), { shareConsent: val, consentBy: me.uid, consentAt: Date.now() });
+      dispute.shareConsent = val;
+      paint();
+    } catch(e){ alert("Impossible d'enregistrer votre choix, réessayez."); }
+    yesBtn.disabled = false; noBtn.disabled = false;
+  }
+  yesBtn.onclick = () => choose(true);
+  noBtn.onclick = () => choose(false);
+}
+
+
 function burstSparkles(container){
   const emojis = ["✨","💫","⭐","💖","🌟","💕"];
   const rect = container.getBoundingClientRect();

@@ -20,62 +20,54 @@
   --font:"Plus Jakarta Sans",-apple-system,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{color-scheme:only light;background:var(--bg)}
-body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh}
+html{color-scheme:only light;background:#0F0B14}
+body{font-family:var(--font);background:#0F0B14;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;height:100svh;overflow:hidden}
 ::selection{background:var(--rose);color:#fff}
 img{display:block;max-width:100%}
 
-header{display:flex;flex-direction:column;align-items:center;padding:24px 20px 6px;text-align:center}
-.logo{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
-.logo svg{width:52px;height:auto}
-.logo .txt{font-weight:800;font-size:17px;color:var(--ink)}
+/* ===== BARRE SUPÉRIEURE FIXE ===== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:linear-gradient(180deg,rgba(0,0,0,.55),transparent)}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo svg{width:30px;height:auto}
+.logo .txt{font-weight:800;font-size:15px;color:#fff}
 .logo .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.topbar .close{background:rgba(255,255,255,.14);border:none;color:#fff;width:36px;height:36px;border-radius:100px;font-size:16px;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center}
 
-main{max-width:1080px;margin:0 auto;padding:12px 20px 90px}
-.topnav{display:flex;justify-content:center;gap:16px;font-size:13px;font-weight:700;margin-top:4px;flex-wrap:wrap}
-.topnav a{color:var(--violet-deep);text-decoration:none}
-.topnav a:hover{text-decoration:underline}
+/* ===== FEED VERTICAL STYLE TIKTOK ===== */
+.feed{height:100svh;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch}
+.feed-card{height:100svh;width:100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;overflow:hidden}
+.feed-card .bgtxt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 40px}
+.feed-card .emoji{font-size:min(24vw,120px);line-height:1;filter:drop-shadow(0 10px 30px rgba(0,0,0,.35))}
+.feed-card .hook{color:rgba(255,255,255,.88);font-size:17px;font-style:italic;font-weight:600;margin-top:22px;max-width:30ch;line-height:1.5}
+.feed-card .cat-badge{position:absolute;top:78px;left:20px;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:100px}
+.feed-card .overlay{position:relative;z-index:5;padding:24px 22px 34px;background:linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,.35) 60%,transparent)}
+.feed-card .names{display:flex;align-items:center;gap:8px;font-size:21px;font-weight:800;color:#fff}
+.feed-card .names .vs{font-size:13px;font-weight:700;color:rgba(255,255,255,.55)}
+.feed-card .title{color:rgba(255,255,255,.85);font-size:14.5px;margin-top:4px;font-weight:600}
+.feed-card .tap-hint{display:flex;align-items:center;gap:6px;margin-top:14px;font-size:12.5px;font-weight:800;color:#fff;background:rgba(255,255,255,.16);width:fit-content;padding:8px 16px;border-radius:100px}
+.feed-card .swipe-hint{position:absolute;bottom:14px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:3px;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;animation:bob 1.8s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
-.intro{text-align:center;margin-top:22px}
-.intro h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.025em;line-height:1.12}
-.intro h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.intro p{color:var(--gris);font-size:16px;margin-top:12px;max-width:52ch;margin-inline:auto}
+/* fin de feed */
+.feed-end{height:100svh;width:100%;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#241a33,#0F0B14)}
+.feed-end-inner{text-align:center;padding:0 30px;max-width:380px}
+.feed-end-inner .e{font-size:52px}
+.feed-end-inner h2{color:#fff;font-size:23px;font-weight:800;margin-top:10px}
+.feed-end-inner p{color:rgba(255,255,255,.7);font-size:14.5px;margin-top:10px;line-height:1.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--grad-btn);color:#fff;border:none;border-radius:100px;padding:15px 30px;font-family:var(--font);font-size:15px;font-weight:800;cursor:pointer;margin-top:22px;text-decoration:none;box-shadow:0 14px 30px -12px rgba(232,26,102,.55)}
+.btn-ghost2{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.14);color:#fff;border:none;border-radius:100px;padding:12px 22px;font-family:var(--font);font-size:13.5px;font-weight:800;cursor:pointer;margin-top:12px;text-decoration:none}
 
-/* filtres */
-.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:24px}
-.chip{border:1.5px solid rgba(31,27,46,.14);background:#fff;border-radius:100px;padding:9px 18px;font-family:var(--font);font-size:13.5px;font-weight:700;color:var(--ink);cursor:pointer;transition:.15s}
-.chip:hover{border-color:rgba(255,45,117,.4)}
-.chip.active{background:var(--grad);color:#fff;border-color:transparent}
-
-/* grille de disputes */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:28px}
-.dcard{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;cursor:pointer;transition:transform .18s;display:flex;flex-direction:column}
-.dcard:hover{transform:translateY(-4px)}
-.dcard .top{background:linear-gradient(150deg,#1F1B2E,#3A2352);padding:20px 20px 18px;color:#fff;position:relative}
-.dcard .cat{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
-.dcard .emoji{font-size:34px;line-height:1;margin-top:4px}
-.dcard .t{font-size:18px;font-weight:800;line-height:1.25;margin-top:8px}
-.dcard .body{padding:16px 20px 20px;flex:1;display:flex;flex-direction:column}
-.dcard .hook{font-size:14px;color:var(--gris);font-style:italic;flex:1}
-.dcard .who{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:12.5px;font-weight:700}
-.dcard .vs{color:var(--gris)}
-.dcard .na{color:var(--rose-deep)}.dcard .nb{color:var(--violet-deep)}
-.dcard .go{margin-top:14px;display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:800;color:var(--violet-deep)}
-.dcard .verdict-mini{font-size:11.5px;font-weight:800;color:#fff;background:var(--grad);padding:3px 10px;border-radius:100px}
-
-/* ===== VISIONNEUSE STORIES ===== */
-.viewer{position:fixed;inset:0;background:rgba(15,10,25,.92);display:none;align-items:center;justify-content:center;z-index:300;padding:16px}
+/* ===== VISIONNEUSE STORIES (frame par frame) ===== */
+.viewer{position:fixed;inset:0;background:rgba(6,4,10,.96);display:none;align-items:center;justify-content:center;z-index:300;padding:16px}
 .viewer.active{display:flex}
 .frame-wrap{position:relative;width:100%;max-width:420px}
-/* barres de progression style stories */
 .pbars{display:flex;gap:5px;position:absolute;top:-14px;left:0;right:0;z-index:5}
 .pbars span{flex:1;height:4px;border-radius:100px;background:rgba(255,255,255,.3);overflow:hidden}
 .pbars span i{display:block;height:100%;width:0;background:#fff;border-radius:100px}
 .pbars span.done i{width:100%}
 .pbars span.active i{width:100%;transition:none}
 
-/* la frame = ratio 9:16 screenable */
-.frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:26px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);background:#1F1B2E;display:flex;flex-direction:column}
+.frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:26px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);background:#1C1626;display:flex;flex-direction:column}
 .frame-head{display:flex;align-items:center;gap:9px;padding:18px 20px 6px;color:#fff}
 .frame-head svg{width:26px;height:auto}
 .frame-head .brand{font-weight:800;font-size:14px}
@@ -84,20 +76,20 @@ main{max-width:1080px;margin:0 auto;padding:12px 20px 90px}
 .frame-title{color:#fff;font-weight:800;font-size:19px;line-height:1.25;padding:6px 22px 0}
 .frame-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:18px 20px;overflow:hidden}
 
-/* bulles de message dans la frame */
-.bubble{max-width:92%;padding:18px 20px;border-radius:22px;font-size:16px;line-height:1.55;position:relative}
-.bubble .nm{font-size:12.5px;font-weight:800;margin-bottom:6px}
-.bubble .nm{font-size:11.5px;font-weight:800;margin-bottom:4px;opacity:.85}
-.bubble.a{align-self:flex-start;background:#fff;color:var(--ink);border-bottom-left-radius:6px}
-.bubble.a .nm{color:var(--rose-deep)}
-.bubble.b{align-self:flex-end;background:var(--violet);color:#fff;border-bottom-right-radius:6px}
-.bubble.b .nm{color:#fff}
+/* bulles façon Apple / iMessage */
+.imsg-row{display:flex;flex-direction:column;max-width:88%}
+.imsg-row.a{align-self:flex-start;align-items:flex-start}
+.imsg-row.b{align-self:flex-end;align-items:flex-end}
+.imsg-name{font-size:11.5px;font-weight:700;margin-bottom:6px;padding:0 6px;color:rgba(255,255,255,.5)}
+.bubble{padding:13px 17px;border-radius:20px;font-size:16px;line-height:1.48;position:relative;max-height:64svh;overflow-y:auto}
+.bubble.a{background:#EDEDF0;color:#111;border-bottom-left-radius:6px}
+.bubble.b{background:linear-gradient(160deg,#1F8CFF,#0A6BDE);color:#fff;border-bottom-right-radius:6px}
 
 /* frame d'intro (hook) */
 .frame-intro{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;gap:16px}
 .frame-intro .emoji{font-size:60px}
-.frame-intro .t{color:#fff;font-size:24px;font-weight:800;line-height:1.2}
-.frame-intro .hook{color:rgba(255,255,255,.8);font-size:16px;font-style:italic}
+.frame-intro .t{color:#fff;font-size:23px;font-weight:800;line-height:1.22}
+.frame-intro .hook{color:rgba(255,255,255,.8);font-size:15.5px;font-style:italic}
 .frame-intro .cta{margin-top:8px;font-size:13px;font-weight:800;color:#fff;background:rgba(255,255,255,.14);padding:9px 20px;border-radius:100px}
 
 /* frame verdict */
@@ -120,58 +112,35 @@ main{max-width:1080px;margin:0 auto;padding:12px 20px 90px}
 .frame-foot svg{width:22px;height:auto}
 .frame-foot .url{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* zones de tap invisibles (précédent / suivant) */
 .tap-l,.tap-r{position:absolute;top:0;bottom:0;width:32%;z-index:10;cursor:pointer}
 .tap-l{left:0}.tap-r{right:0}
 
-/* contrôles */
 .v-close{position:absolute;top:-14px;right:0;background:rgba(255,255,255,.15);border:none;color:#fff;width:34px;height:34px;border-radius:100px;font-size:18px;cursor:pointer;z-index:20}
 .v-actions{position:absolute;bottom:-58px;left:0;right:0;display:flex;gap:10px;justify-content:center;z-index:20}
 .v-btn{display:flex;align-items:center;gap:8px;border:none;border-radius:100px;padding:12px 20px;font-family:var(--font);font-size:13.5px;font-weight:800;cursor:pointer}
 .v-btn.tiktok{background:#0F0F0F;color:#fff}
 .v-btn.ghost{background:rgba(255,255,255,.16);color:#fff}
 
-.cta-final{text-align:center;margin-top:50px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:36px 26px}
-.cta-final h2{font-size:24px;font-weight:800}
-.cta-final p{color:var(--gris);margin-top:8px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--grad-btn);color:#fff;border:none;border-radius:100px;padding:15px 30px;font-family:var(--font);font-size:15px;font-weight:800;cursor:pointer;margin-top:18px;text-decoration:none;box-shadow:0 14px 30px -12px rgba(232,26,102,.55)}
-
 @media(max-width:560px){
   .frame-title{font-size:17px}
-  .bubble{font-size:13.5px}
+  .bubble{font-size:14.5px}
   .v-actions{bottom:-54px}
+  .feed-card .names{font-size:19px}
+  .feed-card .emoji{font-size:min(28vw,110px)}
 }
 </style>
 </head>
 <body>
 
-<header>
+<div class="topbar">
   <a class="logo" href="index.html">
     <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
     <span class="txt">we're <span class="in">in</span> love</span>
   </a>
-  <nav class="topnav">
-    <a href="app.html">💬 Nouvelle dispute</a>
-    <a href="compatibilite.html">💘 Test compatibilité</a>
-    <a href="espace-client.html">👤 Mon espace</a>
-  </nav>
-</header>
+  <a href="index.html" class="close" aria-label="Fermer">✕</a>
+</div>
 
-<main>
-  <div class="intro">
-    <h1>La <span class="grad">boîte à disputes</span></h1>
-    <p>Les disputes les plus folles, tranchées par we're in love. Qui a raison ? Ouvrez, faites défiler comme une story… et devinez le verdict avant nous.</p>
-  </div>
-
-  <div class="filters" id="filters"></div>
-  <div class="grid" id="grid"></div>
-
-  <div class="cta-final">
-    <h2>Et vous, qui a raison ?</h2>
-    <p>Réglez votre vraie dispute. we're in love tranche, sans jamais faire 50/50.</p>
-    <a href="app.html" class="btn">Créer ma dispute ✨</a>
-  </div>
-</main>
+<div class="feed" id="feed"></div>
 
 <!-- VISIONNEUSE STORIES -->
 <div class="viewer" id="viewer">
@@ -199,49 +168,59 @@ const DISPUTES = window.DISPUTES || [];
 
 const LOGO_SVG = `<svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>`;
 
-/* ---------- FILTRES ---------- */
-let currentCat = "Tout";
-const cats = ["Tout", ...[...new Set(DISPUTES.map(d=>d.cat))]];
-$("filters").innerHTML = cats.map(c =>
-  `<button class="chip${c==="Tout"?" active":""}" data-cat="${c}">${c}</button>`).join("");
-document.querySelectorAll(".chip").forEach(ch => ch.onclick = () => {
-  currentCat = ch.dataset.cat;
-  document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
-  ch.classList.add("active");
-  renderGrid();
-});
+/* Dégradé de fond par catégorie, pour repérer visuellement le thème d'un coup d'œil */
+const CAT_GRAD = {
+  "Intime":  "linear-gradient(155deg,#3D0F2E 0%,#8A1856 100%)",
+  "Couple":  "linear-gradient(155deg,#1F1B2E 0%,#3A2352 100%)",
+  "Coloc":   "linear-gradient(155deg,#152430 0%,#124257 100%)",
+  "Famille": "linear-gradient(155deg,#1E2E1A 0%,#2C5024 100%)",
+  "Amis":    "linear-gradient(155deg,#332512 0%,#5C3E12 100%)",
+};
 
-/* ---------- GRILLE ---------- */
-function renderGrid(){
-  const list = currentCat==="Tout" ? DISPUTES : DISPUTES.filter(d=>d.cat===currentCat);
-  $("grid").innerHTML = list.map(d => `
-    <div class="dcard" data-id="${d.id}">
-      <div class="top">
-        <div class="cat">${esc(d.cat)}</div>
+/* ---------- FEED VERTICAL STYLE TIKTOK ---------- */
+function renderFeed(){
+  const cards = DISPUTES.map((d,i) => `
+    <div class="feed-card" data-id="${d.id}" style="background:${CAT_GRAD[d.cat]||CAT_GRAD.Couple}">
+      <span class="cat-badge">${esc(d.cat)}</span>
+      <div class="bgtxt">
         <div class="emoji">${d.emoji}</div>
-        <div class="t">${esc(d.title)}</div>
-      </div>
-      <div class="body">
         <div class="hook">« ${esc(d.hook)} »</div>
-        <div class="who"><span class="na">${esc(d.a)}</span><span class="vs">vs</span><span class="nb">${esc(d.b)}</span></div>
-        <div class="go"><span>Ouvrir l'affaire</span><span class="verdict-mini">Verdict</span></div>
       </div>
+      <div class="overlay">
+        <div class="names"><span class="na">${esc(d.a)}</span><span class="vs">vs</span><span class="nb">${esc(d.b)}</span></div>
+        <div class="title">${esc(d.title)}</div>
+        <div class="tap-hint">👆 Toucher pour lire l'affaire</div>
+      </div>
+      ${i===0 ? `<div class="swipe-hint"><span>▲</span><span>Glissez vers le haut</span></div>` : ``}
     </div>`).join("");
-  document.querySelectorAll(".dcard").forEach(el =>
-    el.onclick = () => openViewer(el.dataset.id));
-}
-renderGrid();
 
-/* ---------- VISIONNEUSE STORIES ---------- */
+  const end = `
+    <div class="feed-end">
+      <div class="feed-end-inner">
+        <div class="e">💘</div>
+        <h2>Et vous, qui a raison ?</h2>
+        <p>Vous avez vu ${DISPUTES.length} affaires. Réglez votre vraie dispute — we're in love tranche, sans jamais faire 50/50.</p>
+        <a href="app.html" class="btn">Créer ma dispute ✨</a><br>
+        <button class="btn-ghost2" id="btn-back-top">↑ Revoir depuis le début</button>
+      </div>
+    </div>`;
+
+  $("feed").innerHTML = cards + end;
+
+  document.querySelectorAll(".feed-card").forEach(el =>
+    el.addEventListener("click", () => openViewer(el.dataset.id)));
+
+  $("btn-back-top").onclick = () => $("feed").scrollTo({top:0, behavior:"smooth"});
+}
+renderFeed();
+
+/* ---------- VISIONNEUSE STORIES (frame par frame) ---------- */
 let viewD=null, frames=[], idx=0;
 
 function buildFrames(d){
   const f = [];
-  // frame 0 : intro / hook
   f.push({type:"intro"});
-  // frames messages
   d.msgs.forEach((m,i)=> f.push({type:"msg", upto:i}));
-  // frame verdict
   f.push({type:"verdict"});
   return f;
 }
@@ -265,7 +244,6 @@ function closeViewer(){
 function renderFrame(){
   const fr = frames[idx];
   const d = viewD;
-  // barres de progression
   [...$("pbars").children].forEach((s,i)=>{
     s.classList.remove("done","active");
     if(i<idx) s.classList.add("done");
@@ -293,13 +271,14 @@ function renderFrame(){
         <div class="cta">👆 Tape pour lire l'affaire</div>
       </div>` + foot;
   } else if(fr.type==="msg"){
-    // Un seul message par frame : lisibilité maximale, zéro débordement (idéal TikTok)
+    // Un seul message par frame, en bulle façon Apple Messages : lisibilité maximale, zéro débordement
     const m = d.msgs[fr.upto];
     inner = head +
       `<div class="frame-title">${esc(d.title)}</div>
       <div class="frame-body">
-        <div class="bubble ${m.r.toLowerCase()}">
-          <div class="nm">${esc(m.n)}</div>${esc(m.t)}
+        <div class="imsg-row ${m.r.toLowerCase()}">
+          <div class="imsg-name">${esc(m.n)}</div>
+          <div class="bubble ${m.r.toLowerCase()}">${esc(m.t)}</div>
         </div>
       </div>` + foot;
   } else if(fr.type==="verdict"){
@@ -321,19 +300,18 @@ function renderFrame(){
   $("frame").innerHTML = inner;
   $("frame").scrollTop = 0;
 
-  // (re)démarre la progression de la frame
-  frameDuration = fr.type==="verdict" ? 0 : (fr.type==="intro" ? 2600 : 4600);
+  frameDuration = fr.type==="verdict" ? 0 : (fr.type==="intro" ? 2600 : 5200);
   frameElapsed = 0;
   startProgress();
 }
 
-/* ---------- PROGRESSION AVEC PAUSE ---------- */
+/* ---------- PROGRESSION AVEC PAUSE (maintien = pause, comme Insta/TikTok) ---------- */
 let frameDuration=0, frameElapsed=0, rafId=null, lastTs=0, paused=false;
 
 function startProgress(){
   cancelAnimationFrame(rafId);
   const activeBar = $("pbars").children[idx]?.querySelector("i");
-  if(frameDuration===0){ // verdict : barre pleine, pas d'auto-avance
+  if(frameDuration===0){
     if(activeBar){ activeBar.style.transition="none"; activeBar.style.width="100%"; }
     return;
   }
@@ -355,24 +333,16 @@ function resumeProgress(){ if(paused){ paused=false; lastTs=performance.now(); }
 function next(){ cancelAnimationFrame(rafId); if(idx<frames.length-1){ idx++; renderFrame(); } }
 function prev(){ cancelAnimationFrame(rafId); if(idx>0){ idx--; renderFrame(); } }
 
-/* ---------- TAP COURT = naviguer · MAINTIEN = pause (comme Insta/TikTok) ---------- */
-const HOLD_MS = 220; // au-delà, c'est un maintien → pause
+/* ---------- TAP COURT = naviguer · MAINTIEN = pause ---------- */
+const HOLD_MS = 220;
 function bindTap(el, action){
   let holdTimer=null, held=false;
-  const down = e => {
-    held=false;
-    holdTimer = setTimeout(()=>{ held=true; pauseProgress(); }, HOLD_MS);
-  };
-  const up = e => {
-    clearTimeout(holdTimer);
-    if(held){ resumeProgress(); }      // on relâche après un maintien → reprise
-    else { action(); }                  // tap court → navigation
-    held=false;
-  };
+  const down = () => { held=false; holdTimer = setTimeout(()=>{ held=true; pauseProgress(); }, HOLD_MS); };
+  const up = () => { clearTimeout(holdTimer); if(held){ resumeProgress(); } else { action(); } held=false; };
   el.addEventListener("pointerdown", down);
   el.addEventListener("pointerup", up);
   el.addEventListener("pointerleave", ()=>{ clearTimeout(holdTimer); if(held){ resumeProgress(); held=false; } });
-  el.addEventListener("contextmenu", e=>e.preventDefault()); // évite le menu au maintien mobile
+  el.addEventListener("contextmenu", e=>e.preventDefault());
 }
 bindTap($("tap-r"), next);
 bindTap($("tap-l"), prev);
