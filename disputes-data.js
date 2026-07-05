@@ -35,66 +35,6 @@ window.DISPUTES = [
       mot:"La prochaine boîte de pâtes truffe, partagez-la à deux." }
   },
   {
-    id:"d04", cat:"Intime", emoji:"📱", title:"Il est toujours actif sur Grindr",
-    a:"Thomas", b:"Karim", hook:"« Actif à l'instant. » Sur l'appli qu'il jure avoir supprimée.",
-    msgs:[
-      {r:"A",n:"Thomas",t:"On s'est mis d'accord il y a trois mois pour être exclusifs et supprimer les applis de rencontre. Hier soir, sur le compte d'un pote qui cherchait un profil, je tombe sur le tien, « actif à l'instant », avec des photos qu'on a prises ensemble en vacances. Tu m'avais juré l'avoir supprimée."},
-      {r:"B",n:"Karim",t:"Je l'ai gardée juste pour discuter avec des potes du milieu, je ne cherche personne, je ne réponds à aucun message de drague, c'est presque devenu comme un réseau social pour moi. Je ne t'ai pas menti sur l'essentiel, on est exclusifs et ça ne change pas."},
-      {r:"A",n:"Thomas",t:"Le problème, ce n'est pas si tu dragues ou pas, c'est que tu m'as dit une chose et fait l'inverse en silence pendant trois mois. Si garder l'appli n'était pas grave, pourquoi ne pas simplement me le dire au lieu de me laisser croire qu'elle avait disparu ?"},
-      {r:"B",n:"Karim",t:"Parce que je savais que ça te contrarierait même si mon intention était innocente, alors j'ai évité le sujet au lieu de l'assumer. En le disant comme ça, je réalise que ce n'est pas très différent de mentir."},
-    ],
-    v:{ pctA:74, pctB:26,
-      analyse:"Karim, l'intention derrière l'appli — discuter, réseauter — n'est peut-être pas malveillante, mais ce n'est pas la question posée. La question, c'est : un accord explicite pris à deux (supprimer les applis, être exclusifs) a été rompu en silence pendant trois mois, et découvert par accident plutôt que dit ouvertement. Ce point est net en faveur de Thomas. Ta lucidité finale — reconnaître que le silence ressemble à un mensonge même sans mauvaise intention — est précieuse et montre que tu peux entendre l'impact sans minimiser. Le vrai sujet : dans un couple, un accord qu'on ne respecte plus doit être renégocié à voix haute, jamais contourné en douce, même pour des raisons qui semblent inoffensives de l'intérieur.",
-      pacteA:"Je te dis ma peur sans t'accuser d'avance la prochaine fois qu'un doute apparaît.",
-      pacteB:"Je supprime vraiment l'appli, et si nos règles doivent changer, j'en parle avant, pas après.",
-      mot:"Un accord de couple se renégocie à voix haute, jamais en silence." }
-  },
-  {
-    id:"d14", cat:"Coloc", emoji:"🧽", title:"La vaisselle qui « trempe » depuis 4 jours",
-    a:"Yasmine", b:"Hugo", hook:"« Ça trempe. » Quatre-vingt-seize heures plus tard, ça trempe encore.",
-    msgs:[
-      {r:"A",n:"Yasmine",t:"Ça fait officiellement quatre jours que ta poêle « trempe » tranquillement dans notre évier commun. On ne peut même plus se laver les mains correctement sans toucher ton gratin fossilisé qui commence à sentir vraiment mauvais dans toute la cuisine. Tu comptes la laver quand exactement, dans deux semaines ?"},
-      {r:"B",n:"Hugo",t:"Elle trempe justement pour qu'elle parte toute seule sans effort de ma part, c'est une vraie stratégie de flemmard assumé. Et de ton côté tu laisses systématiquement tes cheveux partout dans la douche, on n'en fait pas tout un procès pour autant."},
-      {r:"A",n:"Yasmine",t:"Mes cheveux ne dégagent absolument pas une odeur de cadavre ambulant dans notre cuisine commune à tous les deux. Assume juste ta poêle sale au lieu de comparer avec un problème qui n'a rien à voir en termes de nuisance réelle."},
-      {r:"B",n:"Hugo",t:"D'accord, je vais la laver ce soir sans plus attendre. Mais arrête aussi de surveiller mon évier comme une inspectrice d'hygiène qui débarque à l'improviste."},
-    ],
-    v:{ pctA:73, pctB:27,
-      analyse:"Hugo, « ça trempe pour partir tout seul » après quatre jours complets, ce n'est plus une stratégie, c'est de la procrastination habillée en méthode personnelle. L'espace est commun et partagé, l'odeur devient publique pour tout le monde : large point pour Yasmine sur ce sujet précis. Cela dit, Yasmine, ressortir systématiquement les cheveux dans la douche comme argument révèle que tu tiens toi aussi un compteur mental de fautes — et un compteur en coloc, ça finit toujours par mal tourner un jour ou l'autre. Le vrai sujet : vous n'avez jamais fixé de règles claires et écrites ensemble, donc chacun juge l'autre selon ses propres standards personnels de propreté. Un accord simple, du type « vaisselle sale lavée le soir même sans exception », vous éviterait probablement dix disputes similaires à l'avenir.",
-      pacteA:"J'arrête mon compteur mental de fautes et je propose une vraie règle commune établie ensemble.",
-      pacteB:"Je lave dans la journée qui suit, jamais « un jour vague ». La stratégie du trempage prolongé, c'est terminé.",
-      mot:"Une coloc qui pose ses règles clairement, c'est une coloc qui dure longtemps." }
-  },
-  {
-    id:"d09", cat:"Couple", emoji:"🎮", title:"Il a raté notre dîner pour un raid en ligne",
-    a:"Emma", b:"Lucas", hook:"Table réservée à 20h. Lui, casque vissé, « deux minutes ».",
-    msgs:[
-      {r:"A",n:"Emma",t:"J'avais réservé notre table depuis deux semaines pour notre premier anniversaire de couple. À 20h, tu étais encore en plein raid, casque sur les oreilles, tu m'as dit « deux minutes, on ne peut pas lâcher là en plein milieu ». On est arrivés à 21h passées, le restaurant avait déjà redonné notre table à quelqu'un d'autre."},
-      {r:"B",n:"Lucas",t:"C'était un raid de guilde important, si j'avais lâché en plein milieu j'aurais plombé sept autres personnes qui comptaient sur moi ce soir-là pour terminer ce donjon qu'on préparait depuis des semaines. Je ne pouvais pas juste déconnecter sans prévenir tout le monde."},
-      {r:"A",n:"Emma",t:"Donc sept inconnus derrière un écran passent avant notre soirée d'anniversaire qu'on avait planifiée ensemble depuis longtemps. C'est exactement le problème que je te remonte depuis des mois, tu ne le vois juste jamais avant qu'il soit trop tard."},
-      {r:"B",n:"Lucas",t:"Formulé comme ça, je comprends mieux à quel point ça a dû être blessant de m'attendre pour rien pendant une heure. J'aurais pu prévenir la guilde à l'avance que ce soir j'étais indisponible après 19h45."},
-    ],
-    v:{ pctA:78, pctB:22,
-      analyse:"Lucas, un engagement envers une équipe de jeu peut être réel et légitime — mais ça se planifie à l'avance, et ça ne passe jamais devant un dîner d'anniversaire réservé depuis deux semaines. Faire perdre la table à Emma pour ne pas « plomber » des coéquipiers en ligne, c'était un choix, et clairement le mauvais : gros point pour Emma. Le vrai sujet dépasse le jeu vidéo lui-même : Emma ne t'attaque pas sur ta passion, elle constate un classement de priorités où elle finit systématiquement en dernier quand un imprévu numérique se présente. Une passion n'est jamais le problème ; c'est le moment où elle t'empêche d'honorer la personne en face de toi qui l'est vraiment.",
-      pacteA:"Je dirai mon besoin de me sentir prioritaire sans mépriser ta passion pour autant.",
-      pacteB:"Je préviens ma guilde des dates qui comptent à l'avance. Emma passe avant le raid, sans exception.",
-      mot:"Une passion se planifie. Un anniversaire ne se rejoue jamais." }
-  },
-  {
-    id:"d16", cat:"Famille", emoji:"🎄", title:"Noël chez sa mère ou la mienne ?",
-    a:"Léa", b:"Antoine", hook:"Deux familles qui attendent. Un seul 25 décembre. Zéro solution en vue.",
-    msgs:[
-      {r:"A",n:"Léa",t:"Ça fait trois années consécutives qu'on passe systématiquement le 25 décembre chez ta mère à toi, sans aucune alternance. Cette année c'est censé être mon tour, et ma grand-mère vieillit sérieusement, je veux vraiment être présente auprès d'elle. Tu me réponds « on verra » depuis maintenant six semaines complètes sans jamais trancher."},
-      {r:"B",n:"Antoine",t:"Ma mère prépare son repas de Noël depuis le mois d'octobre déjà, elle a déjà tout commandé et organisé pour nous recevoir. Si on annule maintenant à la dernière minute, elle va être complètement dévastée et je vais culpabiliser pendant toute une année entière derrière."},
-      {r:"A",n:"Léa",t:"Et ma propre culpabilité à moi, si je rate peut-être l'un des derniers Noëls de ma grand-mère pendant qu'elle est encore là, elle ne compte pour rien dans cette équation ? Tu ne sembles jamais mettre nos deux détresses sur la même balance équitable."},
-      {r:"B",n:"Antoine",t:"Ce n'est vraiment pas ce que j'essaie de dire, loin de là. Mais ma mère vit seule toute l'année, alors que la tienne a toute une famille nombreuse autour d'elle en permanence, c'est different selon moi."},
-    ],
-    v:{ pctA:72, pctB:28,
-      analyse:"Léa, tu as l'argument objectif du temps qui passe : trois années identiques d'affilée chez la même famille, plus l'urgence réelle de ta grand-mère vieillissante. Antoine, ta loyauté envers ta mère isolée est belle et compréhensible en soi, mais elle t'a progressivement transformé en otage silencieux : répondre « on verra » pendant six semaines entières, c'est éviter la décision plutôt que la peser honnêtement des deux côtés. Point net pour Léa sur ce dossier. Le vrai sujet dépasse largement Noël lui-même : Antoine, tu as tellement peur de décevoir ta propre mère que tu finis par décevoir ta compagne par défaut, année après année, sans même t'en rendre pleinement compte. Tant que tu ne poseras pas une limite tendre mais ferme avec elle, Léa passera toujours en second — et aucune dinde de Noël ne réparera durablement ce déséquilibre installé.",
-      pacteA:"Je propose une vraie alternance écrite et actée entre nos deux familles, pas une bataille répétée chaque décembre.",
-      pacteB:"Je parle à ma mère avec amour mais fermeté assumée. Cette année, sans détour, on va chez Léa comme prévu.",
-      mot:"On peut aimer sa mère et choisir pleinement sa compagne. Les deux à la fois." }
-  },
-  {
     id:"d02", cat:"Intime", emoji:"👀", title:"Elle revoit son ex, « juste un ami »",
     a:"Thibault", b:"Camille", hook:"Sept déjeuners en deux mois. « Juste un ami », dit-elle.",
     msgs:[
@@ -110,79 +50,19 @@ window.DISPUTES = [
       mot:"Une amitié honnête n'a jamais besoin d'être cachée." }
   },
   {
-    id:"d19", cat:"Amis", emoji:"💸", title:"Elle ne rembourse jamais sa part",
-    a:"Manon", b:"Jade", hook:"Trois ans d'amitié fidèle, 400 € de restos « on partage moitié-moitié ».",
+    id:"d09", cat:"Couple", emoji:"🎮", title:"Il a raté notre dîner pour une game",
+    a:"Emma", b:"Lucas", hook:"Table réservée à 20h. Lui, en pleine ranked, « deux minutes ».",
     msgs:[
-      {r:"A",n:"Manon",t:"À chaque restaurant qu'on fait ensemble depuis des années, c'est systématiquement la même phrase : « je te fais un virement ce soir sans faute ». Le virement en question n'arrive jamais réellement, à aucun moment. J'ai fait précisément les comptes récemment : presque 400 euros accumulés sur trois années complètes. Là, j'ai avancé intégralement notre week-end à Lisbonne et tu esquives clairement depuis mon dernier message à ce sujet."},
-      {r:"B",n:"Jade",t:"Tu as vraiment gardé des comptes précis pendant trois années entières sur notre amitié ? Je pensais sincèrement qu'entre vraies amies proches, on ne calculait pas les choses de cette façon comptable. Ça me met terriblement mal à l'aise que tu aies visiblement un tableau Excel détaillé sur notre relation d'amitié."},
-      {r:"A",n:"Manon",t:"Je ne comptais absolument rien au départ, jusqu'à ce que ça devienne un schéma systématique et que ça commence sérieusement à peser sur mon propre budget mensuel. Je ne suis clairement pas ta banque personnelle disponible à volonté."},
-      {r:"B",n:"Jade",t:"D'accord, je te dois réellement de l'argent, j'assume totalement cette responsabilité maintenant. Mais tu aurais peut-être pu m'en parler bien avant que ça ne devienne officiellement un dossier chiffré entre nous deux."},
+      {r:"A",n:"Emma",t:"J'avais réservé notre table depuis deux semaines pour notre premier anniversaire de couple. À 20h, tu étais encore en pleine partie classée, casque sur les oreilles, tu m'as dit « deux minutes, on est en train de gagner, je peux pas quitter là ». On est arrivés à 21h passées, le resto avait déjà redonné notre table."},
+      {r:"B",n:"Lucas",t:"C'était une game importante avec mon équipe, si j'avais quitté en plein milieu de la partie j'aurais fait perdre du LP à quatre potes qui comptaient sur moi ce soir-là, et en plus ça aurait été un abandon qui pénalise tout le monde. Je pouvais pas juste déco en pleine ranked sans prévenir personne."},
+      {r:"A",n:"Emma",t:"Donc ton classement sur un jeu vidéo passe avant notre soirée d'anniversaire qu'on avait prévue ensemble depuis longtemps. C'est exactement le truc que je te remonte depuis des mois, tu percutes jamais avant qu'il soit trop tard."},
+      {r:"B",n:"Lucas",t:"Dit comme ça, je capte mieux à quel point ça a dû être blessant de m'attendre pour rien pendant une heure. J'aurais largement pu prévenir mon équipe à l'avance que ce soir j'étais indispo après 19h45, y'a pas mort d'homme."},
     ],
-    v:{ pctA:69, pctB:31,
-      analyse:"Manon, une dette occasionnelle entre amies proches, on laisse généralement couler sans y penser deux fois. Mais 400 euros accumulés de façon systématique qui pèsent concrètement sur ton budget personnel, ce n'est plus du tout anodin : point clair pour toi sur ce sujet précis. Jade, te sentir gênée par un « tableau Excel » évoqué est parfaitement humain et compréhensible, mais c'est surtout un écran de fumée pratique : tu détournes la conversation vers la culpabilisation de Manon au lieu d'aborder frontalement le remboursement qui traîne depuis trois ans. Le vrai sujet : Manon a laissé filer volontairement pendant trois années entières par peur sincère d'abîmer votre amitié, et ce silence prolongé a laissé la dette gonfler jusqu'à cette explosion actuelle. Une amitié solide survit très bien à un « tu me dois 400 euros » dit clairement ; elle survit beaucoup moins bien à un ressentiment accumulé secrètement pendant des années.",
-      pacteA:"Je parlerai d'argent immédiatement la prochaine fois, avant que la situation ne pourrisse silencieusement entre nous.",
-      pacteB:"Je te rembourse intégralement par échéances dès cette semaine précise. Fini les « ce soir sans faute » qui restent sans suite concrète.",
-      mot:"Les bons comptes font vraiment les amitiés qui durent longtemps et sereinement." }
-  },
-  {
-    id:"d05", cat:"Intime", emoji:"💌", title:"Elle textote encore avec son ex",
-    a:"Sarah", b:"Diane", hook:"« Bonne nuit ma belle. » De son ex. À 23h58.",
-    msgs:[
-      {r:"A",n:"Sarah",t:"Ton téléphone a vibré sur la table, notification affichée : « Bonne nuit ma belle » de ton ex, à minuit moins deux. Ça fait six mois qu'on est ensemble et je découvre que vous vous écrivez encore des petits mots doux tous les soirs. Tu ne m'en as jamais parlé."},
-      {r:"B",n:"Diane",t:"C'est une habitude qu'on a gardée depuis notre rupture, ça n'a plus rien de romantique pour moi, c'est juste devenu un rituel affectueux entre nous, comme entre vieilles amies. Je comprends que ça puisse sembler bizarre vu de l'extérieur, mais pour moi ce n'est pas un sujet."},
-      {r:"A",n:"Sarah",t:"« Bonne nuit ma belle » tous les soirs, ce n'est pas neutre pour moi, même si tu ne le vis pas comme romantique. Le fait que tu ne m'en aies jamais parlé, alors que c'est quotidien, me fait sentir exclue d'un rituel intime qui existait avant moi et continue sans que je sache où il s'arrête."},
-      {r:"B",n:"Diane",t:"Je comprends mieux maintenant que ce n'est pas une question de confiance en mon ex, mais de me sentir mise à l'écart d'un rituel qui te semble bizarre venant de l'extérieur. Je peux en discuter avec elle, ou changer la formule, sans couper le contact complètement."},
-    ],
-    v:{ pctA:63, pctB:37,
-      analyse:"Diane, garder une tendresse avec une ex après une rupture peut être sain et ne mérite pas d'être jugé en soi — mais un rituel quotidien et affectueux gardé secret pendant six mois de relation, ce n'est plus une simple habitude anodine, c'est un espace intime que Sarah découvre sans y avoir jamais été invitée. Léger avantage à Sarah, pas parce que ton amitié est un problème, mais parce que le secret autour d'elle en devient un. Ta proposition finale — en parler avec ton ex plutôt que couper — est la bonne approche : mature, sans sacrifice inutile. Le vrai sujet : Sarah ne demande pas la fin de cette amitié, elle demande à ne plus la découvrir par surprise sur un écran qui s'allume à minuit.",
-      pacteA:"Je dis mon malaise sans exiger la fin de cette amitié, juste plus de visibilité dessus.",
-      pacteB:"J'intègre Sarah dans ce que je vis avec mon ex, au lieu de le garder dans un coin secret.",
-      mot:"Une tendresse passée n'a pas besoin d'être secrète pour rester sincère." }
-  },
-  {
-    id:"d10", cat:"Couple", emoji:"🧹", title:"La charge mentale invisible",
-    a:"Hélène", b:"Bruno", hook:"« Tu n'avais qu'à demander. » Elle a demandé, pendant 4 ans.",
-    msgs:[
-      {r:"A",n:"Hélène",t:"Les rendez-vous médecin des enfants, les cadeaux d'anniversaire pour toute la famille, le stock de papier toilette, le dentiste, les papiers de l'école : c'est moi, tout le temps, sans exception depuis quatre ans. Quand je craque et que je te le dis, tu réponds toujours « tu n'avais qu'à demander », mais demander, c'est encore un travail mental que je dois faire en plus."},
-      {r:"B",n:"Bruno",t:"Mais je t'aide dès que tu me dis précisément quoi faire, je passe l'aspirateur, je fais la vaisselle presque tous les soirs, je vais chercher les enfants à l'école deux fois par semaine. Je ne refuse jamais une tâche qu'on me donne, tu ne peux pas dire que je ne fais rien à la maison."},
-      {r:"A",n:"Hélène",t:"« Dès que je te dis quoi faire », voilà exactement le problème que je pointe depuis le début. Tu es un excellent exécutant qui attend les ordres, alors que moi je suis la cheffe de projet vingt-quatre heures sur vingt-quatre qui n'a jamais de vraie pause mentale, et ce n'est pas du tout la même fatigue."},
-      {r:"B",n:"Bruno",t:"Je crois que je n'avais vraiment jamais compris que penser à tout, anticiper tout, était un travail en soi, distinct des tâches elles-mêmes. Je voyais uniquement les tâches concrètes à accomplir, jamais la charge invisible de devoir y penser en amont."},
-    ],
-    v:{ pctA:79, pctB:21,
-      analyse:"Hélène, tu mets des mots précis sur l'une des inégalités les plus invisibles du couple moderne : la différence fondamentale entre exécuter une tâche qu'on te donne et porter la responsabilité complète d'y penser, de l'anticiper, de la planifier. « Tu n'avais qu'à demander » place toute la charge d'anticipation sur toi seule, et c'est épuisant précisément parce que ça ne se voit jamais de l'extérieur. Gros point pour toi. Bruno, tu n'es ni paresseux ni de mauvaise foi — tu participes réellement quand on te sollicite — mais tu confonds depuis longtemps « aider ponctuellement » et « co-porter la charge au même niveau », et ta prise de conscience finale est le vrai point de départ d'un changement. Tant que l'un demande et l'autre exécute, il n'y a pas deux adultes qui gèrent un foyer ensemble, il y en a un qui délègue en permanence et un qui obéit sans jamais anticiper.",
-      pacteA:"Je lâche des domaines entiers de gestion au lieu de tout superviser depuis le dessus.",
-      pacteB:"Je prends la responsabilité complète de domaines précis : je pense, j'anticipe, je gère sans qu'on me le demande.",
-      mot:"Partager la charge, ce n'est pas aider — c'est porter, ensemble, au même niveau." }
-  },
-  {
-    id:"d15", cat:"Coloc", emoji:"🔥", title:"Son copain vit ici sans jamais participer",
-    a:"Adam", b:"Sofia", hook:"Trois personnes dans l'appart. Deux sur le bail. Une qui vide le frigo.",
-    msgs:[
-      {r:"A",n:"Adam",t:"Ton copain est présent six nuits sur sept depuis maintenant deux mois. Il utilise l'eau chaude tous les jours, le chauffage, notre wifi, il vide régulièrement le frigo commun. On paie les charges à deux officiellement, mais on vit clairement à trois au quotidien. Soit il participe financièrement, soit il lève un peu le pied sur sa présence."},
-      {r:"B",n:"Sofia",t:"C'est mon copain, il dort dans ma chambre à moi, il ne prend littéralement aucune place supplémentaire dans l'appartement commun. Tu veux vraiment qu'on facture officiellement mon histoire d'amour comme une colocation payante ?"},
-      {r:"A",n:"Adam",t:"Je ne facture absolument pas ton histoire d'amour, je facture les trente pour cent de charges en plus qu'on paie depuis qu'il squatte pratiquement à temps plein ici. Regarde simplement la dernière facture d'électricité, elle a littéralement explosé ce mois-ci."},
-      {r:"B",n:"Sofia",t:"D'accord, la facture a vraiment monté, c'est un fait indéniable que je ne peux pas nier. Mais le mot « squatte » est méchant venant de toi, c'est quelqu'un que j'aime profondément, pas un intrus quelconque."},
-    ],
-    v:{ pctA:71, pctB:29,
-      analyse:"Adam, ta demande reste purement factuelle : une présence quasi permanente qui consomme concrètement les charges communes doit logiquement contribuer d'une façon ou d'une autre. La facture qui grimpe nettement te donne objectivement raison sur le fond. Point pour toi. Sofia, l'amour n'est absolument pas en cause ici et personne ne le remet en question — mais « il ne prend pas de place » devient faux dès qu'on parle concrètement d'eau chaude, de chauffage et de nourriture partagée au quotidien. Le vrai sujet : une frontière floue et jamais posée entre « invité occasionnel » et « habitant à temps plein » qui pèse financièrement sur Adam seul. La solution n'est pas d'exclure ton amour de l'appartement, c'est simplement de nommer la réalité ensemble : au-delà d'un certain nombre de nuits par mois, on participe équitablement.",
-      pacteA:"Je propose un seuil clair de nuits et une participation équitable, sans jamais viser ta relation en elle-même.",
-      pacteB:"J'accepte qu'il participe financièrement aux charges quand il est présent aussi souvent. C'est simplement juste envers toi.",
-      mot:"L'amour est gratuit. L'eau chaude, elle, ne l'est jamais." }
-  },
-  {
-    id:"d17", cat:"Famille", emoji:"👶", title:"Sa mère débarque sans prévenir avec le bébé",
-    a:"Julie", b:"Marc", hook:"« Je passais dans le coin. » À 7h30. Avec un double des clés.",
-    msgs:[
-      {r:"A",n:"Julie",t:"Ta mère possède un double de nos clés officiellement « pour les urgences uniquement ». Ce matin elle débarque chez nous à 7h30 pendant que j'allaite tranquillement, en peignoir je te rappelle, avec un simple « je passais dans le coin par hasard ». Elle a pris notre bébé dans ses bras sans même me demander mon accord au préalable. Je n'ai plus aucune intimité chez moi désormais."},
-      {r:"B",n:"Marc",t:"Elle est folle amoureuse de son petit-fils, elle veut simplement aider autant qu'elle peut. Tu sais à quel point elle attendait ce bébé depuis des années. Lui retirer les clés maintenant, ça va vraiment la briser émotionnellement, j'en suis certain."},
-      {r:"A",n:"Julie",t:"Et moi dans tout ça ? Je me sens littéralement en visite permanente dans mon propre logement. J'ai désespérément besoin de souffler un peu, de créer notre bulle intime à trois, pas d'être inspectée à 7h30 du matin sans prévenir."},
-      {r:"B",n:"Marc",t:"Je comprends ta détresse, sincèrement... mais entre ma mère et toi, je me sens complètement écartelé au milieu, sans savoir comment gérer la situation sans blesser l'une de vous deux."},
-    ],
-    v:{ pctA:76, pctB:24,
-      analyse:"Julie, une jeune mère a un droit fondamental à son intimité, particulièrement durant les premières semaines fragiles après l'accouchement. Une belle-mère qui entre avec les clés à 7h30 et prend le bébé sans demander la moindre autorisation, aussi aimante soit-elle par ailleurs, franchit clairement une frontière essentielle. Net avantage pour toi sur ce point précis. Marc, ton amour sincère pour ta mère et ta peur réelle de la « briser » émotionnellement sont compréhensibles, mais ils t'ont placé en position de spectateur passif pendant que ta compagne étouffe littéralement chez elle. Le vrai sujet : tu dois passer du statut d'« écartelé entre deux femmes » à celui de protecteur affirmé de votre foyer commun. Poser un cadre clair à ta mère — sonner avant d'entrer, prévenir systématiquement, rendre les clés — n'est absolument pas la trahir, c'est simplement protéger la bulle dont votre nouveau-né a désespérément besoin pour grandir sereinement.",
-      pacteA:"Je dis mon besoin vital d'intimité sans culpabiliser, c'est parfaitement légitime dans ma situation.",
-      pacteB:"Je parle à ma mère avec toute ma tendresse mais fermement : on sonne désormais, on prévient toujours avant. Je protège notre bulle familiale.",
-      mot:"Un nid a besoin de calme véritable pour grandir sereinement. Protégez le vôtre sans culpabiliser." }
+    v:{ pctA:78, pctB:22,
+      analyse:"Lucas, un engagement envers ton équipe en ligne peut être réel et légitime — perdre une game classée par abandon, ça compte pour de vrai. Mais ça se planifie à l'avance, et ça ne passe jamais devant un dîner d'anniversaire réservé depuis deux semaines. Faire perdre la table à Emma pour ne pas plomber une partie de rang, c'était un choix, et clairement le mauvais : gros point pour Emma. Le vrai sujet dépasse le jeu vidéo lui-même : Emma ne t'attaque pas sur ta passion, elle constate un classement de priorités où elle finit systématiquement en dernier quand un imprévu numérique se présente. Une passion n'est jamais le problème ; c'est le moment où elle t'empêche d'honorer la personne en face de toi qui l'est vraiment.",
+      pacteA:"Je dirai mon besoin de me sentir prioritaire sans mépriser ta passion pour autant.",
+      pacteB:"Je préviens mon équipe des dates qui comptent, à l'avance. Emma passe avant la ranked, sans exception.",
+      mot:"Une passion se planifie. Un anniversaire ne se rejoue jamais." }
   },
   {
     id:"d03", cat:"Intime", emoji:"🔥", title:"« Mon corps m'appartient », dit-elle",
@@ -200,6 +80,36 @@ window.DISPUTES = [
       mot:"La liberté et l'amour ont juste besoin d'un cadre dit à voix haute." }
   },
   {
+    id:"d10", cat:"Couple", emoji:"🧹", title:"La charge mentale invisible",
+    a:"Hélène", b:"Bruno", hook:"« Tu n'avais qu'à demander. » Elle a demandé, pendant 4 ans.",
+    msgs:[
+      {r:"A",n:"Hélène",t:"Les rendez-vous médecin des enfants, les cadeaux d'anniversaire pour toute la famille, le stock de papier toilette, le dentiste, les papiers de l'école : c'est moi, tout le temps, sans exception depuis quatre ans. Quand je craque et que je te le dis, tu réponds toujours « tu n'avais qu'à demander », mais demander, c'est encore un travail mental que je dois faire en plus."},
+      {r:"B",n:"Bruno",t:"Mais je t'aide dès que tu me dis précisément quoi faire, je passe l'aspirateur, je fais la vaisselle presque tous les soirs, je vais chercher les enfants à l'école deux fois par semaine. Je ne refuse jamais une tâche qu'on me donne, tu ne peux pas dire que je ne fais rien à la maison."},
+      {r:"A",n:"Hélène",t:"« Dès que je te dis quoi faire », voilà exactement le problème que je pointe depuis le début. Tu es un excellent exécutant qui attend les ordres, alors que moi je suis la cheffe de projet vingt-quatre heures sur vingt-quatre qui n'a jamais de vraie pause mentale, et ce n'est pas du tout la même fatigue."},
+      {r:"B",n:"Bruno",t:"Je crois que je n'avais vraiment jamais compris que penser à tout, anticiper tout, était un travail en soi, distinct des tâches elles-mêmes. Je voyais uniquement les tâches concrètes à accomplir, jamais la charge invisible de devoir y penser en amont."},
+    ],
+    v:{ pctA:79, pctB:21,
+      analyse:"Hélène, tu mets des mots précis sur l'une des inégalités les plus invisibles du couple moderne : la différence fondamentale entre exécuter une tâche qu'on te donne et porter la responsabilité complète d'y penser, de l'anticiper, de la planifier. « Tu n'avais qu'à demander » place toute la charge d'anticipation sur toi seule, et c'est épuisant précisément parce que ça ne se voit jamais de l'extérieur. Gros point pour toi. Bruno, tu n'es ni paresseux ni de mauvaise foi — tu participes réellement quand on te sollicite — mais tu confonds depuis longtemps « aider ponctuellement » et « co-porter la charge au même niveau », et ta prise de conscience finale est le vrai point de départ d'un changement. Tant que l'un demande et l'autre exécute, il n'y a pas deux adultes qui gèrent un foyer ensemble, il y en a un qui délègue en permanence et un qui obéit sans jamais anticiper.",
+      pacteA:"Je lâche des domaines entiers de gestion au lieu de tout superviser depuis le dessus.",
+      pacteB:"Je prends la responsabilité complète de domaines précis : je pense, j'anticipe, je gère sans qu'on me le demande.",
+      mot:"Partager la charge, ce n'est pas aider — c'est porter, ensemble, au même niveau." }
+  },
+  {
+    id:"d04", cat:"Intime", emoji:"📱", title:"Il est toujours actif sur Grindr",
+    a:"Thomas", b:"Karim", hook:"« Actif à l'instant. » Sur l'appli qu'il jure avoir supprimée.",
+    msgs:[
+      {r:"A",n:"Thomas",t:"On s'est mis d'accord il y a trois mois pour être exclusifs et supprimer les applis de rencontre. Hier soir, sur le compte d'un pote qui cherchait un profil, je tombe sur le tien, « actif à l'instant », avec des photos qu'on a prises ensemble en vacances. Tu m'avais juré l'avoir supprimée."},
+      {r:"B",n:"Karim",t:"Je l'ai gardée juste pour discuter avec des potes du milieu, je ne cherche personne, je ne réponds à aucun message de drague, c'est presque devenu comme un réseau social pour moi. Je ne t'ai pas menti sur l'essentiel, on est exclusifs et ça ne change pas."},
+      {r:"A",n:"Thomas",t:"Le problème, ce n'est pas si tu dragues ou pas, c'est que tu m'as dit une chose et fait l'inverse en silence pendant trois mois. Si garder l'appli n'était pas grave, pourquoi ne pas simplement me le dire au lieu de me laisser croire qu'elle avait disparu ?"},
+      {r:"B",n:"Karim",t:"Parce que je savais que ça te contrarierait même si mon intention était innocente, alors j'ai évité le sujet au lieu de l'assumer. En le disant comme ça, je réalise que ce n'est pas très différent de mentir."},
+    ],
+    v:{ pctA:74, pctB:26,
+      analyse:"Karim, l'intention derrière l'appli — discuter, réseauter — n'est peut-être pas malveillante, mais ce n'est pas la question posée. La question, c'est : un accord explicite pris à deux (supprimer les applis, être exclusifs) a été rompu en silence pendant trois mois, et découvert par accident plutôt que dit ouvertement. Ce point est net en faveur de Thomas. Ta lucidité finale — reconnaître que le silence ressemble à un mensonge même sans mauvaise intention — est précieuse et montre que tu peux entendre l'impact sans minimiser. Le vrai sujet : dans un couple, un accord qu'on ne respecte plus doit être renégocié à voix haute, jamais contourné en douce, même pour des raisons qui semblent inoffensives de l'intérieur.",
+      pacteA:"Je te dis ma peur sans t'accuser d'avance la prochaine fois qu'un doute apparaît.",
+      pacteB:"Je supprime vraiment l'appli, et si nos règles doivent changer, j'en parle avant, pas après.",
+      mot:"Un accord de couple se renégocie à voix haute, jamais en silence." }
+  },
+  {
     id:"d11", cat:"Couple", emoji:"🎂", title:"Il a oublié mon anniversaire, pas le match",
     a:"Awa", b:"Greg", hook:"Minuit, aucun message. Mais un rappel « MATCH 21H » depuis une semaine.",
     msgs:[
@@ -213,6 +123,36 @@ window.DISPUTES = [
       pacteA:"Je dis mon besoin de compter pour toi au lieu d'encaisser en silence chaque année qui passe.",
       pacteB:"Je mets tes dates importantes dans mon agenda exactement comme mes matchs. Tu passes en tête, sans exception.",
       mot:"Ce qu'on prend le temps de noter, c'est ce qui compte vraiment." }
+  },
+  {
+    id:"d05", cat:"Intime", emoji:"💌", title:"Elle textote encore avec son ex",
+    a:"Sarah", b:"Diane", hook:"« Bonne nuit ma belle. » De son ex. À 23h58.",
+    msgs:[
+      {r:"A",n:"Sarah",t:"Ton téléphone a vibré sur la table, notification affichée : « Bonne nuit ma belle » de ton ex, à minuit moins deux. Ça fait six mois qu'on est ensemble et je découvre que vous vous écrivez encore des petits mots doux tous les soirs. Tu ne m'en as jamais parlé."},
+      {r:"B",n:"Diane",t:"C'est une habitude qu'on a gardée depuis notre rupture, ça n'a plus rien de romantique pour moi, c'est juste devenu un rituel affectueux entre nous, comme entre vieilles amies. Je comprends que ça puisse sembler bizarre vu de l'extérieur, mais pour moi ce n'est pas un sujet."},
+      {r:"A",n:"Sarah",t:"« Bonne nuit ma belle » tous les soirs, ce n'est pas neutre pour moi, même si tu ne le vis pas comme romantique. Le fait que tu ne m'en aies jamais parlé, alors que c'est quotidien, me fait sentir exclue d'un rituel intime qui existait avant moi et continue sans que je sache où il s'arrête."},
+      {r:"B",n:"Diane",t:"Je comprends mieux maintenant que ce n'est pas une question de confiance en mon ex, mais de me sentir mise à l'écart d'un rituel qui te semble bizarre venant de l'extérieur. Je peux en discuter avec elle, ou changer la formule, sans couper le contact complètement."},
+    ],
+    v:{ pctA:63, pctB:37,
+      analyse:"Diane, garder une tendresse avec une ex après une rupture peut être sain et ne mérite pas d'être jugé en soi — mais un rituel quotidien et affectueux gardé secret pendant six mois de relation, ce n'est plus une simple habitude anodine, c'est un espace intime que Sarah découvre sans y avoir jamais été invitée. Léger avantage à Sarah, pas parce que ton amitié est un problème, mais parce que le secret autour d'elle en devient un. Ta proposition finale — en parler avec ton ex plutôt que couper — est la bonne approche : mature, sans sacrifice inutile. Le vrai sujet : Sarah ne demande pas la fin de cette amitié, elle demande à ne plus la découvrir par surprise sur un écran qui s'allume à minuit.",
+      pacteA:"Je dis mon malaise sans exiger la fin de cette amitié, juste plus de visibilité dessus.",
+      pacteB:"J'intègre Sarah dans ce que je vis avec mon ex, au lieu de le garder dans un coin secret.",
+      mot:"Une tendresse passée n'a pas besoin d'être secrète pour rester sincère." }
+  },
+  {
+    id:"d19", cat:"Amis", emoji:"💸", title:"Elle ne rembourse jamais sa part",
+    a:"Manon", b:"Jade", hook:"Trois ans d'amitié fidèle, 400 € de restos « on partage moitié-moitié ».",
+    msgs:[
+      {r:"A",n:"Manon",t:"À chaque restaurant qu'on fait ensemble depuis des années, c'est systématiquement la même phrase : « je te fais un virement ce soir sans faute ». Le virement en question n'arrive jamais réellement, à aucun moment. J'ai fait précisément les comptes récemment : presque 400 euros accumulés sur trois années complètes. Là, j'ai avancé intégralement notre week-end à Lisbonne et tu esquives clairement depuis mon dernier message à ce sujet."},
+      {r:"B",n:"Jade",t:"Tu as vraiment gardé des comptes précis pendant trois années entières sur notre amitié ? Je pensais sincèrement qu'entre vraies amies proches, on ne calculait pas les choses de cette façon comptable. Ça me met terriblement mal à l'aise que tu aies visiblement un tableau Excel détaillé sur notre relation d'amitié."},
+      {r:"A",n:"Manon",t:"Je ne comptais absolument rien au départ, jusqu'à ce que ça devienne un schéma systématique et que ça commence sérieusement à peser sur mon propre budget mensuel. Je ne suis clairement pas ta banque personnelle disponible à volonté."},
+      {r:"B",n:"Jade",t:"D'accord, je te dois réellement de l'argent, j'assume totalement cette responsabilité maintenant. Mais tu aurais peut-être pu m'en parler bien avant que ça ne devienne officiellement un dossier chiffré entre nous deux."},
+    ],
+    v:{ pctA:69, pctB:31,
+      analyse:"Manon, une dette occasionnelle entre amies proches, on laisse généralement couler sans y penser deux fois. Mais 400 euros accumulés de façon systématique qui pèsent concrètement sur ton budget personnel, ce n'est plus du tout anodin : point clair pour toi sur ce sujet précis. Jade, te sentir gênée par un « tableau Excel » évoqué est parfaitement humain et compréhensible, mais c'est surtout un écran de fumée pratique : tu détournes la conversation vers la culpabilisation de Manon au lieu d'aborder frontalement le remboursement qui traîne depuis trois ans. Le vrai sujet : Manon a laissé filer volontairement pendant trois années entières par peur sincère d'abîmer votre amitié, et ce silence prolongé a laissé la dette gonfler jusqu'à cette explosion actuelle. Une amitié solide survit très bien à un « tu me dois 400 euros » dit clairement ; elle survit beaucoup moins bien à un ressentiment accumulé secrètement pendant des années.",
+      pacteA:"Je parlerai d'argent immédiatement la prochaine fois, avant que la situation ne pourrisse silencieusement entre nous.",
+      pacteB:"Je te rembourse intégralement par échéances dès cette semaine précise. Fini les « ce soir sans faute » qui restent sans suite concrète.",
+      mot:"Les bons comptes font vraiment les amitiés qui durent longtemps et sereinement." }
   },
   {
     id:"d06", cat:"Intime", emoji:"🎭", title:"Sorti en boîte comme célibataire",
@@ -230,21 +170,6 @@ window.DISPUTES = [
       mot:"Un mariage ne devrait jamais être une case qu'on coche selon l'endroit." }
   },
   {
-    id:"d20", cat:"Amis", emoji:"🎤", title:"Il a annulé mon anniversaire pour un date",
-    a:"Dylan", b:"Marco", hook:"« Je serai là, c'est sûr. » Deux heures avant : « désolé, imprévu ».",
-    msgs:[
-      {r:"A",n:"Dylan",t:"Pour mon anniversaire, j'avais réservé une salle entière depuis des semaines et compté sérieusement sur ta présence, tu avais confirmé au moins dix fois différentes « je serai là c'est absolument sûr ». À 18h précises, deux heures seulement avant l'événement, tu m'écris « désolé mec, un imprévu de dernière minute ». J'apprends ensuite, par un ami commun, que ton « imprévu » était en réalité un date Tinder programmé depuis plusieurs jours."},
-      {r:"B",n:"Marco",t:"Ça faisait littéralement des semaines que je discutais avec cette fille en ligne, et elle n'était disponible que ce soir précis-là, c'était vraiment ma seule et unique chance de la rencontrer enfin. Je me suis dit intérieurement que tu comprendrais la situation, on est amis depuis quinze années entières quand même."},
-      {r:"A",n:"Dylan",t:"Justement, quinze années d'amitié fidèle, et tu me lâches littéralement pour un tout premier date au tout dernier moment possible sans même me prévenir à l'avance ? Si tu m'avais dit la vérité une semaine avant l'événement, j'aurais probablement compris sans problème majeur. Là, c'est clairement le mensonge sur le motif et le timing catastrophique qui posent vraiment problème entre nous."},
-      {r:"B",n:"Marco",t:"Ouais... j'ai effectivement menti sciemment sur le motif réel parce que je savais pertinemment que ça sonnerait mal une fois dit clairement. Et te lâcher deux heures seulement avant ton événement, c'est objectivement indéfendable de ma part, je le reconnais sans détour maintenant."},
-    ],
-    v:{ pctA:80, pctB:20,
-      analyse:"Marco, deux fautes distinctes se cumulent clairement contre toi dans cette histoire : le lâchage à peine deux heures avant un événement réservé de longue date, et surtout le mensonge délibéré sur le motif réel de ton absence. Une rencontre amoureuse qui compte vraiment pour toi peut parfaitement se défendre en soi — mais elle se dit honnêtement à l'avance, pas en abandonnant un ami proche la veille avec un faux prétexte fabriqué de toutes pièces. Gros point pour Dylan sur ce dossier. À ton honneur cependant, tu ne te caches pas derrière des excuses fumeuses une fois confronté aux faits. Le vrai sujet : Dylan ne t'en veut pas fondamentalement d'avoir une vie amoureuse active, il t'en veut sincèrement d'avoir été traité comme l'option qu'on écarte sans ménagement dès qu'une opportunité plus excitante se présente, et surtout d'avoir été mené en bateau sciemment. Quinze années de confiance méritent objectivement la vérité, même quand elle est inconfortable à formuler sur le moment.",
-      pacteA:"Je dirai ma déception réelle au lieu de ravaler silencieusement et de m'éloigner progressivement sans explication.",
-      pacteB:"Je serai honnête sur mes choix personnels, même inconfortables à assumer, et je ne lâche plus jamais au tout dernier moment.",
-      mot:"Quinze années d'amitié valent largement une vérité inconfortable, même tardive." }
-  },
-  {
     id:"d12", cat:"Couple", emoji:"💍", title:"Elle a dit oui, puis a tout raconté avant lui",
     a:"Romain", b:"Chloé", hook:"La demande était un secret. Le groupe familial l'a su avant lui.",
     msgs:[
@@ -258,21 +183,6 @@ window.DISPUTES = [
       pacteA:"Je dis ce qui compte pour moi avant l'événement, pas ma déception seulement après coup.",
       pacteB:"Pour nos grands moments à deux, je propose « on annonce quand ensemble ? » avant de publier quoi que ce soit.",
       mot:"La plus belle nouvelle mérite d'être vécue à deux, en premier." }
-  },
-  {
-    id:"d18", cat:"Famille", emoji:"📞", title:"Il appelle sa mère cinq fois par jour",
-    a:"Selin", b:"Gaël", hook:"Dîner, cinéma, intimité : le téléphone sonne systématiquement. C'est toujours maman.",
-    msgs:[
-      {r:"A",n:"Selin",t:"Ta mère t'appelle littéralement cinq fois par jour en moyenne, et tu décroches systématiquement à chaque fois, même au restaurant, même en plein cinéma, même au lit pendant un moment intime entre nous. Hier soir précisément, en plein moment tendre à deux, ton téléphone sonne, tu réponds directement « oui maman ? » sans même hésiter une seconde. Je me sens en troisième position dans mon propre couple au quotidien."},
-      {r:"B",n:"Gaël",t:"Elle est âgée maintenant et vit complètement seule, si je ne réponds pas immédiatement je m'inquiète sérieusement qu'il lui soit arrivé quelque chose de grave. Tu voudrais sincèrement que j'ignore délibérément ma propre mère qui m'a élevé seule ? C'est aussi une question fondamentale de respect filial envers elle."},
-      {r:"A",n:"Selin",t:"Je ne te demande absolument pas de l'ignorer complètement, je te demande simplement de ne pas décrocher systématiquement en plein moment à deux pour un appel qui n'est presque jamais réellement urgent en pratique. Rappeler dix minutes après le moment intime, ça change vraiment tout pour moi."},
-      {r:"B",n:"Gaël",t:"C'est vrai que par pur réflexe automatique je décroche toujours, même quand objectivement rien ne presse vraiment dans l'instant. Je pourrais tout à fait filtrer intelligemment et rappeler juste après, sans jamais la négliger pour autant."},
-    ],
-    v:{ pctA:67, pctB:33,
-      analyse:"Selin, tu ne demandes absolument pas à Gaël de délaisser sa mère âgée et vivant seule — tu demandes uniquement que les moments d'intimité ne soient pas systématiquement interrompus pour des appels rarement urgents dans les faits. Cette nuance précise est parfaitement juste : point pour toi. Gaël, ton inquiétude légitime pour une mère seule est tout à fait honorable et compréhensible, mais « décrocher par pur réflexe même quand rien ne presse objectivement » révèle une automaticité qui déborde largement sur ton couple au quotidien. Ta solution finale — filtrer intelligemment et rappeler juste après — est exactement la bonne approche à adopter. Le vrai sujet : être un bon fils présent et un bon partenaire présent ne s'opposent absolument pas entre eux, sauf quand le premier réflexe automatique efface systématiquement le second sans même y réfléchir.",
-      pacteA:"Je dis mon besoin réel de moments protégés sans jamais attaquer frontalement ta relation à ta mère.",
-      pacteB:"Je filtre intelligemment les appels dans nos moments privilégiés à deux et je rappelle juste après. Personne n'est réellement négligé dans cette approche.",
-      mot:"On peut être un fils présent ET un partenaire présent, sans jamais sacrifier l'un pour l'autre." }
   },
   {
     id:"d07", cat:"Intime", emoji:"🌙", title:"Un baiser volé « qui ne compte pas »",
@@ -290,6 +200,96 @@ window.DISPUTES = [
       mot:"Le silence pèse toujours plus lourd que la maladresse qu'il cache." }
   },
   {
+    id:"d16", cat:"Famille", emoji:"🎄", title:"Noël chez sa mère ou la mienne ?",
+    a:"Léa", b:"Antoine", hook:"Deux familles qui attendent. Un seul 25 décembre. Zéro solution en vue.",
+    msgs:[
+      {r:"A",n:"Léa",t:"Ça fait trois années consécutives qu'on passe systématiquement le 25 décembre chez ta mère à toi, sans aucune alternance. Cette année c'est censé être mon tour, et ma grand-mère vieillit sérieusement, je veux vraiment être présente auprès d'elle. Tu me réponds « on verra » depuis maintenant six semaines complètes sans jamais trancher."},
+      {r:"B",n:"Antoine",t:"Ma mère prépare son repas de Noël depuis le mois d'octobre déjà, elle a déjà tout commandé et organisé pour nous recevoir. Si on annule maintenant à la dernière minute, elle va être complètement dévastée et je vais culpabiliser pendant toute une année entière derrière."},
+      {r:"A",n:"Léa",t:"Et ma propre culpabilité à moi, si je rate peut-être l'un des derniers Noëls de ma grand-mère pendant qu'elle est encore là, elle ne compte pour rien dans cette équation ? Tu ne sembles jamais mettre nos deux détresses sur la même balance équitable."},
+      {r:"B",n:"Antoine",t:"Ce n'est vraiment pas ce que j'essaie de dire, loin de là. Mais ma mère vit seule toute l'année, alors que la tienne a toute une famille nombreuse autour d'elle en permanence, c'est different selon moi."},
+    ],
+    v:{ pctA:72, pctB:28,
+      analyse:"Léa, tu as l'argument objectif du temps qui passe : trois années identiques d'affilée chez la même famille, plus l'urgence réelle de ta grand-mère vieillissante. Antoine, ta loyauté envers ta mère isolée est belle et compréhensible en soi, mais elle t'a progressivement transformé en otage silencieux : répondre « on verra » pendant six semaines entières, c'est éviter la décision plutôt que la peser honnêtement des deux côtés. Point net pour Léa sur ce dossier. Le vrai sujet dépasse largement Noël lui-même : Antoine, tu as tellement peur de décevoir ta propre mère que tu finis par décevoir ta compagne par défaut, année après année, sans même t'en rendre pleinement compte. Tant que tu ne poseras pas une limite tendre mais ferme avec elle, Léa passera toujours en second — et aucune dinde de Noël ne réparera durablement ce déséquilibre installé.",
+      pacteA:"Je propose une vraie alternance écrite et actée entre nos deux familles, pas une bataille répétée chaque décembre.",
+      pacteB:"Je parle à ma mère avec amour mais fermeté assumée. Cette année, sans détour, on va chez Léa comme prévu.",
+      mot:"On peut aimer sa mère et choisir pleinement sa compagne. Les deux à la fois." }
+  },
+  {
+    id:"d21", cat:"Intime", emoji:"👻", title:"Il parle encore à son ex, en cachette",
+    a:"Yasmine", b:"Enzo", hook:"Un appel de 47 minutes. Le numéro enregistré sous « Assurance ».",
+    msgs:[
+      {r:"A",n:"Yasmine",t:"J'ai vu passer un appel de 47 minutes sur ta facture en ligne, enregistré sous « Assurance ». J'ai composé le numéro par curiosité : c'est ton ex qui a décroché. Ça fait combien de temps que vous vous parlez planqués derrière un faux nom dans ton répertoire ?"},
+      {r:"B",n:"Enzo",t:"Genre trois mois, on avait juste besoin de solder des trucs du passé, y'avait des sujets qu'on avait jamais réglés entre nous. Je l'ai mise sous un faux nom parce que je savais que t'allais capter le truc de travers direct."},
+      {r:"A",n:"Yasmine",t:"« Solder des trucs » pendant 47 minutes, planqué sous un faux nom, trois mois de suite ? Wesh Enzo, tu m'as littéralement menti à chaque fois que je te demandais si tu lui parlais encore. C'est pas un malentendu, c'est un choix que t'as fait chaque jour."},
+      {r:"B",n:"Enzo",t:"Ouais j'ai menti, direct, pas d'excuse à te sortir. Je savais que c'était limite alors j'ai préféré cacher plutôt que gérer la discussion avec toi."},
+    ],
+    v:{ pctA:80, pctB:20,
+      analyse:"Enzo, un faux nom dans le répertoire pendant trois mois pour cacher des appels d'une quasi-heure, ce n'est plus de la discrétion, c'est une stratégie de dissimulation active et réfléchie. « Solder des trucs du passé » ne justifie ni la durée, ni la récurrence, ni surtout le mensonge répété chaque fois que Yasmine posait directement la question. Gros point pour elle. Ta franchise en fin de dispute, sans te trouver d'excuse, est le seul point positif ici, mais elle arrive après des mois de dissimulation organisée. Le vrai sujet : ce n'est pas le contact avec l'ex qui est en cause en soi, c'est le mensonge systématique qui l'a entouré. Yasmine ne pourra jamais te faire confiance tant que « cacher » restera ton réflexe face à un sujet inconfortable.",
+      pacteA:"Je dis clairement ce que j'ai besoin de savoir, sans t'accuser à l'avance sur tout.",
+      pacteB:"Je supprime le faux nom, et si je dois lui parler, tu le sais, sans détour.",
+      mot:"Un faux nom dans le répertoire, c'est déjà un mensonge en soi." }
+  },
+  {
+    id:"d20", cat:"Amis", emoji:"🎤", title:"Il a annulé mon anniversaire pour un date",
+    a:"Dylan", b:"Marco", hook:"« Je serai là, c'est sûr. » Deux heures avant : « désolé, imprévu ».",
+    msgs:[
+      {r:"A",n:"Dylan",t:"Pour mon anniversaire, j'avais réservé une salle entière depuis des semaines et compté sérieusement sur ta présence, tu avais confirmé au moins dix fois différentes « je serai là c'est absolument sûr ». À 18h précises, deux heures seulement avant l'événement, tu m'écris « désolé mec, un imprévu de dernière minute ». J'apprends ensuite, par un ami commun, que ton « imprévu » était en réalité un date Tinder programmé depuis plusieurs jours."},
+      {r:"B",n:"Marco",t:"Ça faisait littéralement des semaines que je discutais avec cette fille en ligne, et elle n'était disponible que ce soir précis-là, c'était vraiment ma seule et unique chance de la rencontrer enfin. Je me suis dit intérieurement que tu comprendrais la situation, on est amis depuis quinze années entières quand même."},
+      {r:"A",n:"Dylan",t:"Justement, quinze années d'amitié fidèle, et tu me lâches littéralement pour un tout premier date au tout dernier moment possible sans même me prévenir à l'avance ? Si tu m'avais dit la vérité une semaine avant l'événement, j'aurais probablement compris sans problème majeur. Là, c'est clairement le mensonge sur le motif et le timing catastrophique qui posent vraiment problème entre nous."},
+      {r:"B",n:"Marco",t:"Ouais... j'ai effectivement menti sciemment sur le motif réel parce que je savais pertinemment que ça sonnerait mal une fois dit clairement. Et te lâcher deux heures seulement avant ton événement, c'est objectivement indéfendable de ma part, je le reconnais sans détour maintenant."},
+    ],
+    v:{ pctA:80, pctB:20,
+      analyse:"Marco, deux fautes distinctes se cumulent clairement contre toi dans cette histoire : le lâchage à peine deux heures avant un événement réservé de longue date, et surtout le mensonge délibéré sur le motif réel de ton absence. Une rencontre amoureuse qui compte vraiment pour toi peut parfaitement se défendre en soi — mais elle se dit honnêtement à l'avance, pas en abandonnant un ami proche la veille avec un faux prétexte fabriqué de toutes pièces. Gros point pour Dylan sur ce dossier. À ton honneur cependant, tu ne te caches pas derrière des excuses fumeuses une fois confronté aux faits. Le vrai sujet : Dylan ne t'en veut pas fondamentalement d'avoir une vie amoureuse active, il t'en veut sincèrement d'avoir été traité comme l'option qu'on écarte sans ménagement dès qu'une opportunité plus excitante se présente, et surtout d'avoir été mené en bateau sciemment. Quinze années de confiance méritent objectivement la vérité, même quand elle est inconfortable à formuler sur le moment.",
+      pacteA:"Je dirai ma déception réelle au lieu de ravaler silencieusement et de m'éloigner progressivement sans explication.",
+      pacteB:"Je serai honnête sur mes choix personnels, même inconfortables à assumer, et je ne lâche plus jamais au tout dernier moment.",
+      mot:"Quinze années d'amitié valent largement une vérité inconfortable, même tardive." }
+  },
+  {
+    id:"d22", cat:"Intime", emoji:"🏋️", title:"Des « conseils sport » le week-end, téléphone verrouillé",
+    a:"Lucas", b:"Manon", hook:"Un message samedi 9h : « t'as bien dormi ? » De son pote de salle.",
+    msgs:[
+      {r:"A",n:"Manon",t:"Ton pote de la salle, celui qui te donne soi-disant des conseils programme, il t'écrit un samedi à 9h « t'as bien dormi ? ». Des conseils sport un week-end à cette heure-là, sérieux ? Et dès que je m'approche de ton tel tu le retournes ou tu le mets en veille direct."},
+      {r:"B",n:"Lucas",t:"C'est un coach informel, il connaît un max de trucs sur la prise de masse, on papote un peu de tout aussi, c'est un ami quoi. Je retourne mon tel par réflexe, pas parce que je cache un truc, j'ai juste horreur qu'on lise par-dessus mon épaule."},
+      {r:"A",n:"Manon",t:"« Par réflexe » depuis six mois, systématiquement, rien que quand c'est lui qui écrit ? Si c'était vraiment que du sport, montre-moi la conversation deux secondes, ça devrait pas te poser problème."},
+      {r:"B",n:"Lucas",t:"Je... j'ai pas vraiment envie de te le montrer en fait, pas parce qu'il se passe un truc, mais parce que j'ai l'impression que ça va être interprété de travers alors que c'est vraiment rien pour moi."},
+    ],
+    v:{ pctA:71, pctB:29,
+      analyse:"Lucas, « c'est vraiment rien » perd toute crédibilité au moment où tu refuses de montrer une conversation soi-disant anodine, alors que Manon ne demande même pas de couper ce contact, juste de voir. Ce refus précis, à ce moment précis, en dit plus que n'importe quel message retrouvé. Point pour Manon. Le sport n'est probablement pas le vrai sujet des échanges, et ce n'est même plus la question : c'est le réflexe systématique de dissimulation dès qu'un prénom précis apparaît à l'écran qui inquiète légitimement Manon. Le vrai sujet : une relation où l'un cache son téléphone par principe installe un climat de suspicion permanente, que le contenu soit innocent ou non.",
+      pacteA:"Je demande à voir une fois, calmement, sans en faire une habitude de surveillance permanente.",
+      pacteB:"Je te montre la conversation sans détour. Si j'ai rien à cacher, autant le prouver simplement.",
+      mot:"Ce qu'on refuse de montrer devient toujours plus suspect que ce qu'on montre." }
+  },
+  {
+    id:"d14", cat:"Coloc", emoji:"🧽", title:"La vaisselle qui « trempe » depuis 4 jours",
+    a:"Yasmine", b:"Hugo", hook:"« Ça trempe. » Quatre-vingt-seize heures plus tard, ça trempe encore.",
+    msgs:[
+      {r:"A",n:"Yasmine",t:"Ça fait officiellement quatre jours que ta poêle « trempe » tranquillement dans notre évier commun. On ne peut même plus se laver les mains correctement sans toucher ton gratin fossilisé qui commence à sentir vraiment mauvais dans toute la cuisine. Tu comptes la laver quand exactement, dans deux semaines ?"},
+      {r:"B",n:"Hugo",t:"Elle trempe justement pour qu'elle parte toute seule sans effort de ma part, c'est une vraie stratégie de flemmard assumé. Et de ton côté tu laisses systématiquement tes cheveux partout dans la douche, on n'en fait pas tout un procès pour autant."},
+      {r:"A",n:"Yasmine",t:"Mes cheveux ne dégagent absolument pas une odeur de cadavre ambulant dans notre cuisine commune à tous les deux. Assume juste ta poêle sale au lieu de comparer avec un problème qui n'a rien à voir en termes de nuisance réelle."},
+      {r:"B",n:"Hugo",t:"D'accord, je vais la laver ce soir sans plus attendre. Mais arrête aussi de surveiller mon évier comme une inspectrice d'hygiène qui débarque à l'improviste."},
+    ],
+    v:{ pctA:73, pctB:27,
+      analyse:"Hugo, « ça trempe pour partir tout seul » après quatre jours complets, ce n'est plus une stratégie, c'est de la procrastination habillée en méthode personnelle. L'espace est commun et partagé, l'odeur devient publique pour tout le monde : large point pour Yasmine sur ce sujet précis. Cela dit, Yasmine, ressortir systématiquement les cheveux dans la douche comme argument révèle que tu tiens toi aussi un compteur mental de fautes — et un compteur en coloc, ça finit toujours par mal tourner un jour ou l'autre. Le vrai sujet : vous n'avez jamais fixé de règles claires et écrites ensemble, donc chacun juge l'autre selon ses propres standards personnels de propreté. Un accord simple, du type « vaisselle sale lavée le soir même sans exception », vous éviterait probablement dix disputes similaires à l'avenir.",
+      pacteA:"J'arrête mon compteur mental de fautes et je propose une vraie règle commune établie ensemble.",
+      pacteB:"Je lave dans la journée qui suit, jamais « un jour vague ». La stratégie du trempage prolongé, c'est terminé.",
+      mot:"Une coloc qui pose ses règles clairement, c'est une coloc qui dure longtemps." }
+  },
+  {
+    id:"d23", cat:"Intime", emoji:"🔐", title:"Le code du téléphone a changé, et lui trouve ça bizarre",
+    a:"Karim", b:"Lisa", hook:"Même code depuis 3 ans. Changé du jour au lendemain. Sans explication.",
+    msgs:[
+      {r:"A",n:"Karim",t:"Ça fait trois ans qu'on a le même code sur nos téléphones, on se les prêtait sans y penser. La semaine dernière, sans un mot, tu l'as changé, et maintenant tu réagis bizarrement dès que je tends la main vers le tien. Il se passe quoi exactement ?"},
+      {r:"B",n:"Lisa",t:"J'ai juste eu envie d'un peu plus d'intimité sur mon téléphone, ça n'a rien à voir avec toi précisément, beaucoup de gens ont un espace privé même en couple. Je vois pas pourquoi ça devient un sujet de dispute du jour au lendemain."},
+      {r:"A",n:"Karim",t:"Le problème c'est pas l'intimité en soi, c'est que ça arrive pile après ton nouveau poste où tu as changé d'équipe, et que t'évites clairement mon regard quand j'en parle. Si c'était vraiment neutre, tu m'en aurais parlé toi-même au lieu que je le découvre en essayant de déverrouiller ton tel comme d'habitude."},
+      {r:"B",n:"Lisa",t:"D'accord, c'est vrai que le timing avec le nouveau poste peut paraître suspect vu de l'extérieur, et j'aurais dû t'en parler au lieu de changer le code en douce sans un mot d'explication."},
+    ],
+    v:{ pctA:56, pctB:44,
+      analyse:"Match plutôt serré. Lisa, réclamer un espace personnel sur son téléphone est un droit légitime, même en couple installé depuis longtemps — l'intimité numérique n'est pas automatiquement suspecte. Léger avantage à Karim cependant, pas sur le fond du droit à l'intimité, mais sur la méthode : changer le code en silence, sans un mot, juste après un changement professionnel notable, ça crée mécaniquement un doute qui aurait pu être évité par une simple phrase d'explication. Le vrai sujet : ce n'est pas le code en lui-même qui pose problème, c'est le silence soudain autour d'un changement d'habitude qui existait depuis trois ans. Un nouveau besoin d'intimité se dit, il ne s'installe pas en cachette du jour au lendemain.",
+      pacteA:"Je respecte ton besoin d'intimité numérique sans le prendre automatiquement pour un aveu de culpabilité.",
+      pacteB:"J'annonce mes changements de règles perso au lieu de les imposer en silence du jour au lendemain.",
+      mot:"Un nouveau besoin d'intimité se dit à voix haute, il ne s'installe jamais en cachette." }
+  },
+  {
     id:"d13", cat:"Couple", emoji:"📵", title:"Le téléphone au lit, chaque soir",
     a:"Océane", b:"Rayan", hook:"« Bonne nuit » à l'écran. Jamais à elle, en vrai.",
     msgs:[
@@ -303,5 +303,125 @@ window.DISPUTES = [
       pacteA:"Je propose un petit rituel du soir à deux plutôt que de fixer le plafond en silence chaque soir.",
       pacteB:"Je pose le téléphone quinze minutes avant de dormir. Ces minutes-là nous appartiennent, à nous deux.",
       mot:"Les derniers mots du jour méritent un vrai regard, pas un écran allumé." }
+  },
+  {
+    id:"d25", cat:"Intime", emoji:"📍", title:"La géoloc Snap l'a menée devant la boîte de nuit",
+    a:"Sofia", b:"Ryan", hook:"3h du matin. Le berceau vide de papa. Snap Map ne ment pas.",
+    msgs:[
+      {r:"A",n:"Sofia",t:"Notre fils avait trois semaines, il pleurait à 3h du matin, je me retourne pour te réveiller et ton côté du lit est vide, aucun message, rien. J'ai ouvert Snap Map par réflexe, j'ai vu ton point exactement devant le Mirage, j'ai pris le bébé dans son siège auto et j'ai conduit jusque là-bas. Je t'ai trouvé en train de parler, très proche, avec une fille devant l'entrée."},
+      {r:"B",n:"Ryan",t:"C'est une amie d'un pote, on discutait juste en sortant prendre l'air, il se passait absolument rien de plus que ça entre nous. Je pensais rentrer dans dix minutes max, je voulais pas te réveiller pour un truc aussi court."},
+      {r:"A",n:"Sofia",t:"Tu es sorti en pleine nuit sans un mot, pendant que je gère seule un nouveau-né qui hurle, et je te retrouve collé à une inconnue devant une boîte à 3h du matin. Même si vraiment rien ne s'est passé physiquement, le simple fait que tu sois là-bas, dans ce contexte-là, à cette heure-là, sans m'avoir prévenue, ça détruit une confiance qui devrait être totale en ce moment précis de nos vies."},
+      {r:"B",n:"Ryan",t:"Tu as complètement raison, peu importe qu'il se soit rien passé de plus, j'aurais jamais dû sortir sans te prévenir avec un nouveau-né à la maison. Je me rends compte que le contexte à lui seul est déjà une trahison de ta confiance, indépendamment de ce qui s'est vraiment dit ou pas là-bas."},
+    ],
+    v:{ pctA:88, pctB:12,
+      analyse:"Ryan, l'affirmation « il se passait rien » n'efface absolument pas la gravité de la situation : sortir en pleine nuit, sans un mot, pendant que ta compagne gère seule un nourrisson de trois semaines, pour te retrouver proche d'une inconnue devant une boîte de nuit à 3h du matin. Même dans l'hypothèse la plus innocente, le contexte lui-même constitue déjà une faute de confiance majeure envers Sofia, à un moment où elle a le plus besoin de sentir que tu es un partenaire présent et fiable. Gros point pour elle, sans discussion possible. Ta reconnaissance finale, sans minimiser ni te chercher d'excuse sur le contexte, est le strict minimum ici, mais elle est au moins honnête. Le vrai sujet dépasse largement cette soirée précise : Sofia a besoin de sentir, dans les mois qui suivent une naissance, qu'elle peut compter sur toi sans avoir à suivre ta position GPS en pleine nuit.",
+      pacteA:"Je dis mon besoin vital de sécurité et de présence en ce moment précis, sans m'excuser de le demander.",
+      pacteB:"Je ne sors plus sans prévenir, jamais, surtout maintenant. Ta confiance passe avant toute soirée.",
+      mot:"Un nouveau-né a besoin de deux parents présents, pas d'un GPS pour retrouver l'un d'eux." }
+  },
+  {
+    id:"d17", cat:"Famille", emoji:"👶", title:"Sa mère débarque sans prévenir avec le bébé",
+    a:"Julie", b:"Marc", hook:"« Je passais dans le coin. » À 7h30. Avec un double des clés.",
+    msgs:[
+      {r:"A",n:"Julie",t:"Ta mère possède un double de nos clés officiellement « pour les urgences uniquement ». Ce matin elle débarque chez nous à 7h30 pendant que j'allaite tranquillement, en peignoir je te rappelle, avec un simple « je passais dans le coin par hasard ». Elle a pris notre bébé dans ses bras sans même me demander mon accord au préalable. Je n'ai plus aucune intimité chez moi désormais."},
+      {r:"B",n:"Marc",t:"Elle est folle amoureuse de son petit-fils, elle veut simplement aider autant qu'elle peut. Tu sais à quel point elle attendait ce bébé depuis des années. Lui retirer les clés maintenant, ça va vraiment la briser émotionnellement, j'en suis certain."},
+      {r:"A",n:"Julie",t:"Et moi dans tout ça ? Je me sens littéralement en visite permanente dans mon propre logement. J'ai désespérément besoin de souffler un peu, de créer notre bulle intime à trois, pas d'être inspectée à 7h30 du matin sans prévenir."},
+      {r:"B",n:"Marc",t:"Je comprends ta détresse, sincèrement... mais entre ma mère et toi, je me sens complètement écartelé au milieu, sans savoir comment gérer la situation sans blesser l'une de vous deux."},
+    ],
+    v:{ pctA:76, pctB:24,
+      analyse:"Julie, une jeune mère a un droit fondamental à son intimité, particulièrement durant les premières semaines fragiles après l'accouchement. Une belle-mère qui entre avec les clés à 7h30 et prend le bébé sans demander la moindre autorisation, aussi aimante soit-elle par ailleurs, franchit clairement une frontière essentielle. Net avantage pour toi sur ce point précis. Marc, ton amour sincère pour ta mère et ta peur réelle de la « briser » émotionnellement sont compréhensibles, mais ils t'ont placé en position de spectateur passif pendant que ta compagne étouffe littéralement chez elle. Le vrai sujet : tu dois passer du statut d'« écartelé entre deux femmes » à celui de protecteur affirmé de votre foyer commun. Poser un cadre clair à ta mère — sonner avant d'entrer, prévenir systématiquement, rendre les clés — n'est absolument pas la trahir, c'est simplement protéger la bulle dont votre nouveau-né a désespérément besoin pour grandir sereinement.",
+      pacteA:"Je dis mon besoin vital d'intimité sans culpabiliser, c'est parfaitement légitime dans ma situation.",
+      pacteB:"Je parle à ma mère avec toute ma tendresse mais fermement : on sonne désormais, on prévient toujours avant. Je protège notre bulle familiale.",
+      mot:"Un nid a besoin de calme véritable pour grandir sereinement. Protégez le vôtre sans culpabiliser." }
+  },
+  {
+    id:"d26", cat:"Intime", emoji:"🎭", title:"Le jeu de la jalousie qui a complètement dérapé",
+    a:"Chloé", b:"Nathan", hook:"Elle voulait le rendre jaloux. Il a proposé de regarder.",
+    msgs:[
+      {r:"A",n:"Chloé",t:"En soirée, j'ai volontairement dragué un mec devant toi, exprès, pour te tester et voir si tu réagirais, si tu tenais encore vraiment à moi. Sauf que toi, au lieu d'être jaloux ou même un minimum affecté, t'as eu l'air à fond excité par la situation, et tu m'as même proposé qu'on aille plus loin tous les trois. Je me sens complètement perdue là, je comprends plus rien à ce qui se passe entre nous."},
+      {r:"B",n:"Nathan",t:"Je pensais sincèrement bien faire en restant cool et ouvert plutôt que de faire une scène de jalousie possessive comme tu sembles l'attendre de moi. Te voir sûre de toi comme ça m'a clairement excité sur le moment, je vais pas mentir là-dessus, mais je voulais pas non plus paraître possessif ou control freak avec toi."},
+      {r:"A",n:"Chloé",t:"Le souci c'est pas que t'aies pas fait de scène, ça j'apprécie clairement en soi. Le souci c'est que je testais si tu tenais à moi de façon exclusive, et ta réaction m'a donné l'impression totale inverse, comme si j'étais interchangeable ou même partageable à tes yeux à ce moment-là."},
+      {r:"B",n:"Nathan",t:"Je capte mieux maintenant que mon envie sincère de rester détendu et ouvert d'esprit a été reçue par toi comme un vrai désintérêt de ma part, alors que c'était vraiment pas mon intention profonde derrière tout ça."},
+    ],
+    v:{ pctA:48, pctB:52,
+      analyse:"Situation délicate où personne n'a vraiment tort, mais où un vrai malentendu de fond s'est installé. Chloé, provoquer volontairement la jalousie pour tester l'engagement de l'autre est une stratégie risquée et souvent contre-productive : elle demande une réaction précise et attendue à l'avance, ce qui n'est jamais garanti, surtout de la part de quelqu'un qui a une philosophie de couple différente de la tienne. Léger avantage à Nathan sur ce point précis. Nathan, ta réaction n'a rien d'une faute en soi — l'ouverture d'esprit et l'absence de possessivité sont des qualités réelles — mais tu n'as manifestement pas capté ce que Chloé cherchait vraiment à vérifier ce soir-là, à savoir son exclusivité à tes yeux, pas ta tolérance générale. Le vrai sujet : vous n'avez jamais vraiment parlé ensemble de ce que votre couple signifie en termes d'exclusivité et de jalousie normale versus excessive, et ce test improvisé en soirée a révélé un vrai flou entre vous deux plutôt que de le résoudre.",
+      pacteA:"Je pose directement la question de l'exclusivité qu'on veut, plutôt que de tester par des mises en scène risquées.",
+      pacteB:"Je dis clairement ce que je ressens vraiment, sans jouer la carte de l'ouverture d'esprit par réflexe social.",
+      mot:"Ce qu'on veut vraiment savoir, ça se demande — ça ne se teste jamais vraiment bien." }
+  },
+  {
+    id:"d28", cat:"Amis", emoji:"💔", title:"Jessica parle au même mec que son crush",
+    a:"Inès", b:"Jessica", hook:"« C'est juste un ami. » Le même « ami » qu'Inès kiffe depuis six mois.",
+    msgs:[
+      {r:"A",n:"Inès",t:"Ça fait six mois que je te bassine avec mon crush pour Adam, tu connais chaque détail, chaque message qu'on échange, tu m'as même aidée à choisir mes réponses. Je viens de découvrir que vous discutez quasiment tous les jours tous les deux, toi et lui, sans que tu m'en parles une seule fois."},
+      {r:"B",n:"Jessica",t:"On se suit juste depuis un moment sur les réseaux, c'est lui qui m'a écrit en premier en fait, je voyais pas ça comme un sujet à te raconter en détail. C'est vraiment rien de spécial entre nous, on parle de tout et de rien, des trucs classiques."},
+      {r:"A",n:"Inès",t:"« Rien de spécial » tous les jours, avec le mec pour qui tu sais très bien que je craque depuis six mois entiers ? Tu m'as laissée te confier chaque étape de mes sentiments pour lui pendant que toi tu construisais une proximité quotidienne avec lui en parallèle, en silence total."},
+      {r:"B",n:"Jessica",t:"En le disant comme ça, je réalise que j'aurais dû t'en parler dès le premier message qu'il m'a envoyé, par respect basique pour toi et pour ce que tu ressens. Je crois que j'ai évité le sujet parce que je savais que ça te ferait de la peine."},
+    ],
+    v:{ pctA:75, pctB:25,
+      analyse:"Jessica, le fait qu'Adam ait écrit en premier ne change rien au problème de fond : tu savais depuis six mois entiers qu'Inès craquait pour lui, tu as recueilli chacune de ses confidences sur le sujet, et pendant ce temps tu construisais toi-même une proximité quotidienne avec lui sans jamais le mentionner. Ce silence prolongé pèse lourd, gros point pour Inès. Ta reconnaissance finale, sincère, montre que tu savais au fond que ce silence n'était pas anodin, même si tu as choisi de l'éviter par peur de la blesser. Le vrai sujet : entre amies proches, un crush confié mérite au minimum d'être respecté par une transparence immédiate, pas par un silence de six mois qui laisse le champ libre à une proximité parallèle et cachée.",
+      pacteA:"Je dis ma blessure sans transformer ça en interdiction totale de lui parler pour Jessica.",
+      pacteB:"Je coupe ou j'espace ce contact avec Adam, et je serai transparente sur ce genre de situation à l'avenir.",
+      mot:"Un crush confié entre amies mérite plus qu'un silence de six mois." }
+  },
+  {
+    id:"d15", cat:"Coloc", emoji:"🔥", title:"Son copain vit ici sans jamais participer",
+    a:"Adam", b:"Sofia", hook:"Trois personnes dans l'appart. Deux sur le bail. Une qui vide le frigo.",
+    msgs:[
+      {r:"A",n:"Adam",t:"Ton copain est présent six nuits sur sept depuis maintenant deux mois. Il utilise l'eau chaude tous les jours, le chauffage, notre wifi, il vide régulièrement le frigo commun. On paie les charges à deux officiellement, mais on vit clairement à trois au quotidien. Soit il participe financièrement, soit il lève un peu le pied sur sa présence."},
+      {r:"B",n:"Sofia",t:"C'est mon copain, il dort dans ma chambre à moi, il ne prend littéralement aucune place supplémentaire dans l'appartement commun. Tu veux vraiment qu'on facture officiellement mon histoire d'amour comme une colocation payante ?"},
+      {r:"A",n:"Adam",t:"Je ne facture absolument pas ton histoire d'amour, je facture les trente pour cent de charges en plus qu'on paie depuis qu'il squatte pratiquement à temps plein ici. Regarde simplement la dernière facture d'électricité, elle a littéralement explosé ce mois-ci."},
+      {r:"B",n:"Sofia",t:"D'accord, la facture a vraiment monté, c'est un fait indéniable que je ne peux pas nier. Mais le mot « squatte » est méchant venant de toi, c'est quelqu'un que j'aime profondément, pas un intrus quelconque."},
+    ],
+    v:{ pctA:71, pctB:29,
+      analyse:"Adam, ta demande reste purement factuelle : une présence quasi permanente qui consomme concrètement les charges communes doit logiquement contribuer d'une façon ou d'une autre. La facture qui grimpe nettement te donne objectivement raison sur le fond. Point pour toi. Sofia, l'amour n'est absolument pas en cause ici et personne ne le remet en question — mais « il ne prend pas de place » devient faux dès qu'on parle concrètement d'eau chaude, de chauffage et de nourriture partagée au quotidien. Le vrai sujet : une frontière floue et jamais posée entre « invité occasionnel » et « habitant à temps plein » qui pèse financièrement sur Adam seul. La solution n'est pas d'exclure ton amour de l'appartement, c'est simplement de nommer la réalité ensemble : au-delà d'un certain nombre de nuits par mois, on participe équitablement.",
+      pacteA:"Je propose un seuil clair de nuits et une participation équitable, sans jamais viser ta relation en elle-même.",
+      pacteB:"J'accepte qu'il participe financièrement aux charges quand il est présent aussi souvent. C'est simplement juste envers toi.",
+      mot:"L'amour est gratuit. L'eau chaude, elle, ne l'est jamais." }
+  },
+  {
+    id:"d24", cat:"Couple", emoji:"🤰", title:"Enceinte, elle fait tout ; lui, il sort",
+    a:"Fatou", b:"Bastien", hook:"Sept mois de grossesse. Lui, trois soirs par semaine entre potes.",
+    msgs:[
+      {r:"A",n:"Fatou",t:"Je suis à sept mois de grossesse, je fais le ménage, les courses, la bouffe, je range la chambre du bébé toute seule le soir en rentrant du taf. Toi, trois soirs sur sept tu sors boire des verres avec tes potes jusqu'à minuit passé, comme si de rien n'était, comme si j'allais pas accoucher dans six semaines."},
+      {r:"B",n:"Bastien",t:"Je bosse toute la journée aussi, j'ai besoin de souffler un minimum avec mes potes avant que le rythme change complètement avec le bébé, c'est presque ma dernière période tranquille avant un moment. Je pensais pas que sortir de temps en temps allait être vu comme un abandon total de ma part."},
+      {r:"A",n:"Fatou",t:"« Souffler » pendant que moi je porte physiquement ce bébé toute la journée ET que je gère toute la maison en plus le soir, c'est clairement pas la même charge entre nous deux. Tu profites de tes dernières soirées tranquilles, moi j'ai zéro moment tranquille depuis des mois."},
+      {r:"B",n:"Bastien",t:"Dit comme ça, en effet, je réalise que j'ai clairement sous-estimé à quel point tu portais tout toute seule pendant que moi je continuais ma vie sociale presque normalement, sans vraiment changer grand-chose."},
+    ],
+    v:{ pctA:83, pctB:17,
+      analyse:"Bastien, « souffler avant que le rythme change » sonne raisonnable en théorie, mais en pratique ça se traduit par une grossesse portée quasi seule par Fatou pendant que ta vie sociale continue normalement, presque inchangée. Le déséquilibre physique et mental est total : elle porte l'enfant, gère la maison, et encaisse ton absence répétée, pendant que tu gardes ton confort social intact. Gros point pour Fatou. Ta prise de conscience finale est honnête et nécessaire, mais elle arrive tard, après des mois où le déséquilibre s'est installé sans que tu le questionnes vraiment. Le vrai sujet : une grossesse ne suspend pas la vie sociale de l'un des deux parents, mais elle exige un rééquilibrage concret et immédiat de la charge à la maison, pas juste des bonnes intentions verbales.",
+      pacteA:"Je dis clairement ce dont j'ai besoin maintenant, pas seulement après avoir craqué en silence.",
+      pacteB:"Je réduis mes sorties et je prends une vraie part de la charge à la maison, dès maintenant, sans attendre l'accouchement.",
+      mot:"Porter un enfant à deux, ça commence bien avant la naissance." }
+  },
+  {
+    id:"d18", cat:"Famille", emoji:"📞", title:"Il appelle sa mère cinq fois par jour",
+    a:"Selin", b:"Gaël", hook:"Dîner, cinéma, intimité : le téléphone sonne systématiquement. C'est toujours maman.",
+    msgs:[
+      {r:"A",n:"Selin",t:"Ta mère t'appelle littéralement cinq fois par jour en moyenne, et tu décroches systématiquement à chaque fois, même au restaurant, même en plein cinéma, même au lit pendant un moment intime entre nous. Hier soir précisément, en plein moment tendre à deux, ton téléphone sonne, tu réponds directement « oui maman ? » sans même hésiter une seconde. Je me sens en troisième position dans mon propre couple au quotidien."},
+      {r:"B",n:"Gaël",t:"Elle est âgée maintenant et vit complètement seule, si je ne réponds pas immédiatement je m'inquiète sérieusement qu'il lui soit arrivé quelque chose de grave. Tu voudrais sincèrement que j'ignore délibérément ma propre mère qui m'a élevé seule ? C'est aussi une question fondamentale de respect filial envers elle."},
+      {r:"A",n:"Selin",t:"Je ne te demande absolument pas de l'ignorer complètement, je te demande simplement de ne pas décrocher systématiquement en plein moment à deux pour un appel qui n'est presque jamais réellement urgent en pratique. Rappeler dix minutes après le moment intime, ça change vraiment tout pour moi."},
+      {r:"B",n:"Gaël",t:"C'est vrai que par pur réflexe automatique je décroche toujours, même quand objectivement rien ne presse vraiment dans l'instant. Je pourrais tout à fait filtrer intelligemment et rappeler juste après, sans jamais la négliger pour autant."},
+    ],
+    v:{ pctA:67, pctB:33,
+      analyse:"Selin, tu ne demandes absolument pas à Gaël de délaisser sa mère âgée et vivant seule — tu demandes uniquement que les moments d'intimité ne soient pas systématiquement interrompus pour des appels rarement urgents dans les faits. Cette nuance précise est parfaitement juste : point pour toi. Gaël, ton inquiétude légitime pour une mère seule est tout à fait honorable et compréhensible, mais « décrocher par pur réflexe même quand rien ne presse objectivement » révèle une automaticité qui déborde largement sur ton couple au quotidien. Ta solution finale — filtrer intelligemment et rappeler juste après — est exactement la bonne approche à adopter. Le vrai sujet : être un bon fils présent et un bon partenaire présent ne s'opposent absolument pas entre eux, sauf quand le premier réflexe automatique efface systématiquement le second sans même y réfléchir.",
+      pacteA:"Je dis mon besoin réel de moments protégés sans jamais attaquer frontalement ta relation à ta mère.",
+      pacteB:"Je filtre intelligemment les appels dans nos moments privilégiés à deux et je rappelle juste après. Personne n'est réellement négligé dans cette approche.",
+      mot:"On peut être un fils présent ET un partenaire présent, sans jamais sacrifier l'un pour l'autre." }
+  },
+  {
+    id:"d27", cat:"Intime", emoji:"🥊", title:"Elle parle encore à celui qui l'a frappé",
+    a:"Théo", b:"Léa", hook:"Il l'a mis à terre en soirée. Elle continue de lui écrire, « il est marrant ».",
+    msgs:[
+      {r:"A",n:"Théo",t:"Le mec qui m'a mis un coup de poing en pleine soirée il y a deux mois, celui qui m'a littéralement envoyé à terre devant tout le monde, je viens de voir que tu continues à lui écrire régulièrement sur Instagram. Tu trouves ça normal de rester proche de quelqu'un qui m'a frappé sans provocation de ma part ?"},
+      {r:"B",n:"Léa",t:"Ce qu'il t'a fait ce soir-là c'était clairement pas ok, j'étais furieuse contre lui à ce moment-là aussi. Mais en dehors de ça il est vraiment drôle, on discute de trucs qui n'ont rien à voir avec cette histoire, je vois pas le rapport direct entre les deux."},
+      {r:"A",n:"Théo",t:"Le rapport c'est que t'as vu quelqu'un me frapper au visage, et malgré ça tu choisis de garder un lien avec lui parce qu'il te fait rire. J'ai l'impression que ma propre douleur physique et la trahison que je ressens comptent moins pour toi que son humour à lui."},
+      {r:"B",n:"Léa",t:"En le disant comme ça, je réalise que ça doit vraiment te faire mal de me voir continuer cette relation, même à distance, avec quelqu'un qui t'a fait du mal physiquement. Je crois que j'avais compartimenté les deux choses dans ma tête sans vraiment penser à ce que ça représentait pour toi."},
+    ],
+    v:{ pctA:79, pctB:21,
+      analyse:"Léa, l'humour de quelqu'un n'efface jamais un acte de violence physique qu'il a commis envers ton propre compagnon. Séparer « il est drôle » et « il a frappé Théo » dans deux compartiments mentaux différents, c'est précisément ce qui blesse le plus profondément ici : ça revient à dire que sa personnalité pèse plus lourd, dans ta balance, que ce qu'il a fait subir à Théo. Gros point pour lui. Ta prise de conscience finale est sincère et montre une vraie écoute, mais elle souligne aussi à quel point ce lien n'avait jamais été vraiment questionné avant cette dispute. Le vrai sujet : maintenir un contact volontaire avec quelqu'un qui a frappé son partenaire envoie un message involontaire mais réel sur l'échelle de priorités, même sans mauvaise intention consciente de ta part.",
+      pacteA:"Je dis clairement ce que je ressens sans minimiser la gravité de ce qui s'est passé entre eux.",
+      pacteB:"Je coupe ce contact. Ta sécurité et ta dignité comptent plus que son humour à lui.",
+      mot:"Le rire de quelqu'un ne rachète jamais un coup porté à celui qu'on aime." }
   },
 ];
