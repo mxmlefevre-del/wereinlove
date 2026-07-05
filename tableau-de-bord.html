@@ -102,6 +102,12 @@ tr:last-child td{border-bottom:none}
 
       <div class="grid-stats" id="stats"></div>
 
+      <div class="section-title">🤝 Demandes de partenariat <span id="req-count-badge"></span></div>
+      <table>
+        <thead><tr><th>Média</th><th>Contact</th><th>Poste</th><th>Email</th><th>Reçue le</th></tr></thead>
+        <tbody id="requests-table"></tbody>
+      </table>
+
       <div class="section-title">Derniers inscrits</div>
       <button class="refresh" id="btn-refresh">↻ Actualiser</button>
       <table>
@@ -167,10 +173,12 @@ async function loadDashboard(){
   const usersSnap = await safe(getDocs(collection(db,"users")), { docs:[] });
   const disputesSnap = await safe(getDocs(collection(db,"disputes")), { docs:[] });
   const compatSnap = await safe(getDocs(collection(db,"compat")), { docs:[] });
+  const requestsSnap = await safe(getDocs(collection(db,"partnershipRequests")), { docs:[] });
 
   const users = usersSnap.docs.map(d => ({ id:d.id, ...d.data() }));
   const disputes = disputesSnap.docs.map(d => d.data());
   const compat = compatSnap.docs.map(d => d.data());
+  const requests = requestsSnap.docs.map(d => d.data());
 
   const totalUsers = users.length;
   const premiumUsers = users.filter(u => u.plan === "premium" || u.plan === "couple" || u.plan === "unlimited").length;
@@ -185,6 +193,17 @@ async function loadDashboard(){
     <div class="stat"><b>${compat.length}</b><span>Tests de compatibilité</span></div>
     <div class="stat"><b>${sharedConsent}</b><span>Consentements boîte à disputes</span></div>
   `;
+
+  requests.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+  $("req-count-badge").textContent = requests.length ? `(${requests.length})` : "";
+  $("requests-table").innerHTML = requests.map(r => `
+    <tr>
+      <td><b>${esc(r.media || "—")}</b></td>
+      <td>${esc(r.name || "—")}</td>
+      <td>${esc(r.role || "—")}</td>
+      <td><a href="mailto:${esc(r.email)}">${esc(r.email || "—")}</a></td>
+      <td>${fmtDate(r.createdAt)}</td>
+    </tr>`).join("") || `<tr><td colspan="5" style="color:var(--gris);text-align:center;padding:20px">Aucune demande pour l'instant.</td></tr>`;
 
   users.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
   $("users-table").innerHTML = users.slice(0,50).map(u => `
