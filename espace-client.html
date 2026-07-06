@@ -226,7 +226,7 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
           <p class="hint" style="margin-top:2px">Disputes <b>illimitées</b>, zéro compteur</p>
           <button class="btn btn-ghost" id="btn-upgrade-unlimited">Passer à l'illimité</button>
         </div>
-        <p class="hint" style="text-align:center;margin-top:14px">Paiement sécurisé Stripe — bientôt disponible.</p>
+        <p class="hint" style="text-align:center;margin-top:14px">Paiement sécurisé par Stripe.</p>
       </div>
       <div id="sub-premium" style="display:none">
         <p class="sub" style="margin-top:12px">Vous êtes abonné·e 💜 Merci de faire confiance à we're in love.</p>
@@ -327,6 +327,22 @@ let disputes=[];   // toutes mes disputes
 let tests=[];      // tous mes tests de compatibilité
 let currentPartnerKey=null;
 
+/* ---------- STRIPE ---------- */
+const STRIPE_LINKS = {
+  couple:   "https://buy.stripe.com/7sY4gy70cfSreaPbMo8EM00",
+  illimite: "https://buy.stripe.com/5kQdR80BOay7feTcQs8EM01"
+};
+function goToStripe(plan){
+  const base = STRIPE_LINKS[plan];
+  if (!base || !me) return;
+  const url = new URL(base);
+  url.searchParams.set("client_reference_id", me.uid);
+  if (me.email) url.searchParams.set("prefilled_email", me.email);
+  window.location.href = url.toString();
+}
+// Forfait demandé depuis la page d'accueil (ex: espace-client.html?plan=couple)
+const pendingPlan = new URLSearchParams(location.search).get("plan");
+
 /* ---------- AUTH ---------- */
 onAuthStateChanged(auth, async user => {
   me = user;
@@ -337,6 +353,7 @@ onAuthStateChanged(auth, async user => {
     profile = snap.exists() ? snap.data() : { prenom:"Vous" };
     $("hello").textContent = `Connecté·e : ${profile.prenom||""}`;
     await loadAll();
+    if (pendingPlan && STRIPE_LINKS[pendingPlan]){ goToStripe(pendingPlan); return; }
     renderMain();
     show("s-main");
   } catch(e){
@@ -345,6 +362,7 @@ onAuthStateChanged(auth, async user => {
     profile = profile || { prenom:"Vous" };
     partners = partners || []; disputes = disputes || []; tests = tests || [];
     $("hello").textContent = `Connecté·e : ${profile.prenom||""}`;
+    if (pendingPlan && STRIPE_LINKS[pendingPlan]){ goToStripe(pendingPlan); return; }
     renderMain();
     show("s-main");
     if (String(e.code||e.message).includes("permission")) {
@@ -562,12 +580,8 @@ $("btn-save-account").onclick = async () => {
   $("btn-save-account").textContent = "Enregistré ✓";
   setTimeout(()=>$("btn-save-account").textContent="Enregistrer", 2000);
 };
-$("btn-upgrade-couple").onclick = () => {
-  alert("Formule couple à 3,99 €/mois — le paiement Stripe arrive très bientôt ! On vous préviendra dès que c'est disponible.");
-};
-$("btn-upgrade-unlimited").onclick = () => {
-  alert("Formule illimitée à 14,99 €/mois — le paiement Stripe arrive très bientôt !");
-};
+$("btn-upgrade-couple").onclick = () => goToStripe("couple");
+$("btn-upgrade-unlimited").onclick = () => goToStripe("illimite");
 if ($("btn-manage-sub")) $("btn-manage-sub").onclick = () => {
   alert("La gestion d'abonnement arrive avec l'intégration Stripe.");
 };
