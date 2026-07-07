@@ -11,171 +11,271 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FBF4F8;--white:#fff;--ink:#1F1B2E;--gris:#6B6480;
-  --rose:#FF2D75;--rose-deep:#E81A66;--violet:#7C4DFF;--violet-deep:#6234E8;
-  --grad:linear-gradient(90deg,var(--rose),var(--violet));
-  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
-  --r:22px;--shadow:0 24px 60px -24px rgba(90,40,120,.28);
-  --font:"Plus Jakarta Sans",-apple-system,sans-serif;
+  --bg:#F4F2F0;             /* blanc chaud très clair */
+  --surface:#FFFFFF;
+  --ink:#1A1721;
+  --ink-soft:#4A4550;
+  --muted:#8B8590;
+  --line:#EAE7E4;
+  --line-strong:#D9D4D0;
+  --rose:#FF2D75;
+  --rose-deep:#E81A66;
+  --violet:#7C4DFF;
+  --violet-deep:#6234E8;
+  --grad:linear-gradient(115deg,#FF2D75,#7C4DFF);
+  --grad-soft:linear-gradient(160deg,rgba(255,45,117,.10),rgba(124,77,255,.12));
+  --field-bg:#F4F2F0;
+  --r-xl:28px;--r-lg:22px;--r-md:16px;--r-sm:12px;
+  --shadow:0 2px 4px rgba(26,23,33,.03), 0 12px 32px -14px rgba(26,23,33,.12);
+  --shadow-lg:0 12px 50px -14px rgba(26,23,33,.22);
+  --display:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  --sans:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{color-scheme:only light;background:var(--bg)}
-body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh}
-::selection{background:var(--rose);color:#fff}
+html{color-scheme:only light;background:var(--bg);-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg)!important;color:var(--ink);line-height:1.5;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;min-height:100svh}
+::selection{background:rgba(124,77,255,.16);color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-header{display:flex;flex-direction:column;align-items:center;padding:24px 20px 8px;text-align:center}
-.logo{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
-.logo svg{width:52px;height:auto}
-.logo .txt{font-weight:800;font-size:17px;color:var(--ink)}
-.logo .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:100;background:rgba(244,242,240,.82);
+  backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand svg{width:28px;height:auto}
+.brand .txt{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.01em}
+.brand .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-actions{display:flex;align-items:center;gap:6px}
+.nav-link{font-size:13.5px;font-weight:600;color:var(--ink-soft);text-decoration:none;
+  padding:8px 14px;border-radius:100px;transition:background .2s var(--ease),color .2s var(--ease);
+  white-space:nowrap;background:none;border:none;cursor:pointer;font-family:var(--sans)}
+.nav-link:hover{background:rgba(26,23,33,.05);color:var(--ink)}
+.nav-link.cta{background:var(--ink);color:#fff}
+.nav-link.cta:hover{background:#000}
+.nav-link.logout:hover{color:var(--rose-deep);background:rgba(255,45,117,.08)}
+@media (max-width:600px){.nav-link.hide-sm{display:none}}
 
-main{max-width:640px;margin:0 auto;padding:18px 20px 80px}
-.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:30px 26px;margin-top:18px}
-h1{font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
-h2{font-size:19px;font-weight:800;letter-spacing:-.02em}
-.sub{color:var(--gris);font-size:15px;margin-top:8px}
-.grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-label{display:block;font-weight:700;font-size:14px;margin:18px 0 8px}
-input[type=text],input[type=email],input[type=password]{
-  width:100%;border:1.5px solid rgba(31,27,46,.14);border-radius:14px;
-  padding:14px 16px;font-family:var(--font);font-size:15px;color:var(--ink);
-  background:#fff;outline:none;transition:border .2s,box-shadow .2s;
-}
-input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
-
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-  background:var(--grad-btn);color:#fff;border:none;border-radius:100px;
-  padding:16px 24px;font-family:var(--font);font-size:15.5px;font-weight:800;
-  cursor:pointer;margin-top:20px;transition:transform .15s,box-shadow .15s;
-  box-shadow:0 14px 30px -12px rgba(232,26,102,.55)}
-.btn:hover{transform:translateY(-1px)}
-.btn:disabled{opacity:.6;cursor:default;transform:none}
-.btn-ghost{background:none;color:var(--ink);border:1.5px solid rgba(31,27,46,.16);box-shadow:none}
-.btn-sm{width:auto;padding:10px 20px;font-size:13.5px;margin-top:0}
-.btn-google{background:#fff;color:var(--ink);border:1.5px solid rgba(31,27,46,.16);box-shadow:none}
-.divider{display:flex;align-items:center;gap:12px;color:var(--gris);font-size:12.5px;font-weight:700;margin:20px 0 4px;text-transform:uppercase;letter-spacing:.05em}
-.divider::before,.divider::after{content:"";flex:1;height:1px;background:rgba(31,27,46,.1)}
-.error{display:none;background:#FFECF1;color:var(--rose-deep);font-size:13.5px;font-weight:600;border-radius:12px;padding:11px 14px;margin-top:14px}
-.error.show{display:block}
-.hint{font-size:12.5px;color:var(--gris)}
-
+/* ---------- LAYOUT ---------- */
+main{max-width:1080px;margin:0 auto;padding:44px 24px 100px}
 .screen{display:none}
-.screen.active{display:block;animation:fade .35s ease}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.screen.active{display:block;animation:fade .45s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-.topbar{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:10px;flex-wrap:wrap}
-#hello{font-size:13.5px;color:var(--gris);font-weight:600}
-.topnav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.nav-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--font);font-size:13px;font-weight:800;
-  text-decoration:none;padding:9px 16px;border-radius:100px;white-space:nowrap;line-height:1;
-  cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s,color .15s;border:none}
-.nav-pill.primary{background:var(--grad-btn);color:#fff;box-shadow:0 10px 22px -10px rgba(232,26,102,.55)}
-.nav-pill.primary:hover{transform:translateY(-1px);box-shadow:0 14px 26px -10px rgba(232,26,102,.65)}
-.nav-pill.ghost{background:rgba(124,77,255,.1);color:var(--violet-deep)}
-.nav-pill.ghost:hover{background:rgba(124,77,255,.18);transform:translateY(-1px)}
-.nav-pill.out{background:#fff;color:var(--gris);padding:9px 16px;border:1.5px solid rgba(31,27,46,.14)}
-.nav-pill.out:hover{color:var(--rose-deep);border-color:rgba(232,26,102,.35);background:#FFF5F8}
-@media (max-width:520px){
-  .topbar{justify-content:center}
-  #hello{width:100%;text-align:center;order:-1}
+/* ---------- HERO ---------- */
+.hero{position:relative;background:var(--surface);border-radius:var(--r-xl);padding:44px 44px 40px;
+  overflow:hidden;box-shadow:var(--shadow);margin-bottom:24px}
+.hero::before{content:"";position:absolute;top:-120px;right:-80px;width:340px;height:340px;
+  background:var(--grad-soft);filter:blur(20px);border-radius:50%;pointer-events:none}
+.hero-top{display:flex;align-items:center;gap:26px;position:relative}
+.avatar-xl{width:104px;height:104px;border-radius:50%;overflow:hidden;background:var(--field-bg);
+  flex-shrink:0;position:relative;cursor:pointer;box-shadow:0 0 0 4px var(--surface),0 0 0 5px var(--line)}
+.avatar-xl img{width:100%;height:100%;object-fit:cover}
+.avatar-xl .ph{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.avatar-xl .edit{position:absolute;bottom:0;left:0;right:0;background:rgba(26,23,33,.55);color:#fff;
+  font-size:9px;font-weight:700;text-align:center;padding:4px 0;letter-spacing:.04em;
+  opacity:0;transition:opacity .2s var(--ease)}
+.avatar-xl:hover .edit{opacity:1}
+.hero-greet{font-size:15px;font-weight:600;color:var(--muted);margin-bottom:2px}
+.hero-name{font-family:var(--display);font-size:clamp(34px,6vw,52px);font-weight:800;
+  letter-spacing:-.02em;line-height:1;color:var(--ink)}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+  font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:100px;
+  background:var(--field-bg);color:var(--ink-soft)}
+.hero-badge.premium{background:var(--grad-soft);color:var(--violet-deep)}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--muted)}
+.hero-badge.premium .dot{background:linear-gradient(90deg,#FF2D75,#7C4DFF)}
+
+.hero-stats{display:flex;gap:0;margin-top:34px;position:relative;
+  border-top:1px solid var(--line);padding-top:26px}
+.hstat{flex:1;text-align:left;padding-right:20px;position:relative}
+.hstat + .hstat{padding-left:28px}
+.hstat + .hstat::before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:1px;background:var(--line)}
+.hstat b{display:block;font-family:var(--display);font-size:32px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.hstat span{display:block;font-size:12.5px;color:var(--muted);font-weight:600;margin-top:7px}
+@media (max-width:640px){
+  .hero{padding:32px 24px 28px}
+  .hero-top{flex-direction:column;text-align:center;gap:18px}
+  .hero-stats{margin-top:26px;padding-top:22px}
+  .hstat{padding-right:10px}.hstat + .hstat{padding-left:18px}
 }
 
-/* profil */
-.profile-row{display:flex;align-items:center;gap:18px}
-.avatar-big{width:84px;height:84px;border-radius:100px;overflow:hidden;background:var(--bg);flex-shrink:0;position:relative;cursor:pointer;border:3px solid #fff;box-shadow:0 8px 22px -10px rgba(90,40,120,.4)}
-.avatar-big img{width:100%;height:100%;object-fit:cover}
-.avatar-big .ph{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:30px}
-.avatar-big .edit{position:absolute;bottom:0;left:0;right:0;background:rgba(31,27,46,.55);color:#fff;font-size:10px;font-weight:800;text-align:center;padding:3px 0}
-.plan-badge{display:inline-block;background:var(--bg);color:var(--violet-deep);font-size:11.5px;font-weight:800;padding:4px 12px;border-radius:100px;margin-top:6px;text-transform:uppercase;letter-spacing:.04em}
-.plan-badge.premium{background:var(--grad);color:#fff}
+/* ---------- GRILLE 2 COLONNES ---------- */
+.cols{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+.col-side{display:flex;flex-direction:column;gap:24px;position:sticky;top:84px}
+@media (max-width:900px){.col-side{position:static}}
 
-.stats-row{display:flex;gap:12px;margin-top:20px}
-.stat{flex:1;background:var(--bg);border-radius:16px;padding:14px 10px;text-align:center}
-.stat b{display:block;font-size:22px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat span{font-size:11.5px;color:var(--gris);font-weight:700}
+/* ---------- CARTE / SECTION ---------- */
+.block{background:var(--surface);border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow)}
+.col-main > .block + .block{margin-top:24px}
+.block-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--violet-deep);
+  display:block;margin-bottom:8px}
+h2{font-family:var(--display);font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+h3{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.01em}
+.block-desc{color:var(--muted);font-size:14px;margin-top:6px;line-height:1.55}
 
-/* partenaires */
-.partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:18px}
-.pcard{background:var(--bg);border-radius:18px;padding:18px 12px;text-align:center;cursor:pointer;transition:transform .15s;border:2px solid transparent}
-.pcard:hover{transform:translateY(-2px);border-color:rgba(255,45,117,.3)}
-.pcard .avatar{width:62px;height:62px;border-radius:100px;overflow:hidden;background:#fff;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:24px;border:2.5px solid #fff;box-shadow:0 6px 16px -8px rgba(90,40,120,.4)}
-.pcard .avatar img{width:100%;height:100%;object-fit:cover}
-.pcard .name{font-weight:800;font-size:15px}
-.pcard .meta{font-size:11.5px;color:var(--gris);font-weight:600;margin-top:2px}
-.pcard.add{border:2px dashed rgba(31,27,46,.18);background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:130px;color:var(--gris);font-weight:700;font-size:13.5px}
-.pcard.add:hover{border-color:var(--rose);color:var(--rose)}
-.pcard.add .plus{font-size:26px;line-height:1}
+/* ---------- CHAMPS ---------- */
+label{display:block;font-weight:600;font-size:13px;color:var(--ink-soft);margin:0 0 8px}
+input[type=text],input[type=email],input[type=password],textarea{
+  width:100%;border:1px solid var(--line-strong);border-radius:var(--r-sm);
+  padding:13px 15px;font-family:var(--sans);font-size:15px;color:var(--ink);
+  background:var(--surface);outline:none;transition:border .2s var(--ease),box-shadow .2s var(--ease)}
+input::placeholder,textarea::placeholder{color:#B5B0B8}
+input:focus,textarea:focus{border-color:var(--violet);box-shadow:0 0 0 4px rgba(124,77,255,.12)}
+textarea{resize:vertical;line-height:1.5}
 
-/* détail partenaire */
-.pdetail-head{display:flex;align-items:center;gap:16px}
-.back{background:none;border:none;font-family:var(--font);font-size:13.5px;font-weight:700;color:var(--violet-deep);cursor:pointer;padding:0;text-decoration:underline}
-.list-item{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--bg);border-radius:14px;padding:14px 16px;margin-top:10px;text-decoration:none;color:var(--ink);transition:transform .12s}
-.list-item:hover{transform:translateX(3px)}
-.list-item .t{font-weight:700;font-size:14.5px}
-.list-item .s{font-size:12px;color:var(--gris);font-weight:600}
-.list-item .pct{font-size:15px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
-.tag{font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:100px;white-space:nowrap}
-.tag.res{background:#E8FAEF;color:#1B8A4B}
-.tag.wait{background:#FFF4E0;color:#B36B00}
-.empty{color:var(--gris);font-size:13.5px;text-align:center;padding:18px 0}
+/* ---------- BOUTONS ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  background:var(--ink);color:#fff;border:none;border-radius:100px;
+  padding:14px 22px;font-family:var(--sans);font-size:14.5px;font-weight:600;
+  cursor:pointer;transition:transform .15s var(--ease),background .2s var(--ease),filter .2s var(--ease);
+  -webkit-tap-highlight-color:transparent}
+.btn:hover{transform:translateY(-1px);background:#000}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.5;cursor:default;transform:none}
+.btn-accent{background:var(--grad)}
+.btn-accent:hover{background:var(--grad);filter:brightness(1.06)}
+.btn-outline{background:var(--surface);color:var(--ink);border:1px solid var(--line-strong)}
+.btn-outline:hover{background:var(--field-bg);border-color:var(--muted)}
+.btn-google{background:var(--surface);color:var(--ink);border:1px solid var(--line-strong)}
+.btn-google:hover{background:var(--field-bg)}
+.btn-danger-ghost{background:none;color:var(--rose-deep);border:1px solid rgba(232,26,102,.25)}
+.btn-danger-ghost:hover{background:rgba(255,45,117,.06);border-color:rgba(232,26,102,.4)}
+.mt{margin-top:18px}
 
-/* abonnement */
-.sub-feature{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin-top:10px}
-.sub-feature .ic{flex-shrink:0}
-.price{font-size:30px;font-weight:800}
-.price small{font-size:14px;color:var(--gris);font-weight:600}
-.plan-box{background:var(--bg);border-radius:18px;padding:20px 20px;margin-top:12px;position:relative}
-.plan-box.hero{background:linear-gradient(160deg,#FFF0F6,#F1EAFE);border:1.5px solid rgba(255,45,117,.25)}
-.ribbon{position:absolute;top:-13px;left:20px;background:var(--grad-btn);color:#fff;font-size:11px;font-weight:800;
-  padding:5px 14px;border-radius:100px;letter-spacing:.02em;box-shadow:0 8px 16px -8px rgba(232,26,102,.5)}
+.divider{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:12px;
+  font-weight:600;margin:22px 0;text-transform:uppercase;letter-spacing:.05em}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
 
-.current-plan{background:#fff;border:1.5px solid rgba(124,77,255,.2);border-radius:18px;
-  padding:20px 20px 20px 24px;margin-top:14px;position:relative;overflow:hidden}
-.current-plan::before{content:"";position:absolute;top:0;left:0;width:5px;height:100%;background:var(--grad)}
-.cp-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.cp-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(124,77,255,.12);color:var(--violet-deep);
-  font-size:11px;font-weight:800;padding:5px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
-.cp-name{font-weight:800;font-size:16px}
-.cp-progress{margin-top:16px}
-.cp-track{background:var(--bg);border-radius:100px;height:8px;overflow:hidden}
-.cp-fill{height:100%;background:var(--grad);border-radius:100px;transition:width .5s ease;width:0%}
-.cp-fill.full{background:linear-gradient(90deg,#FF2D75,#E81A66)}
-.cp-label{font-size:12.5px;color:var(--gris);font-weight:700;margin-top:9px}
-.cp-msg{font-size:13.5px;margin-top:12px;color:var(--ink)}
+.error{display:none;background:#FFF0F4;color:var(--rose-deep);font-size:13.5px;font-weight:500;
+  border-radius:var(--r-sm);padding:11px 14px;margin-top:14px}
+.error.show{display:block}
+.hint{font-size:13px;color:var(--muted);line-height:1.5}
 
-/* modal */
-.modal-overlay{position:fixed;inset:0;background:rgba(31,27,46,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
-.modal-overlay.active{display:flex}
-.modal-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);max-width:420px;width:100%;padding:28px 26px}
-.btn-link{display:block;width:100%;background:none;border:none;color:var(--gris);font-size:13px;font-weight:600;padding:12px 0 0;cursor:pointer;font-family:var(--font)}
-.btn-link:hover{text-decoration:underline}
+/* ---------- PARTENAIRES (galerie) ---------- */
+.partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:20px 12px;text-align:center;cursor:pointer;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease)}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.pcard .p-avatar{width:60px;height:60px;border-radius:50%;overflow:hidden;background:var(--field-bg);
+  margin:0 auto 12px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px var(--line)}
+.pcard .p-avatar img{width:100%;height:100%;object-fit:cover}
+.pcard .name{font-weight:700;font-size:15px;letter-spacing:-.01em}
+.pcard .meta{font-size:12px;color:var(--muted);font-weight:500;margin-top:3px}
+.pcard.add{border:1px dashed var(--line-strong);background:none;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;min-height:130px;color:var(--muted);font-weight:600;font-size:13.5px;gap:6px}
+.pcard.add:hover{border-color:var(--violet);color:var(--violet-deep);transform:translateY(-4px);box-shadow:none}
+.pcard.add .plus{font-size:26px;line-height:1;font-weight:300}
 
-.loader{display:flex;gap:8px;justify-content:center;padding:60px 0}
-.loader span{width:12px;height:12px;border-radius:100px;background:var(--rose);animation:b 1s infinite alternate}
-.loader span:nth-child(2){background:var(--violet);animation-delay:.2s}
-.loader span:nth-child(3){background:var(--rose);animation-delay:.4s}
-@keyframes b{to{transform:translateY(-8px);opacity:.5}}
+/* ---------- LISTE ---------- */
+.list-item{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:15px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);
+  transition:padding-left .18s var(--ease)}
+.list-item:first-of-type{border-top:none}
+.list-item:hover{padding-left:6px}
+.list-item .t{font-weight:600;font-size:15px;letter-spacing:-.01em}
+.list-item .s{font-size:13px;color:var(--muted);font-weight:500;margin-top:2px}
+.list-item .pct{font-family:var(--display);font-size:17px;font-weight:800;background:var(--grad);
+  -webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.tag{font-size:11px;font-weight:700;padding:4px 11px;border-radius:100px;white-space:nowrap}
+.tag.res{background:#E7F7EE;color:#12874B}
+.tag.wait{background:#FFF4E2;color:#A66A00}
+.empty{color:var(--muted);font-size:14px;text-align:center;padding:26px 0}
+
+.back{background:none;border:none;font-family:var(--sans);font-size:14px;font-weight:600;
+  color:var(--violet-deep);cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px;
+  transition:gap .2s var(--ease)}
+.back:hover{gap:9px}
+
+/* ---------- ABONNEMENT (colonne latérale) ---------- */
+.plan-current{border-radius:var(--r-md);padding:20px;background:var(--field-bg)}
+.plan-current.premium{background:var(--grad-soft)}
+.pc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pc-name{font-family:var(--display);font-weight:800;font-size:18px}
+.pc-pill{font-size:11px;font-weight:700;padding:5px 11px;border-radius:100px;background:var(--surface);color:var(--ink-soft)}
+.pc-pill.active{background:var(--surface);color:var(--violet-deep)}
+.pc-progress{margin-top:16px}
+.pc-track{background:var(--line-strong);border-radius:100px;height:6px;overflow:hidden}
+.pc-fill{height:100%;background:var(--grad);border-radius:100px;width:0%;transition:width .6s var(--ease)}
+.pc-fill.full{background:linear-gradient(90deg,#FF2D75,#E81A66)}
+.pc-label{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:9px}
+.pc-msg{font-size:13.5px;margin-top:12px;color:var(--ink-soft);line-height:1.5}
+
+.offer{border:1px solid var(--line);border-radius:var(--r-md);padding:18px;margin-top:14px;transition:border-color .2s var(--ease)}
+.offer.featured{border-color:rgba(124,77,255,.35)}
+.offer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.offer-price{font-family:var(--display);font-size:26px;font-weight:800;letter-spacing:-.01em;line-height:1}
+.offer-price small{font-family:var(--sans);font-size:12.5px;color:var(--muted);font-weight:600}
+.offer-tag{font-size:10.5px;font-weight:700;color:#fff;background:var(--grad);padding:4px 10px;border-radius:100px;white-space:nowrap}
+.offer-sub{font-size:12.5px;color:var(--muted);margin-top:6px}
+.offer-sub s{opacity:.7}
+.features{margin:14px 0 0;display:flex;flex-direction:column;gap:9px}
+.feature{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink-soft)}
+.feature .check{width:16px;height:16px;border-radius:50%;background:var(--grad);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center}
+.feature .check svg{width:9px;height:9px}
+.secure{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--muted);margin-top:16px}
+.pay-logos{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;flex-wrap:wrap}
+.pay-logos svg{height:22px;width:auto;display:block;border-radius:4px}
+
+/* ---------- SELECT ---------- */
+.select-wrap{position:relative}
+.select-wrap select{width:100%;appearance:none;-webkit-appearance:none;
+  border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);
+  padding:13px 40px 13px 15px;font-family:var(--sans);font-size:14.5px;color:var(--ink);
+  cursor:pointer;outline:none;transition:border .2s var(--ease),box-shadow .2s var(--ease)}
+.select-wrap select:focus{border-color:var(--violet);box-shadow:0 0 0 4px rgba(124,77,255,.12)}
+.select-wrap::after{content:"";position:absolute;right:16px;top:50%;transform:translateY(-30%);
+  width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:translateY(-70%) rotate(45deg);pointer-events:none}
+
+/* ---------- MODAL ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(26,23,33,.42);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
+.modal-overlay.active{display:flex;animation:fade .25s var(--ease)}
+.modal-card{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);
+  max-width:420px;width:100%;padding:32px 28px;animation:pop .3s var(--ease)}
+@keyframes pop{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:none}}
+.btn-link{display:block;width:100%;background:none;border:none;color:var(--muted);font-size:14px;
+  font-weight:500;padding:14px 0 0;cursor:pointer;font-family:var(--sans)}
+.btn-link:hover{color:var(--ink)}
+
+/* ---------- LOADER ---------- */
+.loader{display:flex;gap:8px;justify-content:center;padding:100px 0}
+.loader span{width:10px;height:10px;border-radius:50%;background:var(--rose);animation:bounce 1s infinite alternate}
+.loader span:nth-child(2){background:var(--violet);animation-delay:.15s}
+.loader span:nth-child(3){background:var(--rose);animation-delay:.3s}
+@keyframes bounce{to{transform:translateY(-9px);opacity:.4}}
+
+.grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.auth-wrap{max-width:420px;margin:0 auto}
 </style>
 </head>
 <body>
 
-<header>
-  <a class="logo" href="index.html">
-    <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
-    <span class="txt">we're <span class="in">in</span> love</span>
-  </a>
-</header>
-
-<main>
-  <div class="topbar">
-    <span id="hello"></span>
-    <nav class="topnav">
-      <a class="nav-pill primary" href="app.html">💬 Nouvelle dispute</a>
-      <a class="nav-pill ghost" href="compatibilite.html">💘 Test compatibilité</a>
-      <button class="nav-pill out" id="btn-logout" style="display:none">Se déconnecter →</button>
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
+      <span class="txt">we're <span class="in">in</span> love</span>
+    </a>
+    <nav class="nav-actions">
+      <a class="nav-link hide-sm" href="compatibilite.html">Compatibilité</a>
+      <a class="nav-link cta" href="app.html">Nouvelle dispute</a>
+      <button class="nav-link logout" id="btn-logout" style="display:none">Déconnexion</button>
     </nav>
   </div>
+</div>
+
+<main>
 
   <!-- CHARGEMENT -->
   <div class="screen active" id="s-loading">
@@ -184,144 +284,207 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
 
   <!-- AUTH -->
   <div class="screen" id="s-auth">
-    <div class="card">
-      <h1>Mon <span class="grad-txt">espace</span></h1>
-      <p class="sub">Connectez-vous pour retrouver vos disputes, vos tests et vos partenaires.</p>
-      <button class="btn btn-google" id="btn-google">
-        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
-        Continuer avec Google
-      </button>
-      <div class="divider">ou par email</div>
-      <label for="auth-email">Email</label>
-      <input type="email" id="auth-email" autocomplete="email" placeholder="vous@exemple.fr">
-      <label for="auth-pass">Mot de passe</label>
-      <input type="password" id="auth-pass" autocomplete="current-password" placeholder="6 caractères minimum">
-      <div class="error" id="auth-error"></div>
-      <button class="btn" id="btn-email">Continuer</button>
+    <div class="auth-wrap">
+      <div style="margin-bottom:24px">
+        <span class="eyebrow">Espace personnel</span>
+        <h1 style="font-family:var(--display);font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.05">Vos histoires,<br>au même endroit.</h1>
+      </div>
+      <div class="block">
+        <p class="block-desc" style="margin-top:0;margin-bottom:22px">Connectez-vous pour retrouver vos disputes, vos tests et vos partenaires.</p>
+        <button class="btn btn-google" id="btn-google">
+          <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+          Continuer avec Google
+        </button>
+        <div class="divider">ou par email</div>
+        <label for="auth-email">Email</label>
+        <input type="email" id="auth-email" autocomplete="email" placeholder="vous@exemple.fr">
+        <label for="auth-pass" style="margin-top:16px">Mot de passe</label>
+        <input type="password" id="auth-pass" autocomplete="current-password" placeholder="6 caractères minimum">
+        <div class="error" id="auth-error"></div>
+        <button class="btn mt" id="btn-email">Continuer</button>
+      </div>
     </div>
   </div>
 
   <!-- ESPACE PRINCIPAL -->
   <div class="screen" id="s-main">
 
-    <!-- Profil -->
-    <div class="card">
-      <div class="profile-row">
-        <div class="avatar-big" id="my-avatar" title="Changer ma photo">
-          <span class="ph"><svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:58%;height:58%"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/></svg></span>
-          <span class="edit">MODIFIER</span>
-        </div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-top">
+        <div class="avatar-xl" id="my-avatar" title="Changer ma photo"><span class="ph"></span></div>
         <div>
-          <h1 id="my-name">…</h1>
-          <span class="plan-badge" id="my-plan">Plan gratuit</span>
+          <p class="hero-greet" id="greet-line">Bonjour</p>
+          <h1 class="hero-name" id="my-name">…</h1>
+          <span class="hero-badge" id="my-plan"><span class="dot"></span>Plan gratuit</span>
         </div>
       </div>
       <input type="file" id="file-me" accept="image/*" style="display:none">
-      <div class="stats-row">
-        <div class="stat"><b id="st-disputes">0</b><span>disputes</span></div>
-        <div class="stat"><b id="st-resolved">0</b><span>résolues</span></div>
-        <div class="stat"><b id="st-raison">—</b><span>taux de raison</span></div>
+      <div class="hero-stats">
+        <div class="hstat"><b id="st-disputes">0</b><span>disputes</span></div>
+        <div class="hstat"><b id="st-resolved">0</b><span>résolues</span></div>
+        <div class="hstat"><b id="st-raison">—</b><span>taux de raison</span></div>
       </div>
-    </div>
+    </section>
 
-    <!-- Partenaires -->
-    <div class="card">
-      <h2>Mes <span class="grad-txt">partenaires</span></h2>
-      <p class="sub">Amoureux·se, ami·e, famille — chaque relation a sa fiche, ses disputes et ses tests.</p>
-      <div class="partners-grid" id="partners-grid"></div>
-    </div>
+    <!-- 2 COLONNES -->
+    <div class="cols">
 
-    <!-- Abonnement -->
-    <div class="card">
-      <h2>Mon <span class="grad-txt">abonnement</span></h2>
-      <div id="sub-free">
-
-        <div class="current-plan">
-          <div class="cp-top">
-            <span class="cp-name">Plan gratuit</span>
-            <span class="cp-badge">✓ Votre plan actuel</span>
+      <!-- COLONNE PRINCIPALE -->
+      <div class="col-main">
+        <section class="block">
+          <div class="block-head">
+            <div>
+              <span class="eyebrow">Vos relations</span>
+              <h2>Partenaires</h2>
+            </div>
           </div>
-          <div class="cp-progress">
-            <div class="cp-track"><div class="cp-fill" id="cp-fill"></div></div>
-            <p class="cp-label"><b id="cp-used">0</b>/2 disputes gratuites utilisées</p>
+          <p class="block-desc" style="margin-top:-10px;margin-bottom:18px">Amoureux·se, ami·e, famille — chaque relation a sa fiche, ses disputes et ses tests.</p>
+          <div class="partners-grid" id="partners-grid"></div>
+        </section>
+
+        <section class="block">
+          <span class="eyebrow">Réglages</span>
+          <h2 style="margin-bottom:16px">Mon compte</h2>
+          <label for="edit-prenom">Prénom</label>
+          <input type="text" id="edit-prenom" maxlength="30">
+          <div class="error" id="account-error"></div>
+          <button class="btn btn-outline mt" id="btn-save-account">Enregistrer</button>
+        </section>
+      </div>
+
+      <!-- COLONNE LATÉRALE : ABONNEMENT -->
+      <aside class="col-side">
+        <section class="block">
+          <span class="eyebrow">Abonnement</span>
+
+          <div id="sub-free">
+            <div class="plan-current">
+              <div class="pc-top">
+                <span class="pc-name">Gratuit</span>
+                <span class="pc-pill">Actuel</span>
+              </div>
+              <div class="pc-progress">
+                <div class="pc-track"><div class="pc-fill" id="cp-fill"></div></div>
+                <p class="pc-label"><b id="cp-used">0</b> / 2 disputes offertes utilisées</p>
+              </div>
+              <p class="pc-msg" id="cp-msg">Il vous reste 2 disputes gratuites.</p>
+            </div>
+
+            <div class="offer featured">
+              <div class="offer-top">
+                <div class="offer-price">3,99 € <small>/ mois</small></div>
+                <span class="offer-tag">Populaire</span>
+              </div>
+              <p class="offer-sub"><s>9,99 €</s> · formule couple, jusqu'à 30 disputes/mois</p>
+              <div class="features">
+                <div class="feature"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>30 disputes par mois</div>
+                <div class="feature"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tests de compatibilité inclus</div>
+                <div class="feature"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reformulation IA des messages</div>
+              </div>
+              <button class="btn btn-accent mt" id="btn-upgrade-couple">Choisir couple</button>
+            </div>
+
+            <div class="offer">
+              <div class="offer-top">
+                <div class="offer-price">14,99 € <small>/ mois</small></div>
+              </div>
+              <p class="offer-sub">Disputes illimitées, zéro compteur</p>
+              <button class="btn btn-outline mt" id="btn-upgrade-unlimited">Passer à l'illimité</button>
+            </div>
+
+            <p class="secure">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3z" stroke="#8B8590" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              Paiement sécurisé par Stripe
+            </p>
+            <div class="pay-logos">
+              <!-- Visa -->
+              <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#EAE7E4"/><path d="M20.4 21.2l1.6-9.6h2.6l-1.6 9.6h-2.6zm12-9.4c-.5-.2-1.3-.4-2.3-.4-2.5 0-4.3 1.3-4.3 3.2 0 1.4 1.3 2.2 2.3 2.6 1 .5 1.4.8 1.4 1.2 0 .6-.8.9-1.5.9-1 0-1.6-.2-2.4-.5l-.3-.2-.4 2.2c.6.3 1.7.5 2.8.5 2.7 0 4.4-1.3 4.5-3.3 0-1.1-.7-2-2.2-2.7-.9-.5-1.5-.8-1.5-1.2 0-.4.5-.8 1.5-.8.8 0 1.4.2 1.9.4l.2.1.4-2zm6.7-.2h-2c-.6 0-1.1.2-1.4.8l-3.9 8.8h2.7l.5-1.4h3.3l.3 1.4h2.4l-2.1-9.6h.2zm-3.2 6.2c.2-.5 1-2.6 1-2.6l.3-.8.2.7s.5 2.2.6 2.7h-2.1zM18.2 11.6l-2.5 6.5-.3-1.3c-.5-1.6-1.9-3.2-3.5-4.1l2.3 8.5h2.7l4-9.6h-2.7z" fill="#1A1F71"/><path d="M13.6 11.6H9.5l-.1.2c3.2.8 5.4 2.7 6.2 5l-.9-4.4c-.2-.6-.6-.8-1.1-.8z" fill="#F9A51A"/></svg>
+              <!-- Mastercard -->
+              <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#fff" stroke="#EAE7E4"/><circle cx="19" cy="16" r="8" fill="#EB001B"/><circle cx="29" cy="16" r="8" fill="#F79E1B"/><path d="M24 10a8 8 0 000 12 8 8 0 000-12z" fill="#FF5F00"/></svg>
+              <!-- Amex -->
+              <svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="32" rx="4" fill="#1F72CD"/><path d="M10 13l1.4-3.3h2.6L15.4 13v-3.3h3.2l.6 1.6.6-1.6h11.6v.7s.8-.7 1.9-.7h3.9l1.3 3v-3h2.7l1 1.6v-1.6h2.6v6.6h-2.6l-.9-1.6v1.6h-3.9l-.5-1.1h-1.2l-.5 1.1h-2.6c-1 0-1.8-.6-1.8-.6v.6h-4l-.6-1.6-.6 1.6H9.9v-.6l-.4.6H6.9L8.3 16 6.9 13h2.7l.4.6V13zm3.6 5.3l1.5-3.5h1.7l1.5 3.5H18l-.3-.7h-1.9l-.3.7h-1.3zm3.4-1.6l-.6-1.4-.6 1.4h1.2z" fill="#fff"/></svg>
+            </div>
           </div>
-          <p class="cp-msg" id="cp-msg">Il vous reste <b>2 disputes gratuites</b>. Passez à un forfait ci-dessous pour continuer sans limite.</p>
-        </div>
 
-        <div class="divider" style="margin-top:26px">Formule la plus populaire</div>
-        <div class="plan-box hero">
-          <span class="ribbon">★ Recommandé</span>
-          <p class="price">3,99 € <small>/ mois · couple</small></p>
-          <p class="hint" style="margin-top:2px"><s style="opacity:.55">9,99 €</s> · jusqu'à 30 disputes par mois</p>
-          <div class="sub-feature"><span class="ic">💬</span><span>30 disputes par mois pour votre couple</span></div>
-          <div class="sub-feature"><span class="ic">💘</span><span>Tests de compatibilité inclus</span></div>
-          <div class="sub-feature"><span class="ic">✨</span><span>Reformulation IA de vos messages</span></div>
-          <button class="btn" id="btn-upgrade-couple">Choisir cette formule</button>
-        </div>
+          <div id="sub-premium" style="display:none">
+            <div class="plan-current premium">
+              <div class="pc-top">
+                <span class="pc-name" id="premium-name">Couple</span>
+                <span class="pc-pill active">Actif</span>
+              </div>
+              <p class="pc-msg" style="margin-top:14px">Merci de faire confiance à we're in love 💜 Votre abonnement est actif.</p>
+            </div>
+            <button class="btn btn-outline mt" id="btn-toggle-manage">Gérer mon abonnement</button>
 
-        <div class="divider" style="margin-top:24px">Ou en illimité</div>
-        <div class="plan-box">
-          <p class="price">14,99 € <small>/ mois</small></p>
-          <p class="hint" style="margin-top:2px">Disputes <b>illimitées</b>, zéro compteur</p>
-          <button class="btn btn-ghost" id="btn-upgrade-unlimited">Passer à l'illimité</button>
-        </div>
-        <p class="hint" style="text-align:center;margin-top:14px">Paiement sécurisé par Stripe.</p>
-      </div>
-      <div id="sub-premium" style="display:none">
-        <p class="sub" style="margin-top:12px">Vous êtes abonné·e 💜 Merci de faire confiance à we're in love.</p>
-        <button class="btn btn-ghost" id="btn-manage-sub">Gérer mon abonnement</button>
-      </div>
-    </div>
+            <div id="manage-form" style="display:none;margin-top:16px">
+              <label for="manage-reason">Que souhaitez-vous faire ?</label>
+              <div class="select-wrap">
+                <select id="manage-reason">
+                  <option value="">Choisir un motif…</option>
+                  <option value="baisser">Baisser mon forfait</option>
+                  <option value="augmenter">Passer à l'illimité</option>
+                  <option value="facturation">Problème de facturation</option>
+                  <option value="pause">Mettre en pause temporairement</option>
+                  <option value="resilier">Résilier mon abonnement</option>
+                  <option value="autre">Autre demande</option>
+                </select>
+              </div>
+              <label for="manage-message" style="margin-top:16px">Un mot de plus ? (optionnel)</label>
+              <textarea id="manage-message" rows="3" placeholder="Précisez votre demande…"></textarea>
+              <div class="error" id="manage-error"></div>
+              <button class="btn mt" id="btn-send-manage">Envoyer ma demande</button>
+              <p class="hint" style="text-align:center;margin-top:10px">Réponse sous 48h. Votre abonnement reste actif d'ici là.</p>
+            </div>
+          </div>
+        </section>
+      </aside>
 
-    <!-- Compte -->
-    <div class="card">
-      <h2>Mon compte</h2>
-      <label for="edit-prenom">Mon prénom</label>
-      <input type="text" id="edit-prenom" maxlength="30">
-      <div class="error" id="account-error"></div>
-      <button class="btn btn-ghost" id="btn-save-account">Enregistrer</button>
     </div>
   </div>
 
   <!-- DÉTAIL PARTENAIRE -->
   <div class="screen" id="s-partner">
-    <div class="card">
-      <button class="back" id="btn-back">← Retour à mon espace</button>
-      <div class="pdetail-head" style="margin-top:18px">
-        <div class="avatar-big" id="p-avatar" title="Changer sa photo">
-          <span class="ph"><svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:58%;height:58%"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/></svg></span>
-          <span class="edit">MODIFIER</span>
-        </div>
+    <button class="back" id="btn-back" style="margin-bottom:22px">← Retour à mon espace</button>
+    <section class="hero" style="margin-bottom:24px">
+      <div class="hero-top">
+        <div class="avatar-xl" id="p-avatar" title="Changer sa photo"><span class="ph"></span></div>
         <div>
-          <h1 id="p-name">…</h1>
-          <p class="hint" id="p-meta"></p>
+          <p class="hero-greet">Partenaire</p>
+          <h1 class="hero-name" id="p-name">…</h1>
+          <p class="hint" id="p-meta" style="margin-top:10px"></p>
         </div>
       </div>
       <input type="file" id="file-partner" accept="image/*" style="display:none">
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>💬 Nos disputes</h2>
-      <div id="p-disputes"></div>
-      <a class="btn btn-ghost" href="app.html" style="text-decoration:none">Nouvelle dispute</a>
-    </div>
-
-    <div class="card">
-      <h2>💘 Nos tests de compatibilité</h2>
-      <div id="p-tests"></div>
-      <a class="btn btn-ghost" href="compatibilite.html" style="text-decoration:none">Nouveau test</a>
+    <div class="cols">
+      <div class="col-main">
+        <section class="block">
+          <div class="block-head"><h2>Disputes</h2></div>
+          <div id="p-disputes"></div>
+          <a class="btn btn-outline mt" href="app.html" style="text-decoration:none">Nouvelle dispute</a>
+        </section>
+      </div>
+      <aside class="col-side">
+        <section class="block">
+          <div class="block-head"><h3>Compatibilité</h3></div>
+          <div id="p-tests"></div>
+          <a class="btn btn-outline mt" href="compatibilite.html" style="text-decoration:none">Nouveau test</a>
+        </section>
+      </aside>
     </div>
   </div>
 </main>
 
-<!-- MODAL : AJOUTER UN PARTENAIRE -->
+<!-- MODAL AJOUT PARTENAIRE -->
 <div class="modal-overlay" id="add-overlay">
   <div class="modal-card">
-    <h2>Ajouter un <span class="grad-txt">partenaire</span></h2>
-    <label for="add-name">Son prénom</label>
+    <h3>Ajouter un <span class="grad-txt">partenaire</span></h3>
+    <label for="add-name" style="margin-top:18px">Son prénom</label>
     <input type="text" id="add-name" maxlength="30" placeholder="Ex : Julie">
     <div class="error" id="add-error"></div>
-    <button class="btn" id="btn-add-confirm">Ajouter</button>
+    <button class="btn mt" id="btn-add-confirm">Ajouter</button>
     <button class="btn-link" id="btn-add-cancel">Annuler</button>
   </div>
 </div>
@@ -343,7 +506,7 @@ import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
          createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, collection,
-         getDocs, query, where, serverTimestamp }
+         addDoc, getDocs, query, where, serverTimestamp }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
@@ -357,14 +520,10 @@ const clearErr = id => $(id).classList.remove("show");
 const norm = s => (s||"").trim().toLowerCase();
 const escapeHtml = s => String(s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-// Logo we're in love utilisé comme photo par défaut (tant que l'utilisateur n'a pas mis la sienne)
-const LOGO_PH = `<svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:58%;height:58%"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/></svg>`;
+const LOGO_PH = `<svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:52%;height:52%"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/></svg>`;
 
 let me=null, profile=null;
-let partners=[];   // fiches stockées users/{uid}/partners
-let disputes=[];   // toutes mes disputes
-let tests=[];      // tous mes tests de compatibilité
-let currentPartnerKey=null;
+let partners=[], disputes=[], tests=[], currentPartnerKey=null;
 
 /* ---------- STRIPE ---------- */
 const STRIPE_LINKS = {
@@ -379,28 +538,24 @@ function goToStripe(plan){
   if (me.email) url.searchParams.set("prefilled_email", me.email);
   window.location.href = url.toString();
 }
-// Forfait demandé depuis la page d'accueil (ex: espace-client.html?plan=couple)
 const pendingPlan = new URLSearchParams(location.search).get("plan");
 
 /* ---------- AUTH ---------- */
 onAuthStateChanged(auth, async user => {
   me = user;
-  if (!user){ $("btn-logout").style.display="none"; $("hello").textContent=""; show("s-auth"); return; }
+  if (!user){ $("btn-logout").style.display="none"; show("s-auth"); return; }
   $("btn-logout").style.display="inline-flex";
   try {
     const snap = await getDoc(doc(db,"users",user.uid));
     profile = snap.exists() ? snap.data() : { prenom:"Vous" };
-    $("hello").textContent = `Connecté·e : ${profile.prenom||""}`;
     await loadAll();
     if (pendingPlan && STRIPE_LINKS[pendingPlan]){ goToStripe(pendingPlan); return; }
     renderMain();
     show("s-main");
   } catch(e){
-    // Ne jamais rester bloqué sur le loader : on affiche l'espace avec ce qu'on a
     console.error("Espace client:", e);
     profile = profile || { prenom:"Vous" };
     partners = partners || []; disputes = disputes || []; tests = tests || [];
-    $("hello").textContent = `Connecté·e : ${profile.prenom||""}`;
     if (pendingPlan && STRIPE_LINKS[pendingPlan]){ goToStripe(pendingPlan); return; }
     renderMain();
     show("s-main");
@@ -434,45 +589,30 @@ $("btn-email").onclick = async () => {
 };
 $("btn-logout").onclick = () => signOut(auth);
 
-/* ---------- CHARGEMENT DES DONNÉES ---------- */
+/* ---------- DONNÉES ---------- */
 async function loadAll(){
   const safe = async (p, fallback) => { try { return await p; } catch(e){ console.warn(e); return fallback; } };
-
-  // fiches partenaires stockées
   const psnap = await safe(getDocs(collection(db,"users",me.uid,"partners")), { docs:[] });
   partners = psnap.docs.map(d => ({ id:d.id, ...d.data() }));
-
-  // disputes où je suis créateur OU partenaire
   const [q1,q2] = await Promise.all([
     safe(getDocs(query(collection(db,"disputes"), where("createdBy","==",me.uid))), { docs:[] }),
     safe(getDocs(query(collection(db,"disputes"), where("partnerUid","==",me.uid))), { docs:[] })
   ]);
   const seen = new Set();
-  disputes = [...q1.docs, ...q2.docs].filter(d => !seen.has(d.id) && seen.add(d.id))
-    .map(d => ({ id:d.id, ...d.data() }));
-
-  // tests de compatibilité (peuvent échouer si la collection compat n'est pas encore autorisée)
+  disputes = [...q1.docs, ...q2.docs].filter(d => !seen.has(d.id) && seen.add(d.id)).map(d => ({ id:d.id, ...d.data() }));
   const [t1,t2] = await Promise.all([
     safe(getDocs(query(collection(db,"compat"), where("createdBy","==",me.uid))), { docs:[] }),
     safe(getDocs(query(collection(db,"compat"), where("partnerUid","==",me.uid))), { docs:[] })
   ]);
   const seenT = new Set();
-  tests = [...t1.docs, ...t2.docs].filter(d => !seenT.has(d.id) && seenT.add(d.id))
-    .map(d => ({ id:d.id, ...d.data() }));
+  tests = [...t1.docs, ...t2.docs].filter(d => !seenT.has(d.id) && seenT.add(d.id)).map(d => ({ id:d.id, ...d.data() }));
 }
-
-// Nom de "l'autre" dans une dispute ou un test, de mon point de vue
-function otherName(item){
-  return item.createdBy === me.uid ? (item.partnerName||"?") : (item.creatorName||"?");
-}
-
-// Fusionne fiches stockées + noms trouvés dans les disputes/tests
+function otherName(item){ return item.createdBy === me.uid ? (item.partnerName||"?") : (item.creatorName||"?"); }
 function partnerList(){
   const map = new Map();
   partners.forEach(p => map.set(norm(p.name), { key:norm(p.name), name:p.name, photoB64:p.photoB64||null, docId:p.id }));
   [...disputes, ...tests].forEach(item => {
-    const n = otherName(item);
-    const k = norm(n);
+    const n = otherName(item); const k = norm(n);
     if (!k || k==="votre partenaire") return;
     if (!map.has(k)) map.set(k, { key:k, name:n, photoB64:null, docId:null });
   });
@@ -481,50 +621,62 @@ function partnerList(){
 const disputesOf = key => disputes.filter(d => norm(otherName(d))===key);
 const testsOf = key => tests.filter(t => norm(otherName(t))===key);
 
-/* ---------- RENDU PRINCIPAL ---------- */
+/* ---------- RENDU ---------- */
+function greeting(){
+  const h = new Date().getHours();
+  if (h < 6) return "Bonne nuit";
+  if (h < 12) return "Bonjour";
+  if (h < 18) return "Bel après-midi";
+  return "Bonsoir";
+}
+function setAvatar(el, b64){
+  el.innerHTML = (b64 ? `<img src="${b64}" alt="">` : `<span class="ph">${LOGO_PH}</span>`) + `<span class="edit">MODIFIER</span>`;
+}
 function renderMain(){
-  $("my-name").textContent = profile.prenom || "Vous";
+  const prenom = profile.prenom || "Vous";
+  $("my-name").textContent = prenom;
+  $("greet-line").textContent = greeting();
   $("edit-prenom").value = profile.prenom || "";
   setAvatar($("my-avatar"), profile.photoB64);
+
   const premium = profile.plan === "premium";
-  $("my-plan").textContent = premium ? "Illimité 💜" : "Plan gratuit";
-  $("my-plan").classList.toggle("premium", premium);
+  const isUnlimited = profile.formule === "illimite";
+  const badge = $("my-plan");
+  badge.classList.toggle("premium", premium);
+  badge.innerHTML = `<span class="dot"></span>${premium ? (isUnlimited ? "Illimité" : "Couple") : "Plan gratuit"}`;
+
   $("sub-free").style.display = premium ? "none" : "block";
   $("sub-premium").style.display = premium ? "block" : "none";
-  if (!premium){
+
+  if (premium){
+    $("premium-name").textContent = isUnlimited ? "Illimité" : "Couple";
+  } else {
     const used = Math.min(disputes.length, 2);
     $("cp-used").textContent = used;
     $("cp-fill").style.width = (used/2*100)+"%";
     $("cp-fill").classList.toggle("full", used>=2);
+    const left = 2-used;
     $("cp-msg").innerHTML = used>=2
-      ? "Vous avez utilisé vos <b>2 disputes gratuites</b>. Passez à un forfait ci-dessous pour continuer."
-      : `Il vous reste <b>${2-used} dispute${2-used>1?"s":""} gratuite${2-used>1?"s":""}</b>. Passez à un forfait ci-dessous pour continuer sans limite.`;
+      ? "Vous avez utilisé vos <b>2 disputes gratuites</b>."
+      : `Il vous reste <b>${left} dispute${left>1?"s":""} gratuite${left>1?"s":""}</b>.`;
   }
 
-  // stats
   $("st-disputes").textContent = disputes.length;
   const resolved = disputes.filter(d=>d.verdict);
   $("st-resolved").textContent = resolved.length;
   const pcts = resolved.map(d => d.createdBy===me.uid ? d.verdict.pctA : d.verdict.pctB).filter(p=>typeof p==="number");
   $("st-raison").textContent = pcts.length ? Math.round(pcts.reduce((a,b)=>a+b,0)/pcts.length)+"%" : "—";
 
-  // partenaires
   const list = partnerList();
   $("partners-grid").innerHTML = list.map(p => `
     <div class="pcard" data-key="${p.key}">
-      <div class="avatar">${p.photoB64 ? `<img src="${p.photoB64}" alt="">` : LOGO_PH}</div>
+      <div class="p-avatar">${p.photoB64 ? `<img src="${p.photoB64}" alt="">` : LOGO_PH}</div>
       <div class="name">${escapeHtml(p.name)}</div>
       <div class="meta">${disputesOf(p.key).length} dispute${disputesOf(p.key).length>1?"s":""} · ${testsOf(p.key).length} test${testsOf(p.key).length>1?"s":""}</div>
     </div>`).join("")
-    + `<div class="pcard add" id="pcard-add"><span class="plus">+</span>Ajouter</div>`;
-
-  document.querySelectorAll(".pcard[data-key]").forEach(el =>
-    el.onclick = () => openPartner(el.dataset.key));
+    + `<div class="pcard add" id="pcard-add"><span class="plus">＋</span>Ajouter</div>`;
+  document.querySelectorAll(".pcard[data-key]").forEach(el => el.onclick = () => openPartner(el.dataset.key));
   $("pcard-add").onclick = () => { clearErr("add-error"); $("add-name").value=""; $("add-overlay").classList.add("active"); };
-}
-
-function setAvatar(el, b64){
-  el.innerHTML = (b64 ? `<img src="${b64}" alt="">` : `<span class="ph">${LOGO_PH}</span>`) + `<span class="edit">MODIFIER</span>`;
 }
 
 /* ---------- DÉTAIL PARTENAIRE ---------- */
@@ -544,7 +696,7 @@ function openPartner(key){
       <div><div class="t">${escapeHtml(d.title)}</div>
       <div class="s">${d.verdict ? `Verdict : ${d.createdBy===me.uid?d.verdict.pctA:d.verdict.pctB}% de raison pour vous` : "En cours"}</div></div>
       <span class="tag ${d.verdict?"res":"wait"}">${d.verdict?"Résolue":"En cours"}</span>
-    </a>`).join("") : `<div class="empty">Aucune dispute avec ${escapeHtml(p.name)} — c'est plutôt bon signe 😄</div>`;
+    </a>`).join("") : `<div class="empty">Aucune dispute avec ${escapeHtml(p.name)} — bon signe.</div>`;
 
   $("p-tests").innerHTML = ts.length ? ts
     .sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0))
@@ -553,13 +705,13 @@ function openPartner(key){
       <div><div class="t">Test de compatibilité</div>
       <div class="s">${t.result ? "Terminé" : "En attente de l'autre"}</div></div>
       ${t.result ? `<span class="pct">${t.result.global}%</span>` : `<span class="tag wait">En cours</span>`}
-    </a>`).join("") : `<div class="empty">Aucun test pour l'instant. Lancez le premier 💘</div>`;
+    </a>`).join("") : `<div class="empty">Aucun test pour l'instant.</div>`;
 
   show("s-partner");
 }
 $("btn-back").onclick = () => { renderMain(); show("s-main"); };
 
-/* ---------- AJOUT MANUEL D'UN PARTENAIRE ---------- */
+/* ---------- AJOUT PARTENAIRE ---------- */
 $("btn-add-cancel").onclick = () => $("add-overlay").classList.remove("active");
 $("btn-add-confirm").onclick = async () => {
   clearErr("add-error");
@@ -573,13 +725,12 @@ $("btn-add-confirm").onclick = async () => {
   renderMain();
 };
 
-/* ---------- PHOTOS (compressées en base64, stockées dans Firestore) ---------- */
+/* ---------- PHOTOS ---------- */
 function compressImage(file){
   return new Promise((resolve,reject) => {
     const img = new Image();
     img.onload = () => {
-      const S = 256;
-      const c = document.createElement("canvas");
+      const S = 256; const c = document.createElement("canvas");
       const ratio = Math.max(S/img.width, S/img.height);
       c.width = S; c.height = S;
       const ctx = c.getContext("2d");
@@ -587,8 +738,7 @@ function compressImage(file){
       ctx.drawImage(img, (S-w)/2, (S-h)/2, w, h);
       resolve(c.toDataURL("image/jpeg", .8));
     };
-    img.onerror = reject;
-    img.src = URL.createObjectURL(file);
+    img.onerror = reject; img.src = URL.createObjectURL(file);
   });
 }
 $("my-avatar").onclick = () => $("file-me").click();
@@ -605,7 +755,6 @@ $("file-partner").onchange = async e => {
   const b64 = await compressImage(f);
   let p = partnerList().find(x=>x.key===currentPartnerKey);
   if (!p.docId){
-    // fiche "virtuelle" issue d'une dispute : on la matérialise pour stocker la photo
     const ref = doc(collection(db,"users",me.uid,"partners"));
     await setDoc(ref, { name:p.name, photoB64:b64, createdAt:serverTimestamp() });
     partners.push({ id:ref.id, name:p.name, photoB64:b64 });
@@ -624,14 +773,55 @@ $("btn-save-account").onclick = async () => {
   await setDoc(doc(db,"users",me.uid), { prenom }, { merge:true });
   profile.prenom = prenom;
   $("my-name").textContent = prenom;
-  $("hello").textContent = `Connecté·e : ${prenom}`;
   $("btn-save-account").textContent = "Enregistré ✓";
   setTimeout(()=>$("btn-save-account").textContent="Enregistrer", 2000);
 };
 $("btn-upgrade-couple").onclick = () => goToStripe("couple");
 $("btn-upgrade-unlimited").onclick = () => goToStripe("illimite");
-if ($("btn-manage-sub")) $("btn-manage-sub").onclick = () => {
-  alert("La gestion d'abonnement arrive avec l'intégration Stripe.");
+
+/* ---------- GÉRER MON ABONNEMENT -> Firestore (page admin) ---------- */
+const REASON_LABELS = {
+  baisser: "Baisser mon forfait",
+  augmenter: "Passer à l'illimité",
+  facturation: "Problème de facturation",
+  pause: "Mettre en pause temporairement",
+  resilier: "Résilier mon abonnement",
+  autre: "Autre demande"
+};
+$("btn-toggle-manage").onclick = () => {
+  const form = $("manage-form");
+  const open = form.style.display === "block";
+  form.style.display = open ? "none" : "block";
+  $("btn-toggle-manage").textContent = open ? "Gérer mon abonnement" : "Fermer";
+};
+$("btn-send-manage").onclick = async () => {
+  clearErr("manage-error");
+  const reason = $("manage-reason").value;
+  if (!reason) return err("manage-error","Choisissez un motif dans la liste.");
+  const btn = $("btn-send-manage");
+  const msg = $("manage-message").value.trim();
+  btn.disabled = true; btn.textContent = "Envoi…";
+  try {
+    await addDoc(collection(db,"demandes"), {
+      uid: me.uid,
+      prenom: profile.prenom || "",
+      email: me.email || "",
+      formule: profile.formule || "",
+      plan: profile.plan || "",
+      stripe_customer_id: profile.stripe_customer_id || "",
+      motif: reason,
+      motif_label: REASON_LABELS[reason] || reason,
+      message: msg || "",
+      statut: "à traiter",
+      createdAt: serverTimestamp()
+    });
+    $("manage-form").innerHTML = `<div class="plan-current" style="margin-top:0"><p class="pc-msg" style="margin-top:0"><b>Demande envoyée.</b> On revient vers vous sous 48h. Votre abonnement reste actif d'ici là.</p></div>`;
+    $("btn-toggle-manage").style.display = "none";
+  } catch(e) {
+    console.error("Demande abonnement:", e);
+    btn.disabled = false; btn.textContent = "Envoyer ma demande";
+    err("manage-error","Impossible d'envoyer la demande pour le moment. Réessayez.");
+  }
 };
 </script>
 </body>
