@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="robots" content="noindex, nofollow">
+<title>we're in love — Tableau de bord</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF4F8;--white:#fff;--ink:#1F1B2E;--gris:#6B6480;
+  --rose:#FF2D75;--rose-deep:#E81A66;--violet:#7C4DFF;--violet-deep:#6234E8;
+  --grad:linear-gradient(90deg,var(--rose),var(--violet));
+  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
+  --r:20px;--shadow:0 20px 50px -22px rgba(90,40,120,.28);
+  --font:"Plus Jakarta Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{color-scheme:only light;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.6;min-height:100svh}
+::selection{background:var(--rose);color:#fff}
+
+header{display:flex;align-items:center;gap:10px;padding:20px 24px}
+header svg{width:34px;height:auto}
+header .txt{font-weight:800;font-size:16px}
+header .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+header .tag{margin-left:auto;font-size:12px;font-weight:700;color:var(--gris);background:#fff;padding:6px 14px;border-radius:100px;box-shadow:var(--shadow)}
+
+main{max-width:1100px;margin:0 auto;padding:0 20px 60px}
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:28px 26px}
+.screen{display:none}
+.screen.active{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+h1{font-size:24px;font-weight:800}
+.sub{color:var(--gris);font-size:14px;margin-top:8px}
+input{width:100%;border:1.5px solid rgba(31,27,46,.14);border-radius:12px;padding:12px 14px;font-family:var(--font);font-size:14.5px;margin-top:14px}
+input:focus{outline:none;border-color:var(--rose)}
+.btn{display:block;width:100%;background:var(--grad-btn);color:#fff;border:none;border-radius:100px;padding:13px;font-family:var(--font);font-weight:800;font-size:14.5px;cursor:pointer;margin-top:16px}
+.btn-ghost{background:none;border:1.5px solid rgba(31,27,46,.16);color:var(--ink);box-shadow:none}
+.error{display:none;background:#FFECF1;color:var(--rose-deep);font-size:13px;font-weight:600;border-radius:10px;padding:10px 12px;margin-top:12px}
+.error.show{display:block}
+.uidbox{background:var(--bg);border-radius:12px;padding:14px;font-family:monospace;font-size:13px;margin-top:14px;word-break:break-all;user-select:all}
+
+.loader{display:flex;gap:8px;justify-content:center;padding:80px 0}
+.loader span{width:11px;height:11px;border-radius:100px;background:var(--rose);animation:b 1s infinite alternate}
+.loader span:nth-child(2){background:var(--violet);animation-delay:.2s}
+.loader span:nth-child(3){background:var(--rose);animation-delay:.4s}
+@keyframes b{to{transform:translateY(-7px);opacity:.5}}
+
+.grid-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:20px}
+.stat{background:var(--bg);border-radius:16px;padding:18px 16px}
+.stat b{display:block;font-size:26px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:12.5px;color:var(--gris);font-weight:700}
+
+.section-title{font-size:17px;font-weight:800;margin:30px 0 6px}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:13.5px}
+th{text-align:left;color:var(--gris);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;padding:8px 10px;border-bottom:2px solid var(--bg)}
+td{padding:10px;border-bottom:1px solid var(--bg)}
+tr:last-child td{border-bottom:none}
+.plan-tag{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:100px}
+.plan-tag.free{background:var(--bg);color:var(--gris)}
+.plan-tag.premium{background:var(--grad);color:#fff}
+.motif-tag{font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:100px;white-space:nowrap;background:var(--bg);color:var(--violet-deep)}
+.motif-tag.resilier{background:#FFECF1;color:var(--rose-deep)}
+.motif-tag.facturation{background:#FFF4E2;color:#A66A00}
+.msg-cell{max-width:240px;color:var(--gris);font-size:12.5px;line-height:1.45}
+.topnav{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.topnav button{background:none;border:none;color:var(--gris);font-size:13px;font-weight:600;text-decoration:underline;cursor:pointer;font-family:var(--font)}
+.stripe-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--violet-deep)}
+.refresh{background:var(--bg);border:none;border-radius:100px;padding:8px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--font)}
+</style>
+</head>
+<body>
+
+<header>
+  <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
+  <span class="txt">we're <span class="in">in</span> love</span>
+  <span class="tag">🔒 Tableau de bord privé</span>
+</header>
+
+<main>
+  <div class="screen active" id="s-loading"><div class="loader"><span></span><span></span><span></span></div></div>
+
+  <div class="screen" id="s-auth">
+    <div class="card">
+      <h1>Accès privé</h1>
+      <p class="sub">Cette page n'est pas référencée et n'apparaît nulle part sur le site.</p>
+      <input type="password" id="in-pass" placeholder="Mot de passe" autocomplete="off">
+      <div class="error" id="auth-error"></div>
+      <button class="btn" id="btn-login">Entrer</button>
+    </div>
+  </div>
+
+  <div class="screen" id="s-dash">
+    <div class="card">
+      <div class="topnav">
+        <span class="sub" style="margin:0" id="who">Connecté</span>
+        <button id="btn-logout">Se déconnecter</button>
+      </div>
+      <h1>Vue d'ensemble</h1>
+      <p class="sub">Données Firestore en direct. Pour les vrais chiffres de paiement, vérifie <a class="stripe-link" href="https://dashboard.stripe.com" target="_blank" rel="noopener">le dashboard Stripe →</a></p>
+
+      <div class="grid-stats" id="stats"></div>
+
+      <div class="section-title">🤝 Demandes de partenariat <span id="req-count-badge"></span></div>
+      <table>
+        <thead><tr><th>Média</th><th>Contact</th><th>Poste</th><th>Email</th><th>Reçue le</th></tr></thead>
+        <tbody id="requests-table"></tbody>
+      </table>
+
+      <div class="section-title">💳 Demandes d'abonnement <span id="demandes-count-badge"></span></div>
+      <table>
+        <thead><tr><th>Motif</th><th>Prénom</th><th>Email</th><th>Message</th><th>Formule</th><th>Reçue le</th></tr></thead>
+        <tbody id="demandes-table"></tbody>
+      </table>
+
+      <div class="section-title">Derniers inscrits</div>
+      <button class="refresh" id="btn-refresh">↻ Actualiser</button>
+      <table>
+        <thead><tr><th>Prénom</th><th>Email</th><th>Plan</th><th>Inscrit le</th></tr></thead>
+        <tbody id="users-table"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+/* ============================================================
+   CONFIGURATION — identique aux autres pages
+   ============================================================ */
+const firebaseConfig = {
+  apiKey: "AIzaSyDEUPsPd9UpVFFFpJO3XooVPkKUX4NLxHU",
+  authDomain: "wereinlove-93a23.firebaseapp.com",
+  projectId: "wereinlove-93a23",
+  appId: "1:224364413943:web:d0027db19a7c89cb17a4f2"
+};
+/* ============================================================
+   MOT DE PASSE — protège l'accès à la page (front) ; la connexion
+   anonyme Firebase ci-dessous permet ensuite la lecture des données.
+   ============================================================ */
+const DASH_PASSWORD = "alina";
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInAnonymously, onAuthStateChanged, signOut }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, getDocs }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const $ = id => document.getElementById(id);
+const show = id => { document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active")); $(id).classList.add("active"); };
+const err = (id,msg) => { const e=$(id); e.textContent=msg; e.classList.add("show"); };
+const esc = s => String(s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDate = ts => { if(!ts) return "—"; const d = ts.toDate ? ts.toDate() : new Date(ts); return d.toLocaleDateString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric"}); };
+
+// Toujours partir sur l'écran mot de passe : chaque visite redemande le mdp (session non conservée)
+show("s-auth");
+signOut(auth).catch(()=>{});
+
+$("btn-login").onclick = async () => {
+  err("auth-error",""); $("auth-error").classList.remove("show");
+  if ($("in-pass").value !== DASH_PASSWORD) return err("auth-error", "Mot de passe incorrect.");
+  try {
+    await signInAnonymously(auth);
+    $("who").textContent = "Session active";
+    show("s-dash");
+    await loadDashboard();
+  } catch(e){ err("auth-error", "Connexion impossible : "+e.code); }
+};
+$("in-pass").addEventListener("keydown", e => { if(e.key==="Enter") $("btn-login").click(); });
+$("btn-logout").onclick = () => { signOut(auth); show("s-auth"); $("in-pass").value=""; };
+
+async function loadDashboard(){
+  const safe = async (p, fb) => { try { return await p; } catch(e){ console.warn(e); return fb; } };
+
+  const usersSnap = await safe(getDocs(collection(db,"users")), { docs:[] });
+  const disputesSnap = await safe(getDocs(collection(db,"disputes")), { docs:[] });
+  const compatSnap = await safe(getDocs(collection(db,"compat")), { docs:[] });
+  const requestsSnap = await safe(getDocs(collection(db,"partnershipRequests")), { docs:[] });
+  const demandesSnap = await safe(getDocs(collection(db,"demandes")), { docs:[] });
+
+  const users = usersSnap.docs.map(d => ({ id:d.id, ...d.data() }));
+  const disputes = disputesSnap.docs.map(d => d.data());
+  const compat = compatSnap.docs.map(d => d.data());
+  const requests = requestsSnap.docs.map(d => d.data());
+  const demandes = demandesSnap.docs.map(d => ({ id:d.id, ...d.data() }));
+
+  const totalUsers = users.length;
+  const premiumUsers = users.filter(u => u.plan === "premium" || u.plan === "couple" || u.plan === "unlimited").length;
+  const resolvedDisputes = disputes.filter(d => d.verdict).length;
+  const sharedConsent = disputes.filter(d => d.shareConsent === true).length;
+
+  $("stats").innerHTML = `
+    <div class="stat"><b>${totalUsers}</b><span>Inscrits</span></div>
+    <div class="stat"><b>${premiumUsers}</b><span>Comptes payants (marqués)</span></div>
+    <div class="stat"><b>${disputes.length}</b><span>Disputes créées</span></div>
+    <div class="stat"><b>${resolvedDisputes}</b><span>Verdicts rendus</span></div>
+    <div class="stat"><b>${compat.length}</b><span>Tests de compatibilité</span></div>
+    <div class="stat"><b>${sharedConsent}</b><span>Consentements boîte à disputes</span></div>
+  `;
+
+  requests.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+  $("req-count-badge").textContent = requests.length ? `(${requests.length})` : "";
+  $("requests-table").innerHTML = requests.map(r => `
+    <tr>
+      <td><b>${esc(r.media || "—")}</b></td>
+      <td>${esc(r.name || "—")}</td>
+      <td>${esc(r.role || "—")}</td>
+      <td><a href="mailto:${esc(r.email)}">${esc(r.email || "—")}</a></td>
+      <td>${fmtDate(r.createdAt)}</td>
+    </tr>`).join("") || `<tr><td colspan="5" style="color:var(--gris);text-align:center;padding:20px">Aucune demande pour l'instant.</td></tr>`;
+
+  // Demandes d'abonnement
+  demandes.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+  $("demandes-count-badge").textContent = demandes.length ? `(${demandes.length})` : "";
+  const motifClass = m => m==="resilier" ? "resilier" : (m==="facturation" ? "facturation" : "");
+  $("demandes-table").innerHTML = demandes.map(d => `
+    <tr>
+      <td><span class="motif-tag ${motifClass(d.motif)}">${esc(d.motif_label || d.motif || "—")}</span></td>
+      <td>${esc(d.prenom || "—")}</td>
+      <td><a href="mailto:${esc(d.email)}">${esc(d.email || "—")}</a></td>
+      <td class="msg-cell">${esc(d.message) || "<span style='opacity:.5'>—</span>"}</td>
+      <td>${esc(d.formule || d.plan || "—")}</td>
+      <td>${fmtDate(d.createdAt)}</td>
+    </tr>`).join("") || `<tr><td colspan="6" style="color:var(--gris);text-align:center;padding:20px">Aucune demande d'abonnement pour l'instant.</td></tr>`;
+
+  users.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+  $("users-table").innerHTML = users.slice(0,50).map(u => `
+    <tr>
+      <td>${esc(u.prenom || "—")}</td>
+      <td>${esc(u.email || "—")}</td>
+      <td><span class="plan-tag ${(u.plan==='premium'||u.plan==='couple'||u.plan==='unlimited') ? 'premium':'free'}">${esc(u.plan || "gratuit")}</span></td>
+      <td>${fmtDate(u.createdAt)}</td>
+    </tr>`).join("") || `<tr><td colspan="4" style="color:var(--gris);text-align:center;padding:20px">Aucun inscrit pour l'instant.</td></tr>`;
+}
+$("btn-refresh").onclick = () => loadDashboard();
+</script>
+</body>
+</html>
