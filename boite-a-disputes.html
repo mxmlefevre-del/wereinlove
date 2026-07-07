@@ -18,23 +18,171 @@
 <body>
 <div class="topbar"><a class="logo" href="index.html" aria-label="Retour accueil"><svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg><span>we're <span class="in">in</span> love</span></a><a href="index.html" class="close" aria-label="Fermer">✕</a></div>
 <div class="feed" id="feed"></div><div class="toast" id="toast">Lien copié ✓</div>
-<script src="disputes-data-v2.js"></script>
 <script>
-const feed=document.getElementById('feed');const toast=document.getElementById('toast');const DISPUTES=window.DISPUTES||[];
+/* ============================================================
+   FIX DEFINITIF — chargement robuste de disputes-data.js
+   - Ne dépend plus de window.DISPUTES créé par <script src>
+   - Va chercher disputes-data.js directement
+   - Parse le tableau même si le serveur ne l'exécute pas comme script
+   - Supprime totalement l'appel à disputes-data-v2.js
+   ============================================================ */
+const feed=document.getElementById('feed');
+const toast=document.getElementById('toast');
+let DISPUTES=[];
+
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const heart=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>`;
 const shareIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>`;
-function fmt(n){return n>=1000?(Math.round(n/100)/10).toString().replace('.',',')+'k':String(n)}
+
+function fmt(n){return n>=1000?(Math.round(n/100)/10).toString().replace('.',',')+'k':String(n||0)}
 function dots(n,i){return `<div class="dots">${Array.from({length:n},(_,k)=>`<span class="dot ${k===i?'active':''}"></span>`).join('')}</div>`}
-function firstTitle(t){let parts=t.split(' ');let mid=Math.ceil(parts.length/2);return `${esc(parts.slice(0,mid).join(' '))}<br><span class="grad">${esc(parts.slice(mid).join(' '))}</span>`}
-function slides(d){const n=1+d.msgs.length+1;let out=`<div class="slide cover-slide"><div class="cover-wrap"><div class="cat-pill">${esc(d.cat)}</div><div class="big-emoji">${d.emoji}</div><h1 class="story-title">${firstTitle(d.title)}</h1><p class="hook">${esc(d.hook)}</p><div class="versus"><span>${esc(d.a)}</span><span class="vs">VS</span><span>${esc(d.b)}</span></div><div class="swipe">Glissez pour lire →</div></div>${dots(n,0)}</div>`;
- d.msgs.forEach((m,i)=>{out+=`<div class="slide"><div class="msg-title">${esc(d.title)}</div><div class="chat"><div class="name" style="align-self:${m.r==='A'?'flex-start':'flex-end'}">${esc(m.n)}</div><div class="bubble ${m.r.toLowerCase()}">${esc(m.t)}</div></div>${dots(n,i+1)}</div>`});
- const v=d.v;out+=`<div class="slide"><div class="verdict-wrap"><div class="verdict-kicker">⚖️ Le verdict We're in love</div><div class="scores"><span class="score a">${v.pctA}%</span><span class="vs">VS</span><span class="score b">${v.pctB}%</span></div><div class="bar"><div class="a" style="width:${v.pctA}%"></div><div class="b" style="width:${v.pctB}%"></div></div><div class="analysis">${esc(v.analyse)}</div><div class="mot">${esc(v.mot)}</div></div>${dots(n,n-1)}</div>`;return out}
-function card(d){return `<section class="feed-card" id="${esc(d.id)}" data-id="${esc(d.id)}" data-likes="${d.likes}"><button class="nav-arrow left">‹</button><div class="carousel">${slides(d)}</div><button class="nav-arrow right">›</button><div class="side-actions"><div class="action"><button class="round like-btn" aria-label="J'aime">${heart}</button><span class="like-count">${fmt(d.likes)}</span></div><div class="action"><button class="round share-btn" aria-label="Partager">${shareIcon}</button><span>Partager</span></div></div></section>`}
-function render(){feed.innerHTML=`<section class="feed-card cover-card" aria-label="Page de garde"></section>`+DISPUTES.map(card).join('')+`<section class="feed-card end"><div><h2>Vous avez tout lu.</h2><p>Créez votre propre dispute et laissez We're in love trancher avec les deux versions.</p><a class="btn" href="app.html">Créer ma dispute</a></div></section>`;bind()}
-function showToast(t='Lien copié ✓'){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)}
-function bind(){document.querySelectorAll('.feed-card[data-id]').forEach(card=>{const id=card.dataset.id;const d=DISPUTES.find(x=>x.id===id);const likeBtn=card.querySelector('.like-btn');const count=card.querySelector('.like-count');const key='wil-liked-'+id;let liked=localStorage.getItem(key)==='1';let likes=d.likes+(liked?1:0);count.textContent=fmt(likes);likeBtn.classList.toggle('liked',liked);likeBtn.addEventListener('click',()=>{liked=!liked;localStorage.setItem(key,liked?'1':'0');likes=d.likes+(liked?1:0);count.textContent=fmt(likes);likeBtn.classList.toggle('liked',liked)});card.querySelector('.share-btn').addEventListener('click',async()=>{const url=location.origin+location.pathname+'#'+id;const title=d.title;try{if(navigator.share){await navigator.share({title, text:'La boîte à dispute — '+title, url});}else{await navigator.clipboard.writeText(url);showToast();}}catch(e){try{await navigator.clipboard.writeText(url);showToast();}catch(_){showToast('Impossible de partager')}}});const car=card.querySelector('.carousel');const left=card.querySelector('.left');const right=card.querySelector('.right');const go=dir=>car.scrollBy({left:dir*car.clientWidth,behavior:'smooth'});left.onclick=()=>go(-1);right.onclick=()=>go(1);car.addEventListener('scroll',()=>{const i=Math.round(car.scrollLeft/car.clientWidth);card.querySelectorAll('.dots').forEach(group=>group.querySelectorAll('.dot').forEach((dot,k)=>dot.classList.toggle('active',k===i)))});});if(location.hash){const el=document.querySelector(location.hash);if(el)setTimeout(()=>el.scrollIntoView(),100)}}
-render();
+function firstTitle(t){let parts=String(t||'').split(' ');let mid=Math.ceil(parts.length/2);return `${esc(parts.slice(0,mid).join(' '))}<br><span class="grad">${esc(parts.slice(mid).join(' '))}</span>`}
+function safeLikes(d,i){return Number.isFinite(+d.likes) ? +d.likes : 287 + ((i*137)%1204)}
+
+async function loadDisputes(){
+  // 1) Cas idéal : un autre script a déjà créé window.DISPUTES
+  if(Array.isArray(window.DISPUTES) && window.DISPUTES.length){
+    return window.DISPUTES;
+  }
+
+  // 2) Cas robuste : on lit le fichier comme du texte, puis on extrait le tableau
+  const url='./disputes-data.js?v=' + Date.now();
+  const res=await fetch(url,{cache:'no-store'});
+  if(!res.ok){
+    throw new Error('Impossible de charger disputes-data.js — statut HTTP '+res.status);
+  }
+  const txt=await res.text();
+
+  // Nettoyage basique d'un éventuel BOM
+  const clean=txt.replace(/^\uFEFF/, '').trim();
+
+  // Tentative A : extraire le tableau et le parser comme JSON
+  const match=clean.match(/window\.DISPUTES\s*=\s*(\[[\s\S]*\])\s*;?\s*$/);
+  if(match){
+    try{
+      const data=JSON.parse(match[1]);
+      if(Array.isArray(data) && data.length) return data;
+    }catch(e){
+      console.warn('JSON.parse impossible, tentative JS classique.', e);
+    }
+  }
+
+  // Tentative B : exécuter le JS dans une fonction isolée
+  try{
+    const fakeWindow={};
+    Function('window', clean + '; return window.DISPUTES;')(fakeWindow);
+    if(Array.isArray(fakeWindow.DISPUTES) && fakeWindow.DISPUTES.length){
+      return fakeWindow.DISPUTES;
+    }
+  }catch(e){
+    console.error('Erreur dans disputes-data.js :', e);
+    throw e;
+  }
+
+  throw new Error('disputes-data.js chargé, mais aucune dispute exploitable trouvée.');
+}
+
+function slides(d){
+  const msgs=Array.isArray(d.msgs)?d.msgs:[];
+  const n=1+msgs.length+1;
+  let out=`<div class="slide cover-slide"><div class="cover-wrap"><div class="cat-pill">${esc(d.cat)}</div><div class="big-emoji">${esc(d.emoji)}</div><h1 class="story-title">${firstTitle(d.title)}</h1><p class="hook">${esc(d.hook)}</p><div class="versus"><span>${esc(d.a)}</span><span class="vs">VS</span><span>${esc(d.b)}</span></div><div class="swipe">Glissez pour lire →</div></div>${dots(n,0)}</div>`;
+  msgs.forEach((m,i)=>{
+    out+=`<div class="slide"><div class="msg-title">${esc(d.title)}</div><div class="chat"><div class="name" style="align-self:${m.r==='A'?'flex-start':'flex-end'}">${esc(m.n)}</div><div class="bubble ${(m.r||'A').toLowerCase()}">${esc(m.t)}</div></div>${dots(n,i+1)}</div>`;
+  });
+  const v=d.v||{};
+  const pctA=Number.isFinite(+v.pctA)?+v.pctA:50;
+  const pctB=Number.isFinite(+v.pctB)?+v.pctB:100-pctA;
+  out+=`<div class="slide"><div class="verdict-wrap"><div class="verdict-kicker">⚖️ Le verdict We're in love</div><div class="scores"><span class="score a">${pctA}%</span><span class="vs">VS</span><span class="score b">${pctB}%</span></div><div class="bar"><div class="a" style="width:${pctA}%"></div><div class="b" style="width:${pctB}%"></div></div><div class="analysis">${esc(v.analyse)}</div><div class="mot">${esc(v.mot)}</div></div>${dots(n,n-1)}</div>`;
+  return out;
+}
+
+function card(d,i){
+  const id=esc(d.id || ('d'+String(i+1).padStart(2,'0')));
+  const likes=safeLikes(d,i);
+  return `<section class="feed-card" id="${id}" data-id="${id}" data-index="${i}" data-likes="${likes}"><button class="nav-arrow left" aria-label="Précédent">‹</button><div class="carousel">${slides(d)}</div><button class="nav-arrow right" aria-label="Suivant">›</button><div class="side-actions"><div class="action"><button class="round like-btn" aria-label="J'aime">${heart}</button><span class="like-count">${fmt(likes)}</span></div><div class="action"><button class="round share-btn" aria-label="Partager">${shareIcon}</button><span>Partager</span></div></div></section>`;
+}
+
+function showToast(t='Lien copié ✓'){
+  toast.textContent=t;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),1600);
+}
+
+function bind(){
+  document.querySelectorAll('.feed-card[data-id]').forEach(card=>{
+    const index=+card.dataset.index;
+    const d=DISPUTES[index];
+    const id=card.dataset.id;
+    const likeBtn=card.querySelector('.like-btn');
+    const count=card.querySelector('.like-count');
+    const base=+card.dataset.likes;
+    const key='wil-liked-'+id;
+    let liked=localStorage.getItem(key)==='1';
+    let likes=base+(liked?1:0);
+    count.textContent=fmt(likes);
+    likeBtn.classList.toggle('liked',liked);
+    likeBtn.addEventListener('click',()=>{
+      liked=!liked;
+      localStorage.setItem(key,liked?'1':'0');
+      likes=base+(liked?1:0);
+      count.textContent=fmt(likes);
+      likeBtn.classList.toggle('liked',liked);
+    });
+    card.querySelector('.share-btn').addEventListener('click',async()=>{
+      const url=location.origin+location.pathname+'#'+id;
+      const title=d?.title||'La boîte à dispute';
+      try{
+        if(navigator.share){
+          await navigator.share({title, text:'La boîte à dispute — '+title, url});
+        }else{
+          await navigator.clipboard.writeText(url);
+          showToast();
+        }
+      }catch(e){
+        try{await navigator.clipboard.writeText(url);showToast();}
+        catch(_){showToast('Impossible de partager');}
+      }
+    });
+    const car=card.querySelector('.carousel');
+    const left=card.querySelector('.left');
+    const right=card.querySelector('.right');
+    const go=dir=>car.scrollBy({left:dir*car.clientWidth,behavior:'smooth'});
+    left.onclick=()=>go(-1);
+    right.onclick=()=>go(1);
+    car.addEventListener('scroll',()=>{
+      const current=Math.round(car.scrollLeft/car.clientWidth);
+      card.querySelectorAll('.dots').forEach(group=>{
+        group.querySelectorAll('.dot').forEach((dot,k)=>dot.classList.toggle('active',k===current));
+      });
+    }, {passive:true});
+  });
+  if(location.hash){
+    const el=document.querySelector(location.hash);
+    if(el)setTimeout(()=>el.scrollIntoView(),100);
+  }
+}
+
+function render(){
+  feed.innerHTML=`<section class="feed-card cover-card" aria-label="Page de garde"></section>`+
+    DISPUTES.map(card).join('')+
+    `<section class="feed-card end"><div><h2>Vous avez tout lu.</h2><p>Créez votre propre dispute et laissez We're in love trancher avec les deux versions.</p><a class="btn" href="app.html">Créer ma dispute</a></div></section>`;
+  bind();
+}
+
+function renderError(err){
+  console.error(err);
+  feed.innerHTML=`<section class="feed-card end"><div><h2>Erreur de chargement</h2><p>${esc(err.message||err)}</p><p style="margin-top:10px;color:rgba(255,255,255,.55);font-size:13px">Vérifie que <strong>disputes-data.js</strong> est bien dans le même dossier que cette page.</p></div></section>`;
+}
+
+(async()=>{
+  try{
+    DISPUTES=await loadDisputes();
+    window.DISPUTES=DISPUTES;
+    render();
+  }catch(err){
+    renderError(err);
+  }
+})();
 </script>
 </body>
 </html>
