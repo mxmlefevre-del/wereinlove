@@ -64,11 +64,22 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
 .screen.active{display:block;animation:fade .35s ease}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-.topbar{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:12px;flex-wrap:wrap}
-.topbar .out{font-size:13px;color:var(--gris);background:none;border:none;cursor:pointer;font-family:var(--font);font-weight:600;text-decoration:underline}
-.topnav{display:flex;gap:14px;font-size:13px;font-weight:700}
-.topnav a{color:var(--violet-deep);text-decoration:none}
-.topnav a:hover{text-decoration:underline}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:10px;flex-wrap:wrap}
+#hello{font-size:13.5px;color:var(--gris);font-weight:600}
+.topnav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.nav-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--font);font-size:13px;font-weight:800;
+  text-decoration:none;padding:9px 16px;border-radius:100px;white-space:nowrap;line-height:1;
+  cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s,color .15s;border:none}
+.nav-pill.primary{background:var(--grad-btn);color:#fff;box-shadow:0 10px 22px -10px rgba(232,26,102,.55)}
+.nav-pill.primary:hover{transform:translateY(-1px);box-shadow:0 14px 26px -10px rgba(232,26,102,.65)}
+.nav-pill.ghost{background:rgba(124,77,255,.1);color:var(--violet-deep)}
+.nav-pill.ghost:hover{background:rgba(124,77,255,.18);transform:translateY(-1px)}
+.nav-pill.out{background:#fff;color:var(--gris);padding:9px 16px;border:1.5px solid rgba(31,27,46,.14)}
+.nav-pill.out:hover{color:var(--rose-deep);border-color:rgba(232,26,102,.35);background:#FFF5F8}
+@media (max-width:520px){
+  .topbar{justify-content:center}
+  #hello{width:100%;text-align:center;order:-1}
+}
 
 /* profil */
 .profile-row{display:flex;align-items:center;gap:18px}
@@ -114,8 +125,24 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
 .sub-feature .ic{flex-shrink:0}
 .price{font-size:30px;font-weight:800}
 .price small{font-size:14px;color:var(--gris);font-weight:600}
-.plan-box{background:var(--bg);border-radius:18px;padding:20px 20px;margin-top:12px}
+.plan-box{background:var(--bg);border-radius:18px;padding:20px 20px;margin-top:12px;position:relative}
 .plan-box.hero{background:linear-gradient(160deg,#FFF0F6,#F1EAFE);border:1.5px solid rgba(255,45,117,.25)}
+.ribbon{position:absolute;top:-13px;left:20px;background:var(--grad-btn);color:#fff;font-size:11px;font-weight:800;
+  padding:5px 14px;border-radius:100px;letter-spacing:.02em;box-shadow:0 8px 16px -8px rgba(232,26,102,.5)}
+
+.current-plan{background:#fff;border:1.5px solid rgba(124,77,255,.2);border-radius:18px;
+  padding:20px 20px 20px 24px;margin-top:14px;position:relative;overflow:hidden}
+.current-plan::before{content:"";position:absolute;top:0;left:0;width:5px;height:100%;background:var(--grad)}
+.cp-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.cp-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(124,77,255,.12);color:var(--violet-deep);
+  font-size:11px;font-weight:800;padding:5px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+.cp-name{font-weight:800;font-size:16px}
+.cp-progress{margin-top:16px}
+.cp-track{background:var(--bg);border-radius:100px;height:8px;overflow:hidden}
+.cp-fill{height:100%;background:var(--grad);border-radius:100px;transition:width .5s ease;width:0%}
+.cp-fill.full{background:linear-gradient(90deg,#FF2D75,#E81A66)}
+.cp-label{font-size:12.5px;color:var(--gris);font-weight:700;margin-top:9px}
+.cp-msg{font-size:13.5px;margin-top:12px;color:var(--ink)}
 
 /* modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(31,27,46,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
@@ -142,12 +169,12 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
 
 <main>
   <div class="topbar">
-    <span id="hello" style="font-size:13.5px;color:var(--gris)"></span>
+    <span id="hello"></span>
     <nav class="topnav">
-      <a href="app.html">💬 Nouvelle dispute</a>
-      <a href="compatibilite.html">💘 Test compatibilité</a>
+      <a class="nav-pill primary" href="app.html">💬 Nouvelle dispute</a>
+      <a class="nav-pill ghost" href="compatibilite.html">💘 Test compatibilité</a>
+      <button class="nav-pill out" id="btn-logout" style="display:none">Se déconnecter →</button>
     </nav>
-    <button class="out" id="btn-logout" style="display:none">Se déconnecter</button>
   </div>
 
   <!-- CHARGEMENT -->
@@ -208,10 +235,22 @@ input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.1)}
     <div class="card">
       <h2>Mon <span class="grad-txt">abonnement</span></h2>
       <div id="sub-free">
-        <p class="sub" style="margin-top:12px"><b>Plan gratuit</b> — vos <b>deux premières disputes</b> sont offertes.</p>
 
-        <div class="divider" style="margin-top:22px">Formule la plus populaire</div>
+        <div class="current-plan">
+          <div class="cp-top">
+            <span class="cp-name">Plan gratuit</span>
+            <span class="cp-badge">✓ Votre plan actuel</span>
+          </div>
+          <div class="cp-progress">
+            <div class="cp-track"><div class="cp-fill" id="cp-fill"></div></div>
+            <p class="cp-label"><b id="cp-used">0</b>/2 disputes gratuites utilisées</p>
+          </div>
+          <p class="cp-msg" id="cp-msg">Il vous reste <b>2 disputes gratuites</b>. Passez à un forfait ci-dessous pour continuer sans limite.</p>
+        </div>
+
+        <div class="divider" style="margin-top:26px">Formule la plus populaire</div>
         <div class="plan-box hero">
+          <span class="ribbon">★ Recommandé</span>
           <p class="price">3,99 € <small>/ mois · couple</small></p>
           <p class="hint" style="margin-top:2px"><s style="opacity:.55">9,99 €</s> · jusqu'à 30 disputes par mois</p>
           <div class="sub-feature"><span class="ic">💬</span><span>30 disputes par mois pour votre couple</span></div>
@@ -347,7 +386,7 @@ const pendingPlan = new URLSearchParams(location.search).get("plan");
 onAuthStateChanged(auth, async user => {
   me = user;
   if (!user){ $("btn-logout").style.display="none"; $("hello").textContent=""; show("s-auth"); return; }
-  $("btn-logout").style.display="block";
+  $("btn-logout").style.display="inline-flex";
   try {
     const snap = await getDoc(doc(db,"users",user.uid));
     profile = snap.exists() ? snap.data() : { prenom:"Vous" };
@@ -452,6 +491,15 @@ function renderMain(){
   $("my-plan").classList.toggle("premium", premium);
   $("sub-free").style.display = premium ? "none" : "block";
   $("sub-premium").style.display = premium ? "block" : "none";
+  if (!premium){
+    const used = Math.min(disputes.length, 2);
+    $("cp-used").textContent = used;
+    $("cp-fill").style.width = (used/2*100)+"%";
+    $("cp-fill").classList.toggle("full", used>=2);
+    $("cp-msg").innerHTML = used>=2
+      ? "Vous avez utilisé vos <b>2 disputes gratuites</b>. Passez à un forfait ci-dessous pour continuer."
+      : `Il vous reste <b>${2-used} dispute${2-used>1?"s":""} gratuite${2-used>1?"s":""}</b>. Passez à un forfait ci-dessous pour continuer sans limite.`;
+  }
 
   // stats
   $("st-disputes").textContent = disputes.length;
