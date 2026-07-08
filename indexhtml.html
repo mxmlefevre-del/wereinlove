@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<title>we're in love — Comprenez les deux points de vue</title>
+<meta name="description" content="Une dispute, deux versions, une meilleure compréhension. we're in love aide les couples à transformer leurs conflits en conversations constructives.">
+
+<!-- Open Graph / aperçu de partage (Facebook, WhatsApp, iMessage, LinkedIn...) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wereinlove.app/">
+<meta property="og:title" content="we're in love — Une dispute. Deux versions. Une réconciliation.">
+<meta property="og:description" content="Parce que la plupart des disputes ne viennent pas des mots… mais de ce qu'ils cachent.">
+<meta property="og:image" content="https://wereinlove.app/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="we're in love — Une dispute. Deux versions. Une réconciliation.">
+<meta name="twitter:description" content="Parce que la plupart des disputes ne viennent pas des mots… mais de ce qu'ils cachent.">
+<meta name="twitter:image" content="https://wereinlove.app/og-image.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF4F8;
+  --white:#FFFFFF;
+  --ink:#1F1B2E;
+  --gris:#6B6480;
+  --rose:#FF2D75;
+  --rose-deep:#E81A66;
+  --violet:#7C4DFF;
+  --violet-deep:#6234E8;
+  --jaune:#FFC531;
+  --grad:linear-gradient(90deg,var(--rose),var(--violet));
+  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
+  --r-l:26px;
+  --shadow:0 24px 60px -24px rgba(90,40,120,.28);
+  --font:"Plus Jakarta Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;color-scheme:only light;background:#FBF4F8}
+html,body{max-width:100%;overflow-x:clip}
+body{
+  font-family:var(--font);
+  background:var(--bg) !important;
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--rose);color:#fff}
+img{display:block;max-width:100%}
+
+/* ============ HEADER CENTRÉ ============ */
+header.top{
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px 20px 0;
+  text-align:center;
+}
+.logo-mark{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none}
+.logo-mark svg{width:clamp(58px,7vw,76px);height:auto}
+.logo-mark .txt{font-weight:800;font-size:clamp(16px,2vw,19px);color:var(--ink);letter-spacing:-.02em}
+.logo-mark .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo-mark .domain{font-size:12.5px;font-weight:600;color:var(--gris);letter-spacing:.03em}
+/* ===== MENU BURGER ===== */
+.burger{position:absolute;top:22px;right:clamp(16px,4vw,44px);width:44px;height:44px;border:none;background:#fff;border-radius:14px;box-shadow:0 6px 18px -8px rgba(90,40,120,.35);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;z-index:120;transition:.15s}
+.burger:hover{transform:translateY(-1px)}
+.burger span{display:block;width:20px;height:2.5px;border-radius:100px;background:var(--ink);transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.menu-overlay{position:fixed;inset:0;background:rgba(31,27,46,.5);opacity:0;pointer-events:none;transition:.3s;z-index:110}
+.menu-overlay.show{opacity:1;pointer-events:auto}
+.menu-panel{position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);background:#fff;box-shadow:-20px 0 60px -20px rgba(90,40,120,.4);z-index:115;padding:70px 22px 30px;display:flex;flex-direction:column;gap:4px;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+.menu-panel.open{transform:translateX(0)}
+.menu-close{position:absolute;top:20px;right:20px;width:38px;height:38px;border:none;background:var(--bg);border-radius:100px;font-size:17px;cursor:pointer;color:var(--ink)}
+.menu-panel a{text-decoration:none;color:var(--ink);font-weight:700;font-size:15.5px;padding:13px 14px;border-radius:12px;transition:.15s}
+.menu-panel a:hover{background:var(--bg)}
+.menu-panel .menu-cta{background:var(--grad-btn);color:#fff;text-align:center;margin-top:14px;box-shadow:0 12px 26px -12px rgba(232,26,102,.55)}
+.menu-panel .menu-cta:hover{background:var(--grad-btn);opacity:.94}
+.menu-panel .menu-cta-ghost{background:#fff;color:var(--violet-deep);border:2px solid var(--violet);box-shadow:none;margin-top:10px}
+.menu-panel .menu-cta-ghost:hover{background:var(--bg);opacity:1}
+.burger.open{opacity:0;pointer-events:none}
+
+/* ============ BOUTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--grad-btn);color:#fff;
+  border:none;border-radius:100px;
+  padding:13px 26px;
+  font-family:var(--font);font-size:15px;font-weight:700;
+  text-decoration:none;cursor:pointer;
+  box-shadow:0 10px 26px -10px rgba(232,26,102,.55);
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px -10px rgba(232,26,102,.65)}
+.btn:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+.btn-ghost{background:var(--white);color:var(--ink);border:1.5px solid rgba(31,27,46,.12);box-shadow:0 8px 22px -12px rgba(90,40,120,.2)}
+.btn-lg{padding:17px 32px;font-size:16px}
+.btn-sm{padding:10px 20px;font-size:13.5px}
+
+/* ============ HERO ============ */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;
+  padding:26px clamp(20px,4.5vw,64px) 56px;
+  max-width:1340px;margin:0 auto;
+}
+.hero-copy{padding-top:clamp(12px,4.5vw,72px)}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#FDE4EF;color:var(--rose-deep);
+  font-size:12px;font-weight:700;line-height:1.35;
+  padding:6px 14px;border-radius:100px;margin-bottom:24px;
+}
+.hero h1{
+  font-size:clamp(36px,4.8vw,60px);
+  font-weight:800;line-height:1.12;letter-spacing:-.03em;
+}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin-top:22px;font-size:clamp(16px,1.6vw,19px);color:var(--gris);max-width:44ch}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.tiktok-badge{display:inline-flex;align-items:center;gap:9px;margin-top:16px;background:#0F0F0F;color:#fff;text-decoration:none;font-size:13.5px;font-weight:800;padding:10px 18px;border-radius:100px;transition:transform .15s;box-shadow:0 10px 24px -12px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15)}
+.tiktok-badge:hover{transform:translateY(-1px)}
+.tiktok-new{background:var(--grad);color:#fff;font-size:10.5px;font-weight:800;padding:2px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+
+/* ===== BANNIÈRE COOKIES RGPD ===== */
+.cookie-banner{position:fixed;left:20px;right:auto;bottom:-200px;max-width:340px;z-index:400;transition:bottom .45s cubic-bezier(.34,1.1,.64,1)}
+.cookie-banner.show{bottom:16px}
+.cookie-card{background:var(--white);border-radius:18px;box-shadow:0 20px 50px -18px rgba(90,40,120,.4);padding:16px 18px;position:relative;overflow:hidden}
+.cookie-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+.cookie-emoji{font-size:19px;line-height:1}
+.cookie-card p{font-size:12px;color:var(--gris);line-height:1.45;margin-top:7px}
+.cookie-card p a{color:var(--violet-deep);font-weight:700;text-decoration:underline}
+.cookie-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.cookie-actions .btn,.cookie-actions .btn-ghost{margin:0;white-space:nowrap;padding:8px 14px;font-size:12px}
+
+.cookie-modal-overlay{position:fixed;inset:0;background:rgba(31,27,46,.55);display:none;align-items:center;justify-content:center;z-index:410;padding:20px}
+.cookie-modal-overlay.show{display:flex}
+.cookie-modal{background:#fff;border-radius:var(--r-l);box-shadow:var(--shadow);max-width:440px;width:100%;padding:30px 28px;position:relative;overflow:hidden}
+.cookie-modal::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--grad)}
+.cookie-modal h3{font-size:19px;font-weight:800;margin-bottom:18px}
+.cookie-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid rgba(31,27,46,.08)}
+.cookie-row b{font-size:14px;font-weight:800;display:block}
+.cookie-row p{font-size:12.5px;color:var(--gris);margin-top:3px;line-height:1.4}
+.cookie-toggle{width:32px;height:32px;border-radius:100px;border:1.5px solid rgba(31,27,46,.15);background:#fff;font-size:13px;font-weight:800;color:var(--gris);cursor:pointer;flex-shrink:0}
+.cookie-toggle.disabled{background:var(--bg);color:var(--rose-deep);border:none;cursor:default}
+.cookie-toggle.on{background:var(--grad);color:#fff;border:none}
+.cookie-modal .btn{margin-top:20px}
+.hero .micro{margin-top:18px;font-size:14px;color:var(--gris)}
+.hero .micro b{color:var(--rose-deep)}
+
+/* Bloc avis (styles prêts — le HTML correspondant est en commentaire dans le hero) */
+.rating{margin-top:14px;display:flex;align-items:center;gap:10px}
+.rating .stars{color:var(--jaune);font-size:20px;letter-spacing:2px;text-shadow:0 1px 0 rgba(0,0,0,.08)}
+.rating .rating-txt{font-size:14px;color:var(--gris)}
+.rating .rating-txt b{color:var(--ink)}
+
+/* ---- SCÈNE TÉLÉPHONES ---- */
+.stage{position:relative;perspective:1400px}
+.phones{
+  position:relative;
+  display:flex;justify-content:center;align-items:flex-start;
+  padding:8px 0 0;
+}
+.phone-wrap{position:relative;transform-style:preserve-3d}
+.pw-1{margin-right:-22px;margin-top:30px;z-index:2;animation:flipIn1 1.15s cubic-bezier(.22,1,.36,1) .25s both}
+.pw-2{margin-left:-22px;z-index:3;animation:flipIn2 1.15s cubic-bezier(.22,1,.36,1) .55s both}
+@keyframes flipIn1{
+  0%{opacity:0;transform:translateY(140px) rotateY(-95deg) rotateZ(0deg)}
+  100%{opacity:1;transform:translateY(0) rotateY(0) rotateZ(-7deg)}
+}
+@keyframes flipIn2{
+  0%{opacity:0;transform:translateY(160px) rotateY(95deg) rotateZ(0deg)}
+  100%{opacity:1;transform:translateY(0) rotateY(0) rotateZ(6deg)}
+}
+.floaty{animation:float 6s ease-in-out 1.7s infinite}
+.pw-2 .floaty{animation-delay:2.4s}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+.phone{
+  position:relative;
+  width:clamp(198px,16vw,232px);
+  aspect-ratio:10/19.6;
+  border-radius:46px;
+  background:linear-gradient(145deg,#3B3B44,#17171C 60%);
+  padding:11px;
+  box-shadow:
+    0 40px 90px -30px rgba(60,20,90,.5),
+    inset 0 0 0 2px rgba(255,255,255,.14),
+    inset 0 0 6px rgba(255,255,255,.08);
+}
+/* boutons latéraux */
+.phone::before{
+  content:"";position:absolute;left:-2.5px;top:21%;
+  width:3px;height:46px;background:#2A2A31;border-radius:2px 0 0 2px;
+  box-shadow:0 62px 0 #2A2A31;
+}
+.phone::after{
+  content:"";position:absolute;right:-2.5px;top:27%;
+  width:3px;height:72px;background:#2A2A31;border-radius:0 2px 2px 0;
+}
+.phone .screen{
+  height:100%;border-radius:36px;overflow:hidden;
+  display:flex;flex-direction:column;position:relative;
+}
+.scr-rose{background:linear-gradient(170deg,#FF5C93,#F0257E)}
+.scr-violet{background:linear-gradient(170deg,#8F63FF,#6234E8)}
+/* dynamic island */
+.island{
+  position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:72px;height:21px;background:#0B0B0F;border-radius:100px;z-index:2;
+}
+/* barre de statut */
+.statusbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 20px 0;color:#fff;
+  font-size:11.5px;font-weight:700;letter-spacing:.02em;
+}
+.statusbar svg{display:block}
+.phone .app-title{color:#fff;font-weight:800;font-size:13.5px;text-align:center;padding:12px 0 10px}
+.phone .card{
+  background:#fff;border-radius:16px;margin:0 11px;
+  padding:14px 14px;flex:1;min-height:0;overflow:hidden;
+  display:flex;flex-direction:column;gap:8px;justify-content:flex-start;
+}
+.phone .card .label{font-weight:800;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.lbl-rose{color:var(--rose-deep)}
+.lbl-violet{color:var(--violet-deep)}
+.phone .card .stitle{font-weight:800;font-size:14px;color:var(--ink);line-height:1.3}
+.phone .card p{font-size:11.5px;line-height:1.55;color:#4A4460}
+.phone .btn-app{
+  margin:10px 11px 0;
+  border:none;border-radius:12px;padding:11px;
+  color:#fff;font-family:var(--font);font-weight:800;font-size:12px;
+  text-align:center;
+}
+.ba-rose{background:var(--rose-deep);box-shadow:0 8px 18px -6px rgba(0,0,0,.3)}
+.ba-violet{background:#5A2BE0;box-shadow:0 8px 18px -6px rgba(0,0,0,.3)}
+.phone .foot-link{color:rgba(255,255,255,.85);font-size:10px;font-weight:600;text-align:center;padding:8px 0 2px}
+.home-bar{width:36%;height:4px;background:rgba(255,255,255,.9);border-radius:100px;margin:4px auto 8px}
+
+/* avatars — placés SOUS les téléphones, jamais dessus */
+.cast{
+  display:flex;justify-content:center;gap:clamp(28px,6vw,72px);
+  margin-top:18px;
+}
+.floater{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.fl-1{animation:popIn .7s cubic-bezier(.34,1.56,.64,1) 1.15s both}
+.fl-2{animation:popIn .7s cubic-bezier(.34,1.56,.64,1) 1.4s both}
+@keyframes popIn{
+  0%{opacity:0;transform:scale(.4)}
+  100%{opacity:1;transform:scale(1)}
+}
+.avatar{
+  width:clamp(64px,6vw,82px);height:clamp(64px,6vw,82px);
+  border-radius:50%;overflow:hidden;
+  border:4px solid #fff;
+  box-shadow:0 16px 36px -12px rgba(90,40,120,.4);
+}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.fl-1 .avatar{outline:3px solid rgba(255,45,117,.5)}
+.fl-2 .avatar{outline:3px solid rgba(124,77,255,.5)}
+.chip{
+  border-radius:14px;padding:9px 15px;
+  font-size:12.5px;font-weight:700;color:#fff;text-align:center;line-height:1.3;
+  box-shadow:0 12px 28px -10px rgba(90,40,120,.4);
+  max-width:160px;
+}
+.chip-rose{background:#FF7AA6}
+.chip-violet{background:#9D7BFF}
+
+/* ============ FEATURES ============ */
+.features{
+  max-width:1240px;margin:0 auto;
+  background:var(--white);border-radius:var(--r-l);
+  box-shadow:var(--shadow);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  padding:30px clamp(18px,3vw,40px);
+  position:relative;z-index:5;
+}
+.feat{display:flex;gap:14px;align-items:flex-start;padding:6px 10px}
+.feat .ico{
+  width:48px;height:48px;flex-shrink:0;
+  border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.ico-rose{background:#FDE4EF}
+.ico-violet{background:#ECE4FF}
+.feat h3{font-size:15px;font-weight:800;margin-bottom:3px}
+.feat p{font-size:13px;color:var(--gris);line-height:1.45}
+
+/* ============ SECTIONS ============ */
+section{padding:clamp(76px,9vw,120px) clamp(20px,4.5vw,56px)}
+.shell{max-width:1140px;margin:0 auto}
+.center{text-align:center}
+.eyebrow{
+  display:inline-block;
+  background:#ECE4FF;color:var(--violet-deep);
+  font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  padding:8px 16px;border-radius:100px;margin-bottom:20px;
+}
+.section-title{font-size:clamp(28px,3.8vw,44px);font-weight:800;line-height:1.12;letter-spacing:-.025em}
+.section-title .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-sub{margin-top:16px;color:var(--gris);font-size:17px;max-width:56ch}
+.center .section-sub{margin-inline:auto}
+
+/* étapes */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:54px}
+.steps.steps-3{grid-template-columns:repeat(3,1fr);max-width:960px;margin-inline:auto}
+.compat-pills{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.compat-pill{background:#fff;border-radius:100px;padding:16px 28px;font-size:16px;font-weight:800;box-shadow:0 12px 30px -16px rgba(90,40,120,.4)}
+.step{
+  background:var(--white);border-radius:var(--r-l);
+  padding:30px 26px;box-shadow:var(--shadow);
+  transition:transform .25s;text-align:left;
+}
+.step:hover{transform:translateY(-6px)}
+.step .n{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--grad);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:17px;margin-bottom:16px;
+}
+.step h3{font-size:16.5px;font-weight:800;margin-bottom:8px;line-height:1.3}
+.step p{font-size:14px;color:var(--gris)}
+.step p b{color:var(--ink)}
+
+/* ============ TARIFS ============ */
+.pricing{background:linear-gradient(160deg,#FDF0F6,#F1EAFE)}
+.plans{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  margin-top:54px;align-items:stretch;max-width:960px;margin-inline:auto;
+}
+.plan{
+  background:var(--white);border-radius:var(--r-l);
+  padding:32px 26px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;text-align:left;position:relative;
+}
+.plan .p-name{font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--gris)}
+.plan .p-price{font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1;margin-top:14px}
+.plan .p-price small{font-size:15px;font-weight:700;color:var(--gris)}
+.plan .p-under{color:var(--gris);font-size:14px;font-weight:600;margin-top:6px}
+.plan ul{list-style:none;margin:22px 0 26px;flex:1}
+.plan li{
+  padding:9px 0;font-size:14px;font-weight:600;
+  display:flex;gap:10px;align-items:baseline;
+  border-bottom:1px solid rgba(31,27,46,.06);
+}
+.plan li:last-child{border-bottom:none}
+.plan li .k{color:var(--rose)}
+.plan .btn{width:100%}
+.plan-hero{
+  border:2.5px solid transparent;
+  background:
+    linear-gradient(var(--white),var(--white)) padding-box,
+    var(--grad) border-box;
+  transform:scale(1.04);
+  z-index:2;
+}
+.plan .badge{
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  background:var(--grad-btn);color:#fff;
+  font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  padding:7px 16px;border-radius:100px;white-space:nowrap;
+  box-shadow:0 8px 20px -8px rgba(232,26,102,.6);
+}
+.learn-note{
+  margin:44px auto 0;max-width:720px;
+  background:var(--white);border-radius:var(--r-l);
+  box-shadow:var(--shadow);
+  padding:26px 30px;
+  display:flex;gap:18px;align-items:center;text-align:left;
+}
+.learn-note .ico{
+  width:54px;height:54px;flex-shrink:0;border-radius:16px;
+  background:#ECE4FF;display:flex;align-items:center;justify-content:center;font-size:26px;
+}
+.learn-note p{font-size:15px;color:var(--gris)}
+.learn-note p b{color:var(--ink)}
+
+/* confidentialité */
+.privacy .shell{
+  background:var(--white);border-radius:var(--r-l);box-shadow:var(--shadow);
+  padding:clamp(32px,5vw,56px);
+  display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
+  max-width:900px;
+}
+.privacy .lock{
+  width:72px;height:72px;border-radius:22px;
+  background:#ECE4FF;display:flex;align-items:center;justify-content:center;font-size:32px;
+}
+.privacy h3{font-size:22px;font-weight:800;margin-bottom:8px}
+.privacy p{color:var(--gris);font-size:15px}
+.privacy p b{color:var(--ink)}
+
+/* final */
+.final{text-align:center;padding-bottom:clamp(90px,11vw,150px)}
+.final h2{font-size:clamp(30px,4.4vw,52px);font-weight:800;line-height:1.1;letter-spacing:-.025em;max-width:18ch;margin:0 auto}
+.final h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.final p{margin:20px auto 34px;color:var(--gris);font-size:17px;max-width:42ch}
+
+/* footer */
+footer{
+  border-top:1px solid rgba(31,27,46,.07);
+  padding:36px clamp(20px,4.5vw,56px);
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+  font-size:13.5px;color:var(--gris);text-align:center;
+}
+.foot-brand{font-weight:800;color:var(--ink);font-size:16px}
+.foot-brand .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 24px;max-width:640px}
+.foot-links a{color:var(--gris);text-decoration:none;font-weight:600}
+.foot-links a:hover{color:var(--ink)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.plan-hero.reveal.visible{transform:scale(1.04)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1020px){
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:18px}
+  .hero-copy{padding-top:0}
+  .hero h1,.hero .sub{margin-inline:auto}
+  .hero-cta{justify-content:center}
+  .tiktok-badge{margin-inline:auto}
+  .rating{justify-content:center}
+  .features{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .plans{grid-template-columns:1fr 1fr}
+  .plan-hero{transform:none}
+  .plan-hero.reveal.visible{transform:none}
+}
+@media (max-width:560px){
+  .cookie-banner{left:12px;right:12px;bottom:-200px;max-width:none}
+  .cookie-banner.show{bottom:12px}
+  .cookie-card{padding:15px 16px}
+  .cookie-actions{flex-wrap:wrap}
+  .cookie-actions .btn,.cookie-actions .btn-ghost{flex:1;min-width:100px}
+  .phones{padding:16px 0 8px}
+  .pw-1{margin-right:-14px;margin-top:18px}
+  .pw-2{margin-left:-14px}
+  .phone{width:min(172px,44vw)}
+  .phone .card p{font-size:10.5px}
+  .phone .card .stitle{font-size:12.5px}
+  .phone .app-title{font-size:12px;padding:10px 0 8px}
+  .phone .btn-app{font-size:11px;padding:10px}
+  .statusbar{font-size:10px;padding:9px 16px 0}
+  .island{width:60px;height:18px;top:9px}
+  .chip{max-width:130px;font-size:11px}
+  .features{grid-template-columns:1fr}
+  .steps,.steps-3{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr;max-width:420px;margin-inline:auto}
+  .privacy .shell{grid-template-columns:1fr;text-align:center}
+  .privacy .lock{margin:0 auto}
+  .learn-note{flex-direction:column;text-align:center}
+  footer{flex-direction:column;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .pw-1{transform:rotateZ(-7deg)}
+  .pw-2{transform:rotateZ(6deg)}
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- ============================================================
+     HERO EXPLICATIF ANIMÉ v2 — we're in love  (premium)
+     Bloc autonome, styles scopés sous #hero-explain.
+     Placé tout en haut ; la barre de nav vient juste en dessous.
+     ============================================================ -->
+<section id="hero-explain" data-phase="0" aria-label="Comment fonctionne we're in love">
+  <div class="hx-bg" aria-hidden="true">
+    <span class="hx-aurora a1"></span><span class="hx-aurora a2"></span>
+    <span class="hx-aurora a3"></span><span class="hx-aurora a4"></span>
+    <span class="hx-grid"></span>
+    <span class="hx-particles">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </span>
+    <span class="hx-grain"></span>
+    <span class="hx-vignette"></span>
+  </div>
+
+  <div class="hx-inner">
+    <div class="hx-top">
+      <div class="hx-eyebrow"><span class="hx-dot-live"></span> <span id="hx-eb">Le constat</span></div>
+      <div class="hx-count"><span class="cn" id="hx-cn">01</span><span class="cd">/ 07</span></div>
+    </div>
+
+    <!-- Titre changeant -->
+    <h2 class="hx-title">
+      <span class="hx-line" data-p="0">On se sépare rarement pour <b>le fond du problème.</b></span>
+      <span class="hx-line" data-p="1">Le plus souvent, c'est <b>la communication.</b></span>
+      <span class="hx-line" data-p="2">La 1re solution qui fait entendre <b>les deux versions.</b></span>
+      <span class="hx-line" data-p="3">L'IA <b>analyse &amp; comprend.</b></span>
+      <span class="hx-line" data-p="4">Elle <b>traduit</b> les non-dits.</span>
+      <span class="hx-line" data-p="5">Vous vous <b>rapprochez.</b></span>
+      <span class="hx-line" data-p="6">Et ce n'est <b>pas tout.</b></span>
+    </h2>
+
+    <!-- SCÈNE -->
+    <div class="hx-stage">
+      <div class="hx-halo" aria-hidden="true"></div>
+
+      <!-- Constat : chiffres -->
+      <div class="hx-stats" aria-hidden="true">
+        <div class="hx-stat"><div class="figure"><span class="num" data-to="65">0</span><span class="unit">%</span></div><small>la communication, 1re cause de séparation citée</small></div>
+        <div class="hx-stat"><div class="figure big">1&nbsp;sur&nbsp;2</div><small>un couple marié sur deux a déjà consulté</small></div>
+        <div class="hx-stat"><div class="figure"><span class="num" data-to="69">0</span><span class="unit">%</span></div><small>des conflits ne portent pas sur les faits</small></div>
+      </div>
+
+      <!-- Carte gauche -->
+      <div class="hx-card hx-left">
+        <div class="hx-sheen" aria-hidden="true"></div>
+        <div class="hx-who">Sa version <span class="hx-typing"><i></i><i></i><i></i></span></div>
+        <div class="hx-say">Il n'a pas écouté ce que je ressentais… J'ai eu l'impression de ne pas compter.</div>
+        <div class="hx-av hx-av-rose">👩🏻</div>
+      </div>
+
+      <!-- Noyau IA -->
+      <div class="hx-core">
+        <div class="hx-lines" aria-hidden="true">
+          <span class="l l1"><i class="pk"></i></span>
+          <span class="l l2"><i class="pk"></i></span>
+        </div>
+        <div class="hx-orb">
+          <span class="hx-orb-halo" aria-hidden="true"></span>
+          <span class="hx-orb-core">
+            <span class="hx-orb-shine" aria-hidden="true"></span>
+            <span class="hx-orb-label">IA</span>
+          </span>
+          <span class="hx-orbit" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="hx-chips" aria-hidden="true">
+          <span class="hx-chip c1">émotions</span>
+          <span class="hx-chip c2">non-dits</span>
+          <span class="hx-chip c3">besoins</span>
+        </div>
+        <div class="hx-translate">On se comprend&nbsp;❤</div>
+        <div class="hx-hearts" aria-hidden="true"><i>❤</i><i>❤</i><i>❤</i><i>❤</i><i>❤</i><i>❤</i></div>
+      </div>
+
+      <!-- Carte droite -->
+      <div class="hx-card hx-right">
+        <div class="hx-sheen" aria-hidden="true"></div>
+        <div class="hx-who">Sa version <span class="hx-typing"><i></i><i></i><i></i></span></div>
+        <div class="hx-say">Elle a interprété mes paroles… Je ne comprenais pas sa réaction.</div>
+        <div class="hx-av hx-av-violet">🧑🏻</div>
+      </div>
+
+      <!-- Flash produits -->
+      <div class="hx-products" aria-hidden="true">
+        <div class="hx-prod"><span class="ic">🍿</span><b>La boîte à dispute</b><small>De vraies disputes, en deux versions.</small></div>
+        <div class="hx-prod"><span class="ic">💘</span><b>Test de compatibilité</b><small>Avec son crush, son partenaire ou ses amis.</small></div>
+      </div>
+    </div>
+
+    <!-- Progression -->
+    <div class="hx-steps" role="tablist" aria-label="Étapes">
+      <button class="hx-step" data-go="0" aria-label="La dispute"><span></span></button>
+      <button class="hx-step" data-go="1" aria-label="Chacun sa version"><span></span></button>
+      <button class="hx-step" data-go="2" aria-label="L'IA analyse"><span></span></button>
+      <button class="hx-step" data-go="3" aria-label="Traduction"><span></span></button>
+      <button class="hx-step" data-go="4" aria-label="Traduction"><span></span></button>
+      <button class="hx-step" data-go="5" aria-label="On se rapproche"><span></span></button>
+      <button class="hx-step" data-go="6" aria-label="Les produits"><span></span></button>
+    </div>
+
+    <div class="hx-cta">
+      <a href="app.html" class="hx-btn hx-btn-grad"><span>Démarrer une dispute ✨</span></a>
+      <a href="#comment" class="hx-btn hx-btn-ghost">Voir en détail ↓</a>
+    </div>
+  </div>
+
+  <style>
+  #hero-explain{
+    --hx-rose:#FF2D75;--hx-violet:#7C4DFF;--hx-grad:linear-gradient(92deg,#FF2D75,#7C4DFF);
+    position:relative;overflow:hidden;color:#fff;isolation:isolate;
+    padding:76px 20px 66px;
+    background:radial-gradient(130% 100% at 50% -10%,#241041 0%,#170B29 46%,#0E0619 100%);
+    font-family:var(--font,"Plus Jakarta Sans",-apple-system,sans-serif);
+  }
+  #hero-explain *{box-sizing:border-box}
+
+  /* ---------- FOND ---------- */
+  #hero-explain .hx-bg{position:absolute;inset:0;z-index:0}
+  #hero-explain .hx-aurora{position:absolute;border-radius:50%;filter:blur(80px);mix-blend-mode:screen;will-change:transform}
+  #hero-explain .a1{width:520px;height:520px;background:#FF2D75;opacity:.36;top:-140px;left:-60px;animation:hxA1 20s ease-in-out infinite}
+  #hero-explain .a2{width:600px;height:600px;background:#7C4DFF;opacity:.4;bottom:-240px;right:-120px;animation:hxA2 24s ease-in-out infinite}
+  #hero-explain .a3{width:360px;height:360px;background:#C13BEF;opacity:.28;top:20%;right:18%;animation:hxA3 18s ease-in-out infinite}
+  #hero-explain .a4{width:300px;height:300px;background:#3B7BFF;opacity:.22;bottom:8%;left:14%;animation:hxA4 26s ease-in-out infinite}
+  @keyframes hxA1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,40px) scale(1.15)}}
+  @keyframes hxA2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-70px,-30px) scale(1.1)}}
+  @keyframes hxA3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,50px) scale(1.2)}}
+  @keyframes hxA4{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-40px) scale(1.15)}}
+
+  #hero-explain .hx-grid{position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:46px 46px;
+    -webkit-mask-image:radial-gradient(78% 64% at 50% 42%,#000,transparent 80%);
+            mask-image:radial-gradient(78% 64% at 50% 42%,#000,transparent 80%)}
+
+  #hero-explain .hx-particles{position:absolute;inset:0}
+  #hero-explain .hx-particles i{position:absolute;width:3px;height:3px;border-radius:50%;
+    background:rgba(255,255,255,.7);box-shadow:0 0 6px rgba(255,255,255,.6);opacity:.5;animation:hxFloat linear infinite}
+  #hero-explain .hx-particles i:nth-child(1){left:8%;top:70%;animation-duration:14s;animation-delay:0s}
+  #hero-explain .hx-particles i:nth-child(2){left:18%;top:85%;animation-duration:18s;animation-delay:2s;background:#FF6BA0}
+  #hero-explain .hx-particles i:nth-child(3){left:30%;top:60%;animation-duration:16s;animation-delay:4s}
+  #hero-explain .hx-particles i:nth-child(4){left:44%;top:90%;animation-duration:20s;animation-delay:1s;background:#B98BFF}
+  #hero-explain .hx-particles i:nth-child(5){left:57%;top:75%;animation-duration:15s;animation-delay:3s}
+  #hero-explain .hx-particles i:nth-child(6){left:68%;top:88%;animation-duration:19s;animation-delay:5s;background:#FF6BA0}
+  #hero-explain .hx-particles i:nth-child(7){left:78%;top:66%;animation-duration:17s;animation-delay:2.5s}
+  #hero-explain .hx-particles i:nth-child(8){left:88%;top:82%;animation-duration:21s;animation-delay:6s;background:#B98BFF}
+  #hero-explain .hx-particles i:nth-child(9){left:38%;top:78%;animation-duration:22s;animation-delay:1.5s}
+  #hero-explain .hx-particles i:nth-child(10){left:63%;top:92%;animation-duration:16s;animation-delay:3.5s}
+  @keyframes hxFloat{0%{transform:translateY(0);opacity:0}10%{opacity:.6}90%{opacity:.6}100%{transform:translateY(-320px);opacity:0}}
+
+  #hero-explain .hx-grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  #hero-explain .hx-vignette{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(6,3,12,.55) 100%)}
+
+  #hero-explain .hx-inner{position:relative;z-index:1;max-width:1020px;margin:0 auto;text-align:center}
+
+  /* ---------- TOP BAR ---------- */
+  #hero-explain .hx-top{display:flex;align-items:center;justify-content:center;gap:14px;position:relative}
+  #hero-explain .hx-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;color:#EBDcff;
+    border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:9px 16px;background:rgba(255,255,255,.05);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  #hero-explain .hx-dot-live{width:7px;height:7px;border-radius:50%;background:#FF2D75;animation:hxpulse 1.8s infinite}
+  @keyframes hxpulse{0%{box-shadow:0 0 0 0 rgba(255,45,117,.55)}70%{box-shadow:0 0 0 9px rgba(255,45,117,0)}100%{box-shadow:0 0 0 0 rgba(255,45,117,0)}}
+  #hero-explain .hx-count{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-variant-numeric:tabular-nums;font-weight:800;font-size:13px;letter-spacing:.06em;color:rgba(255,255,255,.5)}
+  #hero-explain .hx-count .cn{color:#fff;font-size:16px}
+
+  /* ---------- TITRE ---------- */
+  #hero-explain .hx-title{position:relative;height:60px;margin:22px auto 14px;max-width:20em}
+  #hero-explain .hx-line{position:absolute;left:0;right:0;top:0;
+    font-size:clamp(28px,4.4vw,40px);line-height:1.12;font-weight:800;letter-spacing:-.025em;color:#fff;
+    opacity:0;transform:translateY(14px);filter:blur(8px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1),filter .6s ease}
+  #hero-explain .hx-line b{background:var(--hx-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  #hero-explain[data-phase="0"] .hx-line[data-p="0"],
+  #hero-explain[data-phase="1"] .hx-line[data-p="1"],
+  #hero-explain[data-phase="2"] .hx-line[data-p="2"],
+  #hero-explain[data-phase="3"] .hx-line[data-p="3"],
+  #hero-explain[data-phase="4"] .hx-line[data-p="4"],
+  #hero-explain[data-phase="5"] .hx-line[data-p="5"],
+  #hero-explain[data-phase="6"] .hx-line[data-p="6"]{opacity:1;transform:none;filter:blur(0)}
+
+  /* ---------- SCÈNE ---------- */
+  #hero-explain .hx-stage{position:relative;display:flex;align-items:center;justify-content:center;gap:24px;
+    min-height:340px;margin:6px auto 4px;max-width:920px}
+  #hero-explain .hx-halo{position:absolute;width:440px;height:440px;left:50%;top:50%;transform:translate(-50%,-50%);
+    background:conic-gradient(from 0deg,rgba(255,45,117,.18),rgba(124,77,255,.18),rgba(193,59,239,.18),rgba(255,45,117,.18));
+    border-radius:50%;filter:blur(60px);opacity:0;transition:opacity .7s;animation:hxspin 22s linear infinite}
+  #hero-explain[data-scene="analyse"] .hx-halo,#hero-explain[data-scene="traduit"] .hx-halo{opacity:1}
+
+  /* cartes verre */
+  #hero-explain .hx-card{position:relative;width:300px;padding:22px 22px 48px;text-align:left;overflow:hidden;
+    background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.045));
+    border:1px solid rgba(255,255,255,.14);border-radius:22px;
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+    box-shadow:0 24px 60px -24px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.22);
+    transition:transform .7s cubic-bezier(.6,.2,.1,1),border-color .5s,box-shadow .5s;
+    animation:hxFloatCard 7s ease-in-out infinite}
+  #hero-explain .hx-right{animation-delay:-3.5s}
+  @keyframes hxFloatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  #hero-explain .hx-left{border-radius:22px 22px 22px 7px}
+  #hero-explain .hx-right{border-radius:22px 22px 7px 22px}
+  #hero-explain .hx-sheen{position:absolute;top:0;left:-40%;width:60%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.14),transparent);transform:skewX(-18deg);
+    opacity:0}
+  #hero-explain .hx-who{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    display:flex;align-items:center;gap:8px;margin-bottom:11px}
+  #hero-explain .hx-left .hx-who{color:#FF6BA0}
+  #hero-explain .hx-right .hx-who{color:#B98BFF}
+  #hero-explain .hx-say{font-size:15px;font-weight:600;line-height:1.5;color:rgba(255,255,255,.94);
+    min-height:66px;opacity:0;transform:translateY(6px);transition:opacity .55s,transform .55s;font-style:italic}
+  #hero-explain .hx-typing{display:inline-flex;gap:3px}
+  #hero-explain .hx-typing i{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.5;animation:hxtype 1.2s infinite}
+  #hero-explain .hx-typing i:nth-child(2){animation-delay:.2s}
+  #hero-explain .hx-typing i:nth-child(3){animation-delay:.4s}
+  @keyframes hxtype{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+  #hero-explain .hx-av{position:absolute;bottom:-16px;width:42px;height:42px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:21px;background:#241436;border:2px solid #100619}
+  #hero-explain .hx-left .hx-av{left:20px;box-shadow:0 0 0 2px rgba(255,45,117,.55),0 0 18px rgba(255,45,117,.4)}
+  #hero-explain .hx-right .hx-av{right:20px;box-shadow:0 0 0 2px rgba(124,77,255,.55),0 0 18px rgba(124,77,255,.4)}
+
+  #hero-explain[data-scene="reveal"] .hx-say,#hero-explain[data-scene="analyse"] .hx-say,
+  #hero-explain[data-scene="traduit"] .hx-say,#hero-explain[data-scene="rapproche"] .hx-say{opacity:1;transform:none}
+  #hero-explain[data-scene="reveal"] .hx-typing,#hero-explain[data-scene="analyse"] .hx-typing,
+  #hero-explain[data-scene="traduit"] .hx-typing,#hero-explain[data-scene="rapproche"] .hx-typing{display:none}
+  /* sheen sweep quand le texte s'écrit */
+  #hero-explain[data-scene="reveal"] .hx-sheen{animation:hxSweep 1.1s ease-out}
+  @keyframes hxSweep{0%{left:-50%;opacity:0}30%{opacity:1}100%{left:120%;opacity:0}}
+
+  /* ---------- NOYAU IA ---------- */
+  #hero-explain .hx-core{position:relative;width:164px;height:164px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+  #hero-explain .hx-orb{position:relative;width:104px;height:104px;display:flex;align-items:center;justify-content:center;
+    opacity:.6;transform:scale(.82);transition:opacity .6s,transform .6s}
+  #hero-explain .hx-orb-halo{position:absolute;inset:-14px;border-radius:50%;
+    background:conic-gradient(from 0deg,#FF2D75,#C13BEF,#7C4DFF,#FF2D75);
+    filter:blur(7px);opacity:0;transition:opacity .6s}
+  #hero-explain .hx-orb-core{position:relative;width:104px;height:104px;border-radius:50%;overflow:hidden;
+    background:radial-gradient(circle at 38% 32%,#D9BbFF,#7C4DFF 44%,#38206b 100%);
+    display:flex;align-items:center;justify-content:center;box-shadow:inset 0 -8px 20px rgba(0,0,0,.4)}
+  #hero-explain .hx-orb-shine{position:absolute;top:10%;left:16%;width:44%;height:34%;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.85),transparent 70%);filter:blur(2px);opacity:.8}
+  #hero-explain .hx-orb-label{position:relative;font-size:26px;font-weight:800;color:#fff;letter-spacing:.02em;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+  #hero-explain .hx-orbit{position:absolute;inset:-4px;border-radius:50%;animation:hxspin 9s linear infinite}
+  #hero-explain .hx-orbit i{position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff}
+  #hero-explain .hx-orbit i:nth-child(1){transform:rotate(0deg) translateX(64px)}
+  #hero-explain .hx-orbit i:nth-child(2){transform:rotate(140deg) translateX(64px);background:#FF6BA0;box-shadow:0 0 10px #FF6BA0}
+  #hero-explain .hx-orbit i:nth-child(3){transform:rotate(255deg) translateX(64px);background:#B98BFF;box-shadow:0 0 10px #B98BFF}
+  #hero-explain .hx-orbit{opacity:0;transition:opacity .5s}
+  @keyframes hxspin{to{transform:rotate(360deg)}}
+
+  #hero-explain[data-scene="analyse"] .hx-orb,#hero-explain[data-scene="traduit"] .hx-orb{opacity:1;transform:scale(1)}
+  #hero-explain[data-scene="analyse"] .hx-orb-halo,#hero-explain[data-scene="traduit"] .hx-orb-halo{opacity:1;animation:hxspin 5s linear infinite}
+  #hero-explain[data-scene="analyse"] .hx-orbit,#hero-explain[data-scene="traduit"] .hx-orbit{opacity:1}
+  #hero-explain[data-scene="rapproche"] .hx-orb{opacity:.95;transform:scale(.92)}
+  #hero-explain[data-scene="rapproche"] .hx-orb-core{background:radial-gradient(circle at 38% 32%,#FFB3D0,#FF2D75 46%,#7c2350 100%)}
+
+  /* lignes + paquets de données */
+  #hero-explain .hx-lines{position:absolute;inset:0;overflow:visible}
+  #hero-explain .hx-lines .l{position:absolute;top:50%;height:2px;width:130px;opacity:0;transition:opacity .5s}
+  #hero-explain .hx-lines .l1{right:100%;background:linear-gradient(90deg,transparent,rgba(255,107,160,.9))}
+  #hero-explain .hx-lines .l2{left:100%;background:linear-gradient(90deg,rgba(185,139,255,.9),transparent)}
+  #hero-explain .hx-lines .pk{position:absolute;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff;opacity:0}
+  #hero-explain[data-scene="analyse"] .hx-lines .l,#hero-explain[data-scene="traduit"] .hx-lines .l{opacity:1}
+  #hero-explain[data-scene="analyse"] .l1 .pk,#hero-explain[data-scene="traduit"] .l1 .pk{opacity:1;left:0;animation:hxPkR 1.3s linear infinite}
+  #hero-explain[data-scene="analyse"] .l2 .pk,#hero-explain[data-scene="traduit"] .l2 .pk{opacity:1;right:0;animation:hxPkL 1.3s linear infinite}
+  @keyframes hxPkR{0%{left:0;opacity:0}15%{opacity:1}100%{left:calc(100% - 7px);opacity:0}}
+  @keyframes hxPkL{0%{right:0;opacity:0}15%{opacity:1}100%{right:calc(100% - 7px);opacity:0}}
+
+  /* chips analyse */
+  #hero-explain .hx-chips{position:absolute;inset:0;pointer-events:none}
+  #hero-explain .hx-chip{position:absolute;font-size:10.5px;font-weight:700;color:#fff;
+    background:rgba(124,77,255,.28);border:1px solid rgba(185,139,255,.55);border-radius:100px;padding:5px 11px;white-space:nowrap;
+    opacity:0;transform:scale(.8);transition:opacity .4s,transform .4s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  #hero-explain .hx-chip.c1{top:-10px;left:50%;transform:translateX(-50%) scale(.8)}
+  #hero-explain .hx-chip.c2{bottom:2px;left:-46px}
+  #hero-explain .hx-chip.c3{bottom:2px;right:-40px}
+  #hero-explain[data-scene="analyse"] .hx-chip{opacity:1}
+  #hero-explain[data-scene="analyse"] .hx-chip.c1{transform:translateX(-50%) scale(1);transition-delay:.05s}
+  #hero-explain[data-scene="analyse"] .hx-chip.c2{transform:scale(1);transition-delay:.2s}
+  #hero-explain[data-scene="analyse"] .hx-chip.c3{transform:scale(1);transition-delay:.35s}
+
+  #hero-explain .hx-translate{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.7);
+    background:var(--hx-grad);color:#fff;font-weight:800;font-size:14px;padding:10px 18px;border-radius:100px;white-space:nowrap;
+    opacity:0;transition:opacity .5s,transform .5s;box-shadow:0 12px 34px -8px rgba(255,45,117,.7)}
+  #hero-explain[data-scene="traduit"] .hx-translate{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
+  #hero-explain .hx-hearts{position:absolute;inset:0;pointer-events:none}
+  #hero-explain .hx-hearts i{position:absolute;top:50%;left:50%;font-size:18px;color:#FF6BA0;opacity:0;text-shadow:0 0 12px rgba(255,107,160,.7)}
+  #hero-explain[data-scene="rapproche"] .hx-hearts i{animation:hxheart 1.4s ease-out forwards}
+  #hero-explain[data-scene="rapproche"] .hx-hearts i:nth-child(1){animation-delay:0s}
+  #hero-explain[data-scene="rapproche"] .hx-hearts i:nth-child(2){animation-delay:.1s}
+  #hero-explain[data-scene="rapproche"] .hx-hearts i:nth-child(3){animation-delay:.2s}
+  #hero-explain[data-scene="rapproche"] .hx-hearts i:nth-child(4){animation-delay:.3s}
+  #hero-explain[data-scene="rapproche"] .hx-hearts i:nth-child(5){animation-delay:.4s}
+  #hero-explain[data-scene="rapproche"] .hx-hearts i:nth-child(6){animation-delay:.5s}
+  @keyframes hxheart{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}25%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--dx,0px)),calc(-50% - 100px)) scale(1.15)}}
+  #hero-explain .hx-hearts i:nth-child(1){--dx:-80px}
+  #hero-explain .hx-hearts i:nth-child(2){--dx:-44px}
+  #hero-explain .hx-hearts i:nth-child(3){--dx:-12px}
+  #hero-explain .hx-hearts i:nth-child(4){--dx:20px}
+  #hero-explain .hx-hearts i:nth-child(5){--dx:52px}
+  #hero-explain .hx-hearts i:nth-child(6){--dx:84px}
+
+  #hero-explain[data-scene="rapproche"] .hx-left{transform:translateX(50px) rotate(-1.5deg);border-color:rgba(255,45,117,.55);box-shadow:0 24px 60px -24px rgba(255,45,117,.4),inset 0 1px 0 rgba(255,255,255,.25)}
+  #hero-explain[data-scene="rapproche"] .hx-right{transform:translateX(-50px) rotate(1.5deg);border-color:rgba(124,77,255,.55);box-shadow:0 24px 60px -24px rgba(124,77,255,.4),inset 0 1px 0 rgba(255,255,255,.25)}
+
+  /* produits */
+  #hero-explain .hx-products{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:18px;
+    opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s;pointer-events:none}
+  #hero-explain[data-scene="produits"] .hx-products{opacity:1;transform:none}
+  #hero-explain[data-scene="produits"] .hx-card,#hero-explain[data-scene="produits"] .hx-core{opacity:0;transition:opacity .4s}
+  #hero-explain .hx-prod{width:246px;text-align:center;padding:24px 20px;border-radius:20px;
+    background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));
+    border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    box-shadow:0 24px 50px -24px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.22)}
+  #hero-explain .hx-prod .ic{font-size:32px;display:block;margin-bottom:10px}
+  #hero-explain .hx-prod b{display:block;font-size:17px;font-weight:800;margin-bottom:5px}
+  #hero-explain .hx-prod small{font-size:12.5px;color:rgba(255,255,255,.68);font-weight:500;line-height:1.45}
+
+  /* steps */
+  #hero-explain .hx-steps{display:flex;justify-content:center;gap:10px;margin:22px 0 24px}
+  #hero-explain .hx-step{width:36px;height:6px;padding:0;border:0;background:none;cursor:pointer}
+  #hero-explain .hx-step span{display:block;width:100%;height:6px;border-radius:6px;background:rgba(255,255,255,.16);overflow:hidden;position:relative}
+  #hero-explain .hx-step.active span{background:rgba(255,255,255,.26)}
+  #hero-explain .hx-step.active span::after{content:"";position:absolute;inset:0;border-radius:6px;background:var(--hx-grad);
+    box-shadow:0 0 10px rgba(255,45,117,.6);transform-origin:left;animation:hxbar var(--hx-dur,3600ms) linear forwards}
+  #hero-explain .hx-step.done span{background:var(--hx-violet)}
+  @keyframes hxbar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+  /* CTA */
+  #hero-explain .hx-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  #hero-explain .hx-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;overflow:hidden;
+    font-weight:800;font-size:15px;padding:15px 28px;border-radius:100px;text-decoration:none;transition:transform .22s,box-shadow .22s}
+  #hero-explain .hx-btn-grad{background:var(--hx-grad);color:#fff;box-shadow:0 16px 34px -10px rgba(255,45,117,.6)}
+  #hero-explain .hx-btn-grad::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:hxBtnSheen 3.6s ease-in-out infinite}
+  @keyframes hxBtnSheen{0%,60%{left:-60%}80%{left:130%}100%{left:130%}}
+  #hero-explain .hx-btn-grad span{position:relative;z-index:1}
+  #hero-explain .hx-btn-grad:hover{transform:translateY(-2px);box-shadow:0 22px 42px -10px rgba(255,45,117,.7)}
+  #hero-explain .hx-btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.22);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  #hero-explain .hx-btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+  /* entrée */
+  #hero-explain .hx-inner>*{animation:hxIn .8s cubic-bezier(.2,.7,.2,1) both}
+  #hero-explain .hx-title{animation-delay:.06s}
+  #hero-explain .hx-stage{animation-delay:.12s}
+  #hero-explain .hx-steps{animation-delay:.18s}
+  #hero-explain .hx-cta{animation-delay:.24s}
+  @keyframes hxIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+  /* ---------- CONSTAT / CHIFFRES ---------- */
+  #hero-explain .hx-stats{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:16px;
+    opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s;pointer-events:none}
+  #hero-explain[data-scene="constat"] .hx-stats{opacity:1;transform:none}
+  #hero-explain[data-scene="constat"] .hx-card,#hero-explain[data-scene="constat"] .hx-core{opacity:0;transition:opacity .5s}
+  #hero-explain .hx-stat{width:228px;padding:24px 18px;border-radius:20px;text-align:center;
+    background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));
+    border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    box-shadow:0 24px 50px -24px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.22)}
+  #hero-explain .hx-stat .figure{display:flex;align-items:baseline;justify-content:center;gap:2px;line-height:1}
+  #hero-explain .hx-stat .num{font-size:54px;font-weight:800;letter-spacing:-.03em;
+    background:var(--hx-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  #hero-explain .hx-stat .unit{font-size:30px;font-weight:800;color:#FF6BA0}
+  #hero-explain .hx-stat .figure.big{font-size:42px;font-weight:800;letter-spacing:-.02em;
+    background:var(--hx-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  #hero-explain .hx-stat small{display:block;margin-top:10px;font-size:12px;color:rgba(255,255,255,.72);font-weight:500;line-height:1.4}
+
+  /* responsive */
+  @media(max-width:760px){
+    #hero-explain{padding:52px 16px 48px}
+    #hero-explain .hx-count{display:none}
+    #hero-explain .hx-title{height:auto;min-height:74px}
+    #hero-explain .hx-line{font-size:25px;position:static;display:none}
+    #hero-explain[data-phase="0"] .hx-line[data-p="0"],
+    #hero-explain[data-phase="1"] .hx-line[data-p="1"],
+    #hero-explain[data-phase="2"] .hx-line[data-p="2"],
+    #hero-explain[data-phase="3"] .hx-line[data-p="3"],
+    #hero-explain[data-phase="4"] .hx-line[data-p="4"],
+    #hero-explain[data-phase="5"] .hx-line[data-p="5"],
+    #hero-explain[data-phase="6"] .hx-line[data-p="6"]{display:block}
+    #hero-explain .hx-stage{flex-direction:column;gap:14px;min-height:0}
+    #hero-explain .hx-card{width:100%;max-width:340px;padding-bottom:22px;animation:none}
+    #hero-explain .hx-av{display:none}
+    #hero-explain .hx-core{order:2;width:130px;height:130px}
+    #hero-explain .hx-left{order:1}#hero-explain .hx-right{order:3}
+    #hero-explain .hx-lines,#hero-explain .hx-halo{display:none}
+    #hero-explain[data-scene="rapproche"] .hx-left,#hero-explain[data-scene="rapproche"] .hx-right{transform:none}
+    #hero-explain .hx-products{position:static;flex-direction:column}
+    #hero-explain[data-scene="produits"] .hx-card{display:none}
+    #hero-explain .hx-chip.c2{left:-6px}#hero-explain .hx-chip.c3{right:-2px}
+    #hero-explain .hx-stats{position:static;flex-direction:column;display:none}
+    #hero-explain[data-scene="constat"] .hx-stats{display:flex}
+    #hero-explain[data-scene="constat"] .hx-card,#hero-explain[data-scene="constat"] .hx-core{display:none}
+    #hero-explain .hx-stat{width:100%;max-width:320px}
+    #hero-explain .hx-stat .num,#hero-explain .hx-stat .figure.big{font-size:40px}
+  }
+
+  /* Ajustements demandés — animation du haut uniquement */
+  #hero-explain{
+    background:radial-gradient(120% 92% at 50% -8%,#1D0D33 0%,#12081F 48%,#07030D 100%);
+  }
+  #hero-explain .hx-grid{display:none}
+
+  @media(max-width:760px){
+    #hero-explain{
+      padding:32px 12px 28px;
+      min-height:auto;
+    }
+    #hero-explain .hx-aurora{filter:blur(58px);opacity:.26}
+    #hero-explain .hx-particles{display:none}
+    #hero-explain .hx-vignette{
+      background:radial-gradient(100% 74% at 50% 36%,transparent 42%,rgba(4,2,9,.72) 100%);
+    }
+    #hero-explain .hx-inner{max-width:390px}
+    #hero-explain .hx-top{gap:0}
+    #hero-explain .hx-eyebrow{
+      padding:7px 12px;
+      font-size:10px;
+      letter-spacing:.1em;
+      background:rgba(255,255,255,.045);
+    }
+    #hero-explain .hx-title{
+      min-height:56px;
+      margin:14px auto 4px;
+      max-width:18em;
+    }
+    #hero-explain .hx-line{
+      font-size:clamp(21px,6.1vw,24px);
+      line-height:1.08;
+      letter-spacing:-.035em;
+    }
+    #hero-explain .hx-stage{
+      flex-direction:row;
+      align-items:center;
+      gap:7px;
+      min-height:184px;
+      margin:2px auto 0;
+      max-width:390px;
+    }
+    #hero-explain .hx-card{
+      width:calc((100% - 78px) / 2);
+      max-width:none;
+      min-width:0;
+      padding:13px 10px 15px;
+      border-radius:17px;
+      background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.038));
+      box-shadow:0 18px 38px -26px rgba(0,0,0,.78),inset 0 1px 0 rgba(255,255,255,.18);
+    }
+    #hero-explain .hx-left{order:1}
+    #hero-explain .hx-core{order:2;width:64px;height:96px}
+    #hero-explain .hx-right{order:3}
+    #hero-explain .hx-who{
+      font-size:8.8px;
+      letter-spacing:.08em;
+      gap:4px;
+      margin-bottom:7px;
+      white-space:nowrap;
+    }
+    #hero-explain .hx-typing i{width:3.5px;height:3.5px}
+    #hero-explain .hx-say{
+      font-size:10.8px;
+      line-height:1.38;
+      min-height:74px;
+      font-weight:600;
+    }
+    #hero-explain .hx-orb{width:58px;height:58px}
+    #hero-explain .hx-orb-core{width:58px;height:58px}
+    #hero-explain .hx-orb-label{font-size:17px}
+    #hero-explain .hx-orb-halo{inset:-8px;filter:blur(5px)}
+    #hero-explain .hx-orbit{display:none}
+    #hero-explain .hx-chip{display:none}
+    #hero-explain .hx-translate{
+      font-size:10.5px;
+      padding:7px 10px;
+      max-width:120px;
+    }
+    #hero-explain[data-scene="rapproche"] .hx-left,
+    #hero-explain[data-scene="rapproche"] .hx-right{transform:none}
+
+    #hero-explain .hx-stats{
+      position:absolute;
+      display:flex;
+      flex-direction:row;
+      gap:7px;
+      inset:0;
+      align-items:center;
+      justify-content:center;
+    }
+    #hero-explain[data-scene="constat"] .hx-stats{display:flex}
+    #hero-explain .hx-stat{
+      width:31%;
+      max-width:none;
+      min-height:116px;
+      padding:16px 7px;
+      border-radius:17px;
+    }
+    #hero-explain .hx-stat .num,
+    #hero-explain .hx-stat .figure.big{font-size:25px;letter-spacing:-.04em}
+    #hero-explain .hx-stat .unit{font-size:16px}
+    #hero-explain .hx-stat small{font-size:9px;line-height:1.24;margin-top:7px}
+
+    #hero-explain .hx-products{
+      position:absolute;
+      flex-direction:row;
+      gap:8px;
+      inset:0;
+    }
+    #hero-explain .hx-prod{
+      width:calc(50% - 4px);
+      padding:17px 10px;
+      border-radius:17px;
+    }
+    #hero-explain .hx-prod .ic{font-size:24px;margin-bottom:7px}
+    #hero-explain .hx-prod b{font-size:12.5px;line-height:1.18}
+    #hero-explain .hx-prod small{font-size:9.5px;line-height:1.25}
+
+    #hero-explain .hx-steps{
+      gap:6px;
+      margin:14px 0 16px;
+    }
+    #hero-explain .hx-step{width:24px;height:5px}
+    #hero-explain .hx-step span{height:5px}
+    #hero-explain .hx-cta{gap:8px}
+    #hero-explain .hx-btn{
+      padding:12px 18px;
+      font-size:13px;
+    }
+  }
+
+  @media(max-width:380px){
+    #hero-explain .hx-line{font-size:20px}
+    #hero-explain .hx-stage{gap:6px}
+    #hero-explain .hx-card{width:calc((100% - 70px) / 2);padding-inline:9px}
+    #hero-explain .hx-core{width:58px}
+    #hero-explain .hx-say{font-size:10.2px}
+    #hero-explain .hx-btn{width:100%}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    #hero-explain .hx-aurora,#hero-explain .hx-particles i,#hero-explain .hx-halo,
+    #hero-explain .hx-orbit,#hero-explain .hx-orb-halo,#hero-explain .hx-card,
+    #hero-explain .hx-dot-live,#hero-explain .hx-typing i,#hero-explain .hx-btn-grad::after,
+    #hero-explain .hx-inner>*{animation:none!important}
+    #hero-explain .hx-step.active span::after{animation:none;transform:scaleX(1)}
+  }
+  </style>
+
+  <script>
+  (function(){
+    var root=document.getElementById('hero-explain');
+    if(!root)return;
+    var steps=[].slice.call(root.querySelectorAll('.hx-step'));
+    var cn=document.getElementById('hx-cn'), eb=document.getElementById('hx-eb');
+    var SCENES =["constat","constat","reveal","analyse","traduit","rapproche","produits"];
+    var LABELS =["Le constat","Le constat","La solution","Comment ça marche","Comment ça marche","Comment ça marche","Et aussi"];
+    var DURS   =[4200,3400,3600,3800,3400,3600,3800];
+    var PHASES=SCENES.length;
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    var cur=-1, timer=null, paused=false;
+
+    function countUp(){
+      root.querySelectorAll('.hx-stat .num').forEach(function(el){
+        var to=+el.getAttribute('data-to')||0, t0=null, dur=1200;
+        function fr(ts){ if(!t0)t0=ts; var k=Math.min(1,(ts-t0)/dur), e=1-Math.pow(1-k,3);
+          el.textContent=Math.round(to*e); if(k<1)requestAnimationFrame(fr); else el.textContent=to; }
+        el.textContent='0'; requestAnimationFrame(fr);
+      });
+    }
+    function render(p){
+      root.setAttribute('data-phase',p);
+      root.setAttribute('data-scene',SCENES[p]);
+      if(cn) cn.textContent=('0'+(p+1)).slice(-2);
+      if(eb) eb.textContent=LABELS[p];
+      root.style.setProperty('--hx-dur',DURS[p]+'ms');
+      steps.forEach(function(s,i){ s.classList.toggle('active',i===p); s.classList.toggle('done',i<p); });
+      if(p===0 && !reduce) countUp();
+    }
+    function go(p){ cur=(p+PHASES)%PHASES; render(cur); schedule(); }
+    function next(){ go(cur+1); }
+    function schedule(){ clearTimeout(timer); if(reduce||paused)return; timer=setTimeout(next,DURS[cur]); }
+
+    steps.forEach(function(s){ s.addEventListener('click',function(){ go(+s.getAttribute('data-go')); }); });
+    root.addEventListener('mouseenter',function(){ paused=true; clearTimeout(timer); });
+    root.addEventListener('mouseleave',function(){ paused=false; schedule(); });
+
+    // démarrage automatique immédiat, puis pause hors écran pour la perf
+    go(0);
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(en){
+        en.forEach(function(e){ if(e.isIntersecting){ paused=false; schedule(); } else { paused=true; clearTimeout(timer); } });
+      },{threshold:.15});
+      io.observe(root);
+    }
+    if(reduce){ render(5); }
+  })();
+  </script>
+</section>
+
+<header class="top">
+  <a class="logo-mark" href="#" aria-label="we're in love">
+    <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
+      <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
+      <circle cx="25" cy="25" r="2.6" fill="#fff"/>
+      <circle cx="33" cy="25" r="2.6" fill="#fff"/>
+      <circle cx="41" cy="25" r="2.6" fill="#fff"/>
+    </svg>
+    <span class="txt">we're <span class="in">in</span> love</span>
+  </a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="menu-panel" id="menu-panel" aria-hidden="true">
+    <button class="menu-close" id="menu-close" aria-label="Fermer">✕</button>
+    <a href="index.html">🏠 Accueil</a>
+    <a href="app.html">💬 Créer une dispute</a>
+    <a href="boite-a-disputes.html">🍿 La boîte à disputes</a>
+    <a href="compatibilite.html">💘 Test de compatibilité</a>
+    <a href="#tarifs">💳 Tarifs</a>
+    <a href="faq.html">❓ FAQ</a>
+    <a href="influenceur.html">🤝 Espace influenceur & partenariats</a>
+    <a href="mentions-legales.html">📄 Mentions légales</a>
+    <a href="cgv.html">📑 CGV</a>
+    <a href="politique-confidentialite.html">🔒 Confidentialité</a>
+    <a href="app.html" class="menu-cta">Commencer ✨</a>
+    <a href="espace-client.html" class="menu-cta menu-cta-ghost">👤 Mon espace</a>
+  </nav>
+  <div class="menu-overlay" id="menu-overlay"></div>
+</header>
+
+<div class="hero">
+  <div class="hero-copy">
+    <span class="pill">✨ La technologie qui vous aide à mieux vous comprendre</span>
+    <h1>Une dispute.<br><span class="grad">Deux</span> versions.<br>Une <span class="grad">réconciliation</span>.</h1>
+    <p class="sub">Parce que la plupart des disputes ne viennent pas des mots… mais de ce qu'ils cachent.</p>
+    <div class="hero-cta">
+      <a href="app.html" class="btn btn-lg">Démarrer une dispute ✨</a>
+      <a href="#comment" class="btn btn-ghost btn-lg">▶ Voir comment ça marche</a>
+    </div>
+    <p class="micro"><b>Vos deux premières disputes offertes</b> · puis dès 3,99 € / mois</p>
+    <!-- BLOC AVIS — à activer quand vous aurez vos premiers vrais avis (retirez ces balises de commentaire) :
+    <div class="rating">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <span class="rating-txt"><b>4,8/5</b> — la note de nos couples</span>
+    </div>
+    -->
+  </div>
+
+  <div class="stage" aria-label="Aperçu de l'application : Chloé et Esteban donnent chacun leur point de vue">
+    <div class="phones">
+      <!-- Téléphone de Chloé -->
+      <div class="phone-wrap pw-1">
+        <div class="floaty">
+          <div class="phone">
+            <div class="screen scr-rose">
+              <div class="island" aria-hidden="true"></div>
+              <div class="statusbar" aria-hidden="true">
+                <span>21:34</span>
+                <svg width="46" height="11" viewBox="0 0 46 11" fill="#fff"><rect x="0" y="6" width="3" height="5" rx="1"/><rect x="4.5" y="4" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="9" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/><path d="M25 4.5a6.5 6.5 0 0 1 8 0l-1.3 1.6a4.5 4.5 0 0 0-5.4 0L25 4.5Zm2.6 3.2a3 3 0 0 1 2.8 0L29 9.6l-1.4-1.9Z"/><rect x="37" y="1.5" width="8" height="8" rx="2" fill="none" stroke="#fff" stroke-width="1"/><rect x="38.2" y="2.7" width="4.6" height="5.6" rx="1" /><rect x="45.4" y="4" width="1" height="3" rx=".5"/></svg>
+              </div>
+              <div class="app-title">we're in love</div>
+              <div class="card">
+                <span class="label lbl-rose">Étape 1 · Chloé</span>
+                <span class="stitle">Je raconte ma version</span>
+                <p>« Tu as encore annulé notre soirée au dernier moment. J'ai besoin de sentir que notre temps à deux compte. »</p>
+              </div>
+              <div class="btn-app ba-rose">Envoyer à Esteban</div>
+              <div class="foot-link">Enregistrer le brouillon</div>
+              <div class="home-bar" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Téléphone d'Esteban -->
+      <div class="phone-wrap pw-2">
+        <div class="floaty">
+          <div class="phone">
+            <div class="screen scr-violet">
+              <div class="island" aria-hidden="true"></div>
+              <div class="statusbar" aria-hidden="true">
+                <span>08:47</span>
+                <svg width="46" height="11" viewBox="0 0 46 11" fill="#fff"><rect x="0" y="6" width="3" height="5" rx="1"/><rect x="4.5" y="4" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="9" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/><path d="M25 4.5a6.5 6.5 0 0 1 8 0l-1.3 1.6a4.5 4.5 0 0 0-5.4 0L25 4.5Zm2.6 3.2a3 3 0 0 1 2.8 0L29 9.6l-1.4-1.9Z"/><rect x="37" y="1.5" width="8" height="8" rx="2" fill="none" stroke="#fff" stroke-width="1"/><rect x="38.2" y="2.7" width="4.6" height="5.6" rx="1" /><rect x="45.4" y="4" width="1" height="3" rx=".5"/></svg>
+              </div>
+              <div class="app-title">we're in love</div>
+              <div class="card">
+                <span class="label lbl-violet">Étape 2 · Esteban</span>
+                <span class="stitle">Je découvre, puis je réponds</span>
+                <p>Chloé s'est sentie mise de côté. <b>À moi de donner ma version.</b></p>
+              </div>
+              <div class="btn-app ba-violet">Donner mon point de vue</div>
+              <div class="foot-link">Répondre plus tard</div>
+              <div class="home-bar" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Avatars sous les téléphones -->
+    <div class="cast">
+      <div class="floater fl-1">
+        <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Chloé"></div>
+        <div class="chip chip-rose">Chloé raconte sa version</div>
+      </div>
+      <div class="floater fl-2">
+        <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Esteban"></div>
+        <div class="chip chip-violet">Esteban donne la sienne</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="features" id="fonctionnalites">
+  <div class="feat">
+    <div class="ico ico-rose">💗</div>
+    <div><h3>Relation plus forte</h3><p>Améliorez votre connexion jour après jour.</p></div>
+  </div>
+  <div class="feat">
+    <div class="ico ico-violet">🧠</div>
+    <div><h3>Analyse bienveillante</h3><p>Ne juge pas, comprend les deux côtés.</p></div>
+  </div>
+  <div class="feat">
+    <div class="ico ico-rose">⚡</div>
+    <div><h3>Rapide &amp; simple</h3><p>Des clés concrètes en quelques minutes.</p></div>
+  </div>
+  <div class="feat">
+    <div class="ico ico-violet">👥</div>
+    <div><h3>Plus forts ensemble</h3><p>Des relations plus saines et durables.</p></div>
+  </div>
+</div>
+
+<section id="comment">
+  <div class="shell center">
+    <span class="eyebrow">Comment ça marche</span>
+    <h2 class="section-title">Une dispute. <span class="grad">Deux versions.</span> Une sortie de crise.</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">1</div>
+        <h3>Racontez votre version</h3>
+        <p>Créez une dispute et dites tout, sans filtre. Envoyez-la au numéro de l'autre.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">2</div>
+        <h3>L'autre répond, à son rythme</h3>
+        <p>Il découvre un résumé et donne sa version <b>quand il est prêt</b> — ce soir ou demain matin.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">3</div>
+        <h3>3 réponses chacun, max</h3>
+        <p>Chacun peut préciser sa pensée <b>3 fois maximum</b>. Alors choisissez bien vos mots.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">4</div>
+        <h3>we're in love vous éclaire</h3>
+        <p>Elle analyse les deux points de vue, dit les choses clairement — puis <b>vous remet du même côté</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compat" id="compatibilite">
+  <div class="shell center">
+    <span class="eyebrow">Nouveau 💘</span>
+    <h2 class="section-title">Le test de <span class="grad">compatibilité</span></h2>
+    <p class="section-sub">25 questions, 5 univers — <b>JE</b>, <b>TU</b>, <b>ENTRE NOUS</b> 🔥, <b>NOUS</b> et <b>LE FUTUR</b>. Vous répondez chacun de votre côté, we're in love compare vos deux visions et vous dit où vous vous rejoignez… et où ça coince.</p>
+    <div class="compat-pills">
+      <div class="compat-pill">💑 Avec votre partenaire</div>
+      <div class="compat-pill">💌 Avec votre crush</div>
+    </div>
+    <div class="hero-cta" style="justify-content:center;margin-top:34px">
+      <a href="compatibilite.html" class="btn btn-lg">Lancer le test 💘</a>
+    </div>
+    <p class="micro" style="margin-top:14px">≈ 4 minutes · résultat instantané dès que l'autre a répondu</p>
+  </div>
+</section>
+
+<section id="boite" style="background:linear-gradient(160deg,#1F1B2E,#3A2352)">
+  <div class="shell center">
+    <div style="font-size:64px;line-height:1;margin-bottom:6px">🍿</div>
+    <span class="eyebrow" style="background:rgba(255,255,255,.12);color:#fff">Le feuilleton</span>
+    <h2 class="section-title" style="color:#fff">La <span class="grad">boîte à disputes</span></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.8);margin-inline:auto">Les disputes les plus folles de la communauté, tranchées par we're in love. « Il a mangé mes restes du resto », « Elle like les photos de son ex »… Ouvrez-les comme des stories, devinez le verdict, partagez.</p>
+    <div class="hero-cta" style="justify-content:center;margin-top:34px">
+      <a href="boite-a-disputes.html" class="btn btn-lg">Ouvrir la boîte 🍿</a>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="tarifs">
+  <div class="shell center">
+    <span class="eyebrow">Tarifs</span>
+    <h2 class="section-title">Moins cher qu'un <span class="grad">bouquet d'excuses</span></h2>
+
+    <div class="plans">
+      <div class="plan reveal">
+        <span class="p-name">Découverte</span>
+        <div class="p-price">0 <small>€</small></div>
+        <p class="p-under">vos deux premières disputes</p>
+        <ul>
+          <li><span class="k">✦</span> 2 disputes complètes offertes</li>
+          <li><span class="k">✦</span> Les deux versions + 3 réponses chacun</li>
+          <li><span class="k">✦</span> Analyse complète de we're in love</li>
+        </ul>
+        <a href="app.html" class="btn btn-ghost">Essayer gratuitement</a>
+      </div>
+
+      <div class="plan plan-hero reveal">
+        <span class="badge">Formule la plus populaire</span>
+        <span class="p-name">Abonnement couple</span>
+        <div class="p-price">3,99 <small>€ / mois</small></div>
+        <p class="p-under"><s style="opacity:.55">9,99 €</s> · jusqu'à 30 disputes par mois</p>
+        <ul>
+          <li><span class="k">✦</span> 30 disputes par mois pour votre couple</li>
+          <li><span class="k">✦</span> we're in love suit votre relation dans la durée</li>
+          <li><span class="k">✦</span> Résiliable à tout moment</li>
+        </ul>
+        <a href="espace-client.html?plan=couple" class="btn">S'abonner</a>
+      </div>
+
+      <div class="plan reveal">
+        <span class="p-name">Illimité</span>
+        <div class="p-price">14,99 <small>€ / mois</small></div>
+        <p class="p-under">disputes sans aucune limite</p>
+        <ul>
+          <li><span class="k">✦</span> Disputes <b>illimitées</b></li>
+          <li><span class="k">✦</span> Toutes les fonctionnalités incluses</li>
+          <li><span class="k">✦</span> Résiliable à tout moment</li>
+        </ul>
+        <a href="espace-client.html?plan=illimite" class="btn btn-ghost">Passer à l'illimité</a>
+      </div>
+    </div>
+
+    <div class="learn-note reveal">
+      <div class="ico">💡</div>
+      <p><b>Plus vous nous confiez de disputes, mieux on vous réconcilie.</b> À chaque dispute, we're in love apprend à connaître votre couple — vos sensibilités, vos malentendus récurrents, ce qui apaise chacun de vous. Les résolutions deviennent plus justes, plus rapides, plus personnelles.</p>
+    </div>
+  </div>
+</section>
+
+<section class="privacy" id="confidentialite">
+  <div class="shell reveal">
+    <div class="lock">🔒</div>
+    <div>
+      <h3>Privé &amp; sécurisé</h3>
+      <p>Vos données restent entre vous. Vos disputes ne sont <b>jamais publiques par défaut</b> — et si un jour vous choisissez de partager la vôtre anonymement, ce sera uniquement avec <b>l'accord explicite des deux partenaires</b>, réécrite pour effacer tout détail identifiant, et dépubliable à tout moment.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <h2>Chaque dispute peut devenir <span class="grad">une conversation</span></h2>
+  <p>Deux minutes pour raconter votre version. La suite, on s'en occupe — avec douceur.</p>
+  <a href="app.html" class="btn btn-lg">Démarrer une dispute ✨</a>
+</section>
+
+<footer>
+  <span class="foot-brand">we're <span class="in">in</span> love</span>
+  <div class="foot-links">
+    <a href="boite-a-disputes.html">La boîte à disputes</a>
+    <a href="faq.html">FAQ</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+    <a href="cgv.html">CGV</a>
+    <a href="politique-confidentialite.html">Confidentialité</a>
+    <a href="mailto:contact@wereinlove.app">Contact</a>
+  </div>
+  <span>© 2026 wereinlove.app — Comprendre. Exprimer. Se retrouver.</span>
+  <a href="https://www.tiktok.com/@wereinlove.app" target="_blank" rel="noopener" class="tiktok-badge">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5.1 20.14a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.14-.14z"/></svg>
+    <span>Nos disputes sur TikTok</span>
+    <span class="tiktok-new">Nouveau</span>
+  </a>
+</footer>
+
+<script>
+/* ===== MENU BURGER ===== */
+(function(){
+  const burger=document.getElementById("burger"),
+        panel=document.getElementById("menu-panel"),
+        overlay=document.getElementById("menu-overlay"),
+        closeBtn=document.getElementById("menu-close");
+  function open(){ burger.classList.add("open"); panel.classList.add("open"); overlay.classList.add("show"); burger.setAttribute("aria-expanded","true"); panel.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
+  function close(){ burger.classList.remove("open"); panel.classList.remove("open"); overlay.classList.remove("show"); burger.setAttribute("aria-expanded","false"); panel.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
+  burger.onclick=()=>panel.classList.contains("open")?close():open();
+  closeBtn.onclick=close; overlay.onclick=close;
+  panel.querySelectorAll("a").forEach(a=>a.addEventListener("click",close));
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape") close(); });
+})();
+
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+
+</script>
+<!-- BANNIÈRE COOKIES (RGPD) -->
+<div class="cookie-banner" id="cookie-banner">
+  <div class="cookie-card">
+    <div class="cookie-emoji">🍪</div>
+    <p>On utilise des cookies essentiels au fonctionnement du site, et des cookies de mesure d'audience pour comprendre comment vous utilisez we're in love. Vous choisissez.
+      <a href="politique-confidentialite.html">En savoir plus</a>
+    </p>
+    <div class="cookie-actions">
+      <button class="btn btn-sm" id="cookie-accept">Tout accepter</button>
+      <button class="btn-ghost btn-sm" id="cookie-customize">Personnaliser</button>
+      <button class="btn-ghost btn-sm" id="cookie-refuse">Refuser</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL : PERSONNALISER LES COOKIES -->
+<div class="cookie-modal-overlay" id="cookie-modal-overlay">
+  <div class="cookie-modal">
+    <h3>Gérer mes préférences</h3>
+    <div class="cookie-row">
+      <div><b>Essentiels</b><p>Nécessaires au fonctionnement du site (connexion, sécurité). Toujours actifs.</p></div>
+      <span class="cookie-toggle disabled">✓</span>
+    </div>
+    <div class="cookie-row">
+      <div><b>Mesure d'audience</b><p>Nous aide à comprendre l'usage du site pour l'améliorer.</p></div>
+      <button class="cookie-toggle" id="toggle-analytics" data-on="false">✕</button>
+    </div>
+    <button class="btn" id="cookie-save">Enregistrer mes choix</button>
+  </div>
+</div>
+
+<script>
+/* ===== CAPTURE LIEN DE PARRAINAGE (?ref=CODE) — influenceurs/partenaires ===== */
+(function(){ const ref = new URLSearchParams(location.search).get("ref"); if(ref) localStorage.setItem("wil_ref", ref); })();
+
+/* ===== BANNIÈRE COOKIES RGPD ===== */
+(function(){
+  const KEY = "wil_cookie_consent";
+  const banner = document.getElementById("cookie-banner");
+  const modalOverlay = document.getElementById("cookie-modal-overlay");
+  const toggleAnalytics = document.getElementById("toggle-analytics");
+
+  function saved(){ try{ return JSON.parse(localStorage.getItem(KEY)); }catch(e){ return null; } }
+  function save(consent){
+    localStorage.setItem(KEY, JSON.stringify({...consent, date: Date.now()}));
+    banner.classList.remove("show");
+    modalOverlay.classList.remove("show");
+    // Ici, si demain vous ajoutez Google Analytics / Meta Pixel, ne les chargez que si consent.analytics === true
+  }
+  if(!saved()) banner.classList.add("show");
+
+  document.getElementById("cookie-accept").onclick = () => save({ analytics:true });
+  document.getElementById("cookie-refuse").onclick = () => save({ analytics:false });
+  document.getElementById("cookie-customize").onclick = () => { banner.classList.remove("show"); modalOverlay.classList.add("show"); };
+  toggleAnalytics.onclick = () => {
+    const on = toggleAnalytics.dataset.on === "true";
+    toggleAnalytics.dataset.on = (!on).toString();
+    toggleAnalytics.textContent = !on ? "✓" : "✕";
+    toggleAnalytics.classList.toggle("on", !on);
+  };
+  document.getElementById("cookie-save").onclick = () => save({ analytics: toggleAnalytics.dataset.on === "true" });
+})();
+</script>
+
+</body>
+</html>
