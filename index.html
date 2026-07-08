@@ -2575,5 +2575,180 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }
 </style>
 
+
+
+<!-- PATCH MOBILE DEFINITIF — centrage, hauteur, bulles compactes -->
+<style id="hx-mobile-center-compact-final">
+@media (max-width:560px){
+  body #hero-explain{
+    min-height:calc(100svh + 64px)!important;
+    height:auto!important;
+    padding:36px 16px calc(86px + env(safe-area-inset-bottom,0px))!important;
+    background:#010102!important;
+    overflow:hidden!important;
+  }
+  body #hero-explain::after{height:28px!important;background:#010102!important;}
+  body #hero-explain .hx-inner{max-width:390px!important;margin-inline:auto!important;}
+
+  body #hero-explain .hx-eyebrow{
+    font-size:10.5px!important;
+    padding:8px 14px!important;
+  }
+
+  body #hero-explain .hx-title{
+    height:136px!important;
+    min-height:136px!important;
+    max-height:136px!important;
+    margin:18px auto 0!important;
+    overflow:visible!important;
+  }
+  body #hero-explain .hx-line{
+    font-size:clamp(31px,8.75vw,37px)!important;
+    line-height:1.01!important;
+    letter-spacing:-.06em!important;
+    max-width:350px!important;
+  }
+  body #hero-explain .hx-line-communication{
+    font-size:clamp(32px,9.1vw,38px)!important;
+    line-height:1.01!important;
+    max-width:350px!important;
+  }
+  body #hero-explain .hx-line-communication b{
+    display:block!important;
+    font-size:clamp(38px,10.8vw,45px)!important;
+    line-height:.93!important;
+    margin-top:4px!important;
+  }
+
+  body #hero-explain .hx-stage{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    max-width:370px!important;
+    height:314px!important;
+    min-height:314px!important;
+    max-height:314px!important;
+    margin:0 auto 10px!important;
+    overflow:visible!important;
+  }
+
+  body #hero-explain .hx-card{
+    position:absolute!important;
+    top:50%!important;
+    width:124px!important;
+    height:194px!important;
+    min-height:194px!important;
+    max-height:194px!important;
+    padding:15px 12px 14px!important;
+    border-radius:20px!important;
+    overflow:hidden!important;
+    transform:none!important;
+  }
+  body #hero-explain .hx-left{
+    left:50%!important;
+    right:auto!important;
+    transform:translate(-152px,-50%)!important;
+  }
+  body #hero-explain .hx-right{
+    left:50%!important;
+    right:auto!important;
+    transform:translate(28px,-50%)!important;
+  }
+  body #hero-explain .hx-who{
+    font-size:9px!important;
+    line-height:1!important;
+    letter-spacing:.095em!important;
+    margin-bottom:16px!important;
+    white-space:nowrap!important;
+  }
+  body #hero-explain .hx-say,
+  body #hero-explain .hx-left .hx-say,
+  body #hero-explain .hx-right .hx-say{
+    font-size:11.15px!important;
+    line-height:1.36!important;
+    font-weight:530!important;
+    letter-spacing:-.01em!important;
+    max-height:132px!important;
+    overflow:hidden!important;
+  }
+
+  body #hero-explain .hx-core{
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    width:86px!important;
+    height:88px!important;
+    transform:translate(-50%,-50%)!important;
+    z-index:8!important;
+  }
+  body #hero-explain .hx-orb{width:86px!important;height:86px!important;}
+  body #hero-explain .hx-center-logo{width:90px!important;max-width:none!important;height:auto!important;}
+
+  body #hero-explain[data-scene="rapproche"] .hx-left{transform:translate(-144px,-50%)!important;}
+  body #hero-explain[data-scene="rapproche"] .hx-right{transform:translate(20px,-50%)!important;}
+
+  body #hero-explain .hx-stats{
+    position:absolute!important;
+    inset:0!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:8px!important;
+  }
+  body #hero-explain .hx-stat{
+    width:30.2%!important;
+    min-height:116px!important;
+    height:116px!important;
+    padding:13px 7px!important;
+  }
+
+  body #hero-explain .hx-products{
+    position:absolute!important;
+    inset:0!important;
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:12px!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+  body #hero-explain .hx-prod{
+    height:144px!important;
+    min-height:144px!important;
+    padding:20px 12px 16px!important;
+    border-radius:20px!important;
+  }
+
+  body #hero-explain .hx-steps{
+    margin:2px auto 18px!important;
+    gap:8px!important;
+  }
+  body #hero-explain .hx-step{width:32px!important;height:6px!important;}
+  body #hero-explain .hx-btn{
+    width:min(326px,88vw)!important;
+    min-height:58px!important;
+    font-size:16px!important;
+    padding:16px 22px!important;
+  }
+}
+@media (max-width:390px){
+  body #hero-explain{padding-top:30px!important;padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))!important;}
+  body #hero-explain .hx-title{height:126px!important;min-height:126px!important;max-height:126px!important;margin-top:16px!important;}
+  body #hero-explain .hx-line{font-size:clamp(29px,8.7vw,34px)!important;}
+  body #hero-explain .hx-line-communication{font-size:clamp(30px,8.9vw,35px)!important;}
+  body #hero-explain .hx-line-communication b{font-size:clamp(36px,10.4vw,40px)!important;}
+  body #hero-explain .hx-stage{height:296px!important;min-height:296px!important;max-height:296px!important;max-width:354px!important;}
+  body #hero-explain .hx-card{width:118px!important;height:184px!important;min-height:184px!important;max-height:184px!important;padding:14px 11px 13px!important;}
+  body #hero-explain .hx-left{transform:translate(-144px,-50%)!important;}
+  body #hero-explain .hx-right{transform:translate(26px,-50%)!important;}
+  body #hero-explain .hx-say,
+  body #hero-explain .hx-left .hx-say,
+  body #hero-explain .hx-right .hx-say{font-size:10.55px!important;line-height:1.34!important;max-height:124px!important;}
+  body #hero-explain .hx-who{font-size:8.5px!important;margin-bottom:14px!important;}
+  body #hero-explain .hx-core{width:78px!important;height:82px!important;}
+  body #hero-explain .hx-center-logo{width:82px!important;}
+  body #hero-explain .hx-stat{height:108px!important;min-height:108px!important;}
+}
+</style>
+
 </body>
 </html>
