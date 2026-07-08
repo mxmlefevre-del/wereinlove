@@ -523,6 +523,15 @@ footer{
         <div class="hx-stat"><div class="figure"><span class="num" data-to="69">0</span><span class="unit">%</span></div><small>des conflits ne portent pas sur les faits</small></div>
       </div>
 
+
+      <!-- Rupture visuelle : communication -->
+      <div class="hx-friction" aria-hidden="true">
+        <span class="hx-f-pulse"></span>
+        <span class="hx-f-wave w1"></span>
+        <span class="hx-f-wave w2"></span>
+        <span class="hx-f-wave w3"></span>
+      </div>
+
       <!-- Carte gauche -->
       <div class="hx-card hx-left">
         <div class="hx-sheen" aria-hidden="true"></div>
@@ -541,7 +550,7 @@ footer{
           <span class="hx-orb-halo" aria-hidden="true"></span>
           <span class="hx-orb-core">
             <span class="hx-orb-shine" aria-hidden="true"></span>
-            <span class="hx-orb-label">IA</span>
+            <span class="hx-orb-label">We're<br>in love</span>
           </span>
           <span class="hx-orbit" aria-hidden="true"><i></i><i></i><i></i></span>
         </div>
@@ -716,12 +725,14 @@ footer{
   #hero-explain .hx-orb-halo{position:absolute;inset:-14px;border-radius:50%;
     background:conic-gradient(from 0deg,#FF2D75,#C13BEF,#7C4DFF,#FF2D75);
     filter:blur(7px);opacity:0;transition:opacity .6s}
-  #hero-explain .hx-orb-core{position:relative;width:104px;height:104px;border-radius:50%;overflow:hidden;
-    background:radial-gradient(circle at 38% 32%,#D9BbFF,#7C4DFF 44%,#38206b 100%);
-    display:flex;align-items:center;justify-content:center;box-shadow:inset 0 -8px 20px rgba(0,0,0,.4)}
+  #hero-explain .hx-orb-core{position:relative;width:112px;height:112px;border-radius:32px;overflow:hidden;
+    background:radial-gradient(circle at 30% 24%,rgba(255,255,255,.95) 0%,rgba(255,196,226,.72) 12%,transparent 30%),linear-gradient(135deg,#ff2d75 0%,#b13cff 48%,#5b32ff 100%);
+    display:flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.52),inset 0 -16px 30px rgba(0,0,0,.42),0 18px 50px -14px rgba(255,45,117,.8),0 0 76px rgba(124,77,255,.42);border:1px solid rgba(255,255,255,.24)}
+  #hero-explain .hx-orb-core::before{content:"";position:absolute;inset:9px;border-radius:25px;border:1px solid rgba(255,255,255,.18);box-shadow:inset 0 0 22px rgba(255,255,255,.13)}
+  #hero-explain .hx-orb-core::after{content:"";position:absolute;inset:-35%;background:conic-gradient(from 120deg,transparent,rgba(255,255,255,.34),transparent 32%,rgba(255,255,255,.18),transparent 58%);animation:hxspin 7s linear infinite;mix-blend-mode:overlay}
   #hero-explain .hx-orb-shine{position:absolute;top:10%;left:16%;width:44%;height:34%;border-radius:50%;
     background:radial-gradient(circle,rgba(255,255,255,.85),transparent 70%);filter:blur(2px);opacity:.8}
-  #hero-explain .hx-orb-label{position:relative;font-size:26px;font-weight:800;color:#fff;letter-spacing:.02em;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+  #hero-explain .hx-orb-label{position:relative;z-index:2;font-size:14px;line-height:.92;font-weight:900;color:#fff;letter-spacing:-.03em;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,.45)}
   #hero-explain .hx-orbit{position:absolute;inset:-4px;border-radius:50%;animation:hxspin 9s linear infinite}
   #hero-explain .hx-orbit i{position:absolute;top:50%;left:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff}
   #hero-explain .hx-orbit i:nth-child(1){transform:rotate(0deg) translateX(64px)}
@@ -906,7 +917,7 @@ footer{
     text-shadow:0 0 34px rgba(255,45,117,.32);
   }
   #hero-explain .hx-stat small{color:rgba(255,255,255,.86)}
-  #hero-explain .hx-orb-core{box-shadow:inset 0 -10px 24px rgba(0,0,0,.52),0 0 54px rgba(255,45,117,.34),0 0 80px rgba(124,77,255,.28)}
+  #hero-explain .hx-orb-core{box-shadow:inset 0 1px 0 rgba(255,255,255,.52),inset 0 -16px 30px rgba(0,0,0,.46),0 20px 58px -14px rgba(255,45,117,.86),0 0 90px rgba(124,77,255,.36)}
   #hero-explain .hx-orb-halo{filter:blur(9px)}
 
   @media(max-width:760px){
@@ -984,9 +995,10 @@ footer{
       color:rgba(255,255,255,.98);
     }
     #hero-explain .hx-av{display:none}
-    #hero-explain .hx-orb{width:72px;height:72px;transform:scale(.9)}
-    #hero-explain .hx-orb-core{width:72px;height:72px}
-    #hero-explain .hx-orb-label{font-size:23px}
+    #hero-explain .hx-orb{width:82px;height:82px;transform:scale(.9)}
+    #hero-explain .hx-orb-core{width:82px;height:82px;border-radius:24px}
+    #hero-explain .hx-orb-core::before{inset:7px;border-radius:18px}
+    #hero-explain .hx-orb-label{font-size:11px;line-height:.9}
     #hero-explain .hx-orb-halo{inset:-11px;filter:blur(7px)}
     #hero-explain .hx-orbit{display:block;inset:-4px}
     #hero-explain .hx-orbit i:nth-child(1),
@@ -1031,6 +1043,11 @@ footer{
     #hero-explain .hx-stat .figure.big{font-size:38px;letter-spacing:-.055em;line-height:.95;font-weight:900}
     #hero-explain .hx-stat .unit{font-size:22px;font-weight:900}
     #hero-explain .hx-stat small{font-size:11.5px;line-height:1.26;margin-top:14px;font-weight:650;color:rgba(255,255,255,.9)}
+
+    #hero-explain .hx-f-pulse{width:88px;height:88px}
+    #hero-explain .hx-f-wave{width:88%;height:2px}
+    #hero-explain .hx-f-label{bottom:38px;font-size:9.5px;letter-spacing:.13em;padding:7px 11px}
+    #hero-explain[data-scene="communication"] .hx-stage{filter:saturate(1.08)}
 
     #hero-explain .hx-products{
       position:absolute;
@@ -1077,6 +1094,97 @@ footer{
     #hero-explain .hx-btn{padding-inline:18px;font-size:14px}
   }
 
+
+
+  /* ===== PATCH PREMIUM MAXIME : centrage, fond plus noir, orb étoilé ===== */
+  #hero-explain{
+    background:
+      radial-gradient(70% 58% at 18% 18%,rgba(255,45,117,.16),transparent 62%),
+      radial-gradient(72% 60% at 82% 38%,rgba(124,77,255,.18),transparent 66%),
+      linear-gradient(180deg,#030208 0%,#07030f 48%,#020106 100%) !important;
+  }
+  #hero-explain .hx-vignette{
+    background:radial-gradient(115% 88% at 50% 42%,rgba(255,255,255,0) 36%,rgba(0,0,0,.72) 100%) !important;
+  }
+  #hero-explain .hx-inner{max-width:1180px !important;margin-inline:auto !important}
+  #hero-explain .hx-stage{max-width:1040px !important;margin-inline:auto !important;gap:42px !important;min-height:390px !important}
+  #hero-explain .hx-card{width:330px !important;min-height:178px !important}
+  #hero-explain .hx-core{width:190px !important;height:190px !important}
+  #hero-explain .hx-f-label{display:none !important}
+  #hero-explain .hx-friction{left:50% !important;transform:translate(-50%,-50%) !important}
+  #hero-explain[data-scene="communication"] .hx-card{filter:saturate(.72) blur(.25px);opacity:.9}
+  #hero-explain[data-scene="communication"] .hx-left{transform:translateX(-28px) rotate(-2.5deg) !important;border-color:rgba(255,45,117,.42)}
+  #hero-explain[data-scene="communication"] .hx-right{transform:translateX(28px) rotate(2.5deg) !important;border-color:rgba(124,77,255,.42)}
+
+  #hero-explain .hx-orb{width:142px !important;height:142px !important;opacity:.86;filter:drop-shadow(0 0 28px rgba(141,75,255,.55)) drop-shadow(0 0 48px rgba(255,45,117,.35))}
+  #hero-explain .hx-orb-core{
+    width:142px !important;height:142px !important;border-radius:50% !important;
+    background:
+      radial-gradient(circle at 36% 28%,rgba(255,255,255,.98) 0%,rgba(255,212,255,.72) 8%,transparent 22%),
+      radial-gradient(circle at 48% 48%,#ff4ab0 0%,#9c48ff 46%,#361063 72%,#090515 100%) !important;
+    border:1px solid rgba(217,171,255,.72);
+    box-shadow:
+      inset 0 0 26px rgba(255,255,255,.23),
+      inset 0 -20px 42px rgba(0,0,0,.62),
+      0 0 0 1px rgba(255,255,255,.08),
+      0 0 28px rgba(255,45,117,.72),
+      0 0 54px rgba(124,77,255,.72),
+      0 0 96px rgba(255,45,117,.34) !important;
+  }
+  #hero-explain .hx-orb-core::before{
+    inset:-10px !important;border-radius:50% !important;
+    border:2px solid rgba(183,111,255,.85) !important;
+    box-shadow:
+      0 0 18px rgba(165,95,255,.95),
+      inset 0 0 28px rgba(255,255,255,.14),
+      0 0 72px rgba(255,45,117,.35) !important;
+  }
+  #hero-explain .hx-orb-core::after{
+    content:"";position:absolute;inset:-22%;border-radius:50%;
+    background:
+      conic-gradient(from 0deg,transparent 0 12%,rgba(255,255,255,.85) 13%,transparent 16% 32%,rgba(255,45,117,.75) 34%,transparent 38% 57%,rgba(124,77,255,.85) 59%,transparent 64% 100%);
+    animation:hxspin 8s linear infinite;mix-blend-mode:screen;opacity:.78 !important;
+  }
+  #hero-explain .hx-orb::before,
+  #hero-explain .hx-orb::after{
+    content:"";position:absolute;left:50%;top:50%;width:260px;height:2px;transform:translate(-50%,-50%);border-radius:999px;z-index:-1;pointer-events:none;
+    background:linear-gradient(90deg,transparent,rgba(255,45,117,.95),rgba(255,255,255,.95),rgba(124,77,255,.95),transparent);
+    filter:blur(.15px) drop-shadow(0 0 12px rgba(255,45,117,.95));
+    opacity:0;transition:opacity .55s ease;
+  }
+  #hero-explain .hx-orb::after{transform:translate(-50%,-50%) rotate(18deg);opacity:0;filter:blur(1.5px) drop-shadow(0 0 22px rgba(124,77,255,.8));height:5px}
+  #hero-explain[data-scene="analyse"] .hx-orb::before,
+  #hero-explain[data-scene="analyse"] .hx-orb::after,
+  #hero-explain[data-scene="traduit"] .hx-orb::before,
+  #hero-explain[data-scene="traduit"] .hx-orb::after,
+  #hero-explain[data-scene="rapproche"] .hx-orb::before,
+  #hero-explain[data-scene="rapproche"] .hx-orb::after{opacity:1}
+  #hero-explain .hx-orb-label{font-size:16px !important;line-height:.86 !important;letter-spacing:-.055em !important;text-shadow:0 0 10px rgba(255,255,255,.65),0 3px 18px rgba(0,0,0,.85) !important}
+  #hero-explain .hx-orb-halo{inset:-24px !important;border-radius:50% !important;filter:blur(14px) !important;opacity:.72;background:conic-gradient(from 0deg,#ff2d75,#ffffff,#7c4dff,#ff2d75) !important}
+  #hero-explain .hx-lines .l{width:170px !important;height:3px !important;filter:drop-shadow(0 0 12px currentColor)}
+  #hero-explain .hx-lines .l1{right:92% !important;background:linear-gradient(90deg,transparent,rgba(255,45,117,.15),rgba(255,255,255,.95),rgba(255,45,117,.9)) !important}
+  #hero-explain .hx-lines .l2{left:92% !important;background:linear-gradient(90deg,rgba(124,77,255,.9),rgba(255,255,255,.95),rgba(124,77,255,.15),transparent) !important}
+  #hero-explain .hx-stat{background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.045)) !important}
+  #hero-explain .hx-stat .num,#hero-explain .hx-stat .figure.big{filter:brightness(1.25) contrast(1.1);text-shadow:0 0 18px rgba(255,45,117,.55),0 0 38px rgba(124,77,255,.42) !important}
+  #hero-explain .hx-stat small{color:rgba(255,255,255,.92) !important;text-shadow:0 2px 14px rgba(0,0,0,.42)}
+
+  @media(max-width:760px){
+    #hero-explain{min-height:83svh !important;padding:54px 12px 48px !important}
+    #hero-explain .hx-stage{max-width:438px !important;min-height:382px !important;gap:8px !important}
+    #hero-explain .hx-card{width:calc((100% - 92px)/2) !important;min-height:236px !important;padding:21px 16px 24px !important}
+    #hero-explain .hx-core{width:82px !important;height:190px !important}
+    #hero-explain .hx-orb{width:86px !important;height:86px !important}
+    #hero-explain .hx-orb-core{width:86px !important;height:86px !important;border-radius:50% !important}
+    #hero-explain .hx-orb-core::before{inset:-7px !important;border-radius:50% !important}
+    #hero-explain .hx-orb::before{width:160px !important;height:2px !important}
+    #hero-explain .hx-orb::after{width:148px !important;height:4px !important}
+    #hero-explain .hx-orb-label{font-size:10px !important;line-height:.86 !important}
+    #hero-explain .hx-say{font-size:13px !important;line-height:1.42 !important;min-height:134px !important}
+    #hero-explain[data-scene="communication"] .hx-left{transform:translateX(-10px) rotate(-1.5deg) !important}
+    #hero-explain[data-scene="communication"] .hx-right{transform:translateX(10px) rotate(1.5deg) !important}
+    #hero-explain .hx-lines .l{width:72px !important}
+  }
+
   @media(prefers-reduced-motion:reduce){
     #hero-explain .hx-aurora,#hero-explain .hx-particles i,#hero-explain .hx-halo,
     #hero-explain .hx-orbit,#hero-explain .hx-orb-halo,#hero-explain .hx-card,
@@ -1092,8 +1200,8 @@ footer{
     if(!root)return;
     var steps=[].slice.call(root.querySelectorAll('.hx-step'));
     var cn=document.getElementById('hx-cn'), eb=document.getElementById('hx-eb');
-    var SCENES =["constat","constat","reveal","analyse","traduit","rapproche","produits"];
-    var LABELS =["Le constat","Le constat","La solution","Comment ça marche","Comment ça marche","Comment ça marche","Et aussi"];
+    var SCENES =["constat","communication","reveal","analyse","traduit","rapproche","produits"];
+    var LABELS =["Le constat","Communication","La solution","Comment ça marche","Comment ça marche","Comment ça marche","Et aussi"];
     var DURS   =[4200,3400,3600,3800,3400,3600,3800];
     var PHASES=SCENES.length;
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -1118,17 +1226,15 @@ footer{
     }
     function go(p){ cur=(p+PHASES)%PHASES; render(cur); schedule(); }
     function next(){ go(cur+1); }
-    function schedule(){ clearTimeout(timer); if(reduce||paused)return; timer=setTimeout(next,DURS[cur]); }
+    function schedule(){ clearTimeout(timer); if(reduce||document.hidden)return; timer=setTimeout(function(){ next(); },DURS[cur]||3600); }
 
     steps.forEach(function(s){ s.addEventListener('click',function(){ go(+s.getAttribute('data-go')); }); });
-    root.addEventListener('mouseenter',function(){ paused=true; clearTimeout(timer); });
-    root.addEventListener('mouseleave',function(){ paused=false; schedule(); });
-
+    document.addEventListener('visibilitychange',function(){ if(document.hidden){clearTimeout(timer);}else{schedule();} });
     // démarrage automatique immédiat, puis pause hors écran pour la perf
     go(0);
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(en){
-        en.forEach(function(e){ if(e.isIntersecting){ paused=false; schedule(); } else { paused=true; clearTimeout(timer); } });
+        en.forEach(function(e){ if(e.isIntersecting){ schedule(); } else { clearTimeout(timer); } });
       },{threshold:.15});
       io.observe(root);
     }
