@@ -1,36 +1,41 @@
-/* LA BOÎTE À DISPUTES — V2 dataset fictif, anonymisé, inspiré de situations relationnelles fréquentes. */
+/* LA BOÎTE À DISPUTES — V3 style forum, histoires réécrites, verdicts adaptés. */
 window.DISPUTES = [
   {
     "id": "d01",
     "cat": "Couple",
-    "emoji": "📱",
-    "title": "Il a supprimé toutes leurs photos Instagram",
-    "a": "Maya",
-    "b": "Sofiane",
-    "hook": "Il dit que c’est pour “repartir propre”. Elle découvre surtout qu’il veut redevenir célibataire en ligne.",
+    "emoji": "🚗",
+    "title": "Il a tiré le frein à main pendant qu’elle conduisait",
+    "a": "Lina",
+    "b": "Théo",
+    "hook": "Elle parle d’un geste dangereux. Lui parle surtout d’un mensonge de trop.",
     "likes": 642,
     "msgs": [
       {
         "r": "A",
-        "n": "Maya",
-        "t": "J’ai vu ton profil Insta ce matin. Toutes nos photos ont disparu. Pas une, pas deux, toutes. Même celle de nos vacances que tu disais adorer. Tu comptais m’en parler quand exactement ?"
+        "n": "Lina",
+        "t": "En faite c'était y'a 3jours, on rentrait chez nous en voiture et théo a complétement pété un cable, il a tiré le frein à main pendant que je conduisait, il est sorti de la voiture et il s'est barré. Tout ça parce que je suis allé chez un pote à moi un soir, apparement j'ai plus le droit d'avoir de potes, en tout cas faut vraiment etre un gamin pour faire une action pareil, ça me choque et visiblement il comprend pas."
       },
       {
         "r": "B",
-        "n": "Sofiane",
-        "t": "Mais c’est juste mon compte, j’avais envie d’un feed plus clean. T’es sérieuse de faire une crise pour des photos ? On est ensemble dans la vraie vie, pas dans une vitrine."
+        "n": "Théo",
+        "t": "mdrr ok, donc elle m'as dis qu'elle allais boire un verre avec sa copine imrane, sauf que quand je lui ai demandé de me la passer elle a bagayé, et j'ai compris qu'en fait elle était pas du tout avec imrane mais chez Lucas, son pote qu'elle avait déjà embrassé y'a deux ans dans une soirée. J'ai tiré le frein à main on était dans ma résidence et je voulais pas partir avec elle vu qu'elle “ne voyait pas le probleme” de m'avoir menti. y'avait zero danger et ça faisait 4fois que je lui demander d'arreter la voiture pour que je puisse rentrer chez moi."
       },
       {
         "r": "A",
-        "n": "Maya",
-        "t": "Le problème c’est pas ton feed. C’est que tu retires notre couple de partout sans me prévenir, puis tu fais comme si j’étais folle de le remarquer."
+        "n": "Lina",
+        "t": "Oui ok je t'ai pas dis la verité mais j'était sur que tu peterai un cable donc à quoi ça sert ? c'est bon il se passe rien avec Lucas et le bisous c'etait en soirée pour rigolé, passe à autre chose. Et je t'ai pas arreté ne fait pas un drama, j'allais pas te kidnapper détend toi, je voulais juste rentrer et pas refaire une scène de jalousie dans la voiture."
+      },
+      {
+        "r": "B",
+        "n": "Théo",
+        "t": "Donc aucune remise en quesiton de ta part, comme dab. moi je sais que tirer le frein à main c'est pas terrible, mais je savais qu'on roulait à 30km et que y'avait personne autour, c'est le moyen que j'avais pour partir, si je veux pas rester dans la voiture avec toi, normalement tu devrait t'arreter quand je te le demande. Et mentir à son copain pour aller chez un mec que t'as embrassé, je voit pas comment je pourrais avoir confiance en toi à l'avenir."
       }
     ],
     "v": {
-      "pctA": 76,
-      "pctB": 24,
-      "analyse": "Maya marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Sofiane peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "pctA": 39,
+      "pctB": 61,
+      "analyse": "Ce qui frappe ici, c’est que chacun justifie sa propre faute avec la faute de l’autre. Lina explique son mensonge par la peur que Théo s’énerve. Théo explique son geste avec le frein à main par le fait qu’elle refusait de s’arrêter. Sur le fond, Théo a raison d’être blessé : mentir sur l’endroit où on est, surtout pour aller chez quelqu’un avec qui il y a déjà eu une ambiguïté, ça casse clairement la confiance. Mais sur la forme, tirer le frein à main reste un geste dangereux et immature, même à faible vitesse. Le verdict penche côté Théo sur la confiance, mais pas sur sa réaction.",
+      "mot": "Un mensonge peut expliquer une crise. Il ne justifie pas un geste dangereux."
     }
   },
   {
@@ -46,24 +51,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Nolan",
-        "t": "Tu peux m’expliquer pourquoi tu likes tous ses selfies torse nu ? Pas une photo de paysage, pas une story de chien. Que des photos où il se montre."
+        "t": "Bon j'ai besoin qu'on me dise si je suis fou ou pas. Lina like TOUS les selfies de son ex, mais vraiment tous, les photos à la salle, les trucs torse nu, les stories où il fait le mec mystérieux là. Quand c'est moi qui poste elle zappe une fois sur deux, mais lui elle est dans les 3 premiers likes. Et après elle me dit que je suis insecure. Bah oui peut-être, mais aide moi un peu aussi ?"
       },
       {
         "r": "B",
         "n": "Lina",
-        "t": "Mais ptdr c’est Instagram, je like sans réfléchir. Tu vas commencer à analyser mes pouces maintenant ?"
+        "t": "Mais ptdrrr on parle de likes Instagram là, pas d'un adultère. Je like plein de trucs sans calculer, des potes, des anciennes connaissances, des meufs aussi. Nolan bloque juste parce que c'est mon ex. Et oui je peux liker une photo sans vouloir retourner avec la personne, sinon on supprime tous nos réseaux et on vit dans une grotte."
       },
       {
         "r": "A",
         "n": "Nolan",
-        "t": "Nan. J’analyse surtout que quand c’est moi qui poste tu zappes, et quand c’est lui t’es dans les trois premiers likes."
+        "t": "Elle dit qu'elle like sans réfléchir, mais bizarrement elle réfléchit très bien quand c'est mes posts à moi. Et c'est pas juste un like perdu au milieu, c'est systématique. Moi je trouve ça humiliant de voir ma copine encourager son ex en mode fan numéro 1 pendant que moi j'existe à peine sur son tel."
+      },
+      {
+        "r": "B",
+        "n": "Lina",
+        "t": "Je peux entendre que ça le pique, ok. Mais j'ai pas envie qu'on arrive à un couple où chaque like devient un dossier. Je veux bien faire attention, mais pas être fliquée sur tous mes gestes."
       }
     ],
     "v": {
       "pctA": 68,
       "pctB": 32,
-      "analyse": "Nolan marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Lina peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Nolan ne demande pas juste “arrête de liker”. Il dit surtout : pourquoi cette attention va toujours vers ton ex et presque jamais vers moi ? Lina a raison de refuser une surveillance de chaque geste sur Instagram, mais elle minimise trop vite la répétition. Un like peut être banal. Un schéma répété, avec un ex et des selfies clairement séduisants, devient un vrai signal pour l’autre.",
+      "mot": "Un like isolé ne veut rien dire. Un rituel, déjà beaucoup plus."
     }
   },
   {
@@ -79,24 +89,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Camille",
-        "t": "On avait mis cet argent de côté pour nos vacances, Camille. Je découvre un virement de 700€ à ta sœur, sans me demander. C’est notre compte commun, pas ton compte perso."
+        "t": "Alors là je suis encore choquée. On avait 1400€ sur le compte commun pour les vacances, je regarde hier il manque 700€. Mathis a viré ça à sa soeur sans rien me dire. Même pas un message. Et quand je demande il me sort “elle était dans la merde”. Ok mais moi aussi je suis dans ce compte en fait, c'est pas sa tirelire familiale."
       },
       {
         "r": "B",
         "n": "Mathis",
-        "t": "Elle était dans la merde, j’allais pas la laisser tomber. Elle me rembourse le mois prochain normalement."
+        "t": "Ma soeur risquait de perdre son appart, c'était urgent, elle m'a appelé en panique. J'ai fait le virement parce que je savais qu'elle me rembourserait. Camille fait comme si j'avais claqué l'argent en casino alors que c'était pour aider ma famille. Et oui j'aurais pu prévenir, mais dans le moment j'ai juste agi."
       },
       {
         "r": "A",
         "n": "Camille",
-        "t": "“Normalement” ? Tu vois le mot qui me tue ? Tu décides seule, tu me préviens après, et maintenant c’est moi le méchant parce que je parle budget."
+        "t": "Le “j'aurais pu prévenir” c'est justement toute la dispute. Parce que si j'avais pas regardé le compte, je l'apprenais quand ? le jour de réserver l'hôtel ? Et le pire c'est le “elle me rembourse normalement”. Normalement avec l'argent commun c'est pas suffisant."
+      },
+      {
+        "r": "B",
+        "n": "Mathis",
+        "t": "Je comprends que j'ai mal géré en le faisant seul. Mais j'aimerais aussi qu'elle comprenne que quand c'est ta soeur qui pleure au téléphone, tu fais pas un comité budget pendant 45 minutes."
       }
     ],
     "v": {
       "pctA": 72,
       "pctB": 28,
-      "analyse": "Camille marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Mathis peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Mathis avait une bonne intention, mais il a utilisé le compte commun comme s’il était seul à décider. Camille ne reproche pas d’aider sa sœur, elle reproche d’avoir été mise devant le fait accompli. Quand l’argent est commun, même une urgence familiale doit être annoncée clairement, parce que sinon la générosité de l’un devient une charge imposée à l’autre.",
+      "mot": "L’argent commun ne se dépense pas seul, même pour une bonne raison."
     }
   },
   {
@@ -112,24 +127,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Inès",
-        "t": "Ta mère est encore entrée sans sonner ce matin. J’étais en culotte dans la cuisine, Julien. Elle a les clés de chez nous ou elle habite ici aussi ?"
+        "t": "Sa mère est rentrée dimanche matin sans sonner. J'étais en culotte dans la cuisine avec les cheveux attachés n'importe comment, et je tombe sur elle en train de poser des courses sur la table comme si elle habitait là. Julien me dit que j'abuse parce que “c'est sa mère”. Non, c'est notre appart. Une clé de secours c'est pas un pass illimité."
       },
       {
         "r": "B",
         "n": "Julien",
-        "t": "Elle passait déposer des trucs, elle pensait qu’on dormait. C’est ma mère, elle va pas voler la télé."
+        "t": "Ma mère passait déposer deux sacs parce qu'elle avait fait le marché, elle pensait nous rendre service. Elle a pas fouillé nos affaires, elle a pas débarqué avec un huissier. Inès prend ça comme une invasion alors que ma mère voulait juste être gentille."
       },
       {
         "r": "A",
         "n": "Inès",
-        "t": "Mais je parle pas de vol, je parle d’intimité. Chez nous, c’est chez nous. Pas une annexe de chez ta mère."
+        "t": "Mais c'est pas les tomates le problème. Le problème c'est que je peux pas être tranquille chez moi. Et toi tu préfères toujours dire que ta mère est gentille plutôt que de lui dire juste “maman, tu préviens avant”. C'est pas violent comme phrase pourtant."
+      },
+      {
+        "r": "B",
+        "n": "Julien",
+        "t": "Ok j'avoue que je suis nul pour poser des limites avec elle. Elle vit seule, elle se vexe vite, et j'ai pas envie de la blesser. Mais je comprends que ça retombe sur Inès et c'est pas juste."
       }
     ],
     "v": {
       "pctA": 81,
       "pctB": 19,
-      "analyse": "Inès marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Julien peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Inès a raison : une clé de secours n’est pas un droit d’entrée. La mère de Julien n’a peut-être pas voulu mal faire, mais l’intimité du couple a été franchie. Julien doit comprendre qu’en évitant de vexer sa mère, il laisse Inès se sentir étrangère chez elle. Poser une limite polie, ce n’est pas rejeter sa famille.",
+      "mot": "Une clé donnée par confiance ne doit jamais devenir un pass illimité."
     }
   },
   {
@@ -145,24 +165,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Sarah",
-        "t": "J’ai vu les stories. Tout le monde était là hier soir, même des gens que vous connaissez à peine. Moi j’ai rien reçu. Même pas un “tu viens ?”."
+        "t": "J'ai vu en story que tout le groupe était chez Émilie samedi. Tout le monde. Même des gens qu'elle connait à peine. Moi j'ai rien reçu, même pas un “tu passes ?”. Quand je lui demande elle me sort qu'elle pensait que je bossais. Sauf qu'elle m'a pas demandé. Et après je passe pour la meuf exclue qui découvre la soirée comme une idiote."
       },
       {
         "r": "B",
         "n": "Émilie",
-        "t": "Mais je croyais vraiment que tu bossais, et puis c’était pas une vraie soirée, juste un truc posé à l’arrache."
+        "t": "Elle oublie de dire qu'à chaque soirée elle veut rentrer au bout d'une heure et après elle me fait la gueule si je reste. Là c'était censé être un truc tranquille, j'avais pas envie de gérer une tension toute la soirée. J'ai cru qu'elle bossait, oui, mais surtout j'avais besoin de souffler."
       },
       {
         "r": "A",
         "n": "Sarah",
-        "t": "Un truc posé avec déco, gâteau, playlist et 18 personnes ? Arrête. Tu m’as exclue et maintenant tu maquilles ça en oubli."
+        "t": "Mais dis le alors. Dis “j'ai envie d'une soirée sans pression”. C'est pas agréable mais je peux l'entendre. Là tu m'as juste laissée le découvrir avec les stories et ensuite tu fais genre c'était un oubli. C'est ça qui fait mal."
+      },
+      {
+        "r": "B",
+        "n": "Émilie",
+        "t": "Oui j'aurais dû lui dire. J'ai voulu éviter une dispute et j'ai créé une dispute pire. Mais j'aimerais qu'elle entende aussi que parfois je veux juste voir mes potes sans que ça devienne une évaluation de notre couple."
       }
     ],
     "v": {
       "pctA": 74,
       "pctB": 26,
-      "analyse": "Sarah marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Émilie peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Émilie avait peut-être un vrai besoin de souffler sans gérer son couple pendant la soirée. Mais elle l’a fait de la pire manière : en excluant Sarah sans lui dire, puis en la laissant découvrir la soirée en story. Sarah ne réclame pas forcément d’être invitée partout, elle réclame de ne pas être humiliée par surprise.",
+      "mot": "Vouloir une soirée sans l’autre peut se dire. Le cacher, c’est ça qui blesse."
     }
   },
   {
@@ -178,24 +203,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Anaïs",
-        "t": "On était au téléphone, je te raconte un truc important sur mon père, et d’un coup tu me dis “attends deux secondes”. Après j’entends ton clavier, tes potes, et plus rien. 42 minutes."
+        "t": "Bon Tom il me rend folle avec ses jeux. Hier je l'appelle parce que j'étais mal par rapport à mon père, un vrai truc important, et j'entends ses potes derrière. Il me dit “attends 2min”. Il revient 42 minutes après. 42. Moi entre temps j'ai pleuré toute seule comme une débile pendant que monsieur finissait sa ranked."
       },
       {
         "r": "B",
         "n": "Tom",
-        "t": "J’étais déjà en vocal avec eux, j’ai pas fait exprès. La game avait commencé, je pouvais pas lâcher tout le monde."
+        "t": "Elle dit ça comme si je l'avais abandonnée au milieu d'une opération. J'étais déjà en vocal, la partie avait commencé, je pouvais pas juste quitter et faire perdre tout le monde. J'ai dit que j'étais désolé après. C'est pas parce que je joue que je m'en fous d'elle."
       },
       {
         "r": "A",
         "n": "Anaïs",
-        "t": "Donc quand je parle de ma famille, je passe après une ranked. Merci c’est clair."
+        "t": "Mais justement c'est toujours “je pouvais pas quitter”. Quand c'est ses potes il peut pas, quand c'est moi je dois attendre. Et le pire c'est que si moi je réponds pas dans l'heure, il me demande ce qu'il y a."
+      },
+      {
+        "r": "B",
+        "n": "Tom",
+        "t": "Ok j'ai abusé sur ce coup-là parce que j'ai pas compris que c'était vraiment important. Mais j'aimerais aussi qu'elle arrête d'appeler 6 fois d'affilée quand je peux pas répondre, parce qu'après je suis déjà sous pression avant même de décrocher."
       }
     ],
     "v": {
       "pctA": 79,
       "pctB": 21,
-      "analyse": "Anaïs marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Tom peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Tom a le droit d’avoir sa passion et ses parties avec ses amis. Mais au moment où Anaïs parle d’un sujet important, la laisser attendre 42 minutes change complètement le message envoyé. Le problème n’est pas le jeu en soi, c’est le réflexe de mettre le couple en pause dès que la partie commence.",
+      "mot": "Une passion devient un problème quand elle rend l’autre invisible."
     }
   },
   {
@@ -211,24 +241,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Léa",
-        "t": "Pourquoi je ne vois pas tes stories quand t’es en soirée, mais mes copines oui ? Tu m’as masquée ou je rêve ?"
+        "t": "J'ai appris par une copine qu'Hugo me cachait ses stories. Pas toutes hein, juste les soirées, les trucs où il sort, les moments où y'a des filles autour. Moi je vois rien, les autres voient tout. Donc je suis sa copine mais je suis aussi la seule personne qu'il filtre. Super rassurant."
       },
       {
         "r": "B",
         "n": "Hugo",
-        "t": "J’avais juste pas envie que tu stresses pour rien. À chaque fois que tu vois une fille en arrière-plan, ça part en enquête."
+        "t": "Je l'ai masquée de certaines stories parce qu'à chaque soirée ça devient un interrogatoire. Qui c'est elle ? pourquoi elle rigole ? pourquoi t'es à côté ? J'avais juste envie de poster sans recevoir 12 messages de stress derrière."
       },
       {
         "r": "A",
         "n": "Léa",
-        "t": "Donc ta solution c’est pas de me rassurer, c’est de me cacher ta vie. Hyper sain."
+        "t": "Mais du coup ta solution c'est de me cacher des trucs ? Ça me rend encore plus parano. Si tu me disais juste “je sors avec eux, tkt”, ça passerait mieux que de créer un compte parallèle où je vois plus rien."
+      },
+      {
+        "r": "B",
+        "n": "Hugo",
+        "t": "Je comprends que masquer c'était pas intelligent. Mais faut aussi qu'elle entende que j'ai fini par le faire parce que je me sentais surveillé sur chaque story."
       }
     ],
     "v": {
       "pctA": 78,
       "pctB": 22,
-      "analyse": "Léa marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Hugo peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Hugo a probablement masqué ses stories pour éviter les disputes, mais ce choix fabrique exactement ce qu’il voulait éviter : de la méfiance. Léa n’a pas forcément raison de tout interpréter, mais elle a raison de dire que cacher n’est pas rassurer. Si une story doit être invisible seulement pour sa copine, c’est qu’il y a déjà un problème à discuter.",
+      "mot": "Quand on cache pour éviter une crise, on prépare souvent une crise plus grosse."
     }
   },
   {
@@ -244,24 +279,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Rayan",
-        "t": "Tous les jeudis tu dînes avec Hugo après le taf, et j’apprends ça par hasard à ton pot de départ. Pourquoi tu m’en as jamais parlé ?"
+        "t": "J'ai appris à un pot de départ que Noémie dîne tous les jeudis avec Hugo, son collègue. Tous les jeudis depuis des mois. Moi elle m'a jamais dit ça une seule fois. Quand je demande pourquoi elle me sort “bah c'est juste un ramen”. Ok mais ton jeudi soir a un prénom depuis 6 mois et moi je l'apprends devant tes collègues."
       },
       {
         "r": "B",
         "n": "Noémie",
-        "t": "Parce que c’est banal. On débriefe la semaine, on mange un ramen, fin. Tu vas pas valider chaque repas que je prends."
+        "t": "C'est un collègue avec qui je bosse sur un dossier relou, on finit tard le jeudi et on mange un truc vite fait. C'est vraiment pas un date secret. Je raconte pas tous mes repas à Rayan, sinon on en finit plus."
       },
       {
         "r": "A",
         "n": "Rayan",
-        "t": "Je veux pas valider. Je veux juste ne pas découvrir que ton jeudi soir a un prénom depuis six mois."
+        "t": "Sauf que tu me racontes quand tu manges avec tes copines, avec ton chef, avec n'importe qui. Lui bizarrement il existe pas. Donc soit c'est rien et tu pouvais le dire, soit c'est pas rien et tu voulais pas le dire."
+      },
+      {
+        "r": "B",
+        "n": "Noémie",
+        "t": "J'aurais dû le mentionner, ok. Mais je veux pas non plus qu'on transforme chaque collègue homme en menace. Je veux bien rassurer, pas demander une autorisation de déjeuner."
       }
     ],
     "v": {
       "pctA": 64,
       "pctB": 36,
-      "analyse": "Rayan marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Noémie peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Noémie peut très bien dîner avec un collègue sans que ce soit romantique. Le souci, c’est la régularité et le silence autour de cette habitude. Rayan ne demande pas un contrôle de ses repas, il demande pourquoi un rendez-vous hebdomadaire n’a jamais été mentionné. Le flou rend suspect ce qui aurait pu rester banal.",
+      "mot": "La transparence rend souvent banal ce que le silence rend louche."
     }
   },
   {
@@ -277,24 +317,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Mila",
-        "t": "Ta machine est dans le tambour depuis avant-hier. J’ai voulu laver mes draps, ça sentait la cave. Tu peux gérer tes affaires ?"
+        "t": "Ma coloc laisse ses fringues dans la machine depuis deux jours, ça pue l'humidité dans tout le tambour et moi je peux pas faire mes draps. Je lui dis, elle me répond “c'était pas moi”. Sauf qu'il y a son pull rose avec son prénom cousu dedans. À un moment faut arrêter de nous prendre pour des plots."
       },
       {
         "r": "B",
         "n": "Zoé",
-        "t": "C’était pas ma machine, je pensais que c’était la tienne. Et puis t’es pas obligée de dramatiser un tambour."
+        "t": "Oui j'ai oublié ma machine, ça arrive. Mais Mila a sorti mes affaires et les a posées en boule sur une chaise sale. Donc elle peut parler de respect mais elle en a pas eu beaucoup non plus."
       },
       {
         "r": "A",
         "n": "Mila",
-        "t": "Mdr sauf que y’a ton pull rose dedans avec ton prénom cousu. On arrête le théâtre ?"
+        "t": "Je les ai sorties parce que sinon on attend encore 48h. Et la chaise était pas sale, faut pas inventer. Je suis pas ta mère, je vais pas te rappeler tes lessives tous les dimanches."
+      },
+      {
+        "r": "B",
+        "n": "Zoé",
+        "t": "Ok je vais mettre une alarme, vraiment. Mais j'aimerais qu'elle arrête de me parler comme si j'étais une enfant de 8 ans à chaque oubli."
       }
     ],
     "v": {
       "pctA": 83,
       "pctB": 17,
-      "analyse": "Mila marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Zoé peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Mila a raison sur le fond : bloquer une machine commune pendant deux jours, c’est imposer son oubli à tout le monde. Zoé peut être vexée que ses affaires aient été sorties, mais elle oublie que c’est sa négligence qui a créé la situation. En coloc, les petites règles pratiques évitent les grosses tensions.",
+      "mot": "En coloc, un oubli répété devient vite un manque de respect."
     }
   },
   {
@@ -310,24 +355,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Karim",
-        "t": "On avait toujours les mêmes codes, pas pour fouiller, juste parce qu’on vivait ensemble. Là tu changes sans rien dire et tu poses ton tel écran contre table. Il se passe quoi ?"
+        "t": "Lisa a changé son code de téléphone du jour au lendemain. On avait le même depuis 3 ans, pas pour fouiller, juste parce qu'on vivait ensemble, on se prêtait nos tels. Là d'un coup elle change, elle pose l'écran face contre table, elle sursaute quand je m'approche. Et après elle me dit que je dois avoir confiance. Bah donne moi une raison aussi."
       },
       {
         "r": "B",
         "n": "Lisa",
-        "t": "J’ai juste envie d’un peu d’espace privé. Être en couple ça veut pas dire open bar sur mon téléphone."
+        "t": "J'ai changé mon code parce que j'en avais marre qu'il prenne mon téléphone comme une télécommande. Même pour regarder l'heure il voit mes notifs. J'ai rien à cacher, mais j'ai le droit d'avoir un espace à moi sans qu'il fasse une crise."
       },
       {
         "r": "A",
         "n": "Karim",
-        "t": "Je suis d’accord. Mais changer du jour au lendemain en mode coffre-fort, ça crée forcément une question."
+        "t": "Je fais pas une crise pour un espace privé. Je fais une crise parce que ça arrive d'un coup, en même temps qu'elle parle tout le temps d'un nouveau collègue et qu'elle garde son tel retourné comme un coffre fort."
+      },
+      {
+        "r": "B",
+        "n": "Lisa",
+        "t": "Le collègue n'a rien à voir. Mais peut-être qu'on avait pris de mauvaises habitudes avec nos téléphones, et maintenant le fait que je pose une limite passe forcément pour un truc louche."
       }
     ],
     "v": {
       "pctA": 55,
       "pctB": 45,
-      "analyse": "Karim marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Lisa peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Lisa a le droit de poser une limite sur son téléphone. Karim n’a pas un droit automatique à son code. Mais changer une habitude de trois ans sans explication, avec des gestes qui paraissent secrets, crée forcément de l’insécurité. Ici, personne n’a entièrement tort : il faut poser une nouvelle règle clairement, pas la découvrir dans la panique.",
+      "mot": "L’intimité n’est pas un mensonge, mais elle doit être expliquée quand elle change d’un coup."
     }
   },
   {
@@ -343,24 +393,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Julie",
-        "t": "Quand je dis “fais les courses”, tu reviens avec du Coca, des chips et deux steaks. Pas de couches, pas de lessive, pas de compotes, rien pour demain."
+        "t": "Je vais péter un cable avec Mehdi. Quand je lui dis “tu peux faire les courses ?” il revient avec du Coca, des chips et deux steaks. Pas de couches, pas de lessive, pas de compotes, rien pour le lendemain. Et après il me sort “fallait faire une liste”. Mais moi aussi j'aimerais bien qu'on me fasse une liste de la vie parfois."
       },
       {
         "r": "B",
         "n": "Mehdi",
-        "t": "Bah fallait faire une liste claire. Je peux pas deviner tout ce qu’il manque dans la maison."
+        "t": "Mais je peux pas deviner tout ce qu'il manque dans la maison. Quand elle dit “courses”, ça peut être 500 trucs. Je prends ce que je vois, ce dont on parle, et après je me fais démonter parce que j'ai pas pensé aux compotes goût pomme-poire."
       },
       {
         "r": "A",
         "n": "Julie",
-        "t": "Justement. Moi non plus je ne devine pas, je regarde, j’anticipe, je pense. Toi tu attends un ordre de mission."
+        "t": "Sauf que penser, c'est exactement le truc dont je parle. Moi je regarde les placards, les couches, les repas de demain, les produits ménagers. Lui il attend un ordre de mission comme s'il était stagiaire dans sa propre maison."
+      },
+      {
+        "r": "B",
+        "n": "Mehdi",
+        "t": "Ok j'ai compris que je me repose trop sur elle pour savoir ce qu'il faut acheter. Mais j'aimerais qu'elle me parle pas comme si j'étais débile dès que je fais pas parfait."
       }
     ],
     "v": {
       "pctA": 84,
       "pctB": 16,
-      "analyse": "Julie marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Mehdi peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Il ne fait jamais les vraies courses” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Ce qui blesse le plus, ce n’est pas toujours l’acte. C’est la minimisation derrière."
     }
   },
   {
@@ -376,24 +431,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Nora",
-        "t": "Tu m’as dit “je peux te dépanner samedi pour garder Noé”. Me dépanner ? Baptiste, c’est ton fils aussi, pas un service que tu me rends."
+        "t": "Baptiste m'a dit “je peux te dépanner samedi pour garder Noé”. Me dépanner. Pour SON fils. J'ai bloqué sur le mot parce que ça dit tout. Moi quand je suis avec Noé toute la semaine personne dit que je dépanne, je suis juste sa mère."
       },
       {
         "r": "B",
         "n": "Baptiste",
-        "t": "Tu joues sur les mots. Je voulais dire que je pouvais m’arranger avec mon planning."
+        "t": "Elle joue sur un mot. Je voulais dire que je pouvais m'arranger avec mon planning, pas que Noé était pas mon fils. Franchement parfois elle cherche la phrase qui va l'énerver et elle part dessus pendant 2 jours."
       },
       {
         "r": "A",
         "n": "Nora",
-        "t": "Non je joue pas. Les mots montrent comment tu vois les choses. Moi je “garde” jamais Noé. Je suis sa mère."
+        "t": "Non je cherche pas. Je suis fatiguée d'être le parent par défaut. Même quand il est avec son père, c'est encore présenté comme un service qu'on me rend."
+      },
+      {
+        "r": "B",
+        "n": "Baptiste",
+        "t": "Je reconnais que le mot était nul. Mais j'aimerais qu'elle reconnaisse aussi que je m'occupe de lui quand je peux, je suis pas absent comme elle le sous-entend."
       }
     ],
     "v": {
       "pctA": 88,
       "pctB": 12,
-      "analyse": "Nora marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Baptiste peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Il refuse de garder son propre enfant” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -409,24 +469,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Clara",
-        "t": "Tu as embrassé Léa devant tout le monde pendant le jeu. Et après tu me regardes en mode “ça va ?”. Non, ça va pas."
+        "t": "Yan a embrassé Léa pendant un jeu d'alcool devant tout le monde. Un vrai bisou, pas un smack de 0,2 seconde. Et après il me regarde en mode “bah quoi ?”. J'avais tellement honte, j'ai même pas su quoi dire sur le moment."
       },
       {
         "r": "B",
         "n": "Yan",
-        "t": "C’était action ou vérité, tout le monde rigolait. J’étais bourré, ça avait zéro sens."
+        "t": "C'était action ou vérité, tout le monde rigolait, y'avait zéro intention. Clara fait comme si j'avais trompé dans les toilettes alors que c'était un jeu débile en soirée."
       },
       {
         "r": "A",
         "n": "Clara",
-        "t": "Si ça avait zéro sens, pourquoi c’est moi qui ai eu honte à ta place ?"
+        "t": "Mais justement, c'est toujours “jeu débile” quand ça l'arrange. Moi j'étais là, devant tout le monde, à regarder mon mec embrasser une fille et devoir faire semblant d'être cool."
+      },
+      {
+        "r": "B",
+        "n": "Yan",
+        "t": "J'aurais dû refuser, ok. Mais j'aimerais aussi qu'elle arrête de raconter ça comme si j'avais une histoire avec Léa. C'était nul, pas profond."
       }
     ],
     "v": {
       "pctA": 77,
       "pctB": 23,
-      "analyse": "Clara marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Yan peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le cœur de cette dispute, ce n’est pas seulement le fait raconté, c’est la manière dont il est défendu. La première version montre une blessure réelle, la seconde ajoute un contexte qui évite de tout juger trop vite. Mais à la fin, la question reste simple : est-ce que l’un des deux reconnaît vraiment l’impact sur l’autre, ou est-ce que chacun cherche seulement à gagner le procès ? Ici, la responsabilité penche du côté de celui qui minimise trop vite. Dans cette affaire précise, “Le baiser en soirée “pour rire”” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -442,24 +507,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Élodie",
-        "t": "Tu gagnes 4200, je gagne 1800. Et tu veux qu’on fasse tout 50/50 parce que “c’est plus simple”. Pour toi oui, c’est très simple."
+        "t": "Je gagne 1800 et Marc gagne plus de 4000. Il veut tout faire 50/50 parce que “c'est simple”. Oui pour lui c'est simple, il lui reste de quoi vivre après. Moi à la fin du mois je calcule mes courses et lui il me parle d'égalité."
       },
       {
         "r": "B",
         "n": "Marc",
-        "t": "Je trouve ça normal que chacun paie sa moitié. On vit au même endroit, on utilise les mêmes pièces."
+        "t": "Je trouve juste normal qu'on paie chacun la moitié du loyer vu qu'on habite tous les deux dans l'appart. Je vais pas être puni parce que je gagne plus, sinon où ça s'arrête ?"
       },
       {
         "r": "A",
         "n": "Élodie",
-        "t": "On utilise les mêmes pièces, pas les mêmes revenus. Ton égalité me met dans le rouge tous les mois."
+        "t": "Je te demande pas de tout payer. Je dis juste que le même montant n'a pas le même poids pour nous deux. Ton égalité mathématique me met dans le rouge."
+      },
+      {
+        "r": "B",
+        "n": "Marc",
+        "t": "Je peux entendre qu'on fasse au prorata sur certaines charges, mais j'ai pas envie non plus d'être vu comme un portefeuille parce que j'ai un meilleur salaire."
       }
     ],
     "v": {
       "pctA": 73,
       "pctB": 27,
-      "analyse": "Élodie marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Marc peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Il veut partager le loyer 50/50 alors qu’il gagne le double” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Une dispute se règle rarement quand chacun plaide son innocence."
     }
   },
   {
@@ -475,24 +545,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Océane",
-        "t": "Tu es en ligne toute la journée, tu postes des memes, tu réponds en groupe, mais mes messages restent en vu pendant 6h. Ça dit quelque chose, non ?"
+        "t": "Samy est actif partout. Il poste des memes, il répond dans les groupes, il like des trucs, mais moi je reste en vu pendant 6h. Quand je lui dis il me répond qu'il avait pas l'énergie. L'énergie pour moi non, pour Twitter oui apparament."
       },
       {
         "r": "B",
         "n": "Samy",
-        "t": "J’ai pas envie de répondre à des messages sérieux quand je suis au taf. Les memes ça demande pas d’énergie."
+        "t": "Répondre à un message sérieux c'est pas pareil que liker une connerie. Des fois je suis au taf, j'ai deux secondes, je veux pas rentrer dans une discussion où je vais devoir me justifier pendant 1h."
       },
       {
         "r": "A",
         "n": "Océane",
-        "t": "Ok mais un “je te réponds ce soir” ça demande neuf caractères. Là tu me laisses juste mariner."
+        "t": "Sauf qu'un “je te réponds ce soir” ça prend 4 secondes. Là je suis juste mise de côté et je dois deviner s'il m'ignore ou s'il respire."
+      },
+      {
+        "r": "B",
+        "n": "Samy",
+        "t": "Ok je peux prévenir mieux. Mais j'aimerais qu'elle comprenne que je suis pas obligé d'être disponible émotionnellement dès que mon point vert apparaît."
       }
     ],
     "v": {
       "pctA": 61,
       "pctB": 39,
-      "analyse": "Océane marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Samy peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Il est toujours en ligne mais ne répond jamais” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -508,24 +583,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Lola",
-        "t": "Tu savais que je parlais à Adam depuis trois semaines. Je t’ai montré ses messages, je t’ai dit qu’il me plaisait. Et hier je te vois collée à lui au bar."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle drague le crush de sa meilleure amie” c'est pas un petit détail comme Nina essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Nina",
-        "t": "Mais vous n’étiez pas ensemble, Lola. Et lui aussi il venait vers moi, je vais pas faire semblant d’être invisible."
+        "t": "Lola raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Lola",
-        "t": "T’es pas invisible. T’es juste ma meilleure amie, normalement c’est censé vouloir dire quelque chose."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Nina",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 69,
       "pctB": 31,
-      "analyse": "Lola marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Nina peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Elle drague le crush de sa meilleure amie” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -541,24 +621,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Nathan",
-        "t": "Tu pars à Barcelone vendredi, je demande avec qui, tu réponds juste “des amis”. C’est quoi ce flou ? On est ensemble ou je suis un douanier ?"
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle part en week-end sans lui dire avec qui” c'est pas un petit détail comme Eva essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Eva",
-        "t": "J’en ai marre de devoir tout détailler. C’est un groupe, y’a des filles, des gars, basta."
+        "t": "Nathan raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Nathan",
-        "t": "C’est pas le groupe le problème. C’est le “basta” quand je demande une info normale."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Eva",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 58,
       "pctB": 42,
-      "analyse": "Nathan marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Eva peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le cœur de cette dispute, ce n’est pas seulement le fait raconté, c’est la manière dont il est défendu. La première version montre une blessure réelle, la seconde ajoute un contexte qui évite de tout juger trop vite. Mais à la fin, la question reste simple : est-ce que l’un des deux reconnaît vraiment l’impact sur l’autre, ou est-ce que chacun cherche seulement à gagner le procès ? Ici, la responsabilité penche du côté de celui qui minimise trop vite. Dans cette affaire précise, “Elle part en week-end sans lui dire avec qui” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Un détail devient énorme quand il raconte quelque chose de plus profond."
     }
   },
   {
@@ -574,24 +659,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Amina",
-        "t": "Ta sœur m’a encore sorti “chez nous les femmes cuisinent vraiment” devant tout le monde. J’ai regardé vers toi. Tu as baissé les yeux dans ton assiette."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il laisse sa femme seule face à sa famille” c'est pas un petit détail comme Paul essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Paul",
-        "t": "Je voulais pas mettre de l’huile sur le feu pendant le repas. Ma famille est comme ça, faut laisser glisser."
+        "t": "Amina raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Amina",
-        "t": "Tu me demandes de laisser glisser pendant que toi tu restes sec. C’est facile comme stratégie."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Paul",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 86,
       "pctB": 14,
-      "analyse": "Amina marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Paul peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Il laisse sa femme seule face à sa famille” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -607,24 +697,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Léo",
-        "t": "Tous les matins tu prends 45 minutes de douche. Après toi l’eau est froide et je pars au taf avec les cheveux à moitié rincés. C’est plus possible."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il prend des douches de 45 minutes” c'est pas un petit détail comme Mathis essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Mathis",
-        "t": "J’ai besoin de temps le matin, c’est mon moment. Vous êtes toujours en train de chronométrer tout."
+        "t": "Léo raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Léo",
-        "t": "Ton “moment” bloque l’eau chaude de trois personnes. C’est pas une retraite spirituelle, c’est une salle de bain commune."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Mathis",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 71,
       "pctB": 29,
-      "analyse": "Léo marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Mathis peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Il prend des douches de 45 minutes” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Une dispute se règle rarement quand chacun plaide son innocence."
     }
   },
   {
@@ -640,24 +735,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Sofia",
-        "t": "J’ai trouvé une facture d’hôtel dans ta veste. Deux personnes, samedi dernier, 23h14. Tu étais censé dormir chez ton frère."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Le reçu d’hôtel dans la poche” c'est pas un petit détail comme Alex essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Alex",
-        "t": "C’était pour lui justement. Il avait besoin d’une chambre, sa carte passait pas, j’ai payé avec la mienne."
+        "t": "Sofia raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Sofia",
-        "t": "Et tu n’as jamais pensé à me dire “j’ai payé une chambre d’hôtel pour mon frère” ? Même toi tu n’y crois pas."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Alex",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 89,
       "pctB": 11,
-      "analyse": "Sofia marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Alex peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Ce qui rend cette histoire crédible, c’est que personne n’est parfaitement innocent. Il y a une erreur de départ, puis une défense maladroite, puis une escalade. Mais le plus important ici, c’est l’impact concret : l’autre ne demande pas forcément une punition, il demande qu’on arrête de lui expliquer que ce qu’il ressent n’existe pas. Dans cette affaire précise, “Le reçu d’hôtel dans la poche” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -673,24 +773,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Louis",
-        "t": "À chaque fois que j’essaie de parler d’un truc sérieux, tu mets un écouteur. Un seul parfois, comme si ça rendait le mépris plus poli."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle met ses écouteurs dès qu’il parle” c'est pas un petit détail comme Maëlle essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Maëlle",
-        "t": "Parce que tu pars dans des tunnels de 40 minutes et tu répètes tout. J’ai besoin de me protéger un peu."
+        "t": "Louis raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Louis",
-        "t": "Te protéger ok. Me couper du monde pendant que je parle, c’est pas une limite, c’est une porte claquée."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Maëlle",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 62,
       "pctB": 38,
-      "analyse": "Louis marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Maëlle peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Ce qui rend cette histoire crédible, c’est que personne n’est parfaitement innocent. Il y a une erreur de départ, puis une défense maladroite, puis une escalade. Mais le plus important ici, c’est l’impact concret : l’autre ne demande pas forcément une punition, il demande qu’on arrête de lui expliquer que ce qu’il ressent n’existe pas. Dans cette affaire précise, “Elle met ses écouteurs dès qu’il parle” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Ce qui blesse le plus, ce n’est pas toujours l’acte. C’est la minimisation derrière."
     }
   },
   {
@@ -706,24 +811,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Chloé",
-        "t": "La montre que je t’ai offerte pour tes 30 ans est sur Vinted. Même description, même rayure, même photo de notre table basse. Tu te fous de moi ?"
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il revend le cadeau qu’elle lui a offert” c'est pas un petit détail comme Enzo essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Enzo",
-        "t": "Je la portais jamais, elle dormait dans un tiroir. Autant récupérer un peu d’argent plutôt que la laisser prendre la poussière."
+        "t": "Chloé raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Chloé",
-        "t": "Tu pouvais au moins m’en parler. C’était pas un objet lambda pour moi, j’avais économisé deux mois."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Enzo",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 75,
       "pctB": 25,
-      "analyse": "Chloé marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Enzo peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Ce qui rend cette histoire crédible, c’est que personne n’est parfaitement innocent. Il y a une erreur de départ, puis une défense maladroite, puis une escalade. Mais le plus important ici, c’est l’impact concret : l’autre ne demande pas forcément une punition, il demande qu’on arrête de lui expliquer que ce qu’il ressent n’existe pas. Dans cette affaire précise, “Il revend le cadeau qu’elle lui a offert” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -739,24 +849,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Adam",
-        "t": "Tu as mis notre dispute en story privée avec un sondage “il abuse ou pas ?”. Lou, des gens que je croise au sport ont voté sur ma vie."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle poste leur dispute en story privée” c'est pas un petit détail comme Lou essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Lou",
-        "t": "C’était mon groupe proche, pas public. J’avais besoin de savoir si j’étais folle ou si tu retournais le truc."
+        "t": "Adam raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Adam",
-        "t": "Demande à deux amies, ok. Transformer notre couple en contenu interactif, non."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Lou",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 82,
       "pctB": 18,
-      "analyse": "Adam marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Lou peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Elle poste leur dispute en story privée” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Ce qui blesse le plus, ce n’est pas toujours l’acte. C’est la minimisation derrière."
     }
   },
   {
@@ -772,24 +887,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Iris",
-        "t": "Je t’ai prêté ma voiture 24h. Tu me la rends avec 9 km d’autonomie, des frites froides sous le siège et pas même un “merci”."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il emprunte la voiture et la rend vide” c'est pas un petit détail comme Max essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Max",
-        "t": "J’étais pressé, j’ai pas calculé. Je comptais remettre de l’essence plus tard."
+        "t": "Iris raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Iris",
-        "t": "Plus tard quand ? Quand je tomberai en panne sur la voie rapide ?"
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Max",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 87,
       "pctB": 13,
-      "analyse": "Iris marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Max peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Ce qui rend cette histoire crédible, c’est que personne n’est parfaitement innocent. Il y a une erreur de départ, puis une défense maladroite, puis une escalade. Mais le plus important ici, c’est l’impact concret : l’autre ne demande pas forcément une punition, il demande qu’on arrête de lui expliquer que ce qu’il ressent n’existe pas. Dans cette affaire précise, “Il emprunte la voiture et la rend vide” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Ce qui blesse le plus, ce n’est pas toujours l’acte. C’est la minimisation derrière."
     }
   },
   {
@@ -805,24 +925,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Émilie",
-        "t": "Dès qu’on se dispute, tu prends ton oreiller et tu dors au salon. Même quand je pleure dans la chambre. Tu crois que ça règle quoi ?"
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il dort sur le canapé au moindre conflit” c'est pas un petit détail comme Romain essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Romain",
-        "t": "Je fais ça pour éviter de dire des trucs méchants. Je préfère m’éloigner que péter un câble."
+        "t": "Émilie raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Émilie",
-        "t": "S’éloigner 20 minutes, oui. M’abandonner toute la nuit dans l’angoisse, non."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Romain",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 67,
       "pctB": 33,
-      "analyse": "Émilie marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Romain peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Il dort sur le canapé au moindre conflit” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Un détail devient énorme quand il raconte quelque chose de plus profond."
     }
   },
   {
@@ -838,24 +963,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Nadia",
-        "t": "Tu as promis à mamie de l’accompagner à son rendez-vous. Elle t’a attendue 40 minutes dehors. Elle avait honte d’appeler quelqu’un d’autre."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle promet d’aider sa grand-mère puis disparaît” c'est pas un petit détail comme Selma essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Selma",
-        "t": "J’ai eu une nuit horrible, j’ai pas entendu le réveil. Vous me tombez tous dessus comme si j’avais fait exprès."
+        "t": "Nadia raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Nadia",
-        "t": "Personne dit que t’as fait exprès. Mais quand tu promets à une dame de 84 ans, tu mets trois alarmes."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Selma",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 80,
       "pctB": 20,
-      "analyse": "Nadia marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Selma peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Ce qui rend cette histoire crédible, c’est que personne n’est parfaitement innocent. Il y a une erreur de départ, puis une défense maladroite, puis une escalade. Mais le plus important ici, c’est l’impact concret : l’autre ne demande pas forcément une punition, il demande qu’on arrête de lui expliquer que ce qu’il ressent n’existe pas. Dans cette affaire précise, “Elle promet d’aider sa grand-mère puis disparaît” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Ce qui blesse le plus, ce n’est pas toujours l’acte. C’est la minimisation derrière."
     }
   },
   {
@@ -871,24 +1001,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Lina",
-        "t": "Ta localisation marche toute la semaine. Bizarrement, elle se coupe uniquement quand tu sors avec “les gars”. Tu veux que je sois naïve à quel niveau ?"
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il coupe sa localisation quand il sort” c'est pas un petit détail comme Mehdi essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Mehdi",
-        "t": "Je coupe parce que je veux pas être suivi comme un colis Amazon. Ça me gave ce truc."
+        "t": "Lina raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Lina",
-        "t": "Alors dis-le. Ne fais pas comme si c’était un bug uniquement les samedis à 1h du mat."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Mehdi",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 65,
       "pctB": 35,
-      "analyse": "Lina marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Mehdi peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Il coupe sa localisation quand il sort” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Un détail devient énorme quand il raconte quelque chose de plus profond."
     }
   },
   {
@@ -904,24 +1039,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Gabriel",
-        "t": "Quand un truc ne va pas, tu ne cries pas. Tu deviens polaire. Réponses en un mot, pas de regard, pas de toucher. Pendant quatre jours je vis avec une inconnue."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle répond froidement pendant des jours” c'est pas un petit détail comme Alicia essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Alicia",
-        "t": "Parce que si je parle trop vite je vais être injuste. J’ai besoin de temps pour redescendre."
+        "t": "Gabriel raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Gabriel",
-        "t": "Prendre du temps, ok. Me punir par le silence, c’est autre chose."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Alicia",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 59,
       "pctB": 41,
-      "analyse": "Gabriel marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Alicia peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Elle répond froidement pendant des jours” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -937,24 +1077,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Mélissa",
-        "t": "Ton chef t’appelle à 22h47, tu réponds dans le lit, tu mets le haut-parleur et moi je dois juste disparaître sous la couette ?"
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Son patron l’appelle même au lit” c'est pas un petit détail comme Victor essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Victor",
-        "t": "C’était vraiment urgent, on avait un client à sauver. Je peux pas dire non à tout."
+        "t": "Mélissa raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Mélissa",
-        "t": "Tu peux au moins sortir de la chambre. J’ai pas signé pour dormir avec ton entreprise."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Victor",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 70,
       "pctB": 30,
-      "analyse": "Mélissa marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Victor peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le cœur de cette dispute, ce n’est pas seulement le fait raconté, c’est la manière dont il est défendu. La première version montre une blessure réelle, la seconde ajoute un contexte qui évite de tout juger trop vite. Mais à la fin, la question reste simple : est-ce que l’un des deux reconnaît vraiment l’impact sur l’autre, ou est-ce que chacun cherche seulement à gagner le procès ? Ici, la responsabilité penche du côté de celui qui minimise trop vite. Dans cette affaire précise, “Son patron l’appelle même au lit” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -970,24 +1115,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Hannah",
-        "t": "Ma pizza Uber Eats avait mon prénom agrafé dessus. Tu l’as ouverte, mangé deux parts, puis rangée comme si de rien."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle mange les commandes des autres” c'est pas un petit détail comme Lise essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Lise",
-        "t": "Je pensais que t’en avais commandé pour nous deux, t’avais pris une grande."
+        "t": "Hannah raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Hannah",
-        "t": "Une grande parce que j’avais faim, pas parce que j’ouvrais un buffet."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Lise",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 85,
       "pctB": 15,
-      "analyse": "Hannah marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Lise peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Ce qui rend cette histoire crédible, c’est que personne n’est parfaitement innocent. Il y a une erreur de départ, puis une défense maladroite, puis une escalade. Mais le plus important ici, c’est l’impact concret : l’autre ne demande pas forcément une punition, il demande qu’on arrête de lui expliquer que ce qu’il ressent n’existe pas. Dans cette affaire précise, “Elle mange les commandes des autres” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Un détail devient énorme quand il raconte quelque chose de plus profond."
     }
   },
   {
@@ -1003,24 +1153,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Thomas",
-        "t": "C’est la sixième fois que tu oublies ton portefeuille quand on sort. Sixième. À ce stade c’est plus un oubli, c’est une technique."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il oublie toujours son portefeuille” c'est pas un petit détail comme Yanis essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Yanis",
-        "t": "J’ai Apple Pay normalement, mais là mon tel était mort. Tu vas pas me faire un procès pour 28€."
+        "t": "Thomas raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Thomas",
-        "t": "Je te fais un procès pour la répétition. Le montant change, le scénario reste."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Yanis",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 76,
       "pctB": 24,
-      "analyse": "Thomas marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Yanis peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Ce qui rend cette histoire crédible, c’est que personne n’est parfaitement innocent. Il y a une erreur de départ, puis une défense maladroite, puis une escalade. Mais le plus important ici, c’est l’impact concret : l’autre ne demande pas forcément une punition, il demande qu’on arrête de lui expliquer que ce qu’il ressent n’existe pas. Dans cette affaire précise, “Il oublie toujours son portefeuille” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -1036,24 +1191,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Hugo",
-        "t": "Pourquoi tu filmes Léo en train de pleurer parce qu’il a raté son spectacle ? Il te demande d’arrêter et tu continues."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle filme leurs enfants pendant qu’ils pleurent” c'est pas un petit détail comme Claire essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Claire",
-        "t": "Mais c’est pas méchant, c’est des souvenirs. Dans dix ans il va rire."
+        "t": "Hugo raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Hugo",
-        "t": "Ou dans dix ans il se souviendra que sa mère a choisi la vidéo avant le câlin."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Claire",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 91,
       "pctB": 9,
-      "analyse": "Hugo marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Claire peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Elle filme leurs enfants pendant qu’ils pleurent” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -1069,24 +1229,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Manon",
-        "t": "Hier tu m’as encore humiliée devant tes potes. “Elle comprend jamais rien”, “elle est reloue”. Le matin tu dis pardon, le soir suivant tu recommences."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il devient méchant quand il boit” c'est pas un petit détail comme Dorian essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Dorian",
-        "t": "J’étais bourré, je pensais pas un mot de ce que j’ai dit. Tu sais comment je suis quand je bois."
+        "t": "Manon raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Manon",
-        "t": "Justement. Je sais. Et toi aussi. Donc maintenant c’est un choix."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Dorian",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 90,
       "pctB": 10,
-      "analyse": "Manon marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Dorian peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le cœur de cette dispute, ce n’est pas seulement le fait raconté, c’est la manière dont il est défendu. La première version montre une blessure réelle, la seconde ajoute un contexte qui évite de tout juger trop vite. Mais à la fin, la question reste simple : est-ce que l’un des deux reconnaît vraiment l’impact sur l’autre, ou est-ce que chacun cherche seulement à gagner le procès ? Ici, la responsabilité penche du côté de celui qui minimise trop vite. Dans cette affaire précise, “Il devient méchant quand il boit” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Un détail devient énorme quand il raconte quelque chose de plus profond."
     }
   },
   {
@@ -1102,24 +1267,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Éva",
-        "t": "Ton frère a pris le micro à notre mariage pour annoncer ses fiançailles. Et toi tu rigolais au lieu de lui reprendre le micro."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Son frère annonce ses fiançailles à leur mariage” c'est pas un petit détail comme Lucas essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Lucas",
-        "t": "Il était heureux, ça a duré trente secondes. Ça a pas gâché notre mariage non plus."
+        "t": "Éva raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Éva",
-        "t": "Ça a volé notre moment. Trente secondes devant 120 personnes, c’est énorme."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Lucas",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 83,
       "pctB": 17,
-      "analyse": "Éva marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Lucas peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le cœur de cette dispute, ce n’est pas seulement le fait raconté, c’est la manière dont il est défendu. La première version montre une blessure réelle, la seconde ajoute un contexte qui évite de tout juger trop vite. Mais à la fin, la question reste simple : est-ce que l’un des deux reconnaît vraiment l’impact sur l’autre, ou est-ce que chacun cherche seulement à gagner le procès ? Ici, la responsabilité penche du côté de celui qui minimise trop vite. Dans cette affaire précise, “Son frère annonce ses fiançailles à leur mariage” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Ce qui blesse le plus, ce n’est pas toujours l’acte. C’est la minimisation derrière."
     }
   },
   {
@@ -1135,24 +1305,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Morgane",
-        "t": "J’ai trouvé des cheveux longs blonds dans notre douche. Je suis brune, ta sœur n’est pas venue, ta mère non plus. Tu veux essayer quelle version ?"
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle trouve des cheveux dans la douche” c'est pas un petit détail comme Eliott essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Eliott",
-        "t": "C’est peut-être la voisine qui est passée voir la fuite la semaine dernière, j’en sais rien moi."
+        "t": "Morgane raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Morgane",
-        "t": "La voisine a testé ton shampoing et bouché la bonde ? Franchement fais mieux."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Eliott",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 88,
       "pctB": 12,
-      "analyse": "Morgane marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Eliott peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Elle trouve des cheveux dans la douche” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Une dispute se règle rarement quand chacun plaide son innocence."
     }
   },
   {
@@ -1168,24 +1343,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Zoé",
-        "t": "La robe verte, ta veste en jean, mon sac noir : à chaque fois que je te prête un truc, il disparaît. Là je vois ma robe sur ta cousine en story."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle ne rend jamais les vêtements prêtés” c'est pas un petit détail comme Camille essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Camille",
-        "t": "Je pensais que tu me l’avais donnée, tu la mettais jamais. Et ma cousine l’a juste empruntée une fois."
+        "t": "Zoé raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Zoé",
-        "t": "Je te l’ai prêtée pour UNE soirée. Le mot “prêt” a un sens."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Camille",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 79,
       "pctB": 21,
-      "analyse": "Zoé marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Camille peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Elle ne rend jamais les vêtements prêtés” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Un détail devient énorme quand il raconte quelque chose de plus profond."
     }
   },
   {
@@ -1201,24 +1381,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Sabrina",
-        "t": "Tu devais rentrer vers minuit. À 5h tu arrives, aucun message, téléphone soi-disant mort. Sauf que t’as posté une story à 3h12."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il rentre à 5h sans prévenir” c'est pas un petit détail comme Noah essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Noah",
-        "t": "J’avais 2% et j’ai mis une story vite fait, après plus rien. Je voulais pas te réveiller."
+        "t": "Sabrina raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Sabrina",
-        "t": "Me réveiller avec un message rassurant ou me laisser imaginer le pire toute la nuit ? Choix étrange."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Noah",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 78,
       "pctB": 22,
-      "analyse": "Sabrina marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Noah peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Il rentre à 5h sans prévenir” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -1234,24 +1419,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Marion",
-        "t": "Au pot de Noël, tu avais ta main dans le bas du dos de Clara pendant dix minutes. Dix. Des collègues m’ont regardée avec pitié."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il flirte avec sa collègue au pot de Noël” c'est pas un petit détail comme Antoine essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Antoine",
-        "t": "Tu te fais des films, c’est une collègue tactile, tout le monde était bourré, c’était rien."
+        "t": "Marion raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Marion",
-        "t": "Quand “tout le monde était bourré” devient ton argument principal, c’est rarement bon signe."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Antoine",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 74,
       "pctB": 26,
-      "analyse": "Marion marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Antoine peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Il flirte avec sa collègue au pot de Noël” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -1267,24 +1457,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Kevin",
-        "t": "Tu m’as collé une liste de tâches sur le frigo avec mon prénom en gros. J’ai l’impression d’être ton ado de 15 ans."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle fait une liste de tâches… pour lui seul” c'est pas un petit détail comme Amélie essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Amélie",
-        "t": "Parce que si je ne l’écris pas, rien n’existe pour toi. J’ai demandé gentiment, j’ai répété, j’ai craqué."
+        "t": "Kevin raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Kevin",
-        "t": "Je veux bien aider, mais pas recevoir des ordres sur un post-it rose."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Amélie",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 57,
       "pctB": 43,
-      "analyse": "Kevin marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Amélie peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Elle fait une liste de tâches… pour lui seul” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -1300,24 +1495,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Julie",
-        "t": "J’ai vu les notifs de Sarah toute la semaine. Quand j’ouvre, conversation vide. Tu supprimes quoi exactement ?"
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Les messages supprimés avec une collègue” c'est pas un petit détail comme Nassim essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Nassim",
-        "t": "Je supprime tout, même mes conversations avec mes potes. J’aime pas garder des messages."
+        "t": "Julie raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Julie",
-        "t": "Tu ne supprimes pas les messages de ta mère, ni ceux du foot. Bizarrement juste Sarah."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Nassim",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 82,
       "pctB": 18,
-      "analyse": "Julie marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Nassim peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le cœur de cette dispute, ce n’est pas seulement le fait raconté, c’est la manière dont il est défendu. La première version montre une blessure réelle, la seconde ajoute un contexte qui évite de tout juger trop vite. Mais à la fin, la question reste simple : est-ce que l’un des deux reconnaît vraiment l’impact sur l’autre, ou est-ce que chacun cherche seulement à gagner le procès ? Ici, la responsabilité penche du côté de celui qui minimise trop vite. Dans cette affaire précise, “Les messages supprimés avec une collègue” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -1333,24 +1533,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Laura",
-        "t": "Tu as réservé Ibiza sans me demander, 980€ chacun, non remboursable. On devait économiser pour déménager."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il réserve des vacances sans consulter le budget” c'est pas un petit détail comme Ilyes essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Ilyes",
-        "t": "Je voulais te faire une surprise, tu dis toujours qu’on ne fait jamais rien."
+        "t": "Laura raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Laura",
-        "t": "Une surprise qui me met en stress financier, c’est pas romantique. C’est irresponsable."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Ilyes",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 81,
       "pctB": 19,
-      "analyse": "Laura marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Ilyes peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Il réserve des vacances sans consulter le budget” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -1366,24 +1571,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Mina",
-        "t": "Devant Lina tu as dit “de toute façon maman cède toujours”. Maintenant elle me ressort ta phrase quand je dis non."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il critique son éducation devant les enfants” c'est pas un petit détail comme Romain essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Romain",
-        "t": "C’était une blague, tu prends tout au premier degré. Les enfants oublient vite."
+        "t": "Mina raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Mina",
-        "t": "Non. Les enfants répètent exactement ce qui nous arrange le moins. Et toi tu m’as décrédibilisée devant elle."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Romain",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 87,
       "pctB": 13,
-      "analyse": "Mina marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Romain peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Il critique son éducation devant les enfants” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -1399,24 +1609,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Youssef",
-        "t": "Je t’ai confié un truc sur mon père en privé. Hier tu l’as ressorti devant six personnes pour faire une vanne. J’ai eu envie de disparaître."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il raconte son secret pour faire rire” c'est pas un petit détail comme Samir essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Samir",
-        "t": "J’ai pas donné tous les détails, et je pensais que t’étais ok avec le sujet maintenant."
+        "t": "Youssef raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Youssef",
-        "t": "Être ok avec toi, seul, c’est pas être ok pour devenir un sketch au salon."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Samir",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 86,
       "pctB": 14,
-      "analyse": "Youssef marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Samir peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le cœur de cette dispute, ce n’est pas seulement le fait raconté, c’est la manière dont il est défendu. La première version montre une blessure réelle, la seconde ajoute un contexte qui évite de tout juger trop vite. Mais à la fin, la question reste simple : est-ce que l’un des deux reconnaît vraiment l’impact sur l’autre, ou est-ce que chacun cherche seulement à gagner le procès ? Ici, la responsabilité penche du côté de celui qui minimise trop vite. Dans cette affaire précise, “Il raconte son secret pour faire rire” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -1432,24 +1647,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Alex",
-        "t": "Pourquoi il y a trois sacs Zara cachés sous la couverture dans le coffre ? On venait de se promettre zéro achat inutile ce mois-ci."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle cache ses achats dans le coffre” c'est pas un petit détail comme Mélanie essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Mélanie",
-        "t": "Parce que je savais que t’allais me juger. Et oui c’était en promo, j’ai pas explosé la carte non plus."
+        "t": "Alex raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Alex",
-        "t": "Tu as caché. Donc toi-même tu savais que ça ne collait pas avec notre accord."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Mélanie",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 66,
       "pctB": 34,
-      "analyse": "Alex marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Mélanie peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Elle cache ses achats dans le coffre” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Une dispute se règle rarement quand chacun plaide son innocence."
     }
   },
   {
@@ -1465,24 +1685,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Mélina",
-        "t": "Pourquoi tu suis 200 filles en lingerie alors que tu me dis que ça ne t’intéresse pas ? Ton algorithme a plus de preuves que toi."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il suit des comptes “limites”” c'est pas un petit détail comme Jo essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Jo",
-        "t": "C’est vieux, je follow pas activement, ça scroll juste. Tout le monde suit ce genre de comptes."
+        "t": "Mélina raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Mélina",
-        "t": "Non, tout le monde ne construit pas un musée entier de corps à moitié nus pendant qu’il dit “je regarde pas”."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Jo",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 69,
       "pctB": 31,
-      "analyse": "Mélina marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Jo peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Il suit des comptes “limites”” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -1498,24 +1723,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Sara",
-        "t": "Il est 2h17, ta basse fait vibrer mon mur, et tu m’écris “mets des boules Quies”. Je me lève à 7h."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “La musique à 2h du matin” c'est pas un petit détail comme Nico essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Nico",
-        "t": "On est samedi soir, faut vivre aussi. Je vais pas marcher sur la pointe des pieds H24."
+        "t": "Sara raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Sara",
-        "t": "Vivre, oui. Transformer l’appart en boîte pendant que quelqu’un dort, non."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Nico",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 78,
       "pctB": 22,
-      "analyse": "Sara marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Nico peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Ce qui rend cette histoire crédible, c’est que personne n’est parfaitement innocent. Il y a une erreur de départ, puis une défense maladroite, puis une escalade. Mais le plus important ici, c’est l’impact concret : l’autre ne demande pas forcément une punition, il demande qu’on arrête de lui expliquer que ce qu’il ressent n’existe pas. Dans cette affaire précise, “La musique à 2h du matin” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -1531,24 +1761,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Bastien",
-        "t": "J’ai trouvé une boîte avec toutes ses lettres, vos photos, même des tickets de cinéma. Sous notre lit. Pourquoi là ?"
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle garde les lettres de son ex” c'est pas un petit détail comme Élise essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Élise",
-        "t": "C’est mon passé, j’ai pas envie de jeter des morceaux de ma vie pour te rassurer. Ça ne veut pas dire que je l’aime encore."
+        "t": "Bastien raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Bastien",
-        "t": "Je te demande pas de brûler ton passé. Je te demande pourquoi il dort littéralement sous nous."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Élise",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 54,
       "pctB": 46,
-      "analyse": "Bastien marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Élise peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Elle garde les lettres de son ex” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Une dispute se règle rarement quand chacun plaide son innocence."
     }
   },
   {
@@ -1564,24 +1799,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Tess",
-        "t": "Je rentre après 10h de boulot, il y a six personnes dans le salon, pizzas, bruit, chaussures partout. Tu m’as même pas envoyé un message."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il invite des amis sans prévenir” c'est pas un petit détail comme Malo essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Malo",
-        "t": "C’était spontané, ils étaient dans le coin. Je pensais pas que ça te dérangerait à ce point."
+        "t": "Tess raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Tess",
-        "t": "Notre appart n’est pas une extension de ton humeur spontanée. Je vis ici aussi."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Malo",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 80,
       "pctB": 20,
-      "analyse": "Tess marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Malo peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "On voit bien le mécanisme : l’un se sent blessé, l’autre se sent accusé, et chacun grossit les fautes de l’autre pour rendre les siennes plus acceptables. Le problème aurait pu rester petit s’il avait été reconnu rapidement. Il devient gros parce qu’il est nié, justifié, puis retourné contre la personne qui l’a subi. Dans cette affaire précise, “Il invite des amis sans prévenir” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Ce qui blesse le plus, ce n’est pas toujours l’acte. C’est la minimisation derrière."
     }
   },
   {
@@ -1597,24 +1837,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Chloé",
-        "t": "Ta mère m’a encore dit que “mon lait ne suffit sûrement pas”. Je t’ai regardé. Tu as répondu “elle veut juste aider”."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Sa mère critique l’allaitement” c'est pas un petit détail comme Adrien essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Adrien",
-        "t": "Elle est maladroite, mais elle s’inquiète pour le bébé. Elle a pas mauvais fond."
+        "t": "Chloé raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Chloé",
-        "t": "Son fond je m’en fiche. Ses phrases me détruisent. Et ton silence les autorise."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Adrien",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 89,
       "pctB": 11,
-      "analyse": "Chloé marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Adrien peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Sa mère critique l’allaitement” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -1630,24 +1875,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Victor",
-        "t": "Tu as ouvert mon appli bancaire pendant que je dormais. C’est pas “s’inquiéter”, c’est franchir une limite énorme."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle vérifie son compte bancaire” c'est pas un petit détail comme Aurore essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Aurore",
-        "t": "On est à découvert tous les mois, Victor. Quand tu refuses de parler chiffres, je finis par chercher moi-même."
+        "t": "Victor raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Victor",
-        "t": "Parler budget oui. Fouiller mes comptes en douce non. Les deux peuvent être vrais."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Aurore",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 52,
       "pctB": 48,
-      "analyse": "Victor marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Aurore peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Elle vérifie son compte bancaire” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Ce qui blesse le plus, ce n’est pas toujours l’acte. C’est la minimisation derrière."
     }
   },
   {
@@ -1663,24 +1913,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Clément",
-        "t": "Tu n’es pas venue à l’enterrement de mon père. Pas un message le matin. Rien. J’ai attendu de te voir entrer jusqu’à la fin."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle oublie de venir à l’enterrement” c'est pas un petit détail comme Roxane essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Roxane",
-        "t": "Je me suis trompée de jour, je te jure. Quand j’ai compris, j’ai paniqué, j’ai eu honte et j’ai pas osé t’appeler."
+        "t": "Clément raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Clément",
-        "t": "Ton erreur m’a fait mal. Ton silence après m’a achevé."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Roxane",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 84,
       "pctB": 16,
-      "analyse": "Clément marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Roxane peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le cœur de cette dispute, ce n’est pas seulement le fait raconté, c’est la manière dont il est défendu. La première version montre une blessure réelle, la seconde ajoute un contexte qui évite de tout juger trop vite. Mais à la fin, la question reste simple : est-ce que l’un des deux reconnaît vraiment l’impact sur l’autre, ou est-ce que chacun cherche seulement à gagner le procès ? Ici, la responsabilité penche du côté de celui qui minimise trop vite. Dans cette affaire précise, “Elle oublie de venir à l’enterrement” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Reconnaître l’impact ne veut pas dire avouer qu’on est un monstre."
     }
   },
   {
@@ -1696,24 +1951,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Léna",
-        "t": "À chaque conflit tu dis “je vais me casser”. Même pour une histoire de vaisselle. Tu balances notre couple comme une grenade."
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Il menace de partir à chaque dispute” c'est pas un petit détail comme Sacha essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Sacha",
-        "t": "C’est une phrase que je dis quand je suis à bout, je vais pas vraiment partir."
+        "t": "Léna raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Léna",
-        "t": "Moi je ne lis pas dans ta tête. J’entends juste que tu peux partir dès que ça chauffe."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Sacha",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 88,
       "pctB": 12,
-      "analyse": "Léna marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Sacha peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Il menace de partir à chaque dispute” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   },
   {
@@ -1729,24 +1989,29 @@ window.DISPUTES = [
       {
         "r": "A",
         "n": "Nassim",
-        "t": "Ton pote réagit 🔥 à toutes tes stories, même quand t’es en robe. Et toi tu réponds avec des cœurs. C’est quel niveau d’amitié ça ?"
+        "t": "Bon j'ai besoin d'avis parce que là on tourne en rond. Pour moi l'histoire de “Elle reçoit des flammes de son “ami”” c'est pas un petit détail comme Aya essaye de le faire croire. J'ai eu l'impression qu'on me manquait de respect, et le pire c'est qu'au lieu de reconnaître le truc, j'ai eu droit à “tu dramatises”. Franchement c'est ça qui me fatigue le plus."
       },
       {
         "r": "B",
         "n": "Aya",
-        "t": "Il parle comme ça à tout le monde, c’est sa façon d’être. Je vais pas changer ma personnalité pour te rassurer."
+        "t": "Nassim raconte ça comme si j'avais fait ça gratuitement pour lui faire du mal. Sauf qu'il y a tout un contexte avant, et bizarrement ça disparaît dans sa version. Je dis pas que j'ai tout bien fait, mais j'en peux plus d'être toujours la personne qui doit s'excuser pendant que l'autre se présente comme parfaite."
       },
       {
         "r": "A",
         "n": "Nassim",
-        "t": "Répondre par des cœurs à un mec qui te chauffe, c’est pas une personnalité. C’est un signal."
+        "t": "Le fameux contexte sert surtout à noyer le poisson. Moi je demande pas qu'on me donne raison sur toute la ligne, je demande juste qu'on arrête de minimiser ce que ça m'a fait. À force, même les petits trucs deviennent énormes parce qu'ils se répètent."
+      },
+      {
+        "r": "B",
+        "n": "Aya",
+        "t": "Ok j'entends que ça a pu blesser. Mais j'aimerais aussi qu'on reconnaisse que je suis pas parti de zéro. On est deux dans cette dispute, et si on veut régler un truc il faut arrêter de faire comme si un seul de nous deux avait tout cassé."
       }
     ],
     "v": {
       "pctA": 71,
       "pctB": 29,
-      "analyse": "Nassim marque un point parce que le sujet n’est pas seulement l’événement visible : c’est ce qu’il raconte sur la confiance, le respect ou la place donnée à l’autre. Aya peut avoir une explication, parfois même une intention défendable, mais dans cette histoire l’impact est plus fort que l’excuse. Le couple ne se casse pas sur une seule scène, il se fragilise quand l’un minimise ce que l’autre ressent.",
-      "mot": "Ce n’est pas le détail qui abîme la relation. C’est ce qu’on refuse d’entendre derrière."
+      "analyse": "Le verdict se joue moins sur le détail que sur la répétition et la posture. Une maladresse isolée peut passer. Une maladresse qu’on transforme en “tu abuses” devient un vrai sujet. Ici, celui qui refuse de reconnaître l’effet produit aggrave beaucoup plus la dispute que le fait initial. Dans cette affaire précise, “Elle reçoit des flammes de son “ami”” n’est donc pas juste une scène à juger, c’est un symptôme de communication cassée.",
+      "mot": "Le respect commence souvent au moment où on arrête de dire “tu abuses”."
     }
   }
 ];
