@@ -73,6 +73,16 @@ header.top{
 .burger{position:absolute;top:22px;right:clamp(16px,4vw,44px);width:44px;height:44px;border:none;background:#fff;border-radius:14px;box-shadow:0 6px 18px -8px rgba(90,40,120,.35);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;z-index:120;transition:.15s}
 .burger:hover{transform:translateY(-1px)}
 .burger span{display:block;width:20px;height:2.5px;border-radius:100px;background:var(--ink);transition:.3s}
+.espace-btn{
+  position:absolute;top:22px;right:calc(clamp(16px,4vw,44px) + 56px);
+  height:44px;display:inline-flex;align-items:center;
+  padding:0 18px;border-radius:14px;
+  background:rgba(255,255,255,.05);border:1.5px solid rgba(124,77,255,.5);
+  color:#B9A0FF;font-weight:700;font-size:13.5px;text-decoration:none;
+  backdrop-filter:blur(6px);transition:.15s;z-index:105;white-space:nowrap;
+}
+.espace-btn:hover{background:rgba(124,77,255,.14);transform:translateY(-1px)}
+@media (max-width:860px){.espace-btn{display:none}}
 .burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
@@ -163,8 +173,23 @@ header.top{
 .cookie-toggle.disabled{background:var(--bg);color:var(--rose-deep);border:none;cursor:default}
 .cookie-toggle.on{background:var(--grad);color:#fff;border:none}
 .cookie-modal .btn{margin-top:20px}
-.hero .micro{margin-top:18px;font-size:14px;color:var(--gris)}
+.hero-offer{
+  margin-top:28px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.hero .free-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 20px;border-radius:100px;
+  background:linear-gradient(90deg,rgba(255,45,117,.16),rgba(124,77,255,.16));
+  border:1px solid rgba(255,45,117,.4);
+  color:var(--ink);font-size:15px;font-weight:600;
+  box-shadow:0 14px 34px -16px rgba(255,45,117,.55);
+}
+.hero .free-badge b{color:#FF7AA6;font-weight:800}
+.hero .free-badge .fb-ico{font-size:18px;line-height:1}
+.hero .micro{margin-top:12px;font-size:14px;color:var(--gris)}
 .hero .micro b{color:var(--rose-deep)}
+.hero .trust-line{margin-top:8px;font-size:13px;color:var(--gris);max-width:44ch}
 
 /* Bloc avis (styles prêts — le HTML correspondant est en commentaire dans le hero) */
 .rating{margin-top:14px;display:flex;align-items:center;gap:10px}
@@ -178,6 +203,17 @@ header.top{
   position:relative;
   display:flex;justify-content:center;align-items:flex-start;
   padding:8px 0 0;
+}
+.phones::before{
+  content:"";position:absolute;top:52%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(560px,94vw);height:min(520px,94vw);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 36% 42%,rgba(255,45,117,.4),transparent 58%),
+    radial-gradient(circle at 66% 58%,rgba(124,77,255,.44),transparent 60%);
+  filter:blur(64px);
+  z-index:0;pointer-events:none;
 }
 .phone-wrap{position:relative;transform-style:preserve-3d}
 .pw-1{margin-right:-22px;margin-top:30px;z-index:2;animation:flipIn1 1.15s cubic-bezier(.22,1,.36,1) .25s both}
@@ -222,46 +258,48 @@ header.top{
   height:100%;border-radius:36px;overflow:hidden;
   display:flex;flex-direction:column;position:relative;
 }
-.scr-rose{background:radial-gradient(130% 60% at 50% 0%,rgba(255,45,117,.32),transparent 62%),linear-gradient(170deg,#150D20,#0A0712)}
-.scr-violet{background:radial-gradient(130% 60% at 50% 0%,rgba(124,77,255,.34),transparent 62%),linear-gradient(170deg,#140E24,#0A0712)}
+.scr-rose{background:radial-gradient(120% 55% at 50% 0%,rgba(255,255,255,.22),transparent 58%),linear-gradient(170deg,#FF5C93 0%,#E01A66 52%,#8E1049 100%)}
+.scr-violet{background:radial-gradient(120% 55% at 50% 0%,rgba(255,255,255,.2),transparent 58%),linear-gradient(170deg,#9D7BFF 0%,#6A3AF0 52%,#38199F 100%)}
 /* dynamic island */
 .island{
   position:absolute;top:10px;left:50%;transform:translateX(-50%);
   width:72px;height:21px;background:#0B0B0F;border-radius:100px;z-index:2;
 }
-/* barre de statut */
-.statusbar{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:10px 20px 0;color:#fff;
-  font-size:11.5px;font-weight:700;letter-spacing:.02em;
+/* logo de l'app en haut de l'écran */
+.phone .app-logo{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  padding:44px 0 10px;
 }
-.statusbar svg{display:block}
-.phone .app-title{color:#fff;font-weight:800;font-size:13.5px;text-align:center;padding:12px 0 10px}
+.phone .app-logo svg{width:22px;height:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
+.phone .app-logo span{color:#fff;font-weight:800;font-size:13px;letter-spacing:-.01em}
+.phone .scr-step{
+  align-self:center;
+  font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);
+  padding:4px 12px;border-radius:100px;margin-bottom:10px;
+}
 .phone .card{
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  border-radius:16px;margin:0 11px;
-  padding:14px 14px;flex:1;min-height:0;overflow:hidden;
-  display:flex;flex-direction:column;gap:8px;justify-content:flex-start;
-  backdrop-filter:blur(8px);
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);
+  border-radius:18px;margin:0 12px;
+  padding:16px 15px;flex:1;min-height:0;overflow:hidden;
+  display:flex;flex-direction:column;gap:9px;justify-content:center;
+  backdrop-filter:blur(10px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25);
 }
-.scr-rose .card{border-color:rgba(255,45,117,.28)}
-.scr-violet .card{border-color:rgba(124,77,255,.32)}
-.phone .card .label{font-weight:800;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
-.lbl-rose{color:#FF7AA6}
-.lbl-violet{color:#B9A0FF}
-.phone .card .stitle{font-weight:800;font-size:14px;color:var(--ink);line-height:1.3}
-.phone .card p{font-size:11.5px;line-height:1.55;color:rgba(245,242,250,.72)}
-.phone .card p b{color:var(--ink)}
+.phone .card .stitle{font-weight:800;font-size:15px;color:#fff;line-height:1.3;text-align:center}
+.phone .card p{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.92);text-align:center}
+.phone .card p b{color:#fff}
 .phone .btn-app{
-  margin:10px 11px 0;
-  border:none;border-radius:12px;padding:11px;
-  color:#fff;font-family:var(--font);font-weight:800;font-size:12px;
+  margin:12px 12px 0;
+  border:none;border-radius:14px;padding:12px;
+  background:#fff;font-family:var(--font);font-weight:800;font-size:12.5px;
   text-align:center;
+  box-shadow:0 10px 24px -8px rgba(0,0,0,.35);
 }
-.ba-rose{background:var(--rose-deep);box-shadow:0 8px 18px -6px rgba(0,0,0,.3)}
-.ba-violet{background:#5A2BE0;box-shadow:0 8px 18px -6px rgba(0,0,0,.3)}
-.phone .foot-link{color:rgba(255,255,255,.85);font-size:10px;font-weight:600;text-align:center;padding:8px 0 2px}
-.home-bar{width:36%;height:4px;background:rgba(255,255,255,.9);border-radius:100px;margin:4px auto 8px}
+.ba-rose{color:#E01A66}
+.ba-violet{color:#5A2BE0}
+.home-bar{width:36%;height:4px;background:rgba(255,255,255,.9);border-radius:100px;margin:12px auto 9px}
 
 /* avatars — placés SOUS les téléphones, jamais dessus */
 .cast{
@@ -441,6 +479,18 @@ section{padding:clamp(76px,9vw,120px) clamp(20px,4.5vw,56px)}
   content:"";position:absolute;inset:0;border-radius:28px;pointer-events:none;
   background:linear-gradient(180deg,transparent 62%,rgba(10,7,18,.55));
 }
+/* bouton lecture de secours (affiché seulement si l'autoplay est bloqué) */
+.video-tap{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(10,7,18,.65);color:#fff;font-size:22px;
+  display:none;align-items:center;justify-content:center;
+  border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);
+  box-shadow:0 14px 34px -12px rgba(0,0,0,.7);
+  z-index:2;padding-left:4px;
+}
+.video-tap.show{display:flex}
+.video-tap:active{transform:translate(-50%,-50%) scale(.94)}
 .final-copy{text-align:left}
 .final h2{font-size:clamp(30px,4.4vw,52px);font-weight:800;line-height:1.1;letter-spacing:-.025em;max-width:18ch}
 .final h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -488,12 +538,15 @@ footer{
   .pw-1{margin-right:-14px;margin-top:18px}
   .pw-2{margin-left:-14px}
   .phone{width:min(172px,44vw)}
-  .phone .card p{font-size:10.5px}
-  .phone .card .stitle{font-size:12.5px}
-  .phone .app-title{font-size:12px;padding:10px 0 8px}
+  .phone .card p{font-size:11px}
+  .phone .card .stitle{font-size:13px}
+  .phone .app-logo{padding:36px 0 8px}
+  .phone .app-logo svg{width:18px}
+  .phone .app-logo span{font-size:11.5px}
+  .phone .scr-step{font-size:8.5px;padding:3px 10px;margin-bottom:8px}
   .phone .btn-app{font-size:11px;padding:10px}
-  .statusbar{font-size:10px;padding:9px 16px 0}
   .island{width:60px;height:18px;top:9px}
+  .phones::before{filter:blur(46px)}
   .chip{max-width:130px;font-size:11px}
   .features{grid-template-columns:1fr}
   .steps,.steps-3{grid-template-columns:1fr}
@@ -610,6 +663,7 @@ footer{border-top:1px solid rgba(255,255,255,.08)}
     </svg>
     <span class="txt">we're <span class="in">in</span> love</span>
   </a>
+  <a href="espace-client.html" class="espace-btn">Mon espace client</a>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -650,7 +704,6 @@ footer{border-top:1px solid rgba(255,255,255,.08)}
       <a href="app.html" class="btn btn-lg">Démarrer une dispute ✨</a>
       <a href="#comment" class="btn btn-ghost btn-lg">▶ Voir comment ça marche</a>
     </div>
-    <p class="micro"><b>Vos deux premières disputes offertes</b> · puis dès 3,99 € / mois</p>
     <!-- BLOC AVIS — à activer quand vous aurez vos premiers vrais avis (retirez ces balises de commentaire) :
     <div class="rating">
       <span class="stars" aria-hidden="true">★★★★★</span>
@@ -667,18 +720,22 @@ footer{border-top:1px solid rgba(255,255,255,.08)}
           <div class="phone">
             <div class="screen scr-rose">
               <div class="island" aria-hidden="true"></div>
-              <div class="statusbar" aria-hidden="true">
-                <span>21:34</span>
-                <svg width="46" height="11" viewBox="0 0 46 11" fill="#fff"><rect x="0" y="6" width="3" height="5" rx="1"/><rect x="4.5" y="4" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="9" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/><path d="M25 4.5a6.5 6.5 0 0 1 8 0l-1.3 1.6a4.5 4.5 0 0 0-5.4 0L25 4.5Zm2.6 3.2a3 3 0 0 1 2.8 0L29 9.6l-1.4-1.9Z"/><rect x="37" y="1.5" width="8" height="8" rx="2" fill="none" stroke="#fff" stroke-width="1"/><rect x="38.2" y="2.7" width="4.6" height="5.6" rx="1" /><rect x="45.4" y="4" width="1" height="3" rx=".5"/></svg>
+              <div class="app-logo" aria-hidden="true">
+                <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#fff"/>
+                  <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#fff" fill-opacity=".75"/>
+                  <circle cx="25" cy="25" r="2.6" fill="#E01A66"/>
+                  <circle cx="33" cy="25" r="2.6" fill="#E01A66"/>
+                  <circle cx="41" cy="25" r="2.6" fill="#E01A66"/>
+                </svg>
+                <span>we're in love</span>
               </div>
-              <div class="app-title">we're in love</div>
+              <div class="scr-step">Étape 1 · Chloé</div>
               <div class="card">
-                <span class="label lbl-rose">Étape 1 · Chloé</span>
                 <span class="stitle">Je raconte ma version</span>
-                <p>« Tu as encore annulé notre soirée au dernier moment. J'ai besoin de sentir que notre temps à deux compte. »</p>
+                <p>« Tu as encore annulé notre soirée. J'ai besoin de sentir que je compte. »</p>
               </div>
-              <div class="btn-app ba-rose">Envoyer à Esteban</div>
-              <div class="foot-link">Enregistrer le brouillon</div>
+              <div class="btn-app ba-rose">Envoyer à Esteban →</div>
               <div class="home-bar" aria-hidden="true"></div>
             </div>
           </div>
@@ -691,18 +748,22 @@ footer{border-top:1px solid rgba(255,255,255,.08)}
           <div class="phone">
             <div class="screen scr-violet">
               <div class="island" aria-hidden="true"></div>
-              <div class="statusbar" aria-hidden="true">
-                <span>08:47</span>
-                <svg width="46" height="11" viewBox="0 0 46 11" fill="#fff"><rect x="0" y="6" width="3" height="5" rx="1"/><rect x="4.5" y="4" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="9" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/><path d="M25 4.5a6.5 6.5 0 0 1 8 0l-1.3 1.6a4.5 4.5 0 0 0-5.4 0L25 4.5Zm2.6 3.2a3 3 0 0 1 2.8 0L29 9.6l-1.4-1.9Z"/><rect x="37" y="1.5" width="8" height="8" rx="2" fill="none" stroke="#fff" stroke-width="1"/><rect x="38.2" y="2.7" width="4.6" height="5.6" rx="1" /><rect x="45.4" y="4" width="1" height="3" rx=".5"/></svg>
+              <div class="app-logo" aria-hidden="true">
+                <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#fff"/>
+                  <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#fff" fill-opacity=".75"/>
+                  <circle cx="25" cy="25" r="2.6" fill="#5A2BE0"/>
+                  <circle cx="33" cy="25" r="2.6" fill="#5A2BE0"/>
+                  <circle cx="41" cy="25" r="2.6" fill="#5A2BE0"/>
+                </svg>
+                <span>we're in love</span>
               </div>
-              <div class="app-title">we're in love</div>
+              <div class="scr-step">Étape 2 · Esteban</div>
               <div class="card">
-                <span class="label lbl-violet">Étape 2 · Esteban</span>
-                <span class="stitle">Je découvre, puis je réponds</span>
-                <p>Chloé s'est sentie mise de côté. <b>À moi de donner ma version.</b></p>
+                <span class="stitle">Je donne la mienne</span>
+                <p>Chloé m'a envoyé sa version. <b>À moi de raconter la mienne.</b></p>
               </div>
-              <div class="btn-app ba-violet">Donner mon point de vue</div>
-              <div class="foot-link">Répondre plus tard</div>
+              <div class="btn-app ba-violet">Répondre à Chloé →</div>
               <div class="home-bar" aria-hidden="true"></div>
             </div>
           </div>
@@ -720,6 +781,13 @@ footer{border-top:1px solid rgba(255,255,255,.08)}
         <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Esteban"></div>
         <div class="chip chip-violet">Esteban donne la sienne</div>
       </div>
+    </div>
+
+    <!-- Offre + confidentialité, sous les téléphones -->
+    <div class="hero-offer">
+      <div class="free-badge"><span class="fb-ico" aria-hidden="true">🎁</span><span><b>2 disputes offertes</b> — sans carte bancaire</span></div>
+      <p class="micro">Puis dès 3,99 € / mois · résiliable à tout moment</p>
+      <p class="trust-line">🔒 100 % confidentiel — rien n'est jamais rendu public sans l'accord des deux partenaires.</p>
     </div>
   </div>
 </div>
@@ -1208,7 +1276,7 @@ footer{border-top:1px solid rgba(255,255,255,.08)}
             <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
           </svg>
         </div>
-        <p class="hv-offer">Vos <b>2 premières disputes offertes</b> · puis dès 3,99&nbsp;€&nbsp;/&nbsp;mois</p>
+        <p class="hv-offer">Vos <b>2 premières disputes offertes</b> — sans carte bancaire · puis dès 3,99&nbsp;€&nbsp;/&nbsp;mois</p>
       </div>
     </div>
 
@@ -1313,6 +1381,7 @@ footer{border-top:1px solid rgba(255,255,255,.08)}
     <div class="hero-cta" style="justify-content:center;margin-top:30px">
       <a href="boite-a-disputes.html" class="btn btn-lg">Ouvrir la boîte 🍿</a>
     </div>
+    <p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.6)">🔒 Chaque dispute publiée ici l'a été <b style="color:rgba(255,255,255,.85)">avec l'autorisation volontaire et explicite de ses auteurs</b>, anonymisée. Les vôtres restent strictement privées.</p>
   </div>
 </section>
 
@@ -1325,9 +1394,10 @@ footer{border-top:1px solid rgba(255,255,255,.08)}
       <div class="plan reveal">
         <span class="p-name">Découverte</span>
         <div class="p-price">0 <small>€</small></div>
-        <p class="p-under">vos deux premières disputes</p>
+        <p class="p-under">vos deux premières disputes · <b>sans carte bancaire</b></p>
         <ul>
           <li><span class="k">✦</span> 2 disputes complètes offertes</li>
+          <li><span class="k">✦</span> Aucune carte bancaire demandée</li>
           <li><span class="k">✦</span> Les deux versions + 3 réponses chacun</li>
           <li><span class="k">✦</span> Analyse complète de we're in love</li>
         </ul>
@@ -1379,10 +1449,11 @@ footer{border-top:1px solid rgba(255,255,255,.08)}
 
 <section class="final">
   <div class="final-grid">
-    <div class="final-video" aria-hidden="true">
-      <video autoplay muted loop playsinline preload="metadata" poster="dispute-poster.jpg" disablepictureinpicture>
+    <div class="final-video">
+      <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="dispute-poster.jpg" disablepictureinpicture aria-hidden="true">
         <source src="dispute.mp4" type="video/mp4">
       </video>
+      <button class="video-tap" id="video-tap" aria-label="Lire la vidéo">▶</button>
     </div>
     <div class="final-copy">
       <h2>Chaque dispute peut devenir <span class="grad">une conversation</span></h2>
@@ -1439,6 +1510,67 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches){
   document.querySelectorAll('.final-video video').forEach(v=>{ v.removeAttribute('autoplay'); v.pause(); });
 }
+
+/* ===== VIDÉO FINALE — lecture fiable sur mobile (iOS / Android) =====
+   1. muted est posé en propriété JS (obligatoire pour que l'autoplay
+      soit accepté sur mobile).
+   2. On force load() + play() dès que la vidéo approche de l'écran.
+   3. On retente à chaque canplay / première interaction.
+   4. Si tout est bloqué (mode éco d'énergie iOS, data saver Android),
+      un bouton ▶ apparaît sur la vidéo. */
+(function(){
+  const v = document.querySelector('.final-video video');
+  const tap = document.getElementById('video-tap');
+  if(!v) return;
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+  v.muted = true;
+  v.defaultMuted = true;
+  v.setAttribute('muted','');
+  let playing = false;
+
+  function tryPlay(){
+    if(playing) return;
+    const p = v.play();
+    if(p && p.then){
+      p.then(()=>{ playing = true; if(tap) tap.classList.remove('show'); })
+       .catch(()=>{ if(tap && isInView()) tap.classList.add('show'); });
+    }
+  }
+  function isInView(){
+    const r = v.getBoundingClientRect();
+    return r.top < innerHeight && r.bottom > 0;
+  }
+
+  v.addEventListener('playing', ()=>{ playing = true; if(tap) tap.classList.remove('show'); });
+  v.addEventListener('pause',   ()=>{ playing = false; });
+  v.addEventListener('canplay', tryPlay);
+
+  if(tap){
+    tap.addEventListener('click', ()=>{ v.muted = true; v.play(); });
+  }
+
+  // Précharge et lance dès que la vidéo approche de l'écran
+  const vio = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        if(v.readyState < 2) v.load();
+        tryPlay();
+      } else {
+        v.pause();
+      }
+    });
+  },{rootMargin:'200px 0px', threshold:0});
+  vio.observe(v);
+
+  // Filet de sécurité : le premier geste de l'utilisateur débloque la lecture
+  ['touchend','click','scroll'].forEach(evt=>{
+    window.addEventListener(evt, function once(){
+      window.removeEventListener(evt, once);
+      if(isInView()) tryPlay();
+    }, {passive:true});
+  });
+})();
 
 
 </script>
