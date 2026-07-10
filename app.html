@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="color-scheme" content="only light">
+<meta name="color-scheme" content="dark">
 <title>we're in love — Votre dispute</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,15 +11,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FBF4F8;--white:#fff;--ink:#1F1B2E;--gris:#6B6480;
-  --rose:#FF2D75;--rose-deep:#E81A66;--violet:#7C4DFF;--violet-deep:#6234E8;
+  --bg:#08060D;--white:#12101A;--ink:#FFF7FB;--gris:#B7ADC8;
+  --rose:#FF3F86;--rose-deep:#FF6AA2;--violet:#8F6BFF;--violet-deep:#B59DFF;
   --grad:linear-gradient(90deg,var(--rose),var(--violet));
   --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
-  --r:22px;--shadow:0 24px 60px -24px rgba(90,40,120,.28);
+  --r:22px;--shadow:0 28px 80px -32px rgba(0,0,0,.78);
   --font:"Plus Jakarta Sans",-apple-system,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{color-scheme:only light;background:var(--bg)}
+html{color-scheme:dark;background:var(--bg)}
 body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh}
 ::selection{background:var(--rose);color:#fff}
 
@@ -184,6 +184,70 @@ input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 
 .loader span:nth-child(2){background:#C13BEF;animation-delay:.15s}
 .loader span:nth-child(3){background:var(--violet);animation-delay:.3s}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+
+/* ---------- DARK MODE PREMIUM ---------- */
+body{
+  background:
+    radial-gradient(circle at 20% -10%, rgba(255,45,117,.18), transparent 34%),
+    radial-gradient(circle at 100% 8%, rgba(124,77,255,.20), transparent 32%),
+    linear-gradient(180deg,#08060D 0%,#0E0A16 48%,#08060D 100%) !important;
+}
+header{background:linear-gradient(180deg,rgba(8,6,13,.96),rgba(8,6,13,0))}
+.card,.modal-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.045));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 28px 80px -32px rgba(0,0,0,.82), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);
+}
+.logo .txt,h1,h2,label,.topbar .out{color:var(--ink)}
+.sub,.hint,.count,.status-line,.modal-hint,.mv-title,.mv-pcts .vs,.mv-mot,.share-hint{color:var(--gris)}
+input[type=text],input[type=email],input[type=password],select,textarea{
+  background:rgba(255,255,255,.065);
+  border-color:rgba(255,255,255,.14);
+  color:var(--ink);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+input::placeholder,textarea::placeholder{color:rgba(255,247,251,.42)}
+select option{background:#14101F;color:#FFF7FB}
+input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(255,45,117,.18)}
+.btn-ghost,.btn-google{
+  background:rgba(255,255,255,.075);
+  color:var(--ink);
+  border-color:rgba(255,255,255,.14);
+}
+.btn-ghost:hover,.btn-google:hover{background:rgba(255,255,255,.11)}
+.btn-mic{background:rgba(255,255,255,.09);color:#fff}
+.btn-mic:hover{background:rgba(255,255,255,.14)}
+.modal-overlay{background:rgba(3,2,7,.74);backdrop-filter:blur(10px)}
+.modal-text,.pacte{background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.08)}
+.linkbox{
+  background:rgba(255,255,255,.065);
+  border:1px solid rgba(255,255,255,.10);
+}
+.linkbox input{background:transparent;border:none;box-shadow:none;color:var(--ink)}
+.pillnote{
+  background:linear-gradient(135deg,rgba(124,77,255,.18),rgba(255,45,117,.10));
+  color:#DCD3FF;
+  border:1px solid rgba(181,157,255,.18);
+}
+.pillnote b{color:#CAB9FF}
+.error{background:rgba(255,45,117,.14);color:#FFB7CF;border:1px solid rgba(255,45,117,.25)}
+.divider::before,.divider::after{background:rgba(255,255,255,.12)}
+.msg-a{background:linear-gradient(135deg,rgba(255,45,117,.18),rgba(255,45,117,.08));border:1px solid rgba(255,45,117,.16)}
+.msg-b{background:linear-gradient(135deg,rgba(124,77,255,.20),rgba(124,77,255,.08));border:1px solid rgba(124,77,255,.18)}
+.magic-back{background:#100D18;color:var(--ink)}
+.magic-front{background:radial-gradient(circle at 30% 20%,rgba(255,45,117,.36),transparent 30%),linear-gradient(150deg,#100D18 0%,#241734 55%,#3B1A4B 100%)}
+.magic-brandbar{background:linear-gradient(90deg,#09070E,#211632)}
+.share-tiktok{background:#050506;border:1px solid rgba(255,255,255,.10)}
+.consent-btn.selected{outline-color:rgba(255,63,134,.45)}
+.consent-status{color:#CBB9FF}
+.vbar{box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
+.pacte{border-left-color:var(--rose);color:var(--ink)}
+.pacte.p-b{border-left-color:var(--violet)}
+#consent-card p,#v-analyse{color:var(--gris)!important}
+.screen.active{animation:fadeUp .45s cubic-bezier(.22,1,.36,1)}
+
 </style>
 </head>
 <body>
