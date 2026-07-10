@@ -307,6 +307,29 @@ input::placeholder,textarea::placeholder{color:rgba(255,255,255,.38)}input:focus
 .pay-logos svg rect{stroke:rgba(255,255,255,.18)}
 .chart-svg text{fill:var(--muted)}
 
+
+/* Correctif boutons dark mode : éviter blanc sur blanc */
+#btn-save-account,
+#btn-toggle-manage{
+  background:linear-gradient(90deg,#FF2D75,#7C4DFF) !important;
+  color:#fff !important;
+  border:none !important;
+  box-shadow:0 14px 34px -14px rgba(255,45,117,.75),0 0 22px rgba(124,77,255,.22) !important;
+}
+#btn-save-account:hover,
+#btn-toggle-manage:hover{
+  background:linear-gradient(90deg,#FF2D75,#7C4DFF) !important;
+  color:#fff !important;
+  filter:brightness(1.08);
+  transform:translateY(-2px);
+  box-shadow:0 18px 42px -14px rgba(255,45,117,.85),0 0 34px rgba(124,77,255,.34) !important;
+}
+#btn-save-account:disabled,
+#btn-toggle-manage:disabled{
+  opacity:.65;
+  color:#fff !important;
+}
+
 </style>
 </head>
 <body>
