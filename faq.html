@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="only light">
+<meta name="color-scheme" content="dark">
 <title>FAQ — we're in love</title>
 <meta name="robots" content="index, follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
@@ -11,43 +11,109 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FBF4F8;--white:#fff;--ink:#1F1B2E;--gris:#6B6480;--rose:#FF2D75;--rose-deep:#E81A66;--violet:#7C4DFF;--violet-deep:#6234E8;--grad:linear-gradient(90deg,var(--rose),var(--violet));--r:22px;--shadow:0 24px 60px -24px rgba(90,40,120,.28);--font:"Plus Jakarta Sans",-apple-system,sans-serif}
+:root{
+  --bg:#08030F;
+  --bg2:#10081A;
+  --card:#15101F;
+  --card2:#1B1428;
+  --ink:#F8F5FF;
+  --gris:#A79DBB;
+  --muted:#7F758F;
+  --rose:#FF2D75;
+  --rose-deep:#FF3B8A;
+  --violet:#7C4DFF;
+  --violet-deep:#A78BFF;
+  --grad:linear-gradient(90deg,var(--rose),var(--violet));
+  --r:22px;
+  --shadow:0 24px 70px -28px rgba(0,0,0,.75),0 0 60px -42px rgba(255,45,117,.8);
+  --font:"Plus Jakarta Sans",-apple-system,sans-serif;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-html{color-scheme:only light;background:var(--bg)}
-body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+html{
+  color-scheme:dark;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(255,45,117,.16),transparent 34%),
+    radial-gradient(circle at 82% 8%,rgba(124,77,255,.18),transparent 34%),
+    linear-gradient(180deg,#0B0413 0%,#08030F 100%);
+}
+body{
+  font-family:var(--font);
+  background:
+    radial-gradient(circle at 50% -10%,rgba(255,45,117,.10),transparent 30%),
+    radial-gradient(circle at 80% 20%,rgba(124,77,255,.12),transparent 28%),
+    var(--bg)!important;
+  color:var(--ink);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  min-height:100svh;
+}
 ::selection{background:var(--rose);color:#fff}
 header{display:flex;flex-direction:column;align-items:center;padding:24px 20px 8px;text-align:center;position:relative}
 .logo{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none}
-.logo svg{width:48px;height:auto}
+.logo svg{width:48px;height:auto;filter:drop-shadow(0 10px 26px rgba(255,45,117,.35))}
 .logo .txt{font-weight:800;font-size:16px;color:var(--ink)}
 .logo .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .back{position:absolute;left:clamp(16px,4vw,44px);top:28px;font-size:14px;font-weight:700;color:var(--gris);text-decoration:none}
 .back:hover{color:var(--ink)}
 main{max-width:760px;margin:0 auto;padding:20px 20px 70px}
-.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(26px,5vw,44px);margin-top:16px}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.035)),var(--card);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+  padding:clamp(26px,5vw,44px);
+  margin-top:16px;
+}
 h1{font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
 h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .updated{color:var(--gris);font-size:13.5px;margin-top:8px}
-h2{font-size:19px;font-weight:800;margin:34px 0 10px;letter-spacing:-.01em}
-h3{font-size:15.5px;font-weight:800;margin:20px 0 6px}
-p,li{font-size:15px;color:#3E3852}
+h2{font-size:19px;font-weight:800;margin:34px 0 10px;letter-spacing:-.01em;color:#fff}
+h3{font-size:15.5px;font-weight:800;margin:20px 0 6px;color:#fff}
+p,li{font-size:15px;color:#D9D2E7}
 ul,ol{padding-left:22px;margin:8px 0}
 li{margin:5px 0}
-strong{color:var(--ink)}
-a{color:var(--rose-deep);font-weight:600}
-.note{background:#ECE4FF;border-radius:14px;padding:14px 18px;font-size:14px;color:#3E2E75;margin:16px 0}
+strong{color:#fff}
+a{color:var(--rose-deep);font-weight:700}
+.note{
+  background:rgba(124,77,255,.16);
+  border:1px solid rgba(124,77,255,.25);
+  border-radius:14px;
+  padding:14px 18px;
+  font-size:14px;
+  color:#DCD3FF;
+  margin:16px 0;
+}
 table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(31,27,46,.08);vertical-align:top}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top}
 th{font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--gris)}
-details{border-bottom:1px solid rgba(31,27,46,.08);padding:6px 0}
-summary{font-weight:800;font-size:15.5px;padding:12px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
-summary::after{content:"+";font-size:22px;color:var(--rose);flex-shrink:0;transition:transform .2s}
+details{border-bottom:1px solid rgba(255,255,255,.08);padding:6px 0}
+summary{
+  font-weight:800;
+  font-size:15.5px;
+  padding:12px 0;
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  color:#F8F5FF;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--rose);flex-shrink:0;transition:transform .2s,text-shadow .2s;text-shadow:0 0 16px rgba(255,45,117,.6)}
 details[open] summary::after{transform:rotate(45deg)}
-details p{padding-bottom:14px}
-footer{border-top:1px solid rgba(31,27,46,.07);padding:28px 20px;text-align:center;font-size:13px;color:var(--gris)}
+details p{padding-bottom:14px;color:#D9D2E7}
+footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:28px 20px;
+  text-align:center;
+  font-size:13px;
+  color:var(--gris);
+  background:rgba(0,0,0,.12);
+}
 .foot-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
 .foot-links a{color:var(--gris);text-decoration:none;font-weight:600}
-.foot-links a:hover{color:var(--ink)}
+.foot-links a:hover{color:#fff}
 </style>
 </head>
 <body>
@@ -90,9 +156,9 @@ footer{border-top:1px solid rgba(31,27,46,.07);padding:28px 20px;text-align:cent
 
 <h2>Prix</h2>
 <details><summary>Combien ça coûte ?</summary>
-<p>Votre première dispute est offerte, complète. Ensuite : 1,99 € la dispute à l'unité, 14,99 € le pack de 10 (1,50 € la dispute, sans expiration), ou l'abonnement couple à 7,99 €/mois pour jusqu'à 30 disputes mensuelles. Sans engagement, résiliable à tout moment.</p></details>
+<p>La formule Découverte est à 0 € et inclut vos deux premières disputes. Ensuite, l'abonnement Couple est à 3,99 €/mois pour jusqu'à 30 disputes par mois pour votre couple. Pour un usage sans limite, la formule Illimité est à 14,99 €/mois. Les abonnements sont sans engagement et résiliables à tout moment.</p></details>
 <details><summary>Puis-je me faire rembourser ?</summary>
-<p>Les disputes à l'unité et les packs sont exécutés immédiatement et ne sont donc pas remboursables une fois l'analyse commencée (conformément au Code de la consommation sur les contenus numériques). L'abonnement est résiliable à tout moment pour la période suivante. Un problème ? Écrivez-nous, on trouve toujours une solution : contact@wereinlove.app.</p></details>
+<p>Les deux premières disputes offertes ne nécessitent aucun paiement. Pour les abonnements Couple et Illimité, la résiliation est possible à tout moment pour la période suivante. Un problème ? Écrivez-nous, on trouve toujours une solution : contact@wereinlove.app.</p></details>
 
 <h2>Confidentialité</h2>
 <details><summary>Qui peut lire nos disputes ?</summary>
