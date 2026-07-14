@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light">
 <title>we're in love — Votre dispute</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -248,25 +248,538 @@ input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 
 #consent-card p,#v-analyse{color:var(--gris)!important}
 .screen.active{animation:fadeUp .45s cubic-bezier(.22,1,.36,1)}
 
+/* ---------- WEREINLOVE LANDING AESTHETIC ---------- */
+:root{
+  --bg:#f6f2ef;
+  --bg-soft:#eee8e2;
+  --white:#fff;
+  --ink:#181818;
+  --gris:#807a74;
+  --muted:#6e6a67;
+  --quiet:#9d9690;
+  --line:rgba(24,24,24,.12);
+  --line-strong:rgba(24,24,24,.2);
+  --paper:#fbfaf8;
+  --black:#1b1816;
+  --green:#6c927d;
+  --rose:#ff5d8f;
+  --rose-deep:#d84d76;
+  --violet:#6c927d;
+  --violet-deep:#6c927d;
+  --grad:linear-gradient(90deg,#ff5d8f,#ffb3c8);
+  --grad-btn:none;
+  --r:28px;
+  --shadow:0 34px 90px rgba(36,28,22,.12);
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+html{
+  color-scheme:light;
+  background:var(--bg);
+}
+
+body{
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 14% -10%, rgba(255,255,255,.92), transparent 32%),
+    radial-gradient(circle at 92% 8%, rgba(255,179,200,.24), transparent 30%),
+    linear-gradient(180deg,var(--bg) 0%,#f3eeea 52%,var(--bg) 100%) !important;
+  text-rendering:geometricPrecision;
+}
+
+::selection{
+  background:var(--black);
+  color:#fff;
+}
+
+header{
+  width:min(620px,calc(100% - 40px));
+  margin:max(18px,env(safe-area-inset-top)) auto 0;
+  padding:5px;
+  border:1px solid rgba(40,30,24,.12);
+  border-radius:999px;
+  background:rgba(246,242,239,.82);
+  box-shadow:0 20px 54px rgba(36,28,22,.13);
+  backdrop-filter:blur(22px) saturate(120%);
+  -webkit-backdrop-filter:blur(22px) saturate(120%);
+}
+
+.island-nav{
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.logo{
+  min-height:48px;
+  flex-direction:row;
+  justify-content:flex-start;
+  gap:10px;
+  padding:0 18px;
+}
+
+.logo-mark{
+  width:18px;
+  height:18px;
+  position:relative;
+  flex:0 0 auto;
+}
+
+.logo-mark::before,
+.logo-mark::after{
+  content:"";
+  position:absolute;
+  top:3px;
+  width:12px;
+  height:12px;
+  border-radius:999px;
+  background:var(--rose);
+}
+
+.logo-mark::before{
+  left:0;
+}
+
+.logo-mark::after{
+  right:0;
+  background:#ffb2c7;
+  mix-blend-mode:multiply;
+}
+
+.logo .txt{
+  color:var(--ink);
+  font-size:17px;
+  font-weight:650;
+  letter-spacing:-.045em;
+}
+
+.nav-home{
+  min-height:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 22px;
+  border-radius:999px;
+  background:var(--black);
+  color:#fff;
+  font-size:14px;
+  font-weight:560;
+  letter-spacing:-.01em;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.logo .txt .in,
+.grad-txt,
+.modal-badge,
+.magic-front .mf-brand .in,
+.magic-brandbar .url{
+  background:none;
+  -webkit-background-clip:initial;
+  background-clip:initial;
+  color:inherit;
+}
+
+main{
+  max-width:720px;
+  padding:28px 20px 88px;
+}
+
+.topbar{
+  min-height:46px;
+  margin:0 auto 18px;
+  padding:6px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.58);
+  box-shadow:0 18px 60px rgba(36,28,22,.06);
+  gap:8px;
+}
+
+.topbar a,
+.topbar .out{
+  color:var(--ink)!important;
+  font-weight:560!important;
+  text-decoration:none!important;
+}
+
+.account-pill{
+  min-height:40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 18px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 12px 34px rgba(36,28,22,.08);
+  color:var(--ink)!important;
+  font-size:13px!important;
+  font-weight:560!important;
+  white-space:nowrap;
+}
+
+.card,
+.modal-card{
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(24,24,24,.1);
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+.card{
+  padding:clamp(28px,5vw,46px);
+}
+
+h1,
+h2,
+label,
+.logo .txt,
+.topbar .out{
+  color:var(--ink);
+}
+
+h1{
+  font-size:clamp(38px,7vw,64px);
+  line-height:.95;
+  letter-spacing:-.075em;
+  font-weight:560;
+}
+
+h2{
+  font-size:clamp(27px,4vw,40px);
+  line-height:1;
+  letter-spacing:-.055em;
+  font-weight:560;
+}
+
+label{
+  margin-top:22px;
+  color:#45413d;
+  font-size:14px;
+  letter-spacing:-.01em;
+}
+
+.sub,
+.hint,
+.count,
+.status-line,
+.modal-hint,
+.mv-title,
+.mv-pcts .vs,
+.mv-mot,
+.share-hint,
+#consent-card p,
+#v-analyse{
+  color:var(--muted)!important;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+select,
+textarea{
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:none;
+}
+
+textarea{
+  min-height:170px;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#aaa39d;
+}
+
+select option{
+  background:#fff;
+  color:var(--ink);
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:rgba(24,24,24,.32);
+  box-shadow:0 0 0 4px rgba(24,24,24,.06);
+}
+
+.btn,
+.share-tiktok,
+.analysis-action{
+  background:var(--black);
+  color:#fff;
+  border:1px solid var(--black);
+  border-radius:999px;
+  box-shadow:0 22px 60px rgba(24,24,24,.16);
+  font-weight:560;
+}
+
+.btn:hover,
+.share-tiktok:hover{
+  transform:translateY(-2px);
+  box-shadow:0 30px 70px rgba(24,24,24,.2);
+}
+
+.btn:disabled{
+  opacity:.42;
+}
+
+.btn-ghost,
+.btn-google{
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+
+.btn-ghost:hover,
+.btn-google:hover{
+  background:#fbfaf8;
+}
+
+.btn-mic{
+  background:var(--black);
+  color:#fff;
+}
+
+.btn-mic:hover{
+  background:#2b2724;
+}
+
+.btn-mic.listening{
+  background:var(--rose);
+}
+
+.divider{
+  color:var(--quiet);
+}
+
+.divider::before,
+.divider::after{
+  background:var(--line);
+}
+
+.pillnote,
+.linkbox{
+  background:#eee9e2;
+  color:#514b45;
+  border:1px solid var(--line);
+  border-radius:18px;
+}
+
+.pillnote b{
+  color:var(--black);
+}
+
+.linkbox input{
+  color:var(--ink);
+}
+
+.error{
+  background:#fff0f4;
+  color:#a33255;
+  border:1px solid rgba(255,93,143,.22);
+}
+
+.msg{
+  border-radius:22px;
+  color:var(--ink);
+}
+
+.msg-a{
+  background:#fff;
+  border:1px solid var(--line);
+}
+
+.msg-b{
+  background:#eee9e2;
+  border:1px solid var(--line);
+}
+
+.msg-a .who,
+.msg-b .who{
+  color:var(--quiet);
+}
+
+.dot{
+  background:var(--green);
+}
+
+.modal-overlay{
+  background:rgba(20,17,15,.38);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+
+.modal-badge{
+  background:var(--black);
+  color:#fff;
+}
+
+.modal-text,
+.pacte{
+  background:#eee9e2;
+  color:var(--ink);
+  border:1px solid var(--line);
+}
+
+.magic-card{
+  min-height:540px;
+}
+
+.magic-face{
+  border-radius:34px;
+  box-shadow:0 34px 90px rgba(36,28,22,.14);
+}
+
+.magic-front{
+  background:
+    linear-gradient(0deg,rgba(20,12,8,.48),rgba(20,12,8,.2)),
+    linear-gradient(135deg,#1b1816 0%,#302821 100%);
+}
+
+.magic-back{
+  background:#fff;
+  color:var(--ink);
+}
+
+.magic-brandbar{
+  background:var(--black);
+}
+
+.mf-logo{
+  filter:none!important;
+}
+
+.mv-title{
+  letter-spacing:.18em;
+}
+
+.mv-subject{
+  color:var(--ink);
+  font-size:clamp(28px,5vw,44px);
+  line-height:1;
+  letter-spacing:-.055em;
+  font-weight:560;
+}
+
+.mv-pcts .p,
+.mv-pcts .p.pa,
+.mv-pcts .p.pb{
+  background:none;
+  -webkit-background-clip:initial;
+  background-clip:initial;
+  color:var(--ink);
+  font-weight:460;
+}
+
+.mv-names .na,
+.mv-names .nb,
+.consent-status{
+  color:var(--green);
+}
+
+.mv-bar .a{
+  background:var(--rose);
+}
+
+.mv-bar .b{
+  background:var(--green);
+}
+
+.pacte{
+  border-left:3px solid var(--green);
+}
+
+.pacte b,
+.pacte.p-b b{
+  color:var(--black);
+}
+
+.pacte.p-b{
+  border-left-color:var(--rose);
+}
+
+.consent-btn.selected{
+  outline-color:rgba(108,146,125,.3);
+}
+
+.loader span{
+  background:var(--black);
+}
+
+.loader span:nth-child(2){
+  background:var(--green);
+}
+
+.loader span:nth-child(3){
+  background:var(--rose);
+}
+
+@media (max-width:560px){
+  header{
+    width:min(350px,calc(100% - 36px));
+  }
+
+  .logo{
+    padding:0 12px;
+  }
+
+  .logo .txt{
+    font-size:16px;
+  }
+
+  .nav-home{
+    min-height:42px;
+    padding:0 18px;
+    font-size:13px;
+  }
+
+  main{
+    padding:22px 16px 70px;
+  }
+
+  .card{
+    padding:28px 22px;
+    border-radius:26px;
+  }
+
+  h1{
+    font-size:44px;
+  }
+
+  .share-row,
+  .consent-choices{
+    flex-direction:column;
+  }
+}
+
 </style>
 </head>
 <body>
 
 <header>
-  <a class="logo" href="index.html">
-    <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
-      <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
-      <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
-    </svg>
-    <span class="txt">we're <span class="in">in</span> love</span>
-  </a>
+  <div class="island-nav">
+    <a class="logo" href="index.html" aria-label="WereInLove">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="txt">WereInLove</span>
+    </a>
+    <a class="nav-home" href="index.html">Accueil</a>
+  </div>
 </header>
 
 <main>
   <div class="topbar">
     <span id="hello" style="font-size:13.5px;color:var(--gris)"></span>
-    <a href="espace-client.html" style="font-size:13px;font-weight:700;color:var(--violet-deep);text-decoration:none">👤 Mon espace</a>
+    <a class="account-pill" href="espace-client.html">Mon espace</a>
     <button class="out" id="btn-logout" style="display:none">Se déconnecter</button>
   </div>
 
@@ -289,7 +802,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 
   <!-- ÉCRAN : AUTH -->
   <div class="screen" id="s-auth">
     <div class="card">
-      <h1 id="auth-title">Bienvenue 💞</h1>
+      <h1 id="auth-title">Bienvenue</h1>
       <p class="sub" id="auth-sub">Connectez-vous pour commencer votre analyse.</p>
       <button class="btn btn-google" id="btn-google">
         <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
