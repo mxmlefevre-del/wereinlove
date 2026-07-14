@@ -1,1899 +1,2499 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="color-scheme" content="dark">
-<title>we're in love — Comprenez les deux points de vue</title>
-<meta name="description" content="Une dispute, deux versions, une meilleure compréhension. we're in love aide les couples à transformer leurs conflits en conversations constructives.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>WereInLove - Comprendre les personnes qui comptent</title>
+  <meta name="description" content="WereInLove aide deux personnes a raconter leur version, comprendre ce qui les separe et retrouver une conversation plus juste.">
+  <meta name="theme-color" content="#F6F2EF">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WereInLove - Comprendre les personnes qui comptent">
+  <meta property="og:description" content="Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.">
+  <meta property="og:image" content="wereinlove-assets/family.jpg">
+  <link rel="preload" as="video" href="wereinlove-assets/hero-video.mp4" type="video/mp4">
+  <link rel="preload" as="image" href="wereinlove-assets/family.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='30' r='17' fill='%23ff5d8f'/%3E%3Ccircle cx='40' cy='30' r='17' fill='%23ffb3c8' fill-opacity='.86'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f6f2ef;
+      --bg-soft: #eee8e2;
+      --ink: #181818;
+      --muted: #6e6a67;
+      --quiet: #9d9690;
+      --line: rgba(24, 24, 24, .12);
+      --line-strong: rgba(24, 24, 24, .2);
+      --paper: #fbfaf8;
+      --black: #1b1816;
+      --green: #6c927d;
+      --rose: #ff5d8f;
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --shadow: 0 34px 90px rgba(36, 28, 22, .12);
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-<!-- Open Graph / aperçu de partage (Facebook, WhatsApp, iMessage, LinkedIn...) -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://wereinlove.app/">
-<meta property="og:title" content="we're in love — Une dispute. Deux versions. Une réconciliation.">
-<meta property="og:description" content="Parce que la plupart des disputes ne viennent pas des mots… mais de ce qu'ils cachent.">
-<meta property="og:image" content="https://wereinlove.app/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="800">
-<meta property="og:locale" content="fr_FR">
+    * {
+      box-sizing: border-box;
+    }
 
-<!-- Twitter / X Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="we're in love — Une dispute. Deux versions. Une réconciliation.">
-<meta name="twitter:description" content="Parce que la plupart des disputes ne viennent pas des mots… mais de ce qu'ils cachent.">
-<meta name="twitter:image" content="https://wereinlove.app/og-image.jpg">
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0A0712;
-  --white:#151020;
-  --ink:#F5F2FA;
-  --gris:#A79FC0;
-  --rose:#FF2D75;
-  --rose-deep:#FF4D8A;
-  --violet:#7C4DFF;
-  --violet-deep:#A98BFF;
-  --jaune:#FFC531;
-  --grad:linear-gradient(90deg,var(--rose),var(--violet));
-  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
-  --r-l:26px;
-  --shadow:0 30px 60px -28px rgba(0,0,0,.75);
-  --font:"Plus Jakarta Sans",-apple-system,sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;color-scheme:dark;background:#0A0712}
-html,body{max-width:100%;overflow-x:clip}
-body{
-  font-family:var(--font);
-  background:var(--bg) !important;
-  color:var(--ink);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-::selection{background:var(--rose);color:#fff}
-img{display:block;max-width:100%}
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+      overflow-x: clip;
+    }
 
-/* ============ HEADER CENTRÉ ============ */
-header.top{
-  position:relative;
-  display:flex;flex-direction:column;align-items:center;
-  padding:16px 20px 0;
-  text-align:center;
-}
-.logo-mark{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none}
-.logo-mark svg{width:clamp(58px,7vw,76px);height:auto}
-.logo-mark .txt{font-weight:800;font-size:clamp(16px,2vw,19px);color:var(--ink);letter-spacing:-.02em}
-.logo-mark .txt .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.logo-mark .domain{font-size:12.5px;font-weight:600;color:var(--gris);letter-spacing:.03em}
-/* ===== MENU BURGER ===== */
-.burger{position:absolute;top:22px;right:clamp(16px,4vw,44px);width:44px;height:44px;border:none;background:#fff;border-radius:14px;box-shadow:0 6px 18px -8px rgba(90,40,120,.35);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;z-index:120;transition:.15s}
-.burger:hover{transform:translateY(-1px)}
-.burger span{display:block;width:20px;height:2.5px;border-radius:100px;background:var(--ink);transition:.3s}
-.espace-btn{
-  position:absolute;top:22px;right:calc(clamp(16px,4vw,44px) + 56px);
-  height:44px;display:inline-flex;align-items:center;
-  padding:0 18px;border-radius:14px;
-  background:rgba(255,255,255,.05);border:1.5px solid rgba(124,77,255,.5);
-  color:#B9A0FF;font-weight:700;font-size:13.5px;text-decoration:none;
-  backdrop-filter:blur(6px);transition:.15s;z-index:105;white-space:nowrap;
-}
-.espace-btn:hover{background:rgba(124,77,255,.14);transform:translateY(-1px)}
-@media (max-width:860px){.espace-btn{display:none}}
-.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:.3s;z-index:110}
-.menu-overlay.show{opacity:1;pointer-events:auto}
-.menu-panel{position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);background:linear-gradient(180deg,#161022,#100B1A);border-left:1px solid rgba(255,255,255,.07);box-shadow:-20px 0 60px -20px rgba(0,0,0,.75);z-index:115;padding:22px 20px 20px;display:flex;flex-direction:column;gap:0;justify-content:flex-start;text-align:left;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);overflow-y:auto}
-.menu-panel.open{transform:translateX(0)}
-.menu-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:100px;font-size:15px;cursor:pointer;color:var(--ink);transition:.15s}
-.menu-close:hover{background:rgba(255,255,255,.1)}
-.menu-brand{display:flex;align-items:center;gap:9px;padding:4px 12px 18px;margin-bottom:6px;border-bottom:1px solid rgba(255,255,255,.07)}
-.menu-brand svg{width:26px;height:auto;flex-shrink:0}
-.menu-brand span{font-weight:800;font-size:14.5px;color:var(--ink);letter-spacing:-.01em}
-.menu-brand .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.menu-label{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(167,159,192,.6);padding:16px 12px 7px}
-.menu-panel a{position:relative;text-decoration:none;color:rgba(245,242,250,.85);font-weight:600;font-size:14px;padding:9px 12px 9px 14px;border-radius:10px;transition:background .15s,color .15s,padding .2s}
-.menu-panel a::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%) scaleY(0);width:3px;height:16px;border-radius:100px;background:var(--grad);transition:transform .2s cubic-bezier(.34,1.56,.64,1)}
-.menu-panel a:hover{background:rgba(255,255,255,.05);color:#fff;padding-left:19px}
-.menu-panel a:hover::before{transform:translateY(-50%) scaleY(1)}
-.menu-panel .menu-legal{font-size:12.5px;font-weight:600;color:rgba(167,159,192,.75);padding-top:7px;padding-bottom:7px}
-.menu-panel .menu-cta{background:var(--grad-btn);color:#fff;font-weight:700;text-align:center;margin-top:auto;padding:12px;box-shadow:0 12px 26px -12px rgba(232,26,102,.55)}
-.menu-panel .menu-cta::before{display:none}
-.menu-panel .menu-cta:hover{background:var(--grad-btn);opacity:.94;padding-left:12px}
-.menu-panel .menu-cta-ghost{background:transparent;color:#B9A0FF;border:1.5px solid rgba(124,77,255,.5);box-shadow:none;margin-top:9px;padding:10px 12px}
-.menu-panel .menu-cta-ghost:hover{background:rgba(124,77,255,.12);opacity:1;padding-left:12px}
-.menu-panel .menu-lang{width:100%;font:inherit;cursor:pointer;font-weight:700}
-.burger.open{opacity:0;pointer-events:none}
+    body::selection {
+      background: var(--black);
+      color: #fff;
+    }
 
-/* ============ BOUTONS ============ */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  background:var(--grad-btn);color:#fff;
-  border:none;border-radius:100px;
-  padding:13px 26px;
-  font-family:var(--font);font-size:15px;font-weight:700;
-  text-decoration:none;cursor:pointer;
-  box-shadow:0 10px 26px -10px rgba(232,26,102,.55);
-  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s;
-}
-.btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px -10px rgba(232,26,102,.65)}
-.btn:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
-.btn-ghost{background:var(--white);color:var(--ink);border:1.5px solid rgba(31,27,46,.12);box-shadow:0 8px 22px -12px rgba(90,40,120,.2)}
-.btn-lg{padding:17px 32px;font-size:16px}
-.btn-sm{padding:10px 20px;font-size:13.5px}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* ============ HERO ============ */
-.hero{
-  display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;
-  padding:26px clamp(20px,4.5vw,64px) 56px;
-  max-width:1340px;margin:0 auto;
-}
-.hero-copy{padding-top:clamp(12px,4.5vw,72px)}
-.pill{
-  display:inline-flex;align-items:center;gap:7px;
-  background:#FDE4EF;color:var(--rose-deep);
-  font-size:12px;font-weight:700;line-height:1.35;
-  padding:6px 14px;border-radius:100px;margin-bottom:24px;
-}
-.hero h1{
-  font-size:clamp(36px,4.8vw,60px);
-  font-weight:800;line-height:1.12;letter-spacing:-.03em;
-}
-.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .sub{margin-top:22px;font-size:clamp(16px,1.6vw,19px);color:var(--gris);max-width:44ch}
-.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
-.tiktok-badge{display:inline-flex;align-items:center;gap:9px;margin-top:16px;background:#0F0F0F;color:#fff;text-decoration:none;font-size:13.5px;font-weight:800;padding:10px 18px;border-radius:100px;transition:transform .15s;box-shadow:0 10px 24px -12px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15)}
-.tiktok-badge:hover{transform:translateY(-1px)}
-.tiktok-new{background:var(--grad);color:#fff;font-size:10.5px;font-weight:800;padding:2px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:.04em}
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
 
-/* ===== BANNIÈRE COOKIES RGPD ===== */
-.cookie-banner{position:fixed;left:20px;right:auto;bottom:-200px;max-width:340px;z-index:400;transition:bottom .45s cubic-bezier(.34,1.1,.64,1)}
-.cookie-banner.show{bottom:16px}
-.cookie-card{background:var(--white);border-radius:18px;box-shadow:0 20px 50px -18px rgba(90,40,120,.4);padding:16px 18px;position:relative;overflow:hidden}
-.cookie-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
-.cookie-emoji{font-size:19px;line-height:1}
-.cookie-card p{font-size:12px;color:var(--gris);line-height:1.45;margin-top:7px}
-.cookie-card p a{color:var(--violet-deep);font-weight:700;text-decoration:underline}
-.cookie-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
-.cookie-actions .btn,.cookie-actions .btn-ghost{margin:0;white-space:nowrap;padding:8px 14px;font-size:12px}
+    button,
+    input {
+      font: inherit;
+    }
 
-.cookie-modal-overlay{position:fixed;inset:0;background:rgba(31,27,46,.55);display:none;align-items:center;justify-content:center;z-index:410;padding:20px}
-.cookie-modal-overlay.show{display:flex}
-.cookie-modal{background:#fff;border-radius:var(--r-l);box-shadow:var(--shadow);max-width:440px;width:100%;padding:30px 28px;position:relative;overflow:hidden}
-.cookie-modal::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--grad)}
-.cookie-modal h3{font-size:19px;font-weight:800;margin-bottom:18px}
-.cookie-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid rgba(31,27,46,.08)}
-.cookie-row b{font-size:14px;font-weight:800;display:block}
-.cookie-row p{font-size:12.5px;color:var(--gris);margin-top:3px;line-height:1.4}
-.cookie-toggle{width:32px;height:32px;border-radius:100px;border:1.5px solid rgba(31,27,46,.15);background:#fff;font-size:13px;font-weight:800;color:var(--gris);cursor:pointer;flex-shrink:0}
-.cookie-toggle.disabled{background:var(--bg);color:var(--rose-deep);border:none;cursor:default}
-.cookie-toggle.on{background:var(--grad);color:#fff;border:none}
-.cookie-modal .btn{margin-top:20px}
-.hero-offer{
-  margin-top:28px;
-  display:flex;flex-direction:column;align-items:center;text-align:center;
-}
-.hero .free-badge{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:12px 20px;border-radius:100px;
-  background:linear-gradient(90deg,rgba(255,45,117,.16),rgba(124,77,255,.16));
-  border:1px solid rgba(255,45,117,.4);
-  color:var(--ink);font-size:15px;font-weight:600;
-  box-shadow:0 14px 34px -16px rgba(255,45,117,.55);
-}
-.hero .free-badge b{color:#FF7AA6;font-weight:800}
-.hero .free-badge .fb-ico{font-size:18px;line-height:1}
-.hero .micro{margin-top:12px;font-size:14px;color:var(--gris)}
-.hero .micro b{color:var(--rose-deep)}
-.hero .trust-line{margin-top:8px;font-size:13px;color:var(--gris);max-width:44ch}
+    .site-shell {
+      position: relative;
+      min-height: 100vh;
+    }
 
-/* Bloc avis (styles prêts — le HTML correspondant est en commentaire dans le hero) */
-.rating{margin-top:14px;display:flex;align-items:center;gap:10px}
-.rating .stars{color:var(--jaune);font-size:20px;letter-spacing:2px;text-shadow:0 1px 0 rgba(0,0,0,.08)}
-.rating .rating-txt{font-size:14px;color:var(--gris)}
-.rating .rating-txt b{color:var(--ink)}
+    .nav-wrap {
+      position: fixed;
+      top: max(18px, env(safe-area-inset-top));
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      padding: 0 20px;
+    }
 
-/* ---- SCÈNE TÉLÉPHONES ---- */
-.stage{position:relative;perspective:1400px}
-.phones{
-  position:relative;
-  display:flex;justify-content:center;align-items:flex-start;
-  padding:8px 0 0;
-}
-.phones::before{
-  content:"";position:absolute;top:52%;left:50%;
-  transform:translate(-50%,-50%);
-  width:min(560px,94vw);height:min(520px,94vw);
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 36% 42%,rgba(255,45,117,.4),transparent 58%),
-    radial-gradient(circle at 66% 58%,rgba(124,77,255,.44),transparent 60%);
-  filter:blur(64px);
-  z-index:0;pointer-events:none;
-}
-.phone-wrap{position:relative;transform-style:preserve-3d}
-.pw-1{margin-right:-22px;margin-top:30px;z-index:2;animation:flipIn1 1.15s cubic-bezier(.22,1,.36,1) .25s both}
-.pw-2{margin-left:-22px;z-index:3;animation:flipIn2 1.15s cubic-bezier(.22,1,.36,1) .55s both}
-@keyframes flipIn1{
-  0%{opacity:0;transform:translateY(140px) rotateY(-95deg) rotateZ(0deg)}
-  100%{opacity:1;transform:translateY(0) rotateY(0) rotateZ(-7deg)}
-}
-@keyframes flipIn2{
-  0%{opacity:0;transform:translateY(160px) rotateY(95deg) rotateZ(0deg)}
-  100%{opacity:1;transform:translateY(0) rotateY(0) rotateZ(6deg)}
-}
-.floaty{animation:float 6s ease-in-out 1.7s infinite}
-.pw-2 .floaty{animation-delay:2.4s}
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-12px)}
-}
-.phone{
-  position:relative;
-  width:clamp(198px,16vw,232px);
-  aspect-ratio:10/19.6;
-  border-radius:46px;
-  background:linear-gradient(145deg,#3B3B44,#17171C 60%);
-  padding:11px;
-  box-shadow:
-    0 40px 90px -30px rgba(60,20,90,.5),
-    inset 0 0 0 2px rgba(255,255,255,.14),
-    inset 0 0 6px rgba(255,255,255,.08);
-}
-/* boutons latéraux */
-.phone::before{
-  content:"";position:absolute;left:-2.5px;top:21%;
-  width:3px;height:46px;background:#2A2A31;border-radius:2px 0 0 2px;
-  box-shadow:0 62px 0 #2A2A31;
-}
-.phone::after{
-  content:"";position:absolute;right:-2.5px;top:27%;
-  width:3px;height:72px;background:#2A2A31;border-radius:0 2px 2px 0;
-}
-.phone .screen{
-  height:100%;border-radius:36px;overflow:hidden;
-  display:flex;flex-direction:column;position:relative;
-}
-.scr-rose{background:radial-gradient(120% 55% at 50% 0%,rgba(255,255,255,.22),transparent 58%),linear-gradient(170deg,#FF5C93 0%,#E01A66 52%,#8E1049 100%)}
-.scr-violet{background:radial-gradient(120% 55% at 50% 0%,rgba(255,255,255,.2),transparent 58%),linear-gradient(170deg,#9D7BFF 0%,#6A3AF0 52%,#38199F 100%)}
-/* dynamic island */
-.island{
-  position:absolute;top:10px;left:50%;transform:translateX(-50%);
-  width:72px;height:21px;background:#0B0B0F;border-radius:100px;z-index:2;
-}
-/* logo de l'app en haut de l'écran */
-.phone .app-logo{
-  display:flex;align-items:center;justify-content:center;gap:7px;
-  padding:44px 0 10px;
-}
-.phone .app-logo svg{width:22px;height:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
-.phone .app-logo span{color:#fff;font-weight:800;font-size:13px;letter-spacing:-.01em}
-.phone .scr-step{
-  align-self:center;
-  font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.85);
-  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);
-  padding:4px 12px;border-radius:100px;margin-bottom:10px;
-}
-.phone .card{
-  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);
-  border-radius:18px;margin:0 12px;
-  padding:16px 15px;flex:1;min-height:0;overflow:hidden;
-  display:flex;flex-direction:column;gap:9px;justify-content:center;
-  backdrop-filter:blur(10px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.25);
-}
-.phone .card .stitle{font-weight:800;font-size:15px;color:#fff;line-height:1.3;text-align:center}
-.phone .card p{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.92);text-align:center}
-.phone .card p b{color:#fff}
-.phone .btn-app{
-  margin:12px 12px 0;
-  border:none;border-radius:14px;padding:12px;
-  background:#fff;font-family:var(--font);font-weight:800;font-size:12.5px;
-  text-align:center;
-  box-shadow:0 10px 24px -8px rgba(0,0,0,.35);
-}
-.ba-rose{color:#E01A66}
-.ba-violet{color:#5A2BE0}
-.home-bar{width:36%;height:4px;background:rgba(255,255,255,.9);border-radius:100px;margin:12px auto 9px}
+    .nav {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 58px;
+      padding: 5px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(76, 38, 19, .34);
+      box-shadow: 0 18px 50px rgba(30, 20, 14, .18);
+      -webkit-backdrop-filter: blur(22px) saturate(120%);
+      backdrop-filter: blur(22px) saturate(120%);
+      transition: color .35s ease, background .35s ease, border-color .35s ease, box-shadow .35s ease;
+    }
 
-/* avatars — placés SOUS les téléphones, jamais dessus */
-.cast{
-  display:flex;justify-content:center;gap:clamp(28px,6vw,72px);
-  margin-top:18px;
-}
-.floater{
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-}
-.fl-1{animation:popIn .7s cubic-bezier(.34,1.56,.64,1) 1.15s both}
-.fl-2{animation:popIn .7s cubic-bezier(.34,1.56,.64,1) 1.4s both}
-@keyframes popIn{
-  0%{opacity:0;transform:scale(.4)}
-  100%{opacity:1;transform:scale(1)}
-}
-.avatar{
-  width:clamp(64px,6vw,82px);height:clamp(64px,6vw,82px);
-  border-radius:50%;overflow:hidden;
-  border:4px solid #fff;
-  box-shadow:0 16px 36px -12px rgba(90,40,120,.4);
-}
-.avatar img{width:100%;height:100%;object-fit:cover}
-.fl-1 .avatar{outline:3px solid rgba(255,45,117,.5)}
-.fl-2 .avatar{outline:3px solid rgba(124,77,255,.5)}
-.chip{
-  border-radius:14px;padding:9px 15px;
-  font-size:12.5px;font-weight:700;color:#fff;text-align:center;line-height:1.3;
-  box-shadow:0 12px 28px -10px rgba(90,40,120,.4);
-  max-width:160px;
-}
-.chip-rose{background:#FF7AA6}
-.chip-violet{background:#9D7BFF}
+    .nav.is-light {
+      color: var(--ink);
+      background: rgba(246, 242, 239, .78);
+      border-color: rgba(40, 30, 24, .12);
+      box-shadow: 0 20px 54px rgba(36, 28, 22, .13);
+    }
 
-/* ============ FEATURES ============ */
-.features{
-  max-width:1240px;margin:0 auto;
-  background:var(--white);border-radius:var(--r-l);
-  box-shadow:var(--shadow);
-  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
-  padding:30px clamp(18px,3vw,40px);
-  position:relative;z-index:5;
-}
-.feat{display:flex;gap:14px;align-items:flex-start;padding:6px 10px}
-.feat .ico{
-  width:48px;height:48px;flex-shrink:0;
-  border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;
-}
-.ico-rose{background:#FDE4EF}
-.ico-violet{background:#ECE4FF}
-.feat h3{font-size:15px;font-weight:800;margin-bottom:3px}
-.feat p{font-size:13px;color:var(--gris);line-height:1.45}
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 116px;
+      height: 46px;
+      padding: 0 18px 0 20px;
+      font-size: 15px;
+      font-weight: 520;
+      letter-spacing: -.03em;
+      white-space: nowrap;
+    }
 
-/* ============ SECTIONS ============ */
-section{padding:clamp(76px,9vw,120px) clamp(20px,4.5vw,56px)}
-.shell{max-width:1140px;margin:0 auto}
-.center{text-align:center}
-.eyebrow{
-  display:inline-block;
-  background:#ECE4FF;color:var(--violet-deep);
-  font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
-  padding:8px 16px;border-radius:100px;margin-bottom:20px;
-}
-.section-title{font-size:clamp(28px,3.8vw,44px);font-weight:800;line-height:1.12;letter-spacing:-.025em}
-.section-title .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.section-sub{margin-top:16px;color:var(--gris);font-size:17px;max-width:56ch}
-.center .section-sub{margin-inline:auto}
+    .mark {
+      width: 17px;
+      height: 17px;
+      position: relative;
+      flex: 0 0 auto;
+    }
 
-/* étapes */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:54px}
-.steps.steps-3{grid-template-columns:repeat(3,1fr);max-width:960px;margin-inline:auto}
-.compat-pills{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
-.compat-pill{background:#fff;border-radius:100px;padding:16px 28px;font-size:16px;font-weight:800;box-shadow:0 12px 30px -16px rgba(90,40,120,.4)}
-.step{
-  background:var(--white);border-radius:var(--r-l);
-  padding:30px 26px;box-shadow:var(--shadow);
-  transition:transform .25s;text-align:left;
-}
-.step:hover{transform:translateY(-6px)}
-.step .n{
-  width:42px;height:42px;border-radius:50%;
-  background:var(--grad);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:17px;margin-bottom:16px;
-}
-.step h3{font-size:16.5px;font-weight:800;margin-bottom:8px;line-height:1.3}
-.step p{font-size:14px;color:var(--gris)}
-.step p b{color:var(--ink)}
+    .mark::before,
+    .mark::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--rose);
+      opacity: .96;
+    }
 
-/* ============ TARIFS ============ */
-.pricing{background:linear-gradient(160deg,#FDF0F6,#F1EAFE)}
-.plans{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-  margin-top:54px;align-items:stretch;max-width:960px;margin-inline:auto;
-}
-.plan{
-  background:var(--white);border-radius:var(--r-l);
-  padding:32px 26px;box-shadow:var(--shadow);
-  display:flex;flex-direction:column;text-align:left;position:relative;
-}
-.plan .p-name{font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--gris)}
-.plan .p-price{font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1;margin-top:14px}
-.plan .p-price small{font-size:15px;font-weight:700;color:var(--gris)}
-.plan .p-under{color:var(--gris);font-size:14px;font-weight:600;margin-top:6px}
-.plan ul{list-style:none;margin:22px 0 26px;flex:1}
-.plan li{
-  padding:9px 0;font-size:14px;font-weight:600;
-  display:flex;gap:10px;align-items:baseline;
-  border-bottom:1px solid rgba(31,27,46,.06);
-}
-.plan li:last-child{border-bottom:none}
-.plan li .k{color:var(--rose)}
-.plan .btn{width:100%}
-.plan-hero{
-  border:2.5px solid transparent;
-  background:
-    linear-gradient(var(--white),var(--white)) padding-box,
-    var(--grad) border-box;
-  transform:scale(1.04);
-  z-index:2;
-}
-.plan .badge{
-  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
-  background:var(--grad-btn);color:#fff;
-  font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
-  padding:7px 16px;border-radius:100px;white-space:nowrap;
-  box-shadow:0 8px 20px -8px rgba(232,26,102,.6);
-}
-.learn-note{
-  margin:44px auto 0;max-width:720px;
-  background:var(--white);border-radius:var(--r-l);
-  box-shadow:var(--shadow);
-  padding:26px 30px;
-  display:flex;gap:18px;align-items:center;text-align:left;
-}
-.learn-note .ico{
-  width:54px;height:54px;flex-shrink:0;border-radius:16px;
-  background:#ECE4FF;display:flex;align-items:center;justify-content:center;font-size:26px;
-}
-.learn-note p{font-size:15px;color:var(--gris)}
-.learn-note p b{color:var(--ink)}
+    .mark::before {
+      left: 0;
+      top: 3px;
+    }
 
-/* confidentialité */
-.privacy .shell{
-  background:var(--white);border-radius:var(--r-l);box-shadow:var(--shadow);
-  padding:clamp(32px,5vw,56px);
-  display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
-  max-width:900px;
-}
-.privacy .lock{
-  width:72px;height:72px;border-radius:22px;
-  background:#ECE4FF;display:flex;align-items:center;justify-content:center;font-size:32px;
-}
-.privacy h3{font-size:22px;font-weight:800;margin-bottom:8px}
-.privacy p{color:var(--gris);font-size:15px}
-.privacy p b{color:var(--ink)}
+    .mark::after {
+      right: 0;
+      top: 3px;
+      background: #ffb2c7;
+      mix-blend-mode: screen;
+    }
 
-/* final */
-.final{padding-bottom:clamp(90px,11vw,150px)}
-.final-grid{
-  max-width:980px;margin:0 auto;
-  display:grid;grid-template-columns:auto 1fr;gap:clamp(36px,6vw,76px);
-  align-items:center;
-}
-.final-video{position:relative;width:clamp(220px,24vw,290px);justify-self:center}
-.final-video::before{
-  content:"";position:absolute;inset:-14%;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,45,117,.28),rgba(124,77,255,.18) 55%,transparent 74%);
-  filter:blur(28px);z-index:-1;
-}
-.final-video video{
-  display:block;width:100%;aspect-ratio:9/16;object-fit:cover;
-  border-radius:28px;
-  border:1px solid rgba(255,255,255,.13);
-  box-shadow:0 40px 90px -30px rgba(0,0,0,.85),0 24px 60px -24px rgba(232,26,102,.35);
-}
-.final-video::after{
-  content:"";position:absolute;inset:0;border-radius:28px;pointer-events:none;
-  background:linear-gradient(180deg,transparent 62%,rgba(10,7,18,.55));
-}
-/* bouton lecture de secours (affiché seulement si l'autoplay est bloqué) */
-.video-tap{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;
-  background:rgba(10,7,18,.65);color:#fff;font-size:22px;
-  display:none;align-items:center;justify-content:center;
-  border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);
-  box-shadow:0 14px 34px -12px rgba(0,0,0,.7);
-  z-index:2;padding-left:4px;
-}
-.video-tap.show{display:flex}
-.video-tap:active{transform:translate(-50%,-50%) scale(.94)}
-.final-copy{text-align:left}
-.final h2{font-size:clamp(30px,4.4vw,52px);font-weight:800;line-height:1.1;letter-spacing:-.025em;max-width:18ch}
-.final h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.final p{margin:20px 0 34px;color:var(--gris);font-size:17px;max-width:42ch}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
 
-/* footer */
-footer{
-  border-top:1px solid rgba(31,27,46,.07);
-  padding:36px clamp(20px,4.5vw,56px);
-  display:flex;flex-direction:column;align-items:center;gap:18px;
-  font-size:13.5px;color:var(--gris);text-align:center;
-}
-.foot-brand{font-weight:800;color:var(--ink);font-size:16px}
-.foot-brand .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 24px;max-width:640px}
-.foot-links a{color:var(--gris);text-decoration:none;font-weight:600}
-.foot-links a:hover{color:var(--ink)}
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      height: 42px;
+      padding: 0 17px;
+      border-radius: 999px;
+      color: currentColor;
+      opacity: .75;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: opacity .2s ease, background .2s ease;
+    }
 
-/* reveal */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
-.reveal.visible{opacity:1;transform:none}
-.plan-hero.reveal.visible{transform:scale(1.04)}
+    .nav-links a:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, .12);
+    }
 
-/* ============ RESPONSIVE ============ */
-@media (max-width:1020px){
-  .hero{grid-template-columns:1fr;text-align:center;padding-top:18px}
-  .hero-copy{padding-top:0}
-  .hero h1,.hero .sub{margin-inline:auto}
-  .hero-cta{justify-content:center}
-  .tiktok-badge{margin-inline:auto}
-  .rating{justify-content:center}
-  .features{grid-template-columns:1fr 1fr}
-  .steps{grid-template-columns:1fr 1fr}
-  .plans{grid-template-columns:1fr 1fr}
-  .plan-hero{transform:none}
-  .plan-hero.reveal.visible{transform:none}
-}
-@media (max-width:560px){
-  .cookie-banner{left:12px;right:12px;bottom:-200px;max-width:none}
-  .cookie-banner.show{bottom:12px}
-  .cookie-card{padding:15px 16px}
-  .cookie-actions{flex-wrap:wrap}
-  .cookie-actions .btn,.cookie-actions .btn-ghost{flex:1;min-width:100px}
-  .phones{padding:16px 0 8px}
-  .pw-1{margin-right:-14px;margin-top:18px}
-  .pw-2{margin-left:-14px}
-  .phone{width:min(172px,44vw)}
-  .phone .card p{font-size:11px}
-  .phone .card .stitle{font-size:13px}
-  .phone .app-logo{padding:36px 0 8px}
-  .phone .app-logo svg{width:18px}
-  .phone .app-logo span{font-size:11.5px}
-  .phone .scr-step{font-size:8.5px;padding:3px 10px;margin-bottom:8px}
-  .phone .btn-app{font-size:11px;padding:10px}
-  .island{width:60px;height:18px;top:9px}
-  .phones::before{filter:blur(46px)}
-  .chip{max-width:130px;font-size:11px}
-  .features{grid-template-columns:1fr}
-  .steps,.steps-3{grid-template-columns:1fr}
-  .plans{grid-template-columns:1fr;max-width:420px;margin-inline:auto}
-  .privacy .shell{grid-template-columns:1fr;text-align:center}
-  .privacy .lock{margin:0 auto}
-  .learn-note{flex-direction:column;text-align:center}
-  footer{flex-direction:column;text-align:center}
-}
-@media (max-width:860px){
-  .final-grid{grid-template-columns:1fr;text-align:center}
-  .final-copy{text-align:center}
-  .final h2{margin-inline:auto}
-  .final p{margin-inline:auto}
-  .final-video{width:min(230px,58vw)}
-}
-section[id]{scroll-margin-top:24px}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
-  .pw-1{transform:rotateZ(-7deg)}
-  .pw-2{transform:rotateZ(6deg)}
-}
+    .nav.is-light .nav-links a:hover {
+      background: rgba(24, 24, 24, .06);
+    }
 
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 46px;
+      padding: 0 22px;
+      border-radius: 999px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 14px;
+      font-weight: 560;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+      transition: transform .2s ease, background .35s ease, color .35s ease;
+    }
 
-</style>
+    .nav.is-light .nav-cta {
+      color: #fff;
+      background: var(--black);
+    }
 
-<!-- ============ THÈME SOMBRE — adaptation de toute la page ============ -->
-<style id="dark-theme">
-body{background:radial-gradient(120% 60% at 50% 0%,#100A1C 0%,var(--bg) 55%) fixed,var(--bg)!important}
-::selection{background:var(--rose);color:#fff}
+    .nav-cta:hover {
+      transform: translateY(-1px);
+    }
 
-/* header & logo */
-.logo-mark .txt{color:var(--ink)}
-.logo-mark .domain{color:var(--gris)}
-.burger{background:#171021;box-shadow:0 6px 18px -8px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.08)}
-.burger span{background:var(--ink)}
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--bg);
+    }
 
-/* hero (téléphones) */
-.pill{background:rgba(255,45,117,.14);color:#FF7AA6;border:1px solid rgba(255,45,117,.28)}
-.btn-ghost{background:rgba(255,255,255,.04);color:var(--ink);border:1.5px solid rgba(255,255,255,.16);box-shadow:none;backdrop-filter:blur(6px)}
-.btn-ghost:hover{background:rgba(255,255,255,.08)}
-.tiktok-badge{border:1px solid rgba(255,255,255,.2)}
-.avatar{border-color:#171021}
-.chip-rose{background:rgba(255,45,117,.85)}
-.chip-violet{background:rgba(124,77,255,.85)}
-.rating .stars{text-shadow:0 0 10px rgba(255,197,49,.4)}
+    .hero-media {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      transform-origin: center top;
+      will-change: transform, border-radius, filter;
+    }
 
-/* cartes / features / steps / plans (surfaces) */
-.features,.step,.plan,.learn-note,.privacy .shell{
-  border:1px solid rgba(255,255,255,.09);
-}
-.ico-rose{background:rgba(255,45,117,.14)}
-.ico-violet{background:rgba(124,77,255,.16)}
-.eyebrow{background:rgba(124,77,255,.16);color:#B9A0FF;border:1px solid rgba(124,77,255,.3)}
-.compat-pill{background:#171021;border:1px solid rgba(255,255,255,.1);box-shadow:0 12px 30px -16px rgba(0,0,0,.7);color:var(--ink)}
-.plan li{border-bottom:1px solid rgba(255,255,255,.07)}
-.plan-hero{
-  background:linear-gradient(var(--white),var(--white)) padding-box,var(--grad) border-box;
-  border:2.5px solid transparent;
-}
-.learn-note .ico,.privacy .lock{background:rgba(124,77,255,.16)}
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.92) contrast(1.02);
+    }
 
-/* tarifs */
-.pricing{background:linear-gradient(160deg,#130A1D,#0C0916)}
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(16, 12, 10, .72) 0%, rgba(16, 12, 10, .38) 46%, rgba(16, 12, 10, .2) 100%),
+        linear-gradient(0deg, rgba(14, 10, 8, .66) 0%, rgba(14, 10, 8, .08) 42%, rgba(14, 10, 8, .2) 100%);
+      pointer-events: none;
+    }
 
-/* section boîte à disputes — ambiance rose */
-#boite{
-  background:
-    radial-gradient(90% 70% at 50% 0%,rgba(255,45,117,.16),transparent 60%),
-    linear-gradient(160deg,#23101E,#170B1A)!important;
-  border-top:1px solid rgba(255,45,117,.14);
-  border-bottom:1px solid rgba(255,45,117,.14);
-}
-.boite-eyebrow{background:rgba(255,45,117,.15)!important;color:#FF7AA6!important;border:1px solid rgba(255,45,117,.32)!important}
-.boite-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
-.boite-chips span{
-  font-size:13.5px;font-weight:700;color:rgba(255,255,255,.92);
-  background:rgba(255,45,117,.1);border:1px solid rgba(255,45,117,.3);
-  padding:10px 18px;border-radius:100px;
-  box-shadow:0 10px 26px -16px rgba(255,45,117,.5);
-}
+    .hero-content {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 160px clamp(24px, 5vw, 76px) clamp(42px, 7vw, 82px);
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
 
-/* cookies */
-.cookie-card{background:#171021;border:1px solid rgba(255,255,255,.1)}
-.cookie-modal{background:#171021;border:1px solid rgba(255,255,255,.1)}
-.cookie-modal-overlay{background:rgba(0,0,0,.65)}
-.cookie-row{border-bottom:1px solid rgba(255,255,255,.08)}
-.cookie-toggle{background:#221A33;border:1.5px solid rgba(255,255,255,.15);color:var(--gris)}
-.cookie-toggle.disabled{background:rgba(255,45,117,.14);color:#FF7AA6}
-.cookie-toggle.on{background:var(--grad);color:#fff;border:none}
+    .eyebrow {
+      margin: 0 0 24px;
+      color: var(--quiet);
+      font-size: 13px;
+      font-weight: 560;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
 
-/* footer */
-footer{border-top:1px solid rgba(255,255,255,.08)}
-.foot-links a:hover{color:var(--ink)}
-</style>
+    .hero .eyebrow {
+      color: rgba(255, 255, 255, .62);
+    }
 
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(60px, 9.4vw, 148px);
+      line-height: .9;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .hero-lede {
+      max-width: 660px;
+      margin-top: 32px;
+      color: rgba(255, 255, 255, .72);
+      font-size: clamp(19px, 2.3vw, 30px);
+      line-height: 1.42;
+      letter-spacing: -.035em;
+      font-weight: 420;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-top: 42px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 28px;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      background: var(--black);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 560;
+      letter-spacing: -.01em;
+      box-shadow: 0 22px 60px rgba(24, 24, 24, .18);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 30px 70px rgba(24, 24, 24, .2);
+    }
+
+    .button.light {
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .hero .hero-actions {
+      gap: 12px;
+    }
+
+    .hero .hero-actions .button {
+      min-height: 50px;
+      min-width: 210px;
+      padding: 0 22px;
+    }
+
+    .text-link {
+      color: rgba(255, 255, 255, .72);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .text-link::after {
+      content: " ->";
+      opacity: .7;
+    }
+
+    .scroll-seal {
+      position: absolute;
+      right: clamp(28px, 6vw, 96px);
+      bottom: clamp(34px, 5vw, 72px);
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      color: rgba(255, 255, 255, .72);
+      border-radius: 999px;
+    }
+
+    .scroll-seal span {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: inherit;
+      animation: spin 18s linear infinite;
+    }
+
+    .scroll-seal span::before {
+      content: "COMPRENDRE - RELIER - APAISER - ";
+      position: absolute;
+      inset: 12px;
+      font-size: 7px;
+      letter-spacing: .26em;
+      line-height: 1;
+      text-align: center;
+      color: rgba(255, 255, 255, .62);
+    }
+
+    .scroll-seal b {
+      font-size: 24px;
+      font-weight: 360;
+      transform: rotate(45deg);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    main {
+      position: relative;
+      z-index: 4;
+      background: var(--bg);
+      padding-bottom: clamp(28px, 3.5vw, 56px);
+    }
+
+    .intro {
+      min-height: 95svh;
+      padding: clamp(110px, 17vw, 240px) 0 clamp(90px, 14vw, 180px);
+      overflow: hidden;
+    }
+
+    .section-head {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: clamp(44px, 7.6vw, 112px);
+      line-height: .93;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .section-head p {
+      max-width: 760px;
+      margin: 28px auto 0;
+      color: var(--quiet);
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 1.5;
+      letter-spacing: -.03em;
+    }
+
+    .photo-rail {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      margin-top: clamp(58px, 8vw, 96px);
+      padding: 0 24px;
+      transform: translate3d(var(--rail-x, 0), 0, 0);
+      will-change: transform;
+    }
+
+    .rail-card {
+      width: clamp(250px, 27vw, 420px);
+      height: clamp(340px, 34vw, 520px);
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--bg-soft);
+      box-shadow: 0 24px 70px rgba(36, 28, 22, .08);
+    }
+
+    .rail-card.wide {
+      width: clamp(360px, 42vw, 660px);
+    }
+
+    .rail-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.045);
+    }
+
+    .story-split {
+      width: min(1420px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: clamp(100px, 14vw, 190px) 0;
+      display: grid;
+      grid-template-columns: minmax(280px, .82fr) minmax(0, 1.38fr);
+      gap: clamp(36px, 7vw, 110px);
+      align-items: center;
+    }
+
+    .story-copy {
+      padding-left: clamp(12px, 2.8vw, 52px);
+    }
+
+    .story-copy h2 {
+      max-width: 650px;
+      font-size: clamp(42px, 5.4vw, 82px);
+      line-height: .98;
+      letter-spacing: -.07em;
+      font-weight: 560;
+    }
+
+    .story-copy p {
+      max-width: 560px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: clamp(18px, 1.7vw, 23px);
+      line-height: 1.58;
+      letter-spacing: -.025em;
+    }
+
+    .quiet-line {
+      width: min(100%, 520px);
+      height: 1px;
+      margin: 38px 0 0;
+      background: var(--line);
+    }
+
+    .detail-note {
+      max-width: 520px;
+      margin-top: 24px;
+      color: var(--quiet);
+      font-size: 17px;
+      line-height: 1.5;
+      letter-spacing: -.02em;
+    }
+
+    .detail-note strong {
+      color: var(--ink);
+      font-weight: 620;
+    }
+
+    .feature-photo {
+      position: relative;
+      min-height: clamp(520px, 68vw, 840px);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--bg-soft);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .feature-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      transform: scale(var(--photo-scale, 1.04));
+      will-change: transform;
+    }
+
+    .feature-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(20, 14, 11, .24), rgba(20, 14, 11, 0) 44%);
+      pointer-events: none;
+    }
+
+    .bleed-photo {
+      width: calc(100% - var(--bleed-gap, 0px));
+      max-width: none;
+      min-height: 96svh;
+      margin: 0 auto;
+      border-radius: var(--bleed-radius, 0px);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      place-items: center;
+      padding: clamp(48px, 8vw, 120px);
+      color: #fff;
+      background: var(--black);
+    }
+
+    .bleed-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(var(--photo-scale, 1.05));
+      will-change: transform;
+      z-index: -2;
+    }
+
+    .bleed-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(0deg, rgba(20, 12, 8, .42), rgba(20, 12, 8, .2)),
+        radial-gradient(circle at 50% 40%, rgba(20, 12, 8, .1), rgba(20, 12, 8, .52));
+      z-index: -1;
+    }
+
+    .bleed-inner {
+      width: min(760px, 100%);
+      text-align: center;
+    }
+
+    .bleed-inner h2 {
+      font-size: clamp(48px, 7vw, 106px);
+      line-height: .95;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .bleed-inner p {
+      max-width: 680px;
+      margin: 28px auto 0;
+      color: rgba(255, 255, 255, .72);
+      font-size: clamp(19px, 2.1vw, 28px);
+      line-height: 1.48;
+      letter-spacing: -.035em;
+    }
+
+    .stats {
+      width: min(980px, 100%);
+      margin: clamp(58px, 7vw, 86px) auto 0;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, .22);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      color: #fff;
+      font-size: clamp(38px, 4.6vw, 70px);
+      line-height: 1;
+      letter-spacing: -.055em;
+      font-weight: 460;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, .6);
+      font-size: 15px;
+      line-height: 1.42;
+      letter-spacing: -.015em;
+    }
+
+    .statement {
+      min-height: 78svh;
+      display: grid;
+      place-items: center;
+      padding: clamp(120px, 18vw, 240px) 24px;
+      text-align: center;
+    }
+
+    .statement h2 {
+      max-width: 1400px;
+      font-size: clamp(48px, 9vw, 154px);
+      line-height: .92;
+      letter-spacing: -.085em;
+      font-weight: 560;
+    }
+
+    .how {
+      padding: clamp(90px, 13vw, 180px) 0;
+    }
+
+    .how-grid {
+      width: min(1380px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(36px, 7vw, 100px);
+      align-items: start;
+    }
+
+    .sticky-copy {
+      position: sticky;
+      top: 130px;
+      padding-top: 20px;
+    }
+
+    .sticky-copy h2 {
+      max-width: 620px;
+      font-size: clamp(44px, 5.8vw, 92px);
+      line-height: .98;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .sticky-copy p {
+      max-width: 600px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: clamp(19px, 1.9vw, 26px);
+      line-height: 1.52;
+      letter-spacing: -.035em;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      min-height: 220px;
+      padding: clamp(28px, 4vw, 46px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(251, 250, 248, .56);
+      box-shadow: 0 18px 70px rgba(36, 28, 22, .04);
+    }
+
+    .step-num {
+      display: block;
+      margin-bottom: 38px;
+      color: var(--quiet);
+      font-size: 14px;
+      letter-spacing: .18em;
+      font-weight: 560;
+    }
+
+    .step h3 {
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      font-weight: 540;
+    }
+
+    .step p {
+      max-width: 540px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.5;
+      letter-spacing: -.02em;
+    }
+
+    .phones-section {
+      padding: clamp(90px, 13vw, 190px) 0;
+      overflow: hidden;
+    }
+
+    .phone-stage {
+      width: min(1320px, calc(100% - 28px));
+      min-height: 94svh;
+      margin: clamp(54px, 7vw, 90px) auto 0;
+      border-radius: var(--radius-xl);
+      background: var(--black);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      align-items: center;
+      gap: 20px;
+      padding: clamp(34px, 6vw, 84px);
+      box-shadow: 0 44px 110px rgba(36, 28, 22, .16);
+    }
+
+    .phone-stage::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -44% -20%;
+      height: 58%;
+      background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, .12), rgba(255, 255, 255, 0) 58%);
+      pointer-events: none;
+    }
+
+    .phone-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .phone-copy h2 {
+      max-width: 700px;
+      font-size: clamp(45px, 6vw, 92px);
+      line-height: .96;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .phone-copy p {
+      max-width: 640px;
+      margin-top: 28px;
+      color: rgba(255, 255, 255, .56);
+      font-size: clamp(19px, 1.9vw, 26px);
+      line-height: 1.55;
+      letter-spacing: -.035em;
+    }
+
+    .mode-tabs {
+      width: min(680px, 100%);
+      margin-top: clamp(42px, 6vw, 74px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      padding: 7px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .mode-tabs button {
+      min-height: 72px;
+      border: 0;
+      border-radius: 22px;
+      color: rgba(255, 255, 255, .45);
+      background: transparent;
+      cursor: pointer;
+      font-size: 18px;
+      letter-spacing: -.025em;
+    }
+
+    .mode-tabs button.is-active {
+      color: #fff;
+      background: rgba(255, 255, 255, .13);
+    }
+
+    .mode-tabs small {
+      margin-left: 6px;
+      color: rgba(255, 255, 255, .28);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .phone-visuals {
+      position: relative;
+      z-index: 1;
+      min-height: 640px;
+    }
+
+    .phone {
+      position: absolute;
+      width: min(330px, 42vw);
+      aspect-ratio: 9 / 18.6;
+      border-radius: 44px;
+      padding: 10px;
+      background: linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
+      box-shadow: 0 40px 100px rgba(0, 0, 0, .36);
+      border: 1px solid rgba(255, 255, 255, .14);
+    }
+
+    .phone.one {
+      left: 4%;
+      top: 11%;
+      transform: rotate(-8deg);
+    }
+
+    .phone.two {
+      right: 5%;
+      bottom: 4%;
+      transform: rotate(7deg);
+    }
+
+    .phone-screen {
+      height: 100%;
+      border-radius: 36px;
+      overflow: hidden;
+      background: #f8f4f0;
+      color: var(--ink);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .phone-screen.dark {
+      background: #201d1a;
+      color: #fff;
+    }
+
+    .phone-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--quiet);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .chat {
+      margin-top: auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    .bubble {
+      max-width: 92%;
+      padding: 14px 15px;
+      border-radius: 18px;
+      background: #ebe5df;
+      color: #312d29;
+      font-size: 15px;
+      line-height: 1.35;
+      letter-spacing: -.02em;
+    }
+
+    .bubble.you {
+      justify-self: end;
+      color: #fff;
+      background: var(--black);
+    }
+
+    .insight {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .insight strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: -.055em;
+      font-weight: 520;
+    }
+
+    .insight p {
+      margin-top: 12px;
+      color: rgba(255, 255, 255, .48);
+      font-size: 15px;
+      line-height: 1.42;
+    }
+
+    .analysis-section {
+      padding: clamp(90px, 13vw, 190px) 0;
+    }
+
+    .analysis-grid {
+      width: min(1360px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr);
+      gap: clamp(34px, 7vw, 96px);
+      align-items: center;
+    }
+
+    .analysis-copy h2 {
+      max-width: 720px;
+      font-size: clamp(44px, 6vw, 96px);
+      line-height: .97;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .analysis-copy p {
+      max-width: 660px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: clamp(19px, 1.9vw, 26px);
+      line-height: 1.54;
+      letter-spacing: -.035em;
+    }
+
+    .analysis-card {
+      border: 1px solid var(--line-strong);
+      border-radius: 28px;
+      background: rgba(251, 250, 248, .78);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .analysis-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 22px;
+      color: var(--quiet);
+      border-bottom: 1px solid var(--line);
+      font-size: 15px;
+      letter-spacing: -.01em;
+    }
+
+    .analysis-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    .analysis-body {
+      padding: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .analysis-message {
+      padding: 20px;
+      border-radius: 22px;
+      background: #ede7e1;
+      color: #2b2724;
+      font-size: 18px;
+      line-height: 1.45;
+      letter-spacing: -.025em;
+    }
+
+    .analysis-message strong {
+      font-weight: 650;
+    }
+
+    .analysis-message.ai {
+      background: var(--black);
+      color: #fff;
+    }
+
+    .analysis-message.ai strong {
+      color: #fff;
+    }
+
+    .analysis-action {
+      justify-self: end;
+      margin: 8px 0;
+      min-height: 52px;
+      padding: 0 21px;
+      border-radius: 18px;
+      background: var(--black);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 520;
+    }
+
+    .resolved {
+      padding: clamp(80px, 12vw, 170px) 0;
+    }
+
+    .resolved-grid {
+      width: min(1460px, calc(100% - 28px));
+      margin: clamp(54px, 8vw, 96px) auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .resolved-card {
+      min-height: 590px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+      background: var(--black);
+      isolation: isolate;
+    }
+
+    .resolved-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transform: scale(1.05);
+    }
+
+    .resolved-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(15, 10, 8, .7), rgba(15, 10, 8, .06) 62%);
+      z-index: -1;
+    }
+
+    .resolved-card h3 {
+      max-width: 330px;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1;
+      letter-spacing: -.06em;
+      font-weight: 540;
+    }
+
+    .resolved-card p {
+      max-width: 330px;
+      margin-top: 14px;
+      color: rgba(255, 255, 255, .68);
+      font-size: 16px;
+      line-height: 1.42;
+    }
+
+    .experiences {
+      padding: clamp(80px, 12vw, 170px) 0;
+    }
+
+    .experience-grid {
+      width: min(1360px, calc(100% - 48px));
+      margin: clamp(52px, 7vw, 88px) auto 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .experience-card {
+      min-height: clamp(620px, 58vw, 820px);
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      color: #fff;
+      background: var(--black);
+      isolation: isolate;
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(30px, 5vw, 62px);
+      box-shadow: 0 34px 90px rgba(36, 28, 22, .14);
+    }
+
+    .experience-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      z-index: -2;
+    }
+
+    .experience-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(0deg, rgba(15, 10, 8, .78), rgba(15, 10, 8, .08) 62%),
+        linear-gradient(90deg, rgba(15, 10, 8, .46), rgba(15, 10, 8, .08));
+    }
+
+    .experience-card.light-card {
+      color: var(--ink);
+      background: #eee9e2;
+      border: 1px solid var(--line);
+    }
+
+    .experience-card.light-card::after {
+      background:
+        linear-gradient(0deg, rgba(246, 242, 239, .96), rgba(246, 242, 239, .16) 62%),
+        linear-gradient(90deg, rgba(246, 242, 239, .86), rgba(246, 242, 239, .12));
+    }
+
+    .experience-content {
+      max-width: 600px;
+    }
+
+    .experience-content .eyebrow {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    .light-card .experience-content .eyebrow {
+      color: var(--quiet);
+    }
+
+    .experience-content h3 {
+      font-size: clamp(44px, 5vw, 82px);
+      line-height: .96;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .experience-content p {
+      margin-top: 22px;
+      color: rgba(255, 255, 255, .68);
+      font-size: clamp(18px, 1.7vw, 23px);
+      line-height: 1.5;
+      letter-spacing: -.03em;
+    }
+
+    .light-card .experience-content p {
+      color: var(--muted);
+    }
+
+    .experience-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .experience-actions .button {
+      min-height: 54px;
+      padding: 0 24px;
+      box-shadow: none;
+    }
+
+    .experience-actions .button.ghost {
+      color: #fff;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .light-card .experience-actions .button.ghost {
+      color: var(--ink);
+      background: transparent;
+      border-color: var(--line);
+    }
+
+    .pricing {
+      padding: clamp(90px, 13vw, 180px) 0;
+    }
+
+    .pricing-top {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr .78fr;
+      gap: clamp(30px, 7vw, 90px);
+      align-items: end;
+    }
+
+    .pricing-top h2 {
+      max-width: 760px;
+      font-size: clamp(44px, 5.8vw, 88px);
+      line-height: .98;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .pricing-top p {
+      color: var(--muted);
+      font-size: clamp(18px, 1.6vw, 22px);
+      line-height: 1.52;
+      letter-spacing: -.025em;
+    }
+
+    .plans {
+      width: min(1160px, calc(100% - 48px));
+      margin: clamp(42px, 6vw, 70px) auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .plan {
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(28px, 3.6vw, 46px);
+      border: 1px solid rgba(24, 24, 24, .1);
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 26px 80px rgba(36, 28, 22, .08);
+    }
+
+    .plan.dark {
+      color: #fff;
+      background: var(--black);
+      border-color: rgba(255, 255, 255, .08);
+      box-shadow: 0 34px 90px rgba(36, 28, 22, .18);
+    }
+
+    .plan-kicker {
+      color: var(--quiet);
+      font-size: 13px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 620;
+    }
+
+    .plan.dark .plan-kicker {
+      color: var(--green);
+    }
+
+    .plan h3 {
+      margin-top: 44px;
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -.045em;
+      font-weight: 520;
+    }
+
+    .plan-sub {
+      margin-top: 14px;
+      color: var(--quiet);
+      font-size: 17px;
+      letter-spacing: -.02em;
+    }
+
+    .price {
+      margin-top: 48px;
+      font-size: clamp(58px, 5.4vw, 78px);
+      line-height: 1;
+      letter-spacing: -.065em;
+      font-weight: 450;
+    }
+
+    .price small {
+      color: var(--quiet);
+      font-size: .34em;
+      letter-spacing: -.02em;
+    }
+
+    .plan-note {
+      margin-top: 22px;
+      color: var(--quiet);
+      font-size: 16px;
+    }
+
+    .was-price {
+      text-decoration: line-through;
+      text-decoration-thickness: 1.5px;
+      color: var(--quiet);
+    }
+
+    .plan hr {
+      width: 100%;
+      margin: 38px 0 30px;
+      border: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .plan.dark hr {
+      border-color: rgba(255, 255, 255, .12);
+    }
+
+    .plan ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .plan li {
+      position: relative;
+      padding-left: 34px;
+      color: #45413d;
+      font-size: 17px;
+      line-height: 1.35;
+      letter-spacing: -.025em;
+    }
+
+    .plan.dark li {
+      color: rgba(255, 255, 255, .62);
+    }
+
+    .plan li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .1em;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--green);
+      border-radius: 999px;
+    }
+
+    .plan .button {
+      width: 100%;
+      margin-top: auto;
+      box-shadow: none;
+    }
+
+    .plan:not(.dark) .button {
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid var(--line);
+    }
+
+    .final-cta {
+      width: min(1600px, calc(100% - 28px));
+      min-height: 92svh;
+      margin: 0 auto;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(34px, 6vw, 82px);
+      color: #fff;
+      background: var(--black);
+    }
+
+    .final-cta img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transform: scale(1.04);
+    }
+
+    .final-cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(15, 9, 7, .72), rgba(15, 9, 7, .2)), linear-gradient(0deg, rgba(15, 9, 7, .5), rgba(15, 9, 7, .08));
+      z-index: -1;
+    }
+
+    .final-inner {
+      max-width: 900px;
+    }
+
+    .final-inner h2 {
+      font-size: clamp(56px, 8vw, 124px);
+      line-height: .92;
+      letter-spacing: -.08em;
+      font-weight: 560;
+    }
+
+    .final-inner p {
+      max-width: 720px;
+      margin-top: 28px;
+      color: rgba(255, 255, 255, .72);
+      font-size: clamp(19px, 2.1vw, 28px);
+      line-height: 1.48;
+      letter-spacing: -.035em;
+    }
+
+    .site-footer {
+      position: relative;
+      z-index: 12;
+      min-height: 64svh;
+      margin-top: 0;
+      padding: clamp(82px, 10vw, 132px) clamp(24px, 5vw, 76px) clamp(52px, 7vw, 76px);
+      color: rgba(255, 255, 255, .72);
+      background: #14110f;
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .site-footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: #14110f;
+    }
+
+    .footer-inner {
+      width: min(1420px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(280px, 1.2fr) repeat(4, minmax(150px, .72fr));
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
+    }
+
+    .footer-brand {
+      max-width: 430px;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 560;
+      letter-spacing: -.045em;
+    }
+
+    .footer-logo .mark {
+      display: block;
+    }
+
+    .footer-brand p {
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .56);
+      font-size: 18px;
+      line-height: 1.52;
+      letter-spacing: -.03em;
+    }
+
+    .footer-column h3 {
+      margin: 0 0 18px;
+      color: rgba(255, 255, 255, .42);
+      font-size: 12px;
+      font-weight: 620;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .footer-column ul {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, .72);
+      font-size: 15px;
+      line-height: 1.35;
+      letter-spacing: -.015em;
+      transition: color .2s ease, opacity .2s ease;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: clamp(72px, 10vw, 128px);
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .4);
+      font-size: 13px;
+      letter-spacing: -.01em;
+    }
+
+    @media (max-width: 1180px) {
+      .footer-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(38px);
+      transition: opacity .9s ease, transform .9s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        height: 56px;
+      }
+
+      .brand {
+        min-width: auto;
+        padding: 0 16px 0 18px;
+        font-size: 18px;
+      }
+
+      .mark,
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        height: 46px;
+        padding: 0 26px;
+        font-size: 17px;
+      }
+
+      .hero-content {
+        padding: 132px 24px 36px;
+      }
+
+      h1 {
+        max-width: 520px;
+        font-size: clamp(56px, 14vw, 74px);
+        line-height: .94;
+        letter-spacing: -.072em;
+      }
+
+      .hero-lede {
+        margin-top: 28px;
+        font-size: 23px;
+        line-height: 1.44;
+      }
+
+      .hero-actions {
+        gap: 18px;
+        margin-top: 34px;
+      }
+
+      .button {
+        min-height: 64px;
+        padding: 0 30px;
+        font-size: 18px;
+      }
+
+      .text-link {
+        width: 100%;
+        font-size: 18px;
+      }
+
+      .scroll-seal {
+        display: none;
+      }
+
+      .section-head {
+        width: min(100% - 48px, 680px);
+      }
+
+      .section-head h2 {
+        font-size: clamp(46px, 12vw, 76px);
+        line-height: .95;
+      }
+
+      .section-head p {
+        font-size: 24px;
+        line-height: 1.45;
+      }
+
+      .photo-rail {
+        overflow: visible;
+        gap: 18px;
+        padding: 0 18px;
+      }
+
+      .rail-card,
+      .rail-card.wide {
+        width: 64vw;
+        height: 82vw;
+        min-width: 275px;
+        min-height: 355px;
+      }
+
+      .story-split,
+      .how-grid,
+      .analysis-grid,
+      .pricing-top {
+        width: calc(100% - 48px);
+        grid-template-columns: 1fr;
+      }
+
+      .story-split {
+        padding: 112px 0;
+      }
+
+      .story-copy {
+        padding-left: 0;
+      }
+
+      .story-copy h2,
+      .sticky-copy h2,
+      .analysis-copy h2,
+      .pricing-top h2 {
+        font-size: clamp(48px, 12vw, 72px);
+        line-height: .98;
+      }
+
+      .story-copy p,
+      .sticky-copy p,
+      .analysis-copy p,
+      .pricing-top p {
+        font-size: 24px;
+        line-height: 1.5;
+      }
+
+      .feature-photo {
+        min-height: 74svh;
+        border-radius: 30px;
+      }
+
+      .bleed-photo {
+        width: calc(100% - 36px);
+        min-height: 92svh;
+        padding: 52px 22px;
+        border-radius: 32px;
+      }
+
+      .bleed-inner h2 {
+        font-size: clamp(46px, 12vw, 70px);
+      }
+
+      .bleed-inner p {
+        font-size: 24px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 18px;
+      }
+
+      .stat span {
+        font-size: 18px;
+      }
+
+      .statement {
+        min-height: 72svh;
+        padding: 110px 24px;
+      }
+
+      .statement h2 {
+        font-size: clamp(52px, 13vw, 84px);
+        line-height: .96;
+      }
+
+      .sticky-copy {
+        position: relative;
+        top: auto;
+      }
+
+      .step {
+        min-height: 250px;
+      }
+
+      .step h3 {
+        font-size: 38px;
+      }
+
+      .step p {
+        font-size: 21px;
+      }
+
+      .phone-stage {
+        width: calc(100% - 36px);
+        min-height: 100svh;
+        grid-template-columns: 1fr;
+        padding: 44px 22px;
+        border-radius: 32px;
+      }
+
+      .phone-copy h2 {
+        font-size: clamp(46px, 12vw, 72px);
+      }
+
+      .phone-copy p {
+        font-size: 23px;
+      }
+
+      .mode-tabs {
+        border-radius: 24px;
+      }
+
+      .mode-tabs button {
+        min-height: 58px;
+        font-size: 16px;
+      }
+
+      .mode-tabs small {
+        display: none;
+      }
+
+      .phone-visuals {
+        min-height: 560px;
+      }
+
+      .phone {
+        width: min(275px, 62vw);
+      }
+
+      .phone.one {
+        left: -2%;
+        top: 10%;
+      }
+
+      .phone.two {
+        right: -2%;
+        bottom: 0;
+      }
+
+      .analysis-card {
+        border-radius: 26px;
+      }
+
+      .analysis-body {
+        padding: 20px;
+      }
+
+      .analysis-message {
+        font-size: 19px;
+      }
+
+      .resolved-grid,
+      .experience-grid,
+      .plans {
+        width: calc(100% - 48px);
+        grid-template-columns: 1fr;
+      }
+
+      .experience-card {
+        min-height: 78svh;
+        border-radius: 30px;
+      }
+
+      .resolved-card {
+        min-height: 78svh;
+      }
+
+      .plans {
+        gap: 14px;
+      }
+
+      .plan {
+        min-height: 650px;
+        padding: 34px 30px;
+      }
+
+      .plan h3 {
+        font-size: 38px;
+      }
+
+      .plan-sub,
+      .plan-note,
+      .plan li {
+        font-size: 21px;
+      }
+
+      .price {
+        font-size: 72px;
+      }
+
+      .final-cta {
+        width: calc(100% - 28px);
+        min-height: 92svh;
+        padding: 44px 24px;
+        border-radius: 32px;
+      }
+
+      .final-inner h2 {
+        font-size: clamp(52px, 13vw, 78px);
+      }
+
+      .final-inner p {
+        font-size: 23px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-wrap {
+        top: max(18px, env(safe-area-inset-top));
+      }
+
+      .hero {
+        min-height: 100svh;
+      }
+
+      .hero-media {
+        position: absolute;
+      }
+
+      .hero-media::after {
+        background:
+          linear-gradient(0deg, rgba(18, 11, 8, .78) 0%, rgba(18, 11, 8, .24) 48%, rgba(18, 11, 8, .18) 100%),
+          linear-gradient(90deg, rgba(18, 11, 8, .42), rgba(18, 11, 8, .12));
+      }
+
+      .hero-content {
+        min-height: 100svh;
+        padding-bottom: 28px;
+      }
+
+      .hero-actions .button {
+        width: min(100%, 390px);
+      }
+
+      .hero .hero-actions {
+        width: 100%;
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
+
+      .hero .hero-actions .button {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
+        padding: 0 10px;
+        font-size: 13px;
+      }
+
+      .intro {
+        padding-top: 118px;
+      }
+
+      .story-split {
+        width: calc(100% - 36px);
+      }
+
+      .feature-photo {
+        min-height: 680px;
+      }
+
+      .feature-photo img.couple-close {
+        object-position: 50% 35%;
+      }
+
+      .feature-photo img.family {
+        object-position: 48% 50%;
+      }
+
+      .feature-photo img.couple-sun {
+        object-position: 54% 50%;
+      }
+
+      .analysis-grid,
+      .how-grid,
+      .pricing-top {
+        width: calc(100% - 36px);
+      }
+
+      .stats {
+        margin-top: 54px;
+      }
+
+      .stat strong {
+        font-size: 54px;
+      }
+
+      .analysis-action {
+        justify-self: stretch;
+        justify-content: center;
+      }
+
+      .experience-grid {
+        width: calc(100% - 36px);
+      }
+
+      .experience-card {
+        min-height: 680px;
+        padding: 34px 24px;
+      }
+
+      .experience-content h3 {
+        font-size: clamp(44px, 12vw, 68px);
+      }
+
+      .experience-content p {
+        font-size: 21px;
+      }
+
+      .experience-actions .button {
+        width: 100%;
+      }
+
+      .site-footer {
+        min-height: auto;
+        margin-top: 0;
+        padding: 64px 24px 36px;
+        border-radius: 30px 30px 0 0;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .footer-brand p {
+        font-size: 17px;
+      }
+
+      .phone-screen {
+        padding: 18px;
+      }
+
+      .bubble {
+        font-size: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="site-shell">
+    <header class="nav-wrap" aria-label="Navigation principale">
+      <nav class="nav" data-nav>
+        <a class="brand" href="#top" aria-label="WereInLove">
+          <span class="mark" aria-hidden="true"></span>
+          <span>WereInLove</span>
+        </a>
+        <div class="nav-links" aria-label="Sections">
+          <a href="#vision">Vision</a>
+          <a href="#fonctionnement">Fonctionnement</a>
+          <a href="#tarifs">Tarifs</a>
+        </div>
+        <a class="nav-cta" href="#tarifs">Espace client</a>
+      </nav>
+    </header>
 
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero-media" data-hero-media>
+        <video class="hero-video" autoplay loop muted playsinline poster="wereinlove-assets/family.jpg">
+          <source src="wereinlove-assets/hero-video.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow reveal">WereInLove</p>
+        <h1 class="reveal">Comprendre les personnes qui comptent.</h1>
+        <p class="hero-lede reveal">Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.</p>
+        <div class="hero-actions reveal">
+          <a class="button light" href="dispute.html">Commencer gratuitement</a>
+          <a class="button" href="https://www.wereinlove.app/compatibilite.html">Test de compatibilité</a>
+        </div>
+        <div class="scroll-seal" aria-hidden="true">
+          <span></span>
+          <b>+</b>
+        </div>
+      </div>
+    </section>
 
+    <main>
+      <section class="intro" id="vision">
+        <div class="section-head reveal">
+          <h2>Une relation change quand chacun se sent enfin entendu.</h2>
+          <p>Deux versions d'une même histoire. Une lecture calme de ce qui s'est vraiment joué entre les mots.</p>
+        </div>
+        <div class="photo-rail" data-rail>
+          <figure class="rail-card"><img src="wereinlove-assets/family.jpg" alt="Une mère et son enfant allongés dans l'herbe" loading="eager"></figure>
+          <figure class="rail-card wide"><img src="wereinlove-assets/moon.jpg" alt="Une silhouette face au ciel bleu" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/couple-sun.jpg" alt="Un couple dans la lumière du soleil" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/couple-close.jpg" alt="Un couple dans un moment d'apaisement" loading="lazy"></figure>
+          <figure class="rail-card wide"><img src="wereinlove-assets/rest.jpg" alt="Un visage au repos dans une lumière chaude" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/light.jpg" alt="Une pièce baignée de lumière" loading="lazy"></figure>
+        </div>
+      </section>
 
+      <section class="story-split">
+        <div class="story-copy reveal">
+          <p class="eyebrow">Familles</p>
+          <h2>Ce que l'autre voulait dire n'est pas toujours ce que l'on a entendu.</h2>
+          <p>WereInLove aide parents, enfants, amis, couples et proches à déposer leur version sans être interrompus.</p>
+          <div class="quiet-line"></div>
+          <p class="detail-note"><strong>Deux récits.</strong> Une synthèse qui distingue les faits, les émotions, les intentions et les malentendus.</p>
+        </div>
+        <figure class="feature-photo reveal">
+          <img class="family" src="wereinlove-assets/family.jpg" alt="Une mère et son enfant regardant l'objectif" loading="lazy">
+        </figure>
+      </section>
 
+      <section class="bleed-photo reveal">
+        <img src="wereinlove-assets/couple-close.jpg" alt="Deux personnes proches, les yeux fermés" loading="lazy">
+        <div class="bleed-inner">
+          <h2>On ne répare pas en gagnant. On répare en comprenant.</h2>
+          <p>L'IA n'est pas le sujet. Elle sert seulement à rendre la conversation plus claire, plus douce et plus possible.</p>
+          <div class="stats">
+            <div class="stat"><strong>1M</strong><span>de vues sur TikTok</span></div>
+            <div class="stat"><strong>50K+</strong><span>followers sur Instagram</span></div>
+            <div class="stat"><strong>3600+</strong><span>histoires écrites</span></div>
+          </div>
+        </div>
+      </section>
 
+      <section class="statement">
+        <h2 class="reveal">La dispute n'est qu'un signal. Le vrai sujet, c'est le lien.</h2>
+      </section>
 
-<header class="top">
-  <a class="logo-mark" href="#" aria-label="we're in love">
-    <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
-      <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
-      <circle cx="25" cy="25" r="2.6" fill="#fff"/>
-      <circle cx="33" cy="25" r="2.6" fill="#fff"/>
-      <circle cx="41" cy="25" r="2.6" fill="#fff"/>
-    </svg>
-    <span class="txt" data-i18n="brand">we're <span class="in">in</span> love</span>
-  </a>
-  <a href="espace-client.html" class="espace-btn" data-i18n="nav.espace">Mon espace client</a>
-  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <nav class="menu-panel" id="menu-panel" aria-hidden="true">
-    <button class="menu-close" id="menu-close" aria-label="Fermer">✕</button>
-    <div class="menu-brand">
-      <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
-        <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
-      </svg>
-      <span data-i18n="brand">we're <span class="in">in</span> love</span>
-    </div>
-    <span class="menu-label" data-i18n="nav.discover">Découvrir</span>
-    <a href="index.html" data-i18n="nav.home">Accueil</a>
-    <a href="app.html" data-i18n="nav.create">Créer une dispute</a>
-    <a href="boite-a-disputes.html" data-i18n="nav.box">La boîte à disputes</a>
-    <a href="compatibilite.html" data-i18n="nav.compat">Test de compatibilité</a>
-    <a href="#tarifs" data-i18n="nav.pricing">Tarifs</a>
-    <a href="faq.html" data-i18n="nav.faq">FAQ</a>
-    <span class="menu-label" data-i18n="nav.partners">Partenaires</span>
-    <a href="influenceur.html" data-i18n="nav.influencer">Espace influenceur &amp; partenariats</a>
-    <span class="menu-label" data-i18n="nav.legal">Légal</span>
-    <a href="mentions-legales.html" class="menu-legal" data-i18n="nav.legalMentions">Mentions légales</a>
-    <a href="cgv.html" class="menu-legal" data-i18n="nav.cgv">CGV</a>
-    <a href="politique-confidentialite.html" class="menu-legal" data-i18n="nav.privacy">Confidentialité</a>
-    <a href="app.html" class="menu-cta" data-i18n="nav.start">Commencer</a>
-    <a href="espace-client.html" class="menu-cta menu-cta-ghost" data-i18n="nav.espaceShort">Mon espace</a>
-    <button class="menu-cta menu-cta-ghost menu-lang" id="lang-toggle" type="button" data-i18n="nav.langToggle">🇬🇧 English</button>
-  </nav>
-  <div class="menu-overlay" id="menu-overlay"></div>
-</header>
+      <section class="how" id="fonctionnement">
+        <div class="how-grid">
+          <div class="sticky-copy reveal">
+            <p class="eyebrow">Comment ça marche</p>
+            <h2>Chacun raconte. WereInLove remet de la clarté.</h2>
+            <p>Le produit transforme deux ressentis séparés en une conversation plus lisible, sans désigner un coupable.</p>
+          </div>
+          <div class="steps">
+            <article class="step reveal">
+              <span class="step-num">01</span>
+              <h3>Une personne raconte sa version.</h3>
+              <p>Ce qu'elle a vécu, ce qu'elle a compris, ce qu'elle n'a pas réussi à dire.</p>
+            </article>
+            <article class="step reveal">
+              <span class="step-num">02</span>
+              <h3>L'autre partage la sienne.</h3>
+              <p>Les deux récits restent distincts. Aucun n'efface l'autre. Chacun garde sa place.</p>
+            </article>
+            <article class="step reveal">
+              <span class="step-num">03</span>
+              <h3>L'analyse fait apparaître les écarts.</h3>
+              <p>Malentendus, émotions, responsabilités, besoins cachés et prochaines phrases possibles.</p>
+            </article>
+            <article class="step reveal">
+              <span class="step-num">04</span>
+              <h3>Le dialogue peut reprendre.</h3>
+              <p>Pas avec une réponse magique. Avec une façon plus juste de se rejoindre.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-<div class="hero">
-  <div class="hero-copy">
-    <span class="pill" data-i18n="hero.pill">✨ La technologie qui vous aide à mieux vous comprendre</span>
-    <h1 data-i18n="hero.title">Une dispute.<br><span class="grad">Deux</span> versions.<br>Une <span class="grad">réconciliation</span>.</h1>
-    <p class="sub" data-i18n="hero.sub">Parce que la plupart des disputes ne viennent pas des mots… mais de ce qu'ils cachent.</p>
-    <div class="hero-cta">
-      <a href="app.html" class="btn btn-lg" data-i18n="hero.ctaStart">Démarrer une dispute ✨</a>
-      <a href="#comment" class="btn btn-ghost btn-lg" data-i18n="hero.ctaHow">▶ Voir comment ça marche</a>
-    </div>
-    <!-- BLOC AVIS — à activer quand vous aurez vos premiers vrais avis (retirez ces balises de commentaire) :
-    <div class="rating">
-      <span class="stars" aria-hidden="true">★★★★★</span>
-      <span class="rating-txt"><b>4,8/5</b> — la note de nos couples</span>
-    </div>
-    -->
-  </div>
-
-  <div class="stage" aria-label="Aperçu de l'application : Chloé et Esteban donnent chacun leur point de vue">
-    <div class="phones">
-      <!-- Téléphone de Chloé -->
-      <div class="phone-wrap pw-1">
-        <div class="floaty">
-          <div class="phone">
-            <div class="screen scr-rose">
-              <div class="island" aria-hidden="true"></div>
-              <div class="app-logo" aria-hidden="true">
-                <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#fff"/>
-                  <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#fff" fill-opacity=".75"/>
-                  <circle cx="25" cy="25" r="2.6" fill="#E01A66"/>
-                  <circle cx="33" cy="25" r="2.6" fill="#E01A66"/>
-                  <circle cx="41" cy="25" r="2.6" fill="#E01A66"/>
-                </svg>
-                <span>we're in love</span>
+      <section class="phones-section">
+        <div class="section-head reveal">
+          <p class="eyebrow">Dans votre poche</p>
+          <h2>Une interface faite pour écrire quand les mots sont difficiles.</h2>
+          <p>Simple, calme, privée. Un espace qui invite à formuler plutôt qu'à réagir.</p>
+        </div>
+        <div class="phone-stage reveal">
+          <div class="phone-copy">
+            <p class="eyebrow">Deux points de vue</p>
+            <h2>Chacun écrit sa version. L'IA écoute les deux.</h2>
+            <p>WereInLove ne cherche pas qui a raison. Il rapproche deux récits, repère ce qui s'est mal compris et vous aide à y voir clair.</p>
+            <div class="mode-tabs" role="tablist" aria-label="Exemples de relations">
+              <button class="is-active" type="button" data-story="couple">Couple</button>
+              <button type="button" data-story="amis">Amis</button>
+              <button type="button" data-story="famille">Famille</button>
+            </div>
+          </div>
+          <div class="phone-visuals" aria-hidden="true">
+            <div class="phone one">
+              <div class="phone-screen">
+                <div class="phone-top"><span data-phone-a-label>Version A</span><span>18:42</span></div>
+                <div class="chat">
+                  <div class="bubble" data-message-a>Je n'avais pas besoin que tu règles tout.</div>
+                  <div class="bubble you" data-message-b>Je croyais que tu attendais une solution.</div>
+                  <div class="bubble" data-message-c>J'avais surtout besoin que tu restes avec moi.</div>
+                </div>
               </div>
-              <div class="scr-step" data-i18n="phone.step1">Étape 1 · Chloé</div>
-              <div class="card">
-                <span class="stitle" data-i18n="phone.title1">Je raconte ma version</span>
-                <p data-i18n="phone.text1">« Tu as encore annulé notre soirée. J'ai besoin de sentir que je compte. »</p>
+            </div>
+            <div class="phone two">
+              <div class="phone-screen dark">
+                <div class="phone-top"><span>Écoute croisée</span><span data-relation-label>Couple</span></div>
+                <div class="insight">
+                  <strong data-insight-title>Le conflit porte moins sur la décision que sur le sentiment d'être seul avec elle.</strong>
+                  <p data-insight-text>L'IA met en regard les deux versions: l'un voulait aider vite, l'autre attendait d'abord une présence.</p>
+                </div>
               </div>
-              <div class="btn-app ba-rose" data-i18n="phone.btn1">Envoyer à Esteban →</div>
-              <div class="home-bar" aria-hidden="true"></div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Téléphone d'Esteban -->
-      <div class="phone-wrap pw-2">
-        <div class="floaty">
-          <div class="phone">
-            <div class="screen scr-violet">
-              <div class="island" aria-hidden="true"></div>
-              <div class="app-logo" aria-hidden="true">
-                <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#fff"/>
-                  <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#fff" fill-opacity=".75"/>
-                  <circle cx="25" cy="25" r="2.6" fill="#5A2BE0"/>
-                  <circle cx="33" cy="25" r="2.6" fill="#5A2BE0"/>
-                  <circle cx="41" cy="25" r="2.6" fill="#5A2BE0"/>
-                </svg>
-                <span>we're in love</span>
-              </div>
-              <div class="scr-step" data-i18n="phone.step2">Étape 2 · Esteban</div>
-              <div class="card">
-                <span class="stitle" data-i18n="phone.title2">Je donne la mienne</span>
-                <p data-i18n="phone.text2">Chloé m'a envoyé sa version. <b>À moi de raconter la mienne.</b></p>
-              </div>
-              <div class="btn-app ba-violet" data-i18n="phone.btn2">Répondre à Chloé →</div>
-              <div class="home-bar" aria-hidden="true"></div>
+      <section class="analysis-section">
+        <div class="analysis-grid">
+          <div class="analysis-copy reveal">
+            <p class="eyebrow">Analyse</p>
+            <h2>Les émotions, les responsabilités et les mots possibles au même endroit.</h2>
+            <p>WereInLove ne remplace pas la conversation. Il prépare un terrain où elle peut redevenir humaine.</p>
+          </div>
+          <div class="analysis-card reveal">
+            <div class="analysis-bar"><span class="analysis-dot"></span><span>WereInLove - Lecture croisée</span></div>
+            <div class="analysis-body">
+              <div class="analysis-message"><strong>Chloé :</strong> “Quand tu réponds plus tard, j'ai l'impression de ne pas compter.”</div>
+              <div class="analysis-message"><strong>Esteban :</strong> “Je me tais pour éviter d'empirer les choses, pas pour m'éloigner.”</div>
+              <div class="analysis-message ai"><strong>WereInLove :</strong> Chloé cherche une preuve de présence. Esteban, lui, prend du recul pour éviter d'abîmer davantage la relation. Le conflit ne parle donc pas seulement du délai de réponse, mais de deux façons différentes de protéger le lien.</div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- Avatars sous les téléphones -->
-    <div class="cast">
-      <div class="floater fl-1">
-        <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Chloé"></div>
-        <div class="chip chip-rose" data-i18n="cast.chloe">Chloé raconte sa version</div>
-      </div>
-      <div class="floater fl-2">
-        <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Esteban"></div>
-        <div class="chip chip-violet" data-i18n="cast.esteban">Esteban donne la sienne</div>
-      </div>
-    </div>
-
-    <!-- Offre + confidentialité, sous les téléphones -->
-    <div class="hero-offer">
-      <div class="free-badge"><span class="fb-ico" aria-hidden="true">🎁</span><span data-i18n="hero.offerBadge"><b>2 disputes offertes</b> — sans carte bancaire</span></div>
-      <p class="micro" data-i18n="hero.offerMicro">Puis dès 3,99 € / mois · résiliable à tout moment</p>
-      <p class="trust-line" data-i18n="hero.trust">🔒 100 % confidentiel — rien n'est jamais rendu public sans l'accord des deux partenaires.</p>
-    </div>
-  </div>
-</div>
-
-<div class="features" id="fonctionnalites">
-  <div class="feat">
-    <div class="ico ico-rose">💗</div>
-    <div><h3 data-i18n="feat.1.h">Relation plus forte</h3><p data-i18n="feat.1.p">Améliorez votre connexion jour après jour.</p></div>
-  </div>
-  <div class="feat">
-    <div class="ico ico-violet">🧠</div>
-    <div><h3 data-i18n="feat.2.h">Analyse bienveillante</h3><p data-i18n="feat.2.p">Ne juge pas, comprend les deux côtés.</p></div>
-  </div>
-  <div class="feat">
-    <div class="ico ico-rose">⚡</div>
-    <div><h3 data-i18n="feat.3.h">Rapide &amp; simple</h3><p data-i18n="feat.3.p">Des clés concrètes en quelques minutes.</p></div>
-  </div>
-  <div class="feat">
-    <div class="ico ico-violet">👥</div>
-    <div><h3 data-i18n="feat.4.h">Plus forts ensemble</h3><p data-i18n="feat.4.p">Des relations plus saines et durables.</p></div>
-  </div>
-</div>
-
-<section id="comment">
-  <div class="shell center">
-    <span class="eyebrow" data-i18n="how.eyebrow">Comment ça marche</span>
-    <h2 class="section-title" data-i18n="how.title">Une dispute. <span class="grad">Deux versions.</span> Une sortie de crise.</h2>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="n">1</div>
-        <h3 data-i18n="how.1.h">Racontez votre version</h3>
-        <p data-i18n="how.1.p">Créez une dispute et dites tout, sans filtre. Envoyez-la au numéro de l'autre.</p>
-      </div>
-      <div class="step reveal">
-        <div class="n">2</div>
-        <h3 data-i18n="how.2.h">L'autre répond, à son rythme</h3>
-        <p data-i18n="how.2.p">Il découvre un résumé et donne sa version <b>quand il est prêt</b> — ce soir ou demain matin.</p>
-      </div>
-      <div class="step reveal">
-        <div class="n">3</div>
-        <h3 data-i18n="how.3.h">3 réponses chacun, max</h3>
-        <p data-i18n="how.3.p">Chacun peut préciser sa pensée <b>3 fois maximum</b>. Alors choisissez bien vos mots.</p>
-      </div>
-      <div class="step reveal">
-        <div class="n">4</div>
-        <h3 data-i18n="how.4.h">we're in love vous éclaire</h3>
-        <p data-i18n="how.4.p">Elle analyse les deux points de vue, dit les choses clairement — puis <b>vous remet du même côté</b>.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SÉQUENCE CINÉMATIQUE — we're in love
-     Bloc autonome (styles + script scopés). 5 scènes,
-     narration : constat → dispute → analyse → révélation → vous deux.
-     Placée entre « Comment ça marche » et le test de compatibilité.
-     ============================================================ -->
-<section id="hero-explain" data-scene="constat" aria-label="Comment fonctionne we're in love">
-<style>
-/* ---------- base ---------- */
-#hero-explain{
-  position:relative;overflow:hidden;isolation:isolate;
-  padding:clamp(44px,5.5vw,72px) clamp(18px,4vw,48px) clamp(46px,5.5vw,76px);
-  display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(120% 90% at 50% 0%,#120B1E 0%,#0A0712 46%,#070510 100%);
-  border-top:1px solid rgba(255,255,255,.06);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  color:#fff;
-}
-#hero-explain *{box-sizing:border-box}
-
-/* ---------- fond aurora ---------- */
-#hero-explain .hv-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
-#hero-explain .hv-aurora{
-  position:absolute;width:44vw;height:44vw;min-width:420px;min-height:420px;
-  border-radius:50%;filter:blur(110px);opacity:.32;mix-blend-mode:screen;
-}
-#hero-explain .hv-aurora.a1{background:#FF2D75;top:-18%;left:-10%;animation:hvDrift1 26s ease-in-out infinite alternate}
-#hero-explain .hv-aurora.a2{background:#7C4DFF;bottom:-24%;right:-12%;animation:hvDrift2 32s ease-in-out infinite alternate}
-#hero-explain .hv-aurora.a3{background:#3A1DBE;top:30%;left:44%;opacity:.2;animation:hvDrift1 38s ease-in-out infinite alternate-reverse}
-@keyframes hvDrift1{from{transform:translate(0,0) scale(1)}to{transform:translate(9vw,6vh) scale(1.15)}}
-@keyframes hvDrift2{from{transform:translate(0,0) scale(1.1)}to{transform:translate(-8vw,-7vh) scale(.95)}}
-#hero-explain .hv-stars i{
-  position:absolute;width:3px;height:3px;border-radius:50%;
-  background:rgba(255,255,255,.55);
-  animation:hvTwinkle 6s ease-in-out infinite;
-}
-#hero-explain .hv-stars i:nth-child(1){top:14%;left:12%;animation-delay:0s}
-#hero-explain .hv-stars i:nth-child(2){top:24%;left:82%;animation-delay:1.2s}
-#hero-explain .hv-stars i:nth-child(3){top:66%;left:8%;animation-delay:2.1s}
-#hero-explain .hv-stars i:nth-child(4){top:78%;left:70%;animation-delay:3s}
-#hero-explain .hv-stars i:nth-child(5){top:8%;left:52%;animation-delay:1.8s}
-#hero-explain .hv-stars i:nth-child(6){top:52%;left:92%;animation-delay:.6s}
-#hero-explain .hv-stars i:nth-child(7){top:88%;left:30%;animation-delay:2.6s}
-#hero-explain .hv-stars i:nth-child(8){top:40%;left:4%;animation-delay:3.6s}
-@keyframes hvTwinkle{0%,100%{opacity:.1;transform:scale(.7)}50%{opacity:.9;transform:scale(1.2)}}
-#hero-explain .hv-vignette{position:absolute;inset:0;background:radial-gradient(90% 70% at 50% 45%,transparent 55%,rgba(4,3,9,.75) 100%)}
-
-/* ---------- structure ---------- */
-#hero-explain .hv-inner{
-  width:100%;max-width:1060px;margin:0 auto;
-  display:flex;flex-direction:column;align-items:center;text-align:center;
-}
-#hero-explain .hv-top{
-  width:100%;display:flex;justify-content:space-between;align-items:center;
-}
-#hero-explain .hv-eyebrow{
-  display:inline-flex;align-items:center;gap:9px;
-  font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.78);
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
-  padding:9px 16px;border-radius:100px;backdrop-filter:blur(8px);
-}
-#hero-explain .hv-dot{
-  width:7px;height:7px;border-radius:50%;
-  background:linear-gradient(90deg,#FF2D75,#7C4DFF);
-  box-shadow:0 0 10px rgba(255,45,117,.9);
-  animation:hvPulseDot 2.2s ease-in-out infinite;
-}
-@keyframes hvPulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.55}}
-#hero-explain .hv-count{font-size:13px;font-weight:800;letter-spacing:.08em;color:rgba(255,255,255,.9)}
-#hero-explain .hv-count .hv-total{color:rgba(255,255,255,.35);margin-left:3px}
-
-/* ---------- titre ---------- */
-#hero-explain .hv-title{
-  position:relative;width:100%;
-  height:clamp(88px,12vw,128px);
-  margin-top:clamp(16px,2.6vw,28px);
-  display:grid;place-items:center;
-  font-weight:800;letter-spacing:-.03em;line-height:1.08;
-  font-size:clamp(28px,4.2vw,48px);
-}
-#hero-explain .hv-line{
-  grid-area:1/1;max-width:19ch;
-  opacity:0;transform:translateY(22px) scale(.985);filter:blur(10px);
-  transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1),filter 1s;
-  pointer-events:none;
-}
-#hero-explain .hv-line b{
-  background:linear-gradient(90deg,#FF5C93,#B07CFF);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  font-weight:800;
-}
-#hero-explain[data-scene="constat"]   .hv-line[data-s="constat"],
-#hero-explain[data-scene="dispute"]   .hv-line[data-s="dispute"],
-#hero-explain[data-scene="analyse"]   .hv-line[data-s="analyse"],
-#hero-explain[data-scene="verdict"]   .hv-line[data-s="verdict"],
-#hero-explain[data-scene="invite"]    .hv-line[data-s="invite"]{
-  opacity:1;transform:none;filter:blur(0);
-}
-
-/* ---------- scène ---------- */
-#hero-explain .hv-stage{
-  position:relative;width:100%;
-  height:clamp(224px,25vw,272px);
-  margin-top:clamp(6px,1.4vw,14px);
-}
-
-/* --- scène 1 : stats --- */
-#hero-explain .hv-stats{
-  position:absolute;inset:0;
-  display:flex;justify-content:center;align-items:center;gap:clamp(12px,2vw,22px);
-  opacity:0;pointer-events:none;transition:opacity .8s;
-}
-#hero-explain[data-scene="constat"] .hv-stats{opacity:1;pointer-events:auto}
-#hero-explain .hv-stat{
-  width:min(288px,31%);
-  background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:22px;padding:clamp(18px,2.4vw,30px) clamp(14px,1.8vw,22px);
-  backdrop-filter:blur(10px);
-  box-shadow:0 30px 60px -34px rgba(0,0,0,.9);
-  opacity:0;transform:translateY(26px);
-  transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);
-}
-#hero-explain[data-scene="constat"] .hv-stat{opacity:1;transform:none}
-#hero-explain[data-scene="constat"] .hv-stat:nth-child(1){transition-delay:.15s}
-#hero-explain[data-scene="constat"] .hv-stat:nth-child(2){transition-delay:.32s}
-#hero-explain[data-scene="constat"] .hv-stat:nth-child(3){transition-delay:.49s}
-#hero-explain .hv-stat .fig{
-  font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1;
-  background:linear-gradient(90deg,#FF5C93,#B07CFF);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  white-space:nowrap;
-}
-#hero-explain .hv-stat .unit{font-size:.62em}
-#hero-explain .hv-stat small{
-  display:block;margin-top:10px;
-  font-size:clamp(11.5px,1.1vw,13.5px);line-height:1.45;color:rgba(255,255,255,.72);font-weight:600;
-}
-
-/* --- scènes 2→4 : duo + noyau --- */
-#hero-explain .hv-duo{
-  position:absolute;inset:0;
-  display:grid;grid-template-columns:1fr clamp(140px,17vw,206px) 1fr;
-  align-items:center;max-width:900px;margin:0 auto;
-  opacity:0;pointer-events:none;transition:opacity .8s;
-}
-#hero-explain[data-scene="dispute"] .hv-duo,
-#hero-explain[data-scene="analyse"] .hv-duo,
-#hero-explain[data-scene="verdict"] .hv-duo{opacity:1;pointer-events:auto}
-
-#hero-explain .hv-card{
-  width:min(300px,100%);
-  background:rgba(19,14,30,.72);
-  border:1px solid rgba(255,255,255,.11);
-  border-radius:20px;padding:clamp(15px,1.8vw,22px) clamp(15px,1.8vw,24px);
-  text-align:left;backdrop-filter:blur(12px);
-  box-shadow:0 34px 70px -34px rgba(0,0,0,.95);
-  transition:transform 1.15s cubic-bezier(.22,1,.36,1),border-color 1s,box-shadow 1s;
-}
-#hero-explain .hv-left{justify-self:end;border-color:rgba(255,45,117,.35)}
-#hero-explain .hv-right{justify-self:start;border-color:rgba(124,77,255,.38)}
-#hero-explain .hv-who{
-  display:flex;align-items:center;gap:8px;
-  font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.58);margin-bottom:10px;
-}
-#hero-explain .hv-pin{width:8px;height:8px;border-radius:50%}
-#hero-explain .p-rose{background:#FF2D75;box-shadow:0 0 9px rgba(255,45,117,.9)}
-#hero-explain .p-violet{background:#7C4DFF;box-shadow:0 0 9px rgba(124,77,255,.9)}
-#hero-explain .hv-say{font-size:clamp(13px,1.3vw,15.5px);line-height:1.55;color:rgba(255,255,255,.94);font-weight:500;margin:0}
-
-/* positions par scène */
-#hero-explain[data-scene="dispute"] .hv-left{transform:translateX(-24px) rotate(-2.6deg)}
-#hero-explain[data-scene="dispute"] .hv-right{transform:translateX(24px) rotate(2.6deg)}
-#hero-explain[data-scene="analyse"] .hv-left{transform:translateX(-4px) rotate(-.6deg)}
-#hero-explain[data-scene="analyse"] .hv-right{transform:translateX(4px) rotate(.6deg)}
-#hero-explain[data-scene="verdict"] .hv-left{transform:translateX(30px) rotate(1.6deg);border-color:rgba(255,45,117,.6);box-shadow:0 34px 70px -30px rgba(255,45,117,.28)}
-#hero-explain[data-scene="verdict"] .hv-right{transform:translateX(-30px) rotate(-1.6deg);border-color:rgba(124,77,255,.6);box-shadow:0 34px 70px -30px rgba(124,77,255,.3)}
-
-/* noyau IA */
-#hero-explain .hv-core{
-  position:relative;height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  z-index:2;
-}
-#hero-explain .hv-beam{
-  position:absolute;top:50%;height:2px;width:calc(50% - clamp(36px,4.5vw,54px));
-  background:linear-gradient(90deg,rgba(255,45,117,.85),rgba(124,77,255,.85));
-  opacity:0;transition:transform .9s cubic-bezier(.22,1,.36,1) .35s,opacity .7s .35s;
-}
-#hero-explain .b-left{left:0;transform-origin:left center;transform:scaleX(0)}
-#hero-explain .b-right{right:0;transform-origin:right center;transform:scaleX(0);background:linear-gradient(90deg,rgba(124,77,255,.85),rgba(255,45,117,.85))}
-#hero-explain[data-scene="analyse"] .hv-beam,
-#hero-explain[data-scene="verdict"] .hv-beam{opacity:1;transform:scaleX(1)}
-#hero-explain .hv-beam::after{
-  content:"";position:absolute;top:-2px;width:9px;height:6px;border-radius:100px;
-  background:#fff;filter:blur(1px);opacity:0;
-}
-#hero-explain[data-scene="analyse"] .b-left::after{animation:hvFlowL 1.6s linear .8s infinite;opacity:1}
-#hero-explain[data-scene="analyse"] .b-right::after{animation:hvFlowR 1.6s linear 1.2s infinite;opacity:1}
-@keyframes hvFlowL{from{left:0}to{left:100%}}
-@keyframes hvFlowR{from{right:0}to{right:100%}}
-
-#hero-explain .hv-orb{
-  position:relative;width:clamp(92px,10vw,128px);aspect-ratio:1;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transform:scale(.55);
-  transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.34,1.4,.5,1);
-}
-#hero-explain[data-scene="analyse"] .hv-orb,
-#hero-explain[data-scene="verdict"] .hv-orb{opacity:1;transform:scale(1)}
-#hero-explain .hv-halo{
-  position:absolute;inset:-16%;border-radius:50%;
-  background:conic-gradient(from 0deg,#FF2D75,#7C4DFF,#FF2D75);
-  filter:blur(20px);opacity:.55;
-  animation:hvSpin 9s linear infinite;
-}
-#hero-explain[data-scene="verdict"] .hv-halo{opacity:.85;animation-duration:5.5s}
-@keyframes hvSpin{to{transform:rotate(360deg)}}
-#hero-explain .hv-orb-core{
-  position:relative;width:100%;height:100%;border-radius:50%;
-  background:radial-gradient(120% 120% at 30% 25%,#241633,#0D0917 70%);
-  border:1px solid rgba(255,255,255,.16);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:inset 0 0 30px rgba(124,77,255,.25);
-}
-#hero-explain .hv-orb-core svg{width:58%;height:auto;filter:drop-shadow(0 6px 16px rgba(255,45,117,.45))}
-#hero-explain[data-scene="verdict"] .hv-orb-core svg{animation:hvHeartbeat 1.5s ease-in-out infinite}
-@keyframes hvHeartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.12)}28%{transform:scale(1)}42%{transform:scale(1.09)}56%{transform:scale(1)}}
-
-#hero-explain .hv-chips{
-  position:absolute;top:calc(50% - clamp(84px,9.5vw,112px));left:50%;transform:translateX(-50%);
-  display:flex;gap:8px;white-space:nowrap;
-}
-#hero-explain .hv-chips span{
-  font-size:clamp(9.5px,1vw,11.5px);font-weight:800;letter-spacing:.06em;
-  color:rgba(255,255,255,.9);
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
-  padding:6px 12px;border-radius:100px;backdrop-filter:blur(8px);
-  opacity:0;transform:translateY(12px);
-  transition:opacity .7s,transform .7s cubic-bezier(.22,1,.36,1);
-}
-#hero-explain[data-scene="analyse"] .hv-chips span{opacity:1;transform:none;animation:hvFloat 4.5s ease-in-out infinite}
-#hero-explain[data-scene="analyse"] .hv-chips span:nth-child(1){transition-delay:.55s;animation-delay:1.2s}
-#hero-explain[data-scene="analyse"] .hv-chips span:nth-child(2){transition-delay:.75s;animation-delay:1.7s}
-#hero-explain[data-scene="analyse"] .hv-chips span:nth-child(3){transition-delay:.95s;animation-delay:2.2s}
-@keyframes hvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-
-#hero-explain .hv-verdict{
-  position:absolute;top:calc(50% + clamp(58px,7vw,84px));left:50%;
-  transform:translate(-50%,14px) scale(.85);
-  background:linear-gradient(90deg,#FF2D75,#8A4DFF);
-  color:#fff;font-weight:800;font-size:clamp(12.5px,1.4vw,15.5px);
-  padding:11px 22px;border-radius:100px;white-space:nowrap;
-  box-shadow:0 16px 40px -12px rgba(232,26,102,.7);
-  opacity:0;transition:opacity .8s .3s,transform .8s cubic-bezier(.34,1.5,.5,1) .3s;
-}
-#hero-explain[data-scene="verdict"] .hv-verdict{opacity:1;transform:translate(-50%,0) scale(1)}
-#hero-explain .hv-hearts{position:absolute;inset:0;pointer-events:none}
-#hero-explain .hv-hearts i{
-  position:absolute;bottom:16%;font-style:normal;font-size:15px;opacity:0;
-  color:#FF5C93;text-shadow:0 0 12px rgba(255,45,117,.8);
-}
-#hero-explain[data-scene="verdict"] .hv-hearts i{animation:hvRise 3.4s ease-in infinite}
-#hero-explain .hv-hearts i:nth-child(1){left:44%;animation-delay:.4s}
-#hero-explain .hv-hearts i:nth-child(2){left:52%;animation-delay:1.1s;font-size:12px}
-#hero-explain .hv-hearts i:nth-child(3){left:48%;animation-delay:1.9s;font-size:18px}
-#hero-explain .hv-hearts i:nth-child(4){left:56%;animation-delay:2.6s;font-size:11px}
-@keyframes hvRise{0%{opacity:0;transform:translateY(0) scale(.7)}12%{opacity:.95}100%{opacity:0;transform:translateY(-130px) scale(1.15)}}
-
-/* --- scène 5 : vous deux --- */
-#hero-explain .hv-final{
-  position:absolute;inset:0;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;
-  opacity:0;pointer-events:none;transition:opacity .9s .15s;
-}
-#hero-explain[data-scene="invite"] .hv-final{opacity:1;pointer-events:auto}
-#hero-explain .hv-final-logo{position:relative;width:clamp(110px,12vw,150px)}
-#hero-explain .hv-final-logo::before{
-  content:"";position:absolute;inset:-26%;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,45,117,.4),rgba(124,77,255,.22) 55%,transparent 72%);
-  filter:blur(14px);animation:hvGlowPulse 2.6s ease-in-out infinite;
-}
-@keyframes hvGlowPulse{0%,100%{opacity:.6;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
-#hero-explain .hv-final-logo svg{position:relative;width:100%;height:auto;filter:drop-shadow(0 14px 30px rgba(232,26,102,.5))}
-#hero-explain[data-scene="invite"] .hv-final-logo svg{animation:hvHeartbeat 1.6s ease-in-out infinite}
-#hero-explain .hv-offer{font-size:clamp(14px,1.5vw,17px);color:rgba(255,255,255,.75);font-weight:600;margin:0}
-#hero-explain .hv-offer b{color:#fff;background:linear-gradient(90deg,#FF5C93,#B07CFF);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-/* ---------- progression ---------- */
-#hero-explain .hv-steps{display:flex;gap:8px;margin-top:clamp(18px,2.6vw,30px)}
-#hero-explain .hv-step{
-  width:clamp(34px,4.4vw,50px);height:6px;border-radius:100px;border:none;
-  background:rgba(255,255,255,.13);cursor:pointer;padding:0;overflow:hidden;
-  transition:background .3s;
-}
-#hero-explain .hv-step:hover{background:rgba(255,255,255,.26)}
-#hero-explain .hv-step span{
-  display:block;height:100%;width:0;border-radius:100px;
-  background:linear-gradient(90deg,#FF2D75,#7C4DFF);
-}
-#hero-explain .hv-step.done span{width:100%}
-#hero-explain .hv-step.active span{width:100%;transition:width var(--hv-dur,5200ms) linear}
-
-/* ---------- CTA ---------- */
-#hero-explain .hv-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:clamp(18px,2.4vw,26px)}
-#hero-explain .hv-btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:16px 30px;border-radius:100px;text-decoration:none;
-  font-family:inherit;font-weight:800;font-size:15.5px;color:#fff;
-  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;
-}
-#hero-explain .hv-btn:hover{transform:translateY(-2px)}
-#hero-explain .hv-grad{
-  background:linear-gradient(90deg,#FF2D75,#8A3BEF);
-  box-shadow:0 14px 34px -12px rgba(232,26,102,.65);
-}
-#hero-explain[data-scene="invite"] .hv-grad{animation:hvCtaGlow 2.2s ease-in-out infinite}
-@keyframes hvCtaGlow{0%,100%{box-shadow:0 14px 34px -12px rgba(232,26,102,.65)}50%{box-shadow:0 16px 46px -8px rgba(232,26,102,.95)}}
-#hero-explain .hv-ghost{
-  background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.18);
-  backdrop-filter:blur(8px);
-}
-#hero-explain .hv-ghost:hover{background:rgba(255,255,255,.1)}
-
-/* ---------- mobile ---------- */
-@media (max-width:640px){
-  #hero-explain{padding:38px 16px 44px}
-  #hero-explain .hv-eyebrow{font-size:10px;padding:8px 13px;letter-spacing:.12em}
-  #hero-explain .hv-title{height:104px;font-size:clamp(26px,8vw,33px);margin-top:16px}
-  #hero-explain .hv-line{max-width:100%}
-  #hero-explain .hv-stage{height:296px;margin-top:4px}
-  #hero-explain .hv-stats{flex-direction:column;gap:10px}
-  #hero-explain .hv-stat{
-    width:100%;max-width:352px;padding:12px 16px;
-    display:flex;align-items:center;gap:14px;text-align:left;border-radius:16px;
-  }
-  #hero-explain .hv-stat .fig{font-size:27px;min-width:86px}
-  #hero-explain .hv-stat small{margin-top:0;font-size:11.5px}
-  #hero-explain .hv-duo{grid-template-columns:1fr 86px 1fr}
-  #hero-explain .hv-card{padding:13px 12px;border-radius:15px}
-  #hero-explain .hv-who{font-size:8.6px;margin-bottom:8px;letter-spacing:.1em}
-  #hero-explain .hv-say{font-size:11.6px;line-height:1.42}
-  #hero-explain[data-scene="dispute"] .hv-left{transform:translateX(-9px) rotate(-2.2deg)}
-  #hero-explain[data-scene="dispute"] .hv-right{transform:translateX(9px) rotate(2.2deg)}
-  #hero-explain[data-scene="verdict"] .hv-left{transform:translateX(10px) rotate(1.4deg)}
-  #hero-explain[data-scene="verdict"] .hv-right{transform:translateX(-10px) rotate(-1.4deg)}
-  #hero-explain .hv-orb{width:74px}
-  #hero-explain .hv-beam{width:calc(50% - 30px)}
-  #hero-explain .hv-chips{top:calc(50% - 96px);gap:5px}
-  #hero-explain .hv-chips span{font-size:8.6px;padding:5px 9px}
-  #hero-explain .hv-verdict{top:calc(50% + 62px);font-size:12px;padding:10px 18px}
-  #hero-explain .hv-final-logo{width:104px}
-  #hero-explain .hv-offer{font-size:13.5px;padding:0 10px}
-  #hero-explain .hv-cta{flex-direction:column;width:100%;max-width:352px;gap:10px}
-  #hero-explain .hv-btn{width:100%;padding:15px 22px;font-size:15px}
-  #hero-explain .hv-ghost{display:none}
-  #hero-explain .hv-step{width:40px}
-}
-
-/* ---------- reduced motion ---------- */
-@media (prefers-reduced-motion:reduce){
-  #hero-explain *,#hero-explain *::before,#hero-explain *::after{animation:none!important;transition:none!important}
-}
-</style>
-
-  <div class="hv-bg" aria-hidden="true">
-    <span class="hv-aurora a1"></span><span class="hv-aurora a2"></span><span class="hv-aurora a3"></span>
-    <span class="hv-stars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-    <span class="hv-vignette"></span>
-  </div>
-
-  <div class="hv-inner">
-    <div class="hv-top">
-      <div class="hv-eyebrow"><span class="hv-dot"></span><span id="hv-label">Le constat</span></div>
-      <div class="hv-count"><span id="hv-num">01</span><span class="hv-total">/ 05</span></div>
-    </div>
-
-    <h2 class="hv-title" aria-live="polite">
-      <span class="hv-line" data-s="constat" data-i18n="hv.line0">La communication,<br><b>1<sup>re</sup> cause de rupture.</b></span>
-      <span class="hv-line" data-s="dispute" data-i18n="hv.line1">Chaque dispute a <b>deux versions.</b></span>
-      <span class="hv-line" data-s="analyse" data-i18n="hv.line2">Notre IA écoute <b>les deux.</b></span>
-      <span class="hv-line" data-s="verdict" data-i18n="hv.line3">Et traduit <b>les non-dits.</b></span>
-      <span class="hv-line" data-s="invite" data-i18n="hv.line4">Vous vous <b>retrouvez.</b></span>
-    </h2>
-
-    <div class="hv-stage">
-
-      <!-- 01 · le constat -->
-      <div class="hv-stats" aria-hidden="true">
-        <div class="hv-stat"><div class="fig"><span class="num" data-to="65">0</span><span class="unit">%</span></div><small data-i18n="hv.stat1">des couples citent la communication comme 1<sup>re</sup> cause de séparation</small></div>
-        <div class="hv-stat"><div class="fig" data-i18n="hv.stat2fig">1&nbsp;sur&nbsp;2</div><small data-i18n="hv.stat2">un couple marié sur deux a déjà consulté</small></div>
-        <div class="hv-stat"><div class="fig"><span class="num" data-to="69">0</span><span class="unit">%</span></div><small data-i18n="hv.stat3">des conflits ne portent pas sur les faits, mais sur le ressenti</small></div>
-      </div>
-
-      <!-- 02 → 04 · la dispute, l'analyse, la révélation -->
-      <div class="hv-duo">
-        <div class="hv-card hv-left">
-          <div class="hv-who"><span class="hv-pin p-rose"></span><span data-i18n="hv.who">Sa version</span></div>
-          <p class="hv-say" data-i18n="hv.say1">« Tu as encore annulé notre soirée… J'ai eu l'impression de ne pas compter. »</p>
+      <section class="resolved" id="histoires-resolues">
+        <div class="section-head reveal">
+          <p class="eyebrow">Histoires résolues</p>
+          <h2>Pour les conversations que l'on repousse parce qu'elles comptent trop.</h2>
         </div>
+        <div class="resolved-grid">
+          <article class="resolved-card reveal">
+            <img src="wereinlove-assets/rest.jpg" alt="Un visage calme dans une lumière chaude" loading="lazy">
+            <div>
+              <h3>Quand le silence dure plus longtemps que la dispute.</h3>
+              <p>Retrouver une phrase d'ouverture qui ne rallume pas tout.</p>
+            </div>
+          </article>
+          <article class="resolved-card reveal">
+            <img src="wereinlove-assets/couple-sun.jpg" alt="Un couple dans une lumière naturelle" loading="lazy">
+            <div>
+              <h3>Quand deux personnes veulent bien faire, mais pas de la même façon.</h3>
+              <p>Nommer l'intention derrière le geste, pas seulement l'effet.</p>
+            </div>
+          </article>
+          <article class="resolved-card reveal">
+            <img src="wereinlove-assets/light.jpg" alt="Lumière douce sur un mur en bois" loading="lazy">
+            <div>
+              <h3>Quand il faut laisser redescendre avant de se reparler.</h3>
+              <p>Clarifier sans presser. Revenir sans forcer.</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-        <div class="hv-core">
-          <span class="hv-beam b-left" aria-hidden="true"></span>
-          <span class="hv-beam b-right" aria-hidden="true"></span>
-          <div class="hv-chips" aria-hidden="true"><span data-i18n="hv.chip1">émotions</span><span data-i18n="hv.chip2">non-dits</span><span data-i18n="hv.chip3">besoins</span></div>
-          <div class="hv-orb" aria-hidden="true">
-            <span class="hv-halo"></span>
-            <span class="hv-orb-core">
-              <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
-                <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
-                <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
-              </svg>
-            </span>
+      <section class="experiences" id="experiences">
+        <div class="section-head reveal">
+          <p class="eyebrow">Expériences</p>
+          <h2>Deux façons simples d'ouvrir une vraie conversation.</h2>
+          <p>Pour déposer ce que l'on n'arrive pas à dire, ou découvrir ce qui nous relie avant même que l'histoire commence.</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card reveal">
+            <img src="wereinlove-assets/story-cups.jpg" alt="Un couple assis avec deux tasses, dans une ambiance calme" loading="lazy">
+            <div class="experience-content">
+              <p class="eyebrow">Boîte à histoires</p>
+              <h3>Des conflits déjà apaisés par WereInLove.</h3>
+              <p>Des histoires publiées avec l'accord des utilisateurs, pour montrer comment deux versions d'une même situation peuvent devenir plus claires, plus justes et plus faciles à reparler.</p>
+              <div class="experience-actions">
+                <a class="button light" href="https://www.wereinlove.app/boite-a-disputes.html">Lire les histoires</a>
+                <a class="button ghost" href="#fonctionnement">Comprendre la méthode</a>
+              </div>
+            </div>
+          </article>
+          <article class="experience-card light-card reveal">
+            <img src="wereinlove-assets/compatibility-bed.jpg" alt="Un couple allongé sur un lit dans une lumière douce" loading="lazy">
+            <div class="experience-content">
+              <p class="eyebrow">Test de compatibilité</p>
+              <h3>À faire avec son conjoint. Ou avec son crush.</h3>
+              <p>Un test doux pour explorer vos façons d'aimer, de parler, de vous rassurer et de gérer les désaccords. Pas pour prédire une relation. Pour mieux la comprendre.</p>
+              <div class="experience-actions">
+                <a class="button" href="https://www.wereinlove.app/compatibilite.html">Faire le test</a>
+                <a class="button ghost" href="#tarifs">Voir les offres</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="pricing" id="tarifs">
+        <div class="pricing-top reveal">
+          <div>
+            <p class="eyebrow">Tarifs</p>
+            <h2>Une seule vraie conversation peut changer beaucoup plus qu'une journée.</h2>
           </div>
-          <div class="hv-verdict" data-i18n="hv.verdict">On se comprend&nbsp;❤</div>
-          <div class="hv-hearts" aria-hidden="true"><i>❤</i><i>❤</i><i>❤</i><i>❤</i></div>
+          <p>Commencez gratuitement. Passez à un accompagnement plus profond quand une relation mérite plus qu'une réponse rapide.</p>
+        </div>
+        <div class="plans">
+          <article class="plan reveal">
+            <span class="plan-kicker">Découverte</span>
+            <h3>Découverte</h3>
+            <p class="plan-sub">Vos deux premières histoires, sans carte bancaire</p>
+            <div class="price">0€</div>
+            <p class="plan-note">Pour essayer WereInLove librement</p>
+            <hr>
+            <ul>
+              <li>2 histoires complètes offertes</li>
+              <li>Aucune carte bancaire demandée</li>
+              <li>Les deux versions + 3 réponses chacun</li>
+              <li>Analyse complète de WereInLove</li>
+            </ul>
+            <a class="button" href="#">Essayer gratuitement</a>
+          </article>
+          <article class="plan dark reveal">
+            <span class="plan-kicker">Formule la plus populaire</span>
+            <h3>Relations essentielles</h3>
+            <p class="plan-sub">Pour apaiser les conflits qui comptent</p>
+            <div class="price">3,99€<small>/mois</small></div>
+            <p class="plan-note"><span class="was-price">9,99€</span> · jusqu'à 30 conflits apaisés par mois</p>
+            <hr>
+            <ul>
+              <li>30 analyses par mois, pour toutes vos relations</li>
+              <li>WereInLove vous aide à mieux comprendre vos schémas récurrents</li>
+              <li>Résiliable à tout moment</li>
+            </ul>
+            <a class="button light" href="#">S'abonner</a>
+          </article>
+          <article class="plan reveal">
+            <span class="plan-kicker">Illimité</span>
+            <h3>Illimité</h3>
+            <p class="plan-sub">Pour comprendre sans compter</p>
+            <div class="price">14,99€<small>/mois</small></div>
+            <p class="plan-note">Analyses sans aucune limite</p>
+            <hr>
+            <ul>
+              <li>Analyses illimitées</li>
+              <li>Toutes les fonctionnalités incluses</li>
+              <li>Résiliable à tout moment</li>
+            </ul>
+            <a class="button" href="#">Passer à l'illimité</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <img src="wereinlove-assets/moon.jpg" alt="Une silhouette face au ciel" loading="lazy">
+        <div class="final-inner reveal">
+          <h2>Commencer par comprendre. Puis seulement répondre.</h2>
+          <p>WereInLove est là pour les liens que vous ne voulez pas laisser se perdre dans un malentendu.</p>
+          <div class="hero-actions">
+            <a class="button light" href="dispute.html">Commencer gratuitement</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="footer-logo" href="#top" aria-label="WereInLove">
+              <span class="mark" aria-hidden="true"></span>
+              <span>WereInLove</span>
+            </a>
+            <p>Un espace calme pour raconter deux versions d'une même histoire, comprendre ce qui s'est joué et retrouver une conversation possible.</p>
+          </div>
+
+          <nav class="footer-column" aria-label="Produit">
+            <h3>Produit</h3>
+            <ul>
+              <li><a href="#fonctionnement">Comment ça marche</a></li>
+              <li><a href="#tarifs">Tarifs</a></li>
+              <li><a href="dispute.html">Apaiser un conflit</a></li>
+              <li><a href="#vision">Notre vision</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-column" aria-label="Ressources">
+            <h3>Ressources</h3>
+            <ul>
+              <li><a href="#histoires-resolues">Histoires résolues</a></li>
+              <li><a href="https://www.wereinlove.app/boite-a-disputes.html">Boîte à histoires</a></li>
+              <li><a href="https://www.wereinlove.app/compatibilite.html">Test de compatibilité</a></li>
+              <li><a href="faq.html">Foire aux questions</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="influenceurs-partenariats.html">Espace influenceur & partenariats</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-column" aria-label="Légal">
+            <h3>Légal</h3>
+            <ul>
+              <li><a href="condition-generale-de-vente.html">Condition générale de vente</a></li>
+              <li><a href="mentions-legales.html">Mentions légales</a></li>
+              <li><a href="confidentialite.html">Confidentialité</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-column" aria-label="Social">
+            <h3>Social</h3>
+            <ul>
+              <li><a href="https://www.tiktok.com/" target="_blank" rel="noreferrer">Notre TikTok</a></li>
+              <li><a href="#top">Retour en haut</a></li>
+            </ul>
+          </nav>
         </div>
 
-        <div class="hv-card hv-right">
-          <div class="hv-who"><span class="hv-pin p-violet"></span><span data-i18n="hv.who">Sa version</span></div>
-          <p class="hv-say" data-i18n="hv.say2">« Pour moi ce n'était qu'un détail… Je ne comprenais pas sa réaction. »</p>
+        <div class="footer-bottom">
+          <span>© 2026 WereInLove. Tous droits réservés.</span>
+          <span>Comprendre les personnes qui comptent.</span>
         </div>
       </div>
-
-      <!-- 05 · vous deux -->
-      <div class="hv-final">
-        <div class="hv-final-logo" aria-hidden="true">
-          <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
-            <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
-            <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
-          </svg>
-        </div>
-        <p class="hv-offer" data-i18n="hv.offer">Vos <b>2 premières disputes offertes</b> — sans carte bancaire · puis dès 3,99&nbsp;€&nbsp;/&nbsp;mois</p>
-      </div>
-    </div>
-
-    <div class="hv-steps" role="tablist" aria-label="Étapes de l'animation">
-      <button class="hv-step" data-go="0" aria-label="Le constat"><span></span></button>
-      <button class="hv-step" data-go="1" aria-label="La dispute"><span></span></button>
-      <button class="hv-step" data-go="2" aria-label="L'analyse"><span></span></button>
-      <button class="hv-step" data-go="3" aria-label="La révélation"><span></span></button>
-      <button class="hv-step" data-go="4" aria-label="Vous deux"><span></span></button>
-    </div>
-
-    <div class="hv-cta">
-      <a href="app.html" class="hv-btn hv-grad" data-i18n="hv.ctaStart">Démarrer une dispute</a>
-      <a href="#tarifs" class="hv-btn hv-ghost" data-i18n="hv.ctaPricing">Voir les tarifs</a>
-    </div>
+    </footer>
   </div>
 
   <script>
-  (function(){
-    var root=document.getElementById('hero-explain');
-    if(!root) return;
-    var SCENES=["constat","dispute","analyse","verdict","invite"];
-    var LABELS_FR=["Le constat","La dispute","L'analyse","La révélation","Vous deux"];
-    var LABELS_EN=["The observation","The dispute","The analysis","The reveal","Both of you"];
-    var LABELS=LABELS_FR;
-    window.__hvSetLang=function(lang){
-      LABELS = (lang==='en') ? LABELS_EN : LABELS_FR;
-      if(label && cur>=0) label.textContent=LABELS[cur];
-    };
-    var DURS  =[5200,4800,5600,5400,6200];
-    var steps=[].slice.call(root.querySelectorAll('.hv-step'));
-    var num=document.getElementById('hv-num'), label=document.getElementById('hv-label');
-    var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-    var cur=-1, timer=null;
+    const nav = document.querySelector("[data-nav]");
+    const hero = document.querySelector(".hero");
+    const heroMedia = document.querySelector("[data-hero-media]");
+    const heroVideo = document.querySelector(".hero-video");
+    const bleedPhoto = document.querySelector(".bleed-photo");
+    const rail = document.querySelector("[data-rail]");
+    const revealEls = document.querySelectorAll(".reveal");
+    const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    function countUp(){
-      root.querySelectorAll('.hv-stat .num').forEach(function(el){
-        var to=+el.getAttribute('data-to')||0, t0=null, dur=1500;
-        el.textContent='0';
-        function fr(ts){ if(!t0)t0=ts;
-          var k=Math.min(1,(ts-t0)/dur), e=1-Math.pow(1-k,3);
-          el.textContent=Math.round(to*e);
-          if(k<1) requestAnimationFrame(fr); else el.textContent=to;
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          revealObserver.unobserve(entry.target);
         }
-        requestAnimationFrame(fr);
       });
+    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+
+    revealEls.forEach((el) => revealObserver.observe(el));
+
+    const lightObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        nav.classList.toggle("is-light", !entry.isIntersecting);
+      });
+    }, { threshold: 0.2 });
+
+    lightObserver.observe(hero);
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
     }
-    function render(p){
-      root.setAttribute('data-scene',SCENES[p]);
-      root.style.setProperty('--hv-dur',DURS[p]+'ms');
-      if(num) num.textContent=('0'+(p+1)).slice(-2);
-      if(label) label.textContent=LABELS[p];
-      steps.forEach(function(s,i){
-        s.classList.remove('active','done');
-        if(i<p) s.classList.add('done');
-      });
-      var a=steps[p];
-      if(a){ // reset puis relance le remplissage
-        var sp=a.querySelector('span');
-        sp.style.transition='none'; sp.style.width='0';
-        void sp.offsetWidth;
-        sp.style.transition=''; sp.style.width='';
-        a.classList.add('active');
+
+    function animateOnScroll() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const heroHeight = hero.offsetHeight || window.innerHeight;
+      const progress = clamp(scrollY / Math.min(heroHeight, window.innerHeight * 1.05), 0, 1);
+
+      if (motionOk && heroMedia && window.innerWidth > 560) {
+        const scale = 1 - progress * 0.38;
+        const radius = progress * 64;
+        const translateY = progress * 82;
+        heroMedia.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+        heroMedia.style.borderRadius = `${radius}px`;
+        heroMedia.style.filter = `brightness(${1 - progress * 0.12})`;
       }
-      if(p===0 && !reduce) countUp();
+
+      if (motionOk && bleedPhoto && window.innerWidth > 760) {
+        const start = bleedPhoto.offsetTop - window.innerHeight;
+        const end = bleedPhoto.offsetTop + bleedPhoto.offsetHeight * 0.35;
+        const local = clamp((scrollY - start) / Math.max(1, end - start), 0, 1);
+        const eased = 1 - Math.pow(1 - local, 3);
+        bleedPhoto.style.setProperty("--bleed-gap", `${eased * 120}px`);
+        bleedPhoto.style.setProperty("--bleed-radius", `${eased * 42}px`);
+      } else if (bleedPhoto) {
+        bleedPhoto.style.setProperty("--bleed-gap", "36px");
+        bleedPhoto.style.setProperty("--bleed-radius", "32px");
+      }
+
+      if (motionOk && rail) {
+        const rect = rail.parentElement.getBoundingClientRect();
+        const local = clamp((window.innerHeight - rect.top) / (window.innerHeight + rect.height), 0, 1);
+        const maxMove = Math.max(0, rail.scrollWidth - window.innerWidth + 48);
+        rail.style.setProperty("--rail-x", `${-maxMove * local * 0.82}px`);
+      }
+
+      if (motionOk) {
+        document.querySelectorAll(".feature-photo img, .bleed-photo img").forEach((img) => {
+          const rect = img.parentElement.getBoundingClientRect();
+          const local = clamp((window.innerHeight - rect.top) / (window.innerHeight + rect.height), 0, 1);
+          img.parentElement.style.setProperty("--photo-scale", String(1.08 - local * 0.05));
+        });
+      }
     }
-    function go(p){ cur=(p+SCENES.length)%SCENES.length; render(cur); schedule(); }
-    function schedule(){
-      clearTimeout(timer);
-      if(reduce || document.hidden) return;
-      timer=setTimeout(function(){ go(cur+1); },DURS[cur]||5200);
+
+    let ticking = false;
+    function requestTick() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          animateOnScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
     }
-    steps.forEach(function(s){ s.addEventListener('click',function(){ go(+s.getAttribute('data-go')); }); });
-    document.addEventListener('visibilitychange',function(){ if(document.hidden){clearTimeout(timer);} else {schedule();} });
-    if(reduce){ cur=3; render(3); }
-    else { setTimeout(function(){ go(0); },80); }
-  })();
+
+    animateOnScroll();
+    window.addEventListener("scroll", requestTick, { passive: true });
+    window.addEventListener("resize", requestTick);
+    window.addEventListener("load", requestTick);
+    window.addEventListener("pageshow", requestTick);
+    window.addEventListener("hashchange", requestTick);
+    window.setTimeout(requestTick, 80);
+
+    const relationshipStories = {
+      couple: {
+        label: "Couple",
+        phoneLabel: "Version A",
+        messages: [
+          "Je n'avais pas besoin que tu règles tout.",
+          "Je croyais que tu attendais une solution.",
+          "J'avais surtout besoin que tu restes avec moi."
+        ],
+        insight: "Le conflit porte moins sur la décision que sur le sentiment d'être seul avec elle.",
+        detail: "L'IA met en regard les deux versions: l'un voulait aider vite, l'autre attendait d'abord une présence."
+      },
+      amis: {
+        label: "Amis",
+        phoneLabel: "Version A",
+        messages: [
+          "J'ai eu l'impression d'être mis de côté.",
+          "Je pensais que tu avais besoin d'espace.",
+          "J'aurais aimé que tu viennes me parler directement."
+        ],
+        insight: "Le malentendu vient d'un silence interprété comme de la distance.",
+        detail: "L'IA montre que l'un cherchait à respecter une limite, pendant que l'autre vivait ce retrait comme un abandon."
+      },
+      famille: {
+        label: "Famille",
+        phoneLabel: "Version A",
+        messages: [
+          "Quand tu me conseilles tout de suite, je me sens jugé.",
+          "Je voulais simplement t'éviter de souffrir encore.",
+          "J'avais besoin que tu comprennes avant de me corriger."
+        ],
+        insight: "Les deux versions parlent d'amour, mais pas avec le même langage.",
+        detail: "L'IA distingue l'intention de protéger et le besoin d'être reconnu comme capable de choisir."
+      }
+    };
+
+    const storyFields = {
+      phoneLabel: document.querySelector("[data-phone-a-label]"),
+      relationLabel: document.querySelector("[data-relation-label]"),
+      messages: [
+        document.querySelector("[data-message-a]"),
+        document.querySelector("[data-message-b]"),
+        document.querySelector("[data-message-c]")
+      ],
+      insight: document.querySelector("[data-insight-title]"),
+      detail: document.querySelector("[data-insight-text]")
+    };
+
+    function setRelationshipStory(storyName) {
+      const story = relationshipStories[storyName] || relationshipStories.couple;
+      if (storyFields.phoneLabel) storyFields.phoneLabel.textContent = story.phoneLabel;
+      if (storyFields.relationLabel) storyFields.relationLabel.textContent = story.label;
+      storyFields.messages.forEach((field, index) => {
+        if (field) field.textContent = story.messages[index];
+      });
+      if (storyFields.insight) storyFields.insight.textContent = story.insight;
+      if (storyFields.detail) storyFields.detail.textContent = story.detail;
+    }
+
+    document.querySelectorAll(".mode-tabs button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".mode-tabs button").forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+        setRelationshipStory(button.dataset.story);
+      });
+    });
+
+    if (heroVideo) {
+      heroVideo.muted = true;
+      heroVideo.playsInline = true;
+      const startHeroVideo = () => heroVideo.play().catch(() => {});
+      startHeroVideo();
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) startHeroVideo();
+      });
+    }
   </script>
-</section>
-
-<section class="compat" id="compatibilite">
-  <div class="shell center">
-    <span class="eyebrow" data-i18n="compat.eyebrow">Nouveau 💘</span>
-    <h2 class="section-title" data-i18n="compat.title">Le test de <span class="grad">compatibilité</span></h2>
-    <p class="section-sub" data-i18n="compat.sub">25 questions, 5 univers — <b>JE</b>, <b>TU</b>, <b>ENTRE NOUS</b> 🔥, <b>NOUS</b> et <b>LE FUTUR</b>. Vous répondez chacun de votre côté, we're in love compare vos deux visions et vous dit où vous vous rejoignez… et où ça coince.</p>
-    <div class="compat-pills">
-      <div class="compat-pill" data-i18n="compat.pill1">💑 Avec votre partenaire</div>
-      <div class="compat-pill" data-i18n="compat.pill2">💌 Avec votre crush</div>
-    </div>
-    <div class="hero-cta" style="justify-content:center;margin-top:34px">
-      <a href="compatibilite.html" class="btn btn-lg" data-i18n="compat.cta">Lancer le test 💘</a>
-    </div>
-    <p class="micro" style="margin-top:14px" data-i18n="compat.micro">≈ 4 minutes · résultat instantané dès que l'autre a répondu</p>
-  </div>
-</section>
-
-<section id="boite">
-  <div class="shell center">
-    <div style="font-size:64px;line-height:1;margin-bottom:6px">🍿</div>
-    <span class="eyebrow boite-eyebrow" data-i18n="boite.eyebrow">La communauté</span>
-    <h2 class="section-title" style="color:#fff" data-i18n="boite.title">La <span class="grad">boîte à disputes</span></h2>
-    <p class="section-sub" style="color:rgba(255,255,255,.82);margin-inline:auto" data-i18n="boite.sub">Les disputes les plus folles de la communauté, tranchées par we're in love. Ouvrez-les comme des stories, devinez le verdict, partagez.</p>
-    <div class="boite-chips" aria-hidden="true">
-      <span data-i18n="boite.chip1">« Il a mangé mes restes du resto »</span>
-      <span data-i18n="boite.chip2">« Elle like les photos de son ex »</span>
-      <span data-i18n="boite.chip3">« Il a oublié notre anniversaire »</span>
-    </div>
-    <div class="hero-cta" style="justify-content:center;margin-top:30px">
-      <a href="boite-a-disputes.html" class="btn btn-lg" data-i18n="boite.cta">Ouvrir la boîte 🍿</a>
-    </div>
-    <p style="margin-top:22px;font-size:13px;color:rgba(255,255,255,.6)" data-i18n="boite.consent">🔒 Chaque dispute publiée ici l'a été <b style="color:rgba(255,255,255,.85)">avec l'autorisation volontaire et explicite de ses auteurs</b>, anonymisée. Les vôtres restent strictement privées.</p>
-  </div>
-</section>
-
-<section class="pricing" id="tarifs">
-  <div class="shell center">
-    <span class="eyebrow" data-i18n="pricing.eyebrow">Tarifs</span>
-    <h2 class="section-title" data-i18n="pricing.title">Moins cher qu'un <span class="grad">bouquet d'excuses</span></h2>
-
-    <div class="plans">
-      <div class="plan reveal">
-        <span class="p-name" data-i18n="pricing.p1.name">Découverte</span>
-        <div class="p-price">0 <small>€</small></div>
-        <p class="p-under" data-i18n="pricing.p1.under">vos deux premières disputes · <b>sans carte bancaire</b></p>
-        <ul>
-          <li><span class="k">✦</span><span data-i18n="pricing.p1.li1">2 disputes complètes offertes</span></li>
-          <li><span class="k">✦</span><span data-i18n="pricing.p1.li2">Aucune carte bancaire demandée</span></li>
-          <li><span class="k">✦</span><span data-i18n="pricing.p1.li3">Les deux versions + 3 réponses chacun</span></li>
-          <li><span class="k">✦</span><span data-i18n="pricing.p1.li4">Analyse complète de we're in love</span></li>
-        </ul>
-        <a href="app.html" class="btn btn-ghost" data-i18n="pricing.p1.cta">Essayer gratuitement</a>
-      </div>
-
-      <div class="plan plan-hero reveal">
-        <span class="badge" data-i18n="pricing.p2.badge">Formule la plus populaire</span>
-        <span class="p-name" data-i18n="pricing.p2.name">Abonnement couple</span>
-        <div class="p-price">3,99 <small data-i18n="pricing.perMonth">€ / mois</small></div>
-        <p class="p-under" data-i18n="pricing.p2.under"><s style="opacity:.55">9,99 €</s> · jusqu'à 30 disputes par mois</p>
-        <ul>
-          <li><span class="k">✦</span><span data-i18n="pricing.p2.li1">30 disputes par mois pour votre couple</span></li>
-          <li><span class="k">✦</span><span data-i18n="pricing.p2.li2">we're in love suit votre relation dans la durée</span></li>
-          <li><span class="k">✦</span><span data-i18n="pricing.resil">Résiliable à tout moment</span></li>
-        </ul>
-        <a href="espace-client.html?plan=couple" class="btn" data-i18n="pricing.p2.cta">S'abonner</a>
-      </div>
-
-      <div class="plan reveal">
-        <span class="p-name" data-i18n="pricing.p3.name">Illimité</span>
-        <div class="p-price">14,99 <small data-i18n="pricing.perMonth">€ / mois</small></div>
-        <p class="p-under" data-i18n="pricing.p3.under">disputes sans aucune limite</p>
-        <ul>
-          <li><span class="k">✦</span><span data-i18n="pricing.p3.li1">Disputes <b>illimitées</b></span></li>
-          <li><span class="k">✦</span><span data-i18n="pricing.p3.li2">Toutes les fonctionnalités incluses</span></li>
-          <li><span class="k">✦</span><span data-i18n="pricing.resil">Résiliable à tout moment</span></li>
-        </ul>
-        <a href="espace-client.html?plan=illimite" class="btn btn-ghost" data-i18n="pricing.p3.cta">Passer à l'illimité</a>
-      </div>
-    </div>
-
-    <div class="learn-note reveal">
-      <div class="ico">💡</div>
-      <p data-i18n="pricing.note"><b>Plus vous nous confiez de disputes, mieux on vous réconcilie.</b> À chaque dispute, we're in love apprend à connaître votre couple — vos sensibilités, vos malentendus récurrents, ce qui apaise chacun de vous. Les résolutions deviennent plus justes, plus rapides, plus personnelles.</p>
-    </div>
-  </div>
-</section>
-
-<section class="privacy" id="confidentialite">
-  <div class="shell reveal">
-    <div class="lock">🔒</div>
-    <div>
-      <h3 data-i18n="privacy.h">Privé &amp; sécurisé</h3>
-      <p data-i18n="privacy.p">Vos données restent entre vous. Vos disputes ne sont <b>jamais publiques par défaut</b> — et si un jour vous choisissez de partager la vôtre anonymement, ce sera uniquement avec <b>l'accord explicite des deux partenaires</b>, réécrite pour effacer tout détail identifiant, et dépubliable à tout moment.</p>
-    </div>
-  </div>
-</section>
-
-<section class="final">
-  <div class="final-grid">
-    <div class="final-video">
-      <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="dispute-poster.jpg" disablepictureinpicture aria-hidden="true">
-        <source src="dispute.mp4" type="video/mp4">
-      </video>
-      <button class="video-tap" id="video-tap" aria-label="Lire la vidéo">▶</button>
-    </div>
-    <div class="final-copy">
-      <h2 data-i18n="final.title">Chaque dispute peut devenir <span class="grad">une conversation</span></h2>
-      <p data-i18n="final.sub">Deux minutes pour raconter votre version. La suite, on s'en occupe — avec douceur.</p>
-      <a href="app.html" class="btn btn-lg" data-i18n="hero.ctaStart">Démarrer une dispute ✨</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span class="foot-brand">we're <span class="in">in</span> love</span>
-  <div class="foot-links">
-    <a href="boite-a-disputes.html" data-i18n="nav.box">La boîte à disputes</a>
-    <a href="faq.html" data-i18n="nav.faq">FAQ</a>
-    <a href="mentions-legales.html" data-i18n="nav.legalMentions">Mentions légales</a>
-    <a href="cgv.html" data-i18n="nav.cgv">CGV</a>
-    <a href="politique-confidentialite.html" data-i18n="nav.privacy">Confidentialité</a>
-    <a href="mailto:contact@wereinlove.app" data-i18n="foot.contact">Contact</a>
-  </div>
-  <span data-i18n="foot.copyright">© 2026 wereinlove.app — Comprendre. Exprimer. Se retrouver.</span>
-  <a href="https://www.tiktok.com/@wereinlove.app" target="_blank" rel="noopener" class="tiktok-badge">
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5.1 20.14a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.14-.14z"/></svg>
-    <span data-i18n="foot.tiktok">Nos disputes sur TikTok</span>
-    <span class="tiktok-new" data-i18n="foot.new">Nouveau</span>
-  </a>
-</footer>
-
-<script>
-/* ===== MENU BURGER ===== */
-(function(){
-  const burger=document.getElementById("burger"),
-        panel=document.getElementById("menu-panel"),
-        overlay=document.getElementById("menu-overlay"),
-        closeBtn=document.getElementById("menu-close");
-  function open(){ burger.classList.add("open"); panel.classList.add("open"); overlay.classList.add("show"); burger.setAttribute("aria-expanded","true"); panel.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
-  function close(){ burger.classList.remove("open"); panel.classList.remove("open"); overlay.classList.remove("show"); burger.setAttribute("aria-expanded","false"); panel.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
-  burger.onclick=()=>panel.classList.contains("open")?close():open();
-  closeBtn.onclick=close; overlay.onclick=close;
-  panel.querySelectorAll("a").forEach(a=>a.addEventListener("click",close));
-  document.addEventListener("keydown",e=>{ if(e.key==="Escape") close(); });
-})();
-
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* vidéo : pas de lecture auto si l'utilisateur préfère réduire les animations */
-if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-  document.querySelectorAll('.final-video video').forEach(v=>{ v.removeAttribute('autoplay'); v.pause(); });
-}
-
-/* ===== VIDÉO FINALE — lecture fiable sur mobile (iOS / Android) =====
-   1. muted est posé en propriété JS (obligatoire pour que l'autoplay
-      soit accepté sur mobile).
-   2. On force load() + play() dès que la vidéo approche de l'écran.
-   3. On retente à chaque canplay / première interaction.
-   4. Si tout est bloqué (mode éco d'énergie iOS, data saver Android),
-      un bouton ▶ apparaît sur la vidéo. */
-(function(){
-  const v = document.querySelector('.final-video video');
-  const tap = document.getElementById('video-tap');
-  if(!v) return;
-  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-
-  v.muted = true;
-  v.defaultMuted = true;
-  v.setAttribute('muted','');
-  let playing = false;
-
-  function tryPlay(){
-    if(playing) return;
-    const p = v.play();
-    if(p && p.then){
-      p.then(()=>{ playing = true; if(tap) tap.classList.remove('show'); })
-       .catch(()=>{ if(tap && isInView()) tap.classList.add('show'); });
-    }
-  }
-  function isInView(){
-    const r = v.getBoundingClientRect();
-    return r.top < innerHeight && r.bottom > 0;
-  }
-
-  v.addEventListener('playing', ()=>{ playing = true; if(tap) tap.classList.remove('show'); });
-  v.addEventListener('pause',   ()=>{ playing = false; });
-  v.addEventListener('canplay', tryPlay);
-
-  if(tap){
-    tap.addEventListener('click', ()=>{ v.muted = true; v.play(); });
-  }
-
-  // Précharge et lance dès que la vidéo approche de l'écran
-  const vio = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        if(v.readyState < 2) v.load();
-        tryPlay();
-      } else {
-        v.pause();
-      }
-    });
-  },{rootMargin:'200px 0px', threshold:0});
-  vio.observe(v);
-
-  // Filet de sécurité : le premier geste de l'utilisateur débloque la lecture
-  ['touchend','click','scroll'].forEach(evt=>{
-    window.addEventListener(evt, function once(){
-      window.removeEventListener(evt, once);
-      if(isInView()) tryPlay();
-    }, {passive:true});
-  });
-})();
-
-
-</script>
-<!-- BANNIÈRE COOKIES (RGPD) -->
-<div class="cookie-banner" id="cookie-banner">
-  <div class="cookie-card">
-    <div class="cookie-emoji">🍪</div>
-    <p data-i18n="cookie.text">On utilise des cookies essentiels au fonctionnement du site, et des cookies de mesure d'audience pour comprendre comment vous utilisez we're in love. Vous choisissez.
-      <a href="politique-confidentialite.html" data-i18n="cookie.more">En savoir plus</a>
-    </p>
-    <div class="cookie-actions">
-      <button class="btn btn-sm" id="cookie-accept" data-i18n="cookie.accept">Tout accepter</button>
-      <button class="btn-ghost btn-sm" id="cookie-customize" data-i18n="cookie.customize">Personnaliser</button>
-      <button class="btn-ghost btn-sm" id="cookie-refuse" data-i18n="cookie.refuse">Refuser</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL : PERSONNALISER LES COOKIES -->
-<div class="cookie-modal-overlay" id="cookie-modal-overlay">
-  <div class="cookie-modal">
-    <h3 data-i18n="cookie.manage">Gérer mes préférences</h3>
-    <div class="cookie-row">
-      <div><b data-i18n="cookie.essential">Essentiels</b><p data-i18n="cookie.essentialDesc">Nécessaires au fonctionnement du site (connexion, sécurité). Toujours actifs.</p></div>
-      <span class="cookie-toggle disabled">✓</span>
-    </div>
-    <div class="cookie-row">
-      <div><b data-i18n="cookie.analytics">Mesure d'audience</b><p data-i18n="cookie.analyticsDesc">Nous aide à comprendre l'usage du site pour l'améliorer.</p></div>
-      <button class="cookie-toggle" id="toggle-analytics" data-on="false">✕</button>
-    </div>
-    <button class="btn" id="cookie-save" data-i18n="cookie.save">Enregistrer mes choix</button>
-  </div>
-</div>
-
-<script>
-/* ===== CAPTURE LIEN DE PARRAINAGE (?ref=CODE) — influenceurs/partenaires ===== */
-(function(){ const ref = new URLSearchParams(location.search).get("ref"); if(ref) localStorage.setItem("wil_ref", ref); })();
-
-/* ===== BANNIÈRE COOKIES RGPD ===== */
-(function(){
-  const KEY = "wil_cookie_consent";
-  const banner = document.getElementById("cookie-banner");
-  const modalOverlay = document.getElementById("cookie-modal-overlay");
-  const toggleAnalytics = document.getElementById("toggle-analytics");
-
-  function saved(){ try{ return JSON.parse(localStorage.getItem(KEY)); }catch(e){ return null; } }
-  function save(consent){
-    localStorage.setItem(KEY, JSON.stringify({...consent, date: Date.now()}));
-    banner.classList.remove("show");
-    modalOverlay.classList.remove("show");
-    // Ici, si demain vous ajoutez Google Analytics / Meta Pixel, ne les chargez que si consent.analytics === true
-  }
-  if(!saved()) banner.classList.add("show");
-
-  document.getElementById("cookie-accept").onclick = () => save({ analytics:true });
-  document.getElementById("cookie-refuse").onclick = () => save({ analytics:false });
-  document.getElementById("cookie-customize").onclick = () => { banner.classList.remove("show"); modalOverlay.classList.add("show"); };
-  toggleAnalytics.onclick = () => {
-    const on = toggleAnalytics.dataset.on === "true";
-    toggleAnalytics.dataset.on = (!on).toString();
-    toggleAnalytics.textContent = !on ? "✓" : "✕";
-    toggleAnalytics.classList.toggle("on", !on);
-  };
-  document.getElementById("cookie-save").onclick = () => save({ analytics: toggleAnalytics.dataset.on === "true" });
-})();
-</script>
-
-
-<script>
-/* =====================================================================
-   I18N — anglais (démarrage). Dictionnaire clé → HTML anglais.
-   ===================================================================== */
-(function(){
-  const EN = {
-    "brand": "we're <span class=\"in\">in</span> love",
-    "nav.espace": "My account",
-    "nav.discover": "Discover",
-    "nav.home": "Home",
-    "nav.create": "Start a dispute",
-    "nav.box": "The dispute box",
-    "nav.compat": "Compatibility test",
-    "nav.pricing": "Pricing",
-    "nav.faq": "FAQ",
-    "nav.partners": "Partners",
-    "nav.influencer": "Influencer &amp; partnerships",
-    "nav.legal": "Legal",
-    "nav.legalMentions": "Legal notice",
-    "nav.cgv": "Terms of service",
-    "nav.privacy": "Privacy",
-    "nav.start": "Get started",
-    "nav.espaceShort": "My account",
-    "nav.langToggle": "🇫🇷 Français",
-    "hero.pill": "✨ The technology that helps you understand each other",
-    "hero.title": "One dispute.<br><span class=\"grad\">Two</span> sides.<br>One <span class=\"grad\">reconciliation</span>.",
-    "hero.sub": "Because most fights aren't really about the words… but what they're hiding.",
-    "hero.ctaStart": "Start a dispute ✨",
-    "hero.ctaHow": "▶ See how it works",
-    "hero.offerBadge": "<b>2 disputes free</b> — no card required",
-    "hero.offerMicro": "Then from €3.99 / month · cancel anytime",
-    "hero.trust": "🔒 100% private — nothing is ever made public without both partners' consent.",
-    "phone.step1": "Step 1 · Chloé",
-    "phone.title1": "I tell my side",
-    "phone.text1": "\u00abYou cancelled our evening again. I need to feel like I matter.\u00bb",
-    "phone.btn1": "Send to Esteban →",
-    "phone.step2": "Step 2 · Esteban",
-    "phone.title2": "I give mine",
-    "phone.text2": "Chloé sent me her side. <b>Now it's my turn to tell mine.</b>",
-    "phone.btn2": "Reply to Chloé →",
-    "cast.chloe": "Chloé tells her side",
-    "cast.esteban": "Esteban gives his",
-    "feat.1.h": "A stronger bond",
-    "feat.1.p": "Improve your connection, day after day.",
-    "feat.2.h": "Kind, balanced analysis",
-    "feat.2.p": "No judgment — understands both sides.",
-    "feat.3.h": "Fast &amp; simple",
-    "feat.3.p": "Real clarity in just a few minutes.",
-    "feat.4.h": "Stronger together",
-    "feat.4.p": "Healthier, longer-lasting relationships.",
-    "how.eyebrow": "How it works",
-    "how.title": "One dispute. <span class=\"grad\">Two sides.</span> One way out.",
-    "how.1.h": "Tell your side",
-    "how.1.p": "Start a dispute and say it all, no filter. Send it to the other person.",
-    "how.2.h": "The other replies, at their pace",
-    "how.2.p": "They see a summary and give their side <b>whenever they're ready</b> — tonight or tomorrow morning.",
-    "how.3.h": "3 replies each, max",
-    "how.3.p": "Each of you can clarify your thinking <b>up to 3 times</b>. So choose your words well.",
-    "how.4.h": "we're in love clears things up",
-    "how.4.p": "It analyzes both points of view, says things clearly — then <b>brings you back on the same side</b>.",
-    "hv.line0": "Communication is <br><b>the #1 cause of breakups.</b>",
-    "hv.line1": "Every dispute has <b>two sides.</b>",
-    "hv.line2": "Our AI listens to <b>both.</b>",
-    "hv.line3": "And translates <b>the unspoken.</b>",
-    "hv.line4": "You find <b>each other again.</b>",
-    "hv.stat1": "of couples name communication as the #1 cause of separation",
-    "hv.stat2fig": "1 in 2",
-    "hv.stat2": "married couples have already sought counselling",
-    "hv.stat3": "of conflicts aren't about the facts, but how they feel",
-    "hv.who": "Their side",
-    "hv.say1": "\u00abYou cancelled our evening again… I felt like I didn't matter.\u00bb",
-    "hv.chip1": "emotions",
-    "hv.chip2": "unspoken needs",
-    "hv.chip3": "needs",
-    "hv.verdict": "You understand each other&nbsp;❤",
-    "hv.say2": "\u00abTo me it was just a detail… I didn't get her reaction.\u00bb",
-    "hv.offer": "Your <b>first 2 disputes free</b> — no card required · then from €3.99&nbsp;/&nbsp;month",
-    "hv.ctaStart": "Start a dispute",
-    "hv.ctaPricing": "See pricing",
-    "compat.eyebrow": "New 💘",
-    "compat.title": "The <span class=\"grad\">compatibility</span> test",
-    "compat.sub": "25 questions, 5 worlds — <b>ME</b>, <b>YOU</b>, <b>US TOGETHER</b> 🔥, <b>US</b> and <b>THE FUTURE</b>. You each answer on your own, and we're in love compares your two views and shows where you align… and where it doesn't quite fit.",
-    "compat.pill1": "💑 With your partner",
-    "compat.pill2": "💌 With your crush",
-    "compat.cta": "Take the test 💘",
-    "compat.micro": "≈ 4 minutes · instant result once the other replies",
-    "boite.eyebrow": "The community",
-    "boite.title": "The <span class=\"grad\">dispute box</span>",
-    "boite.sub": "The wildest disputes from the community, ruled on by we're in love. Open them like stories, guess the verdict, share.",
-    "boite.chip1": "\u00abHe ate my restaurant leftovers\u00bb",
-    "boite.chip2": "\u00abShe likes her ex's photos\u00bb",
-    "boite.chip3": "\u00abHe forgot our anniversary\u00bb",
-    "boite.cta": "Open the box 🍿",
-    "boite.consent": "🔒 Every dispute published here was shared <b style=\"color:rgba(255,255,255,.85)\">with the explicit, voluntary consent of its authors</b>, and anonymised. Yours stay strictly private.",
-    "pricing.eyebrow": "Pricing",
-    "pricing.title": "Cheaper than a <span class=\"grad\">bouquet of apologies</span>",
-    "pricing.p1.name": "Discovery",
-    "pricing.p1.under": "your first two disputes · <b>no card required</b>",
-    "pricing.p1.li1": "2 full disputes free",
-    "pricing.p1.li2": "No credit card requested",
-    "pricing.p1.li3": "Both sides + 3 replies each",
-    "pricing.p1.li4": "Full we're in love analysis",
-    "pricing.p1.cta": "Try it free",
-    "pricing.p2.badge": "Most popular plan",
-    "pricing.p2.name": "Couple subscription",
-    "pricing.perMonth": "€ / month",
-    "pricing.p2.under": "<s style=\"opacity:.55\">€9.99</s> · up to 30 disputes a month",
-    "pricing.p2.li1": "30 disputes a month for your couple",
-    "pricing.p2.li2": "we're in love follows your relationship over time",
-    "pricing.resil": "Cancel anytime",
-    "pricing.p2.cta": "Subscribe",
-    "pricing.p3.name": "Unlimited",
-    "pricing.p3.under": "disputes with no limit at all",
-    "pricing.p3.li1": "<b>Unlimited</b> disputes",
-    "pricing.p3.li2": "All features included",
-    "pricing.p3.cta": "Go unlimited",
-    "pricing.note": "<b>The more disputes you share with us, the better we help you reconcile.</b> With every dispute, we're in love gets to know your couple — your sensitivities, your recurring misunderstandings, what soothes each of you. Resolutions become fairer, faster, more personal.",
-    "privacy.h": "Private &amp; secure",
-    "privacy.p": "Your data stays between you two. Your disputes are <b>never public by default</b> — and if you ever choose to share yours anonymously, it will only happen with <b>the explicit consent of both partners</b>, rewritten to remove any identifying detail, and can be unpublished at any time.",
-    "final.title": "Every dispute can become <span class=\"grad\">a conversation</span>",
-    "final.sub": "Two minutes to tell your side. We take it from there — gently.",
-    "foot.contact": "Contact",
-    "foot.copyright": "© 2026 wereinlove.app — Understand. Express. Find each other again.",
-    "foot.tiktok": "Our disputes on TikTok",
-    "foot.new": "New",
-    "cookie.text": "We use essential cookies to run the site, and audience-measurement cookies to understand how you use we're in love. It's your choice.",
-    "cookie.more": "Learn more",
-    "cookie.accept": "Accept all",
-    "cookie.customize": "Customize",
-    "cookie.refuse": "Refuse",
-    "cookie.manage": "Manage my preferences",
-    "cookie.essential": "Essential",
-    "cookie.essentialDesc": "Needed for the site to work (login, security). Always on.",
-    "cookie.analytics": "Audience measurement",
-    "cookie.analyticsDesc": "Helps us understand how the site is used, to improve it.",
-    "cookie.save": "Save my choices"
-  };
-
-  const STORE_KEY = "wil_lang";
-  let current = "fr";
-  let originals = null; // snapshot du HTML français, capturé une seule fois
-
-  function snapshotOriginals(){
-    if(originals) return;
-    originals = {};
-    document.querySelectorAll('[data-i18n]').forEach(el=>{
-      if(!(el.dataset.i18n in originals)) originals[el.dataset.i18n] = [];
-      originals[el.dataset.i18n].push(el);
-    });
-  }
-
-  function apply(lang){
-    snapshotOriginals();
-    current = lang;
-    document.documentElement.setAttribute('lang', lang);
-    document.querySelectorAll('[data-i18n]').forEach(el=>{
-      const key = el.dataset.i18n;
-      if(lang === 'en' && EN[key] !== undefined){
-        el.innerHTML = EN[key];
-      } else if(originals[key]){
-        // retrouve la position de cet élément parmi les doublons de clé pour restaurer le bon FR d'origine
-        // (les valeurs FR sont déjà dans le DOM avant toute traduction, donc pas besoin de les stocker à part :
-        // on ne fait rien ici, translateBack recharge la page pour la simplicité et la fiabilité)
-      }
-    });
-    if(window.__hvSetLang) window.__hvSetLang(lang);
-    const toggle = document.getElementById('lang-toggle');
-    if(toggle) toggle.textContent = lang === 'en' ? '🇫🇷 Français' : '🇬🇧 English';
-    try{ localStorage.setItem(STORE_KEY, lang); }catch(e){}
-  }
-
-  // Le retour au français recharge simplement le HTML original du serveur —
-  // le plus fiable pour ne rien laisser de mal traduit derrière soi.
-  function setLang(lang){
-    if(lang === current) return;
-    if(lang === 'fr'){
-      try{ localStorage.setItem(STORE_KEY, 'fr'); }catch(e){}
-      location.reload();
-    } else {
-      apply('en');
-    }
-  }
-
-  window.wilSetLang = setLang;
-
-  document.addEventListener('DOMContentLoaded', function(){
-    const toggle = document.getElementById('lang-toggle');
-    if(toggle) toggle.addEventListener('click', function(){
-      setLang(current === 'en' ? 'fr' : 'en');
-    });
-
-    let stored = null;
-    try{ stored = localStorage.getItem(STORE_KEY); }catch(e){}
-
-    if(stored === 'en'){
-      apply('en');
-      return;
-    }
-    if(stored === 'fr') return; // choix explicite déjà fait
-
-    // Pas de préférence enregistrée : on propose selon la langue du navigateur
-    const browserLang = (navigator.language || '').toLowerCase();
-    if(browserLang.indexOf('fr') !== 0){
-      showSuggestBanner();
-    }
-  });
-
-  function showSuggestBanner(){
-    const bar = document.createElement('div');
-    bar.className = 'lang-suggest';
-    bar.innerHTML =
-      '<span>🇬🇧 This page is also available in English.</span>' +
-      '<div class="lang-suggest-actions">' +
-        '<button type="button" id="lang-suggest-yes">Switch to English</button>' +
-        '<button type="button" id="lang-suggest-no" aria-label="Fermer">✕</button>' +
-      '</div>';
-    document.body.appendChild(bar);
-    requestAnimationFrame(()=> bar.classList.add('show'));
-    document.getElementById('lang-suggest-yes').onclick = function(){
-      setLang('en');
-      bar.classList.remove('show');
-      setTimeout(()=> bar.remove(), 300);
-    };
-    document.getElementById('lang-suggest-no').onclick = function(){
-      try{ localStorage.setItem(STORE_KEY, 'fr'); }catch(e){}
-      bar.classList.remove('show');
-      setTimeout(()=> bar.remove(), 300);
-    };
-  }
-})();
-</script>
-<style>
-.lang-suggest{
-  position:fixed;left:16px;right:16px;bottom:-120px;z-index:400;
-  max-width:480px;margin:0 auto;
-  background:#171021;border:1px solid rgba(255,255,255,.12);
-  border-radius:18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
-  padding:16px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-  color:var(--ink);font-size:13.5px;transition:bottom .35s cubic-bezier(.22,1,.36,1);
-}
-.lang-suggest.show{bottom:16px}
-.lang-suggest-actions{display:flex;gap:8px;margin-left:auto}
-.lang-suggest-actions button{font-family:var(--font);border-radius:100px;cursor:pointer;font-weight:700}
-#lang-suggest-yes{background:var(--grad-btn);color:#fff;border:none;padding:9px 16px;font-size:13px}
-#lang-suggest-no{background:transparent;color:var(--gris);border:1px solid rgba(255,255,255,.15);width:30px;height:30px;padding:0}
-@media (max-width:520px){.lang-suggest{flex-direction:column;align-items:flex-start}.lang-suggest-actions{margin-left:0}}
-</style>
-
 </body>
 </html>
