@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="color-scheme" content="dark">
-<title>we're in love — Mon espace</title>
+<meta name="color-scheme" content="light">
+<title>WereInLove — Espace client</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -344,6 +344,476 @@ border:none
   color:#fff !important;
 }
 
+/* ===== WEREINLOVE DA 2026 — crème, glass island, calme premium ===== */
+:root{
+  --bg:#f6f2ef;
+  --surface:#fbfaf8;
+  --ink:#181818;
+  --ink-soft:#4c4844;
+  --muted:#8f8882;
+  --line:rgba(24,24,24,.12);
+  --line-strong:rgba(24,24,24,.2);
+  --rose:#ff5d8f;
+  --rose-deep:#e84f81;
+  --violet:#181818;
+  --violet-deep:#181818;
+  --grad:linear-gradient(90deg,#ff5d8f,#ffb3c8);
+  --grad-soft:linear-gradient(160deg,rgba(255,93,143,.12),rgba(255,179,200,.14));
+  --field-bg:#f0ebe6;
+  --shadow:0 28px 78px rgba(36,28,22,.10);
+  --shadow-lg:0 38px 100px rgba(36,28,22,.16);
+  --display:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+html,
+body{
+  color-scheme:light;
+  background:var(--bg)!important;
+  color:var(--ink);
+  font-family:var(--sans);
+  width:100%;
+  overflow-x:hidden;
+}
+body::before,
+body::after{display:none!important}
+::selection{background:var(--ink);color:#fff}
+
+.nav{
+  position:fixed;
+  top:max(18px,env(safe-area-inset-top));
+  left:0;
+  right:0;
+  z-index:100;
+  display:flex;
+  justify-content:center;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+  pointer-events:none;
+}
+.nav-inner{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:auto;
+  width:fit-content;
+  max-width:calc(100% - 32px);
+  height:58px;
+  margin:0;
+  padding:5px;
+  gap:4px;
+  border:1px solid rgba(40,30,24,.12);
+  border-radius:999px;
+  background:rgba(246,242,239,.82);
+  box-shadow:0 20px 54px rgba(36,28,22,.13);
+  backdrop-filter:blur(22px) saturate(120%);
+  -webkit-backdrop-filter:blur(22px) saturate(120%);
+}
+.brand{
+  height:46px;
+  justify-content:center;
+  min-width:174px;
+  gap:8px;
+  padding:0 18px 0 20px;
+  color:var(--ink);
+  border-radius:999px;
+}
+.brand svg{display:none}
+.brand::before{
+  content:"";
+  width:17px;
+  height:17px;
+  border-radius:999px;
+  background:
+    radial-gradient(circle at 33% 50%,var(--rose) 0 38%,transparent 40%),
+    radial-gradient(circle at 67% 50%,#ffb3c8 0 38%,transparent 40%);
+}
+.brand .txt{
+  font-size:15px;
+  font-weight:650;
+  letter-spacing:-.04em;
+  color:var(--ink);
+}
+.brand .txt .in,
+.grad-txt{
+  background:none;
+  -webkit-background-clip:initial;
+  background-clip:initial;
+  color:inherit;
+}
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.nav-actions .hide-sm{
+  display:none;
+}
+.nav-link{
+  height:42px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 16px;
+  color:var(--ink);
+  opacity:.72;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:560;
+}
+.nav-link:hover{
+  opacity:1;
+  color:var(--ink);
+  background:rgba(24,24,24,.06);
+}
+.nav-link.cta{
+  height:46px;
+  min-width:174px;
+  padding:0 22px;
+  color:#fff;
+  opacity:1;
+  background:var(--ink);
+  box-shadow:none;
+}
+.nav-link.cta:hover{background:#000;filter:none}
+.nav-link.logout:hover{
+  color:var(--rose-deep);
+  background:rgba(255,93,143,.10);
+}
+
+main{
+  width:100%;
+  box-sizing:border-box;
+  max-width:1120px;
+  padding:132px 24px 100px;
+}
+.auth-wrap{
+  width:min(100%,620px);
+  max-width:620px;
+  margin-inline:auto;
+}
+#s-auth.active{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+#s-auth .auth-wrap > div:first-child{
+  width:100%;
+}
+#s-auth h1{
+  max-width:620px;
+}
+#s-auth .block{
+  width:100%;
+}
+.screen.active{animation:fade .55s cubic-bezier(.22,1,.36,1)}
+.hero,
+.block,
+.modal-card,
+.pcard,
+.btn-outline,
+.btn-google,
+input[type=text],
+input[type=email],
+input[type=password],
+textarea,
+.select-wrap select{
+  background:var(--surface)!important;
+  color:var(--ink)!important;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.hero{
+  border-radius:34px;
+  padding:46px;
+  overflow:hidden;
+}
+.hero::before{
+  background:radial-gradient(circle,rgba(255,93,143,.16),transparent 64%);
+  filter:blur(18px);
+}
+.hero::after{display:none}
+.hero-name,
+h1,
+h2,
+h3,
+strong,
+.pc-name,
+.offer-price,
+.name-row h1,
+.pcard .name,
+.pay-card .amount{
+  color:var(--ink)!important;
+}
+.hero-name{
+  font-size:clamp(42px,6vw,72px);
+  font-weight:620;
+  letter-spacing:-.07em;
+}
+.hero-greet,
+.block-desc,
+.hint,
+.pc-label,
+.pc-msg,
+.offer-sub,
+.feature,
+.secure,
+.empty,
+.list-item .s,
+label,
+.handle,
+.foot-note,
+.muted{
+  color:var(--muted)!important;
+}
+.eyebrow{
+  color:var(--muted);
+  letter-spacing:.24em;
+}
+.hero-badge,
+.plan-current,
+.pcard .p-avatar,
+.stat,
+.panel,
+.pay-card,
+.next-date,
+.perk,
+.tabs{
+  background:var(--field-bg)!important;
+  color:var(--ink-soft)!important;
+  border:1px solid var(--line);
+}
+.hero-badge.premium,
+.plan-current.premium{
+  background:var(--grad-soft)!important;
+  border:1px solid rgba(255,93,143,.18);
+}
+.hero-stats{
+  border-top:1px solid var(--line);
+  background:transparent;
+}
+.hstat + .hstat::before{background:var(--line)}
+.hstat b,
+.stat b{color:var(--ink)!important}
+.avatar-xl{
+  background:var(--field-bg)!important;
+  box-shadow:0 0 0 4px var(--surface),0 0 0 5px var(--line);
+}
+.block{
+  border-radius:26px;
+  padding:30px;
+}
+h2{
+  font-size:28px;
+  font-weight:620;
+  letter-spacing:-.055em;
+}
+h3{
+  font-weight:620;
+  letter-spacing:-.045em;
+}
+input[type=text],
+input[type=email],
+input[type=password],
+textarea,
+.select-wrap select{
+  border-radius:16px;
+  box-shadow:none;
+}
+input:focus,
+textarea:focus,
+.select-wrap select:focus{
+  border-color:rgba(24,24,24,.28);
+  box-shadow:0 0 0 4px rgba(24,24,24,.07);
+}
+.btn,
+.btn-outline,
+.btn-google,
+.btn-accent,
+#btn-save-account,
+#btn-toggle-manage{
+  min-height:56px;
+  border-radius:999px;
+  background:var(--ink)!important;
+  color:#fff!important;
+  border:0!important;
+  box-shadow:0 22px 60px rgba(24,24,24,.16)!important;
+  font-weight:620;
+}
+.btn:hover,
+.btn-outline:hover,
+.btn-google:hover,
+.btn-accent:hover,
+#btn-save-account:hover,
+#btn-toggle-manage:hover{
+  background:#000!important;
+  color:#fff!important;
+  filter:none;
+  transform:translateY(-1px);
+}
+.btn-danger-ghost{
+  color:var(--rose-deep)!important;
+  background:rgba(255,93,143,.08)!important;
+  border:1px solid rgba(255,93,143,.18)!important;
+  box-shadow:none!important;
+}
+.offer{
+  background:#fff!important;
+  border:1px solid var(--line);
+  border-radius:22px;
+}
+.offer.featured{
+  background:var(--ink)!important;
+  color:#fff!important;
+  border-color:var(--ink);
+  box-shadow:var(--shadow-lg);
+}
+.offer.featured .offer-price,
+.offer.featured .offer-sub,
+.offer.featured .feature{
+  color:#fff!important;
+}
+.offer.featured .offer-sub,
+.offer.featured .feature{opacity:.72}
+.offer-tag{
+  color:var(--ink);
+  background:#fff;
+  box-shadow:none;
+}
+.feature .check{
+  background:transparent;
+  border:2px solid var(--green,#6c927d);
+}
+.pc-track{background:var(--line)}
+.pc-fill,
+.pc-fill.full{background:var(--ink)}
+.pc-pill,
+.pc-pill.active{
+  background:#fff;
+  color:var(--ink);
+}
+.pcard{
+  border-radius:22px;
+}
+.pcard:hover{
+  border-color:rgba(24,24,24,.14);
+  box-shadow:0 30px 70px rgba(36,28,22,.13);
+}
+.pcard.add{
+  background:transparent!important;
+  border:1px dashed var(--line-strong);
+  color:var(--muted);
+}
+.pcard.add:hover{
+  color:var(--ink);
+  border-color:var(--ink);
+}
+.list-item{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  color:var(--ink);
+  box-shadow:none;
+}
+.list-item:first-of-type{border-top:1px solid var(--line)}
+.list-item:hover{
+  border-color:rgba(24,24,24,.16);
+  box-shadow:0 22px 60px rgba(36,28,22,.10);
+}
+.list-item .pct{
+  background:none;
+  -webkit-background-clip:initial;
+  background-clip:initial;
+  color:var(--green,#6c927d);
+}
+.tag.res{
+  background:rgba(108,146,125,.14);
+  color:#4f7f67;
+}
+.tag.wait{
+  background:rgba(24,24,24,.06);
+  color:var(--muted);
+}
+.divider{color:var(--muted)}
+.divider::before,
+.divider::after{background:var(--line)}
+.modal-overlay{
+  background:rgba(24,24,24,.28);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.back,
+.linklike{
+  color:var(--ink);
+}
+.pay-logos svg rect{stroke:var(--line)}
+
+@media (max-width:760px){
+  main{padding:112px 18px 80px}
+  .nav-inner{height:56px;max-width:calc(100% - 28px)}
+  .brand{min-width:150px;padding:0 16px}
+  .brand .txt{font-size:16px}
+  .nav-link.hide-sm{display:none}
+  .nav-link.cta{min-width:150px;padding:0 18px;font-size:14px}
+  .nav-link.logout{font-size:13px;padding:0 12px}
+  .hero{padding:32px 24px 28px;border-radius:30px}
+  .hero-top{gap:16px}
+  .avatar-xl{width:86px;height:86px}
+  .hero-name{font-size:clamp(36px,11vw,52px);letter-spacing:-.065em}
+  .hero-stats{gap:0;margin-top:26px}
+  .hstat b{font-size:28px}
+  .hstat span{font-size:11px}
+  .block{padding:24px;border-radius:24px}
+  h2{font-size:25px}
+  .partners-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .cols{gap:18px}
+}
+
+/* Verrouillage final du centrage: l'ancien layout ne doit plus décaler l'écran. */
+.nav{
+  left:50%!important;
+  right:auto!important;
+  width:auto!important;
+  transform:translateX(-50%)!important;
+}
+.nav-inner{
+  margin:0!important;
+}
+main{
+  max-width:none!important;
+  margin:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.screen{
+  width:min(1080px,calc(100vw - 48px));
+  margin-inline:auto;
+}
+#s-auth.active{
+  width:min(620px,calc(100vw - 48px))!important;
+  margin-inline:auto!important;
+  display:block!important;
+}
+#s-auth .auth-wrap{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+@media (max-width:760px){
+  .screen,
+  #s-auth.active{
+    width:calc(100vw - 36px)!important;
+  }
+  .nav-inner{
+    max-width:calc(100vw - 28px)!important;
+  }
+  .brand,
+  .nav-link.cta{
+    min-width:142px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -353,11 +823,12 @@ border:none
   <div class="nav-inner">
     <a class="brand" href="index.html">
       <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
-      <span class="txt">we're <span class="in">in</span> love</span>
+      <span class="txt">WereInLove</span>
     </a>
     <nav class="nav-actions">
+      <a class="nav-link hide-sm" href="index.html">Accueil</a>
       <a class="nav-link hide-sm" href="compatibilite.html">Compatibilité</a>
-      <a class="nav-link cta" href="app.html">Nouvelle dispute</a>
+      <a class="nav-link cta" href="app.html">Nouvelle histoire</a>
       <button class="nav-link logout" id="btn-logout" style="display:none">Déconnexion</button>
     </nav>
   </div>
@@ -378,7 +849,7 @@ border:none
         <h1 style="font-family:var(--display);font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.05">Vos histoires,<br>au même endroit.</h1>
       </div>
       <div class="block">
-        <p class="block-desc" style="margin-top:0;margin-bottom:22px">Connectez-vous pour retrouver vos disputes, vos tests et vos partenaires.</p>
+        <p class="block-desc" style="margin-top:0;margin-bottom:22px">Connectez-vous pour retrouver vos histoires, vos tests et vos relations.</p>
         <button class="btn btn-google" id="btn-google">
           <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
           Continuer avec Google
@@ -409,9 +880,9 @@ border:none
       </div>
       <input type="file" id="file-me" accept="image/*" style="display:none">
       <div class="hero-stats">
-        <div class="hstat"><b id="st-disputes">0</b><span>disputes</span></div>
+        <div class="hstat"><b id="st-disputes">0</b><span>histoires</span></div>
         <div class="hstat"><b id="st-resolved">0</b><span>résolues</span></div>
-        <div class="hstat"><b id="st-raison">—</b><span>taux de raison</span></div>
+        <div class="hstat"><b id="st-raison">—</b><span>histoires apaisées</span></div>
       </div>
     </section>
 
@@ -424,10 +895,10 @@ border:none
           <div class="block-head">
             <div>
               <span class="eyebrow">Vos relations</span>
-              <h2>Partenaires</h2>
+              <h2>Relations</h2>
             </div>
           </div>
-          <p class="block-desc" style="margin-top:-10px;margin-bottom:18px">Amoureux·se, ami·e, famille — chaque relation a sa fiche, ses disputes et ses tests.</p>
+          <p class="block-desc" style="margin-top:-10px;margin-bottom:18px">Amoureux·se, ami·e, famille — chaque relation a sa fiche, ses histoires et ses tests.</p>
           <div class="partners-grid" id="partners-grid"></div>
         </section>
 
@@ -454,9 +925,9 @@ border:none
               </div>
               <div class="pc-progress">
                 <div class="pc-track"><div class="pc-fill" id="cp-fill"></div></div>
-                <p class="pc-label"><b id="cp-used">0</b> / 2 disputes offertes utilisées</p>
+                <p class="pc-label"><b id="cp-used">0</b> / 2 histoires offertes utilisées</p>
               </div>
-              <p class="pc-msg" id="cp-msg">Il vous reste 2 disputes gratuites.</p>
+              <p class="pc-msg" id="cp-msg">Il vous reste 2 histoires gratuites.</p>
             </div>
 
             <div class="offer featured">
@@ -464,9 +935,9 @@ border:none
                 <div class="offer-price">3,99 € <small>/ mois</small></div>
                 <span class="offer-tag">Populaire</span>
               </div>
-              <p class="offer-sub"><s>9,99 €</s> · formule couple, jusqu'à 30 disputes/mois</p>
+              <p class="offer-sub"><s>9,99 €</s> · formule couple, jusqu'à 30 histoires/mois</p>
               <div class="features">
-                <div class="feature"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>30 disputes par mois</div>
+                <div class="feature"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>30 histoires par mois</div>
                 <div class="feature"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tests de compatibilité inclus</div>
                 <div class="feature"><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reformulation IA des messages</div>
               </div>
@@ -477,7 +948,7 @@ border:none
               <div class="offer-top">
                 <div class="offer-price">14,99 € <small>/ mois</small></div>
               </div>
-              <p class="offer-sub">Disputes illimitées, zéro compteur</p>
+              <p class="offer-sub">Histoires illimitées, zéro compteur</p>
               <button class="btn btn-outline mt" id="btn-upgrade-unlimited">Passer à l'illimité</button>
             </div>
 
@@ -501,7 +972,7 @@ border:none
                 <span class="pc-name" id="premium-name">Couple</span>
                 <span class="pc-pill active">Actif</span>
               </div>
-              <p class="pc-msg" style="margin-top:14px">Merci de faire confiance à we're in love 💜 Votre abonnement est actif.</p>
+          <p class="pc-msg" style="margin-top:14px">Merci de faire confiance à WereInLove. Votre abonnement est actif.</p>
             </div>
             <button class="btn btn-outline mt" id="btn-toggle-manage">Gérer mon abonnement</button>
 
@@ -538,7 +1009,7 @@ border:none
       <div class="hero-top">
         <div class="avatar-xl" id="p-avatar" title="Changer sa photo"><span class="ph"></span></div>
         <div>
-          <p class="hero-greet">Partenaire</p>
+          <p class="hero-greet">Relation</p>
           <h1 class="hero-name" id="p-name">…</h1>
           <p class="hint" id="p-meta" style="margin-top:10px"></p>
         </div>
@@ -549,9 +1020,9 @@ border:none
     <div class="cols">
       <div class="col-main">
         <section class="block">
-          <div class="block-head"><h2>Disputes</h2></div>
+          <div class="block-head"><h2>Histoires</h2></div>
           <div id="p-disputes"></div>
-          <a class="btn btn-outline mt" href="app.html" style="text-decoration:none">Nouvelle dispute</a>
+          <a class="btn btn-outline mt" href="app.html" style="text-decoration:none">Nouvelle histoire</a>
         </section>
       </div>
       <aside class="col-side">
@@ -568,7 +1039,7 @@ border:none
 <!-- MODAL AJOUT PARTENAIRE -->
 <div class="modal-overlay" id="add-overlay">
   <div class="modal-card">
-    <h3>Ajouter un <span class="grad-txt">partenaire</span></h3>
+    <h3>Ajouter une <span class="grad-txt">relation</span></h3>
     <label for="add-name" style="margin-top:18px">Son prénom</label>
     <input type="text" id="add-name" maxlength="30" placeholder="Ex : Julie">
     <div class="error" id="add-error"></div>
@@ -745,22 +1216,21 @@ function renderMain(){
     $("cp-fill").classList.toggle("full", used>=2);
     const left = 2-used;
     $("cp-msg").innerHTML = used>=2
-      ? "Vous avez utilisé vos <b>2 disputes gratuites</b>."
-      : `Il vous reste <b>${left} dispute${left>1?"s":""} gratuite${left>1?"s":""}</b>.`;
+      ? "Vous avez utilisé vos <b>2 histoires gratuites</b>."
+      : `Il vous reste <b>${left} histoire${left>1?"s":""} gratuite${left>1?"s":""}</b>.`;
   }
 
   $("st-disputes").textContent = disputes.length;
   const resolved = disputes.filter(d=>d.verdict);
   $("st-resolved").textContent = resolved.length;
-  const pcts = resolved.map(d => d.createdBy===me.uid ? d.verdict.pctA : d.verdict.pctB).filter(p=>typeof p==="number");
-  $("st-raison").textContent = pcts.length ? Math.round(pcts.reduce((a,b)=>a+b,0)/pcts.length)+"%" : "—";
+  $("st-raison").textContent = resolved.length ? resolved.length : "—";
 
   const list = partnerList();
   $("partners-grid").innerHTML = list.map(p => `
     <div class="pcard" data-key="${p.key}">
       <div class="p-avatar">${p.photoB64 ? `<img src="${p.photoB64}" alt="">` : LOGO_PH}</div>
       <div class="name">${escapeHtml(p.name)}</div>
-      <div class="meta">${disputesOf(p.key).length} dispute${disputesOf(p.key).length>1?"s":""} · ${testsOf(p.key).length} test${testsOf(p.key).length>1?"s":""}</div>
+      <div class="meta">${disputesOf(p.key).length} histoire${disputesOf(p.key).length>1?"s":""} · ${testsOf(p.key).length} test${testsOf(p.key).length>1?"s":""}</div>
     </div>`).join("")
     + `<div class="pcard add" id="pcard-add"><span class="plus">＋</span>Ajouter</div>`;
   document.querySelectorAll(".pcard[data-key]").forEach(el => el.onclick = () => openPartner(el.dataset.key));
@@ -775,16 +1245,16 @@ function openPartner(key){
   $("p-name").textContent = p.name;
   setAvatar($("p-avatar"), p.photoB64);
   const ds = disputesOf(key), ts = testsOf(key);
-  $("p-meta").textContent = `${ds.length} dispute${ds.length>1?"s":""} · ${ts.length} test${ts.length>1?"s":""} de compatibilité`;
+  $("p-meta").textContent = `${ds.length} histoire${ds.length>1?"s":""} · ${ts.length} test${ts.length>1?"s":""} de compatibilité`;
 
   $("p-disputes").innerHTML = ds.length ? ds
     .sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0))
     .map(d => `
     <a class="list-item" href="app.html?d=${d.id}">
       <div><div class="t">${escapeHtml(d.title)}</div>
-      <div class="s">${d.verdict ? `Verdict : ${d.createdBy===me.uid?d.verdict.pctA:d.verdict.pctB}% de raison pour vous` : "En cours"}</div></div>
+      <div class="s">${d.verdict ? "Lecture terminée" : "En cours"}</div></div>
       <span class="tag ${d.verdict?"res":"wait"}">${d.verdict?"Résolue":"En cours"}</span>
-    </a>`).join("") : `<div class="empty">Aucune dispute avec ${escapeHtml(p.name)} — bon signe.</div>`;
+    </a>`).join("") : `<div class="empty">Aucune histoire avec ${escapeHtml(p.name)} pour l'instant.</div>`;
 
   $("p-tests").innerHTML = ts.length ? ts
     .sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0))
