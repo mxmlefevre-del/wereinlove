@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
-<title>we're in love — Test de compatibilité</title>
+<title>WereInLove — Test de compatibilité</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,6 +136,141 @@ input::placeholder{color:rgba(248,244,255,.42)}
 .share-tiktok{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#0F0F0F;color:#fff;border:none;border-radius:100px;padding:16px 24px;font-family:var(--font);font-size:15.5px;font-weight:800;cursor:pointer;margin-top:16px;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);transition:transform .15s}
 .share-tiktok:hover{transform:translateY(-1px)}
 .share-hint{font-size:12.5px;color:var(--gris);text-align:center;margin-top:10px}
+
+
+/* WEREINLOVE DA 2026 */
+:root{
+  --wil-cream:#f5f1ee;
+  --wil-cream-2:#eee8e2;
+  --wil-ink:#151412;
+  --wil-muted:#8d8780;
+  --wil-line:#ded8d1;
+  --wil-card:#fffdfb;
+  --wil-black:#171512;
+  --wil-green:#5f8e72;
+  --wil-pink:#ff5f95;
+  --wil-shadow:0 28px 90px rgba(28,22,18,.12);
+  --wil-radius:32px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--wil-cream)!important;
+  color:var(--wil-ink)!important;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif!important;
+  letter-spacing:0!important;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button,.btn,.cta,.primary,.back,a.button,[type="submit"]{
+  border-radius:999px!important;
+  font-weight:800!important;
+  letter-spacing:-.02em!important;
+}
+.logo,.brand,.mf-brand{
+  color:var(--wil-ink)!important;
+  font-weight:850!important;
+  letter-spacing:-.045em!important;
+}
+.logo svg,.brand svg{display:none!important}
+.logo::before,.brand::before,.mf-brand::before{
+  content:"";
+  width:30px;
+  height:17px;
+  display:inline-block;
+  margin-right:10px;
+  border-radius:999px;
+  vertical-align:-2px;
+  background:
+    radial-gradient(circle at 35% 50%, var(--wil-pink) 0 38%, transparent 40%),
+    radial-gradient(circle at 65% 50%, #ff9bbd 0 38%, transparent 40%);
+}
+.in{background:none!important;color:inherit!important}
+.card,.panel,.box,.auth-card,.admin-card,details,.stat,.pricing-card,.story-card{
+  background:var(--wil-card)!important;
+  border:1px solid var(--wil-line)!important;
+  border-radius:var(--wil-radius)!important;
+  box-shadow:var(--wil-shadow)!important;
+}
+input,textarea,select{
+  background:#fff!important;
+  color:var(--wil-ink)!important;
+  border:1px solid var(--wil-line)!important;
+  border-radius:24px!important;
+}
+input::placeholder,textarea::placeholder{color:#c7c0b8!important}
+table{
+  background:#fff!important;
+  border-radius:24px!important;
+  overflow:hidden;
+  border-collapse:separate!important;
+  border-spacing:0!important;
+}
+th{color:var(--wil-muted)!important;text-transform:uppercase;letter-spacing:.16em!important;font-size:12px!important}
+td,th{border-color:var(--wil-line)!important}
+footer{
+  background:var(--wil-black)!important;
+  color:#fff!important;
+  border-radius:44px 44px 0 0!important;
+  margin-top:80px!important;
+}
+footer a{color:rgba(255,255,255,.74)!important}
+footer a:hover{color:#fff!important}
+@media(max-width:720px){
+  body{font-size:16px!important}
+  h1{font-size:clamp(44px,13vw,68px)!important;line-height:.95!important;letter-spacing:-.07em!important}
+  h2{font-size:clamp(32px,9vw,48px)!important;line-height:1!important}
+  p,li,summary{font-size:clamp(16px,4.7vw,22px)!important;line-height:1.55!important}
+  .logo::before,.brand::before,.mf-brand::before{width:24px;height:14px;margin-right:8px}
+}
+
+/* WEREINLOVE COMPAT DA */
+body{padding-top:120px!important;overflow-x:hidden}
+.logo{
+  position:fixed!important;
+  top:28px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  z-index:100!important;
+  display:flex!important;
+  align-items:center!important;
+  min-height:70px!important;
+  padding:10px 28px!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.78)!important;
+  border:1px solid var(--wil-line)!important;
+  box-shadow:0 26px 70px rgba(28,22,18,.14)!important;
+  backdrop-filter:blur(18px)!important;
+}
+main,.app,.screen,.container{
+  width:min(760px,calc(100vw - 36px))!important;
+  margin-inline:auto!important;
+}
+.mf,.modal,.result-card,.question-card,.start-card,.choice,.option{
+  background:var(--wil-card)!important;
+  border:1px solid var(--wil-line)!important;
+  color:var(--wil-ink)!important;
+}
+.mf-brand{display:flex!important;align-items:center!important;justify-content:center!important;color:var(--wil-ink)!important}
+.btn,.primary,button[type=submit]{
+  background:var(--wil-black)!important;
+  color:#fff!important;
+  border:0!important;
+  box-shadow:0 22px 60px rgba(23,21,18,.16)!important;
+}
+.secondary,.ghost{
+  background:#fff!important;
+  color:var(--wil-ink)!important;
+  border:1px solid var(--wil-line)!important;
+}
+.progress,.bar{background:#e6ded6!important}
+.progress > *, .bar > *{background:var(--wil-black)!important}
+@media(max-width:720px){
+  body{padding-top:100px!important}
+  .logo{top:22px!important;min-height:58px!important;padding:8px 20px!important}
+  main,.app,.screen,.container{width:calc(100vw - 24px)!important}
+}
+
 </style>
 </head>
 <body>
@@ -143,7 +278,7 @@ input::placeholder{color:rgba(248,244,255,.42)}
 <header>
   <a class="logo" href="index.html">
     <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
-    <span class="txt">we're <span class="in">in</span> love</span>
+    <span class="txt">WereInLove</span>
   </a>
 </header>
 
@@ -251,7 +386,7 @@ input::placeholder{color:rgba(248,244,255,.42)}
             <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
             <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
           </svg>
-          <div class="mf-brand">we're <span class="in">in</span> love</div>
+          <div class="mf-brand">WereInLove</div>
           <div style="font-size:15px;font-weight:700;opacity:.9">Votre compatibilité est prête…</div>
           <div class="mf-tap">👆 Touchez pour révéler</div>
         </div>
@@ -512,7 +647,7 @@ async function finishQuiz(){
     const link = location.origin + location.pathname + "?t=" + ref.id;
     $("sh-link").value = link;
     $("sh-partner").textContent = window._partnerName;
-    const msg = encodeURIComponent(`${profile.prenom} veut tester votre compatibilité sur we're in love 💘 25 questions, résultat en direct : ${link}`);
+    const msg = encodeURIComponent(`${profile.prenom} veut tester votre compatibilité sur WereInLove 💘 25 questions, résultat en direct : ${link}`);
     $("btn-wa").href = "https://wa.me/?text="+msg;
     $("btn-sms").href = "sms:?&body="+msg;
     show("s-share");
@@ -597,7 +732,7 @@ function renderResult(){
   const best = entries.reduce((a,b)=>b[1]>a[1]?b:a);
   const worst = entries.reduce((a,b)=>b[1]<a[1]?b:a);
   $("r-force").innerHTML = `<b>💪 Votre force : ${UNI_LABELS[best[0]]} (${best[1]}%)</b>C'est là que vos deux visions se rejoignent le plus. Appuyez-vous dessus.`;
-  $("r-chantier").innerHTML = `<b>🔧 Votre chantier : ${UNI_LABELS[worst[0]]} (${worst[1]}%)</b>Vos réponses divergent ici — le sujet parfait pour votre prochaine vraie conversation (ou votre prochaine dispute we're in love 😉).`;
+  $("r-chantier").innerHTML = `<b>🔧 Votre chantier : ${UNI_LABELS[worst[0]]} (${worst[1]}%)</b>Vos réponses divergent ici — le sujet parfait pour votre prochaine vraie conversation (ou votre prochaine dispute WereInLove 😉).`;
 
   const card = $("magic-card");
   card.classList.remove("flipped");
@@ -611,7 +746,7 @@ function renderResult(){
     setTimeout(()=>$("post-reveal").classList.add("show"), 700);
   };
   $("btn-share-tiktok").onclick = () => shareResult(
-    `${test.creatorName} & ${test.partnerName} : ${r.global}% de compatibilité 💘 Testez la vôtre sur we're in love`
+    `${test.creatorName} & ${test.partnerName} : ${r.global}% de compatibilité 💘 Testez la vôtre sur WereInLove`
   );
   show("s-result");
 }
@@ -638,7 +773,7 @@ function burstSparkles(container){
 async function shareResult(text){
   const url = "https://wereinlove.app";
   if (navigator.share){
-    try { await navigator.share({ title:"we're in love", text, url }); return; }
+    try { await navigator.share({ title:"WereInLove", text, url }); return; }
     catch(e){ if(e.name==="AbortError") return; }
   }
   try { await navigator.clipboard.writeText(text+" "+url); } catch(e){}

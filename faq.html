@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<title>FAQ — we're in love</title>
+<title>FAQ — WereInLove</title>
 <meta name="robots" content="index, follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,79 +114,258 @@ footer{
 .foot-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
 .foot-links a{color:var(--gris);text-decoration:none;font-weight:600}
 .foot-links a:hover{color:#fff}
+
+
+/* WEREINLOVE DA 2026 */
+:root{
+  --wil-cream:#f5f1ee;
+  --wil-cream-2:#eee8e2;
+  --wil-ink:#151412;
+  --wil-muted:#8d8780;
+  --wil-line:#ded8d1;
+  --wil-card:#fffdfb;
+  --wil-black:#171512;
+  --wil-green:#5f8e72;
+  --wil-pink:#ff5f95;
+  --wil-shadow:0 28px 90px rgba(28,22,18,.12);
+  --wil-radius:32px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--wil-cream)!important;
+  color:var(--wil-ink)!important;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif!important;
+  letter-spacing:0!important;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button,.btn,.cta,.primary,.back,a.button,[type="submit"]{
+  border-radius:999px!important;
+  font-weight:800!important;
+  letter-spacing:-.02em!important;
+}
+.logo,.brand,.mf-brand{
+  color:var(--wil-ink)!important;
+  font-weight:850!important;
+  letter-spacing:-.045em!important;
+}
+.logo svg,.brand svg{display:none!important}
+.logo::before,.brand::before,.mf-brand::before{
+  content:"";
+  width:30px;
+  height:17px;
+  display:inline-block;
+  margin-right:10px;
+  border-radius:999px;
+  vertical-align:-2px;
+  background:
+    radial-gradient(circle at 35% 50%, var(--wil-pink) 0 38%, transparent 40%),
+    radial-gradient(circle at 65% 50%, #ff9bbd 0 38%, transparent 40%);
+}
+.in{background:none!important;color:inherit!important}
+.card,.panel,.box,.auth-card,.admin-card,details,.stat,.pricing-card,.story-card{
+  background:var(--wil-card)!important;
+  border:1px solid var(--wil-line)!important;
+  border-radius:var(--wil-radius)!important;
+  box-shadow:var(--wil-shadow)!important;
+}
+input,textarea,select{
+  background:#fff!important;
+  color:var(--wil-ink)!important;
+  border:1px solid var(--wil-line)!important;
+  border-radius:24px!important;
+}
+input::placeholder,textarea::placeholder{color:#c7c0b8!important}
+table{
+  background:#fff!important;
+  border-radius:24px!important;
+  overflow:hidden;
+  border-collapse:separate!important;
+  border-spacing:0!important;
+}
+th{color:var(--wil-muted)!important;text-transform:uppercase;letter-spacing:.16em!important;font-size:12px!important}
+td,th{border-color:var(--wil-line)!important}
+footer{
+  background:var(--wil-black)!important;
+  color:#fff!important;
+  border-radius:44px 44px 0 0!important;
+  margin-top:80px!important;
+}
+footer a{color:rgba(255,255,255,.74)!important}
+footer a:hover{color:#fff!important}
+@media(max-width:720px){
+  body{font-size:16px!important}
+  h1{font-size:clamp(44px,13vw,68px)!important;line-height:.95!important;letter-spacing:-.07em!important}
+  h2{font-size:clamp(32px,9vw,48px)!important;line-height:1!important}
+  p,li,summary{font-size:clamp(16px,4.7vw,22px)!important;line-height:1.55!important}
+  .logo::before,.brand::before,.mf-brand::before{width:24px;height:14px;margin-right:8px}
+}
+
+/* WEREINLOVE LEGAL DA */
+body{min-height:100vh;padding:36px 20px 0!important}
+.back{
+  position:fixed!important;
+  top:32px!important;
+  left:32px!important;
+  z-index:10!important;
+  background:#fff!important;
+  border:1px solid var(--wil-line)!important;
+  color:var(--wil-ink)!important;
+  padding:14px 22px!important;
+  box-shadow:0 18px 50px rgba(28,22,18,.08)!important;
+}
+.logo{
+  position:fixed!important;
+  top:28px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  z-index:20!important;
+  display:flex!important;
+  align-items:center!important;
+  min-height:70px!important;
+  padding:10px 28px!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.72)!important;
+  border:1px solid var(--wil-line)!important;
+  box-shadow:0 26px 70px rgba(28,22,18,.14)!important;
+  backdrop-filter:blur(18px)!important;
+}
+main{
+  width:min(980px,calc(100vw - 40px))!important;
+  margin:140px auto 0!important;
+  padding:72px!important;
+  border-radius:40px!important;
+  background:var(--wil-card)!important;
+  border:1px solid var(--wil-line)!important;
+  box-shadow:var(--wil-shadow)!important;
+}
+h1{font-size:clamp(52px,7vw,96px)!important;line-height:.92!important;letter-spacing:-.075em!important;color:var(--wil-ink)!important}
+h2{margin-top:44px!important;font-size:30px!important;letter-spacing:-.04em!important;color:var(--wil-ink)!important}
+p,li{color:#57514b!important;font-size:18px!important;line-height:1.75!important}
+.updated,.note{color:var(--wil-muted)!important}
+details{padding:26px 30px!important;margin:18px 0!important;box-shadow:none!important}
+summary{cursor:pointer;font-weight:800!important;color:var(--wil-ink)!important}
+footer{width:min(1180px,calc(100vw - 24px))!important;margin-left:auto!important;margin-right:auto!important;padding:48px!important}
+@media(max-width:720px){
+  body{padding:18px 12px 0!important}
+  .back{display:none!important}
+  .logo{top:22px!important;min-height:58px!important;padding:8px 20px!important}
+  main{width:calc(100vw - 24px)!important;margin-top:110px!important;padding:34px 24px!important;border-radius:30px!important}
+  h2{font-size:26px!important}
+  footer{width:calc(100vw - 12px)!important;padding:34px 24px!important}
+}
+
+
+footer{
+  display:grid!important;
+  grid-template-columns:minmax(260px,1.2fr) minmax(300px,2fr)!important;
+  gap:54px!important;
+}
+footer .foot-brand p{
+  max-width:520px!important;
+  margin-top:24px!important;
+  color:rgba(255,255,255,.58)!important;
+  font-size:20px!important;
+  line-height:1.55!important;
+}
+footer .foot-links{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:18px 34px!important;
+}
+footer .foot-links a{
+  font-size:18px!important;
+  line-height:1.25!important;
+}
+@media(max-width:760px){
+  footer{grid-template-columns:1fr!important;gap:38px!important}
+  footer .foot-links{grid-template-columns:1fr!important}
+}
+
 </style>
 </head>
 <body>
 <header>
   <a class="back" href="index.html">← Retour au site</a>
-  <a class="logo" href="index.html" aria-label="we're in love">
+  <a class="logo" href="index.html" aria-label="WereInLove">
     <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
       <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
       <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
     </svg>
-    <span class="txt">we're <span class="in">in</span> love</span>
+    <span class="txt">WereInLove</span>
   </a>
 </header>
 <main>
   <div class="card">
     
 <h1>Questions <span class="grad">fréquentes</span></h1>
-<p class="updated">Tout ce qu'on nous demande (souvent juste après une dispute)</p>
+<p class="updated">Tout ce qu'on nous demande (souvent juste après une histoire)</p>
 
 <h2 style="margin-top:26px">Le principe</h2>
 <details><summary>Comment ça marche, concrètement ?</summary>
-<p>Vous créez une « dispute » : vous racontez votre version, avec vos mots. Vous envoyez le lien unique à votre partenaire (WhatsApp, SMS…). Il découvre votre version et donne la sienne, quand il est prêt. Chacun peut ensuite compléter son point de vue jusqu'à 3 fois. Quand vous le décidez, l'IA rend son verdict : qui a raison (en pourcentage), pourquoi, et surtout comment vous retrouver — avec un engagement concret proposé à chacun.</p></details>
+<p>Vous créez une « histoire » : vous racontez votre version, avec vos mots. Vous envoyez le lien unique à votre partenaire (WhatsApp, SMS…). Il découvre votre version et donne la sienne, quand il est prêt. Chacun peut ensuite compléter son point de vue jusqu'à 3 fois. Quand vous le décidez, l'IA rend son verdict : qui a raison (en pourcentage), pourquoi, et surtout comment vous retrouver — avec un engagement concret proposé à chacun.</p></details>
 <details><summary>Pourquoi seulement 3 compléments chacun ?</summary>
-<p>Parce qu'une dispute sans limite, c'est une dispute sans fin — c'est précisément ce qu'on veut éviter. La limite vous pousse à choisir vos mots, et garantit que la conversation se termine par une résolution plutôt que par épuisement.</p></details>
+<p>Parce qu'une histoire sans limite, c'est une histoire sans fin — c'est précisément ce qu'on veut éviter. La limite vous pousse à choisir vos mots, et garantit que la conversation se termine par une résolution plutôt que par épuisement.</p></details>
 <details><summary>Mon partenaire doit-il payer ou répondre aux questions ?</summary>
-<p>Non. Celui qui crée la dispute paie (après la première, offerte). Votre partenaire crée son accès en 10 secondes avec juste son prénom, et répond gratuitement.</p></details>
+<p>Non. Celui qui crée l'histoire paie (après la première, offerte). Votre partenaire crée son accès en 10 secondes avec juste son prénom, et répond gratuitement.</p></details>
 <details><summary>L'IA donne-t-elle toujours raison à celui qui paie ?</summary>
 <p>Non, jamais. L'IA ne sait pas qui a payé et tranche uniquement sur ce qui est écrit. Elle peut parfaitement donner raison à votre partenaire — c'est même ce qui fait sa valeur : c'est un arbitre neutre.</p></details>
 <details><summary>Et si mon partenaire refuse de répondre ?</summary>
-<p>Il reçoit votre version et répond à son rythme — ce soir, demain matin, quand il est prêt. S'il ne répond pas, la dispute reste en attente et vous pouvez lui renvoyer le lien. Aucun verdict n'est rendu sans les deux versions : on ne juge jamais quelqu'un qui ne s'est pas exprimé.</p></details>
+<p>Il reçoit votre version et répond à son rythme — ce soir, demain matin, quand il est prêt. S'il ne répond pas, l'histoire reste en attente et vous pouvez lui renvoyer le lien. Aucun verdict n'est rendu sans les deux versions : on ne juge jamais quelqu'un qui ne s'est pas exprimé.</p></details>
 
 <h2>Le verdict</h2>
 <details><summary>Le verdict est-il fiable ?</summary>
 <p>Le verdict est généré par une intelligence artificielle entraînée à analyser les deux points de vue avec équité et bienveillance. C'est un formidable outil de médiation et de prise de recul — mais ce n'est ni une vérité absolue, ni l'avis d'un thérapeute. Prenez-le pour ce qu'il est : un tiers neutre qui vous aide à vous entendre.</p></details>
-<details><summary>we're in love remplace-t-il une thérapie de couple ?</summary>
-<p>Non, et il ne le prétend pas. Notre service aide à désamorcer les disputes du quotidien et à mieux communiquer. Si votre couple traverse des difficultés profondes, ou en cas de violence, parlez-en à un professionnel — thérapeute conjugal, médecin, ou le 3919 (Violences Femmes Info, gratuit et anonyme).</p></details>
+<details><summary>WereInLove remplace-t-il une thérapie de couple ?</summary>
+<p>Non, et il ne le prétend pas. Notre service aide à désamorcer les histoires du quotidien et à mieux communiquer. Si votre couple traverse des difficultés profondes, ou en cas de violence, parlez-en à un professionnel — thérapeute conjugal, médecin, ou le 3919 (Violences Femmes Info, gratuit et anonyme).</p></details>
 <details><summary>Dans quelle langue fonctionne le service ?</summary>
 <p>En français pour le moment. D'autres langues arriveront.</p></details>
 
 <h2>Prix</h2>
 <details><summary>Combien ça coûte ?</summary>
-<p>La formule Découverte est à 0 € et inclut vos deux premières disputes. Ensuite, l'abonnement Couple est à 3,99 €/mois pour jusqu'à 30 disputes par mois pour votre couple. Pour un usage sans limite, la formule Illimité est à 14,99 €/mois. Les abonnements sont sans engagement et résiliables à tout moment.</p></details>
+<p>La formule Découverte est à 0 € et inclut vos deux premières histoires. Ensuite, l'abonnement Couple est à 3,99 €/mois pour jusqu'à 30 conflits apaisés par mois pour votre couple. Pour un usage sans limite, la formule Illimité est à 14,99 €/mois. Les abonnements sont sans engagement et résiliables à tout moment.</p></details>
 <details><summary>Puis-je me faire rembourser ?</summary>
-<p>Les deux premières disputes offertes ne nécessitent aucun paiement. Pour les abonnements Couple et Illimité, la résiliation est possible à tout moment pour la période suivante. Un problème ? Écrivez-nous, on trouve toujours une solution : contact@wereinlove.app.</p></details>
+<p>Les deux premières histoires offertes ne nécessitent aucun paiement. Pour les abonnements Couple et Illimité, la résiliation est possible à tout moment pour la période suivante. Un problème ? Écrivez-nous, on trouve toujours une solution : la page contact.</p></details>
 
 <h2>Confidentialité</h2>
-<details><summary>Qui peut lire nos disputes ?</summary>
-<p>Vous deux, point. Chaque dispute est accessible uniquement via son lien unique. Rien n'est public, nos équipes n'y accèdent pas, et nous ne vendons jamais vos données. Les détails complets sont dans notre <a href="politique-confidentialite.html">politique de confidentialité</a>.</p></details>
-<details><summary>Puis-je supprimer une dispute ?</summary>
-<p>Oui, à tout moment — et c'est valable pour chacun des deux partenaires : si l'un de vous demande la suppression, la dispute est effacée pour les deux.</p></details>
+<details><summary>Qui peut lire nos histoires ?</summary>
+<p>Vous deux, point. Chaque dispute est accessible uniquement via son lien unique. Rien n'est public, nos équipes n'y accèdent pas, et nous ne vendons jamais vos données. Les détails complets sont dans notre <a href="confidentialite.html">politique de confidentialité</a>.</p></details>
+<details><summary>Puis-je supprimer une histoire ?</summary>
+<p>Oui, à tout moment — et c'est valable pour chacun des deux partenaires : si l'un de vous demande la suppression, l'histoire est effacée pour les deux.</p></details>
 <details><summary>Mes textes servent-ils à entraîner l'IA ?</summary>
 <p>Non. L'analyse passe par l'API d'Anthropic, dont la politique commerciale exclut l'utilisation des données clients pour l'entraînement des modèles.</p></details>
 
 <h2>Divers</h2>
 <details><summary>Ça marche pour tous les couples ?</summary>
-<p>Oui — mariés ou non, ensemble depuis 3 mois ou 30 ans, quelle que soit la configuration de votre couple. Une dispute a toujours deux versions.</p></details>
+<p>Oui — mariés ou non, ensemble depuis 3 mois ou 30 ans, quelle que soit la configuration de votre couple. Une histoire a toujours deux versions.</p></details>
 <details><summary>Peut-on l'utiliser pour autre chose qu'un couple ?</summary>
-<p>Le service est pensé et calibré pour les couples. Une version pour amis, familles ou collègues ? Dites-nous si ça vous tente : contact@wereinlove.app.</p></details>
+<p>Le service est pensé et calibré pour les couples. Une version pour amis, familles ou collègues ? Dites-nous si ça vous tente : la page contact.</p></details>
 <details><summary>Comment installer l'application ?</summary>
-<p>we're in love fonctionne directement dans votre navigateur sur wereinlove.app, sans téléchargement. Une installation sur l'écran d'accueil arrive prochainement.</p></details>
+<p>WereInLove fonctionne directement dans votre navigateur sur wereinlove.app, sans téléchargement. Une installation sur l'écran d'accueil arrive prochainement.</p></details>
 
   </div>
 </main>
 <footer>
-  <div class="foot-links">
-    <a href="faq.html">FAQ</a>
-    <a href="mentions-legales.html">Mentions légales</a>
-    <a href="cgv.html">CGV</a>
-    <a href="politique-confidentialite.html">Confidentialité</a>
-    <a href="mailto:contact@wereinlove.app">Contact</a>
+  <div class="foot-brand">
+    <div class="logo"><span class="txt">WereInLove</span></div>
+    <p>Un espace calme pour raconter deux versions d'une même histoire, comprendre ce qui s'est joué et retrouver une conversation possible.</p>
   </div>
-  © 2026 wereinlove.app — World Wide Seller Life
+  <div class="foot-links">
+    <a href="index.html#fonctionnement">Comment ça marche</a>
+    <a href="index.html#tarifs">Tarifs</a>
+    <a href="app.html">Apaiser un conflit</a>
+    <a href="compatibilite.html">Test de compatibilité</a>
+    <a href="boite-a-disputes.html">Boîte à histoires</a>
+    <a href="faq.html">Foire aux questions</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+    <a href="conditions-generales-de-vente.html">Condition générale de vente</a>
+    <a href="confidentialite.html">Confidentialité</a>
+    <a href="contact.html">Contact</a>
+    <a href="influenceurs-partenariats.html">Espace influenceur & partenariats</a>
+    <a href="https://www.tiktok.com/" target="_blank" rel="noopener">Notre TikTok</a>
+  </div>
 </footer>
 </body>
 </html>

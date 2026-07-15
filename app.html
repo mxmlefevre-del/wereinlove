@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>we're in love — Votre dispute</title>
+<title>WereInLove — Votre histoire</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +51,7 @@ textarea{min-height:150px;resize:vertical;line-height:1.6}
 @keyframes pulse-mic{0%,100%{box-shadow:0 0 0 0 rgba(255,45,117,.4)}50%{box-shadow:0 0 0 8px rgba(255,45,117,0)}}
 .btn-mic[disabled]{opacity:.3;cursor:not-allowed}
 
-/* ---------- MODAL DE VALIDATION (version brute vs we're in love) ---------- */
+/* ---------- MODAL DE VALIDATION (version brute vs WereInLove) ---------- */
 .modal-overlay{position:fixed;inset:0;background:rgba(31,27,46,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:200}
 .modal-overlay.active{display:flex}
 .modal-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);max-width:480px;width:100%;padding:28px 26px;text-align:center}
@@ -933,7 +933,7 @@ textarea:focus{
             <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
             <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
           </svg>
-          <div class="mf-brand">we're <span class="in">in</span> love</div>
+          <div class="mf-brand">WereInLove</div>
           <div style="font-size:15px;font-weight:700;opacity:.9">Le verdict est tombé…</div>
           <div class="mf-tap">👆 Touchez pour révéler</div>
         </div>
@@ -1237,7 +1237,7 @@ $("btn-create").onclick = async () => {
     const link = location.origin + location.pathname + "?d=" + ref.id;
     $("sh-link").value = link;
     $("sh-partner").textContent = profile.partnerPrenom || "votre partenaire";
-    const msg = encodeURIComponent(`${profile.prenom} a quelque chose à te dire sur we're in love 💌 Découvre sa version et donne la tienne : ${link}`);
+    const msg = encodeURIComponent(`${profile.prenom} a quelque chose à te dire sur WereInLove 💌 Découvre sa version et donne la tienne : ${link}`);
     $("btn-wa").href = "https://wa.me/?text="+msg;
     $("btn-sms").href = "sms:?&body="+msg;
     $("btn-goto-dispute").onclick = () => location.href = link;
@@ -1278,7 +1278,7 @@ function render(){
 
   $("d-title").textContent = dispute.title;
   $("d-sub").textContent = role==="A"
-    ? `Votre dispute avec ${nameB}`
+    ? `Votre histoire avec ${nameB}`
     : `${nameA} vous a raconté sa version. À vous.`;
 
   // fil de messages : B ne voit rien tant qu'il n'a pas cliqué ? Non : B découvre la version de A.
@@ -1404,7 +1404,7 @@ function renderVerdict(){
   };
 
   $("btn-share-tiktok").onclick = () => shareResult(
-    `${dispute.creatorName} ${v.pctA}% vs ${dispute.partnerName} ${v.pctB}% — verdict rendu sur we're in love 💘`
+    `${dispute.creatorName} ${v.pctA}% vs ${dispute.partnerName} ${v.pctB}% — verdict rendu sur WereInLove 💘`
   );
   show("s-verdict");
 }
@@ -1462,7 +1462,7 @@ async function shareResult(text){
   const url = "https://wereinlove.app";
   // 1) Partage natif (mobile) : ouvre la feuille de partage, TikTok y apparaît
   if (navigator.share){
-    try { await navigator.share({ title:"we're in love", text, url }); return; }
+    try { await navigator.share({ title:"WereInLove", text, url }); return; }
     catch(e){ if(e.name==="AbortError") return; }
   }
   // 2) Desktop : copie le texte + ouvre TikTok
@@ -1538,7 +1538,7 @@ if (DEMO) {
   <!-- MODAL : VALIDATION DE LA VERSION (brute ou reformulée par l'IA) -->
   <div class="modal-overlay" id="review-overlay">
     <div class="modal-card">
-      <div class="modal-badge">✨ Version we're in love</div>
+      <div class="modal-badge">✨ Version WereInLove</div>
       <p class="modal-hint">L'IA a adouci le ton pour que ce soit lu plus facilement — les faits restent les mêmes. Choisissez la version à envoyer.</p>
       <div class="modal-text" id="review-text-wil"></div>
       <button class="btn" id="btn-review-validate">Envoyer cette version</button>
