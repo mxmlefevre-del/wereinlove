@@ -12,9 +12,9 @@
 <style>
 :root{
   --bg:#FBF4F8;--white:#fff;--ink:#1F1B2E;--gris:#6B6480;
-  --rose:#FF2D75;--rose-deep:#E81A66;--violet:#7C4DFF;--violet-deep:#6234E8;
-  --grad:linear-gradient(90deg,var(--rose),var(--violet));
-  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
+  --rose:#FF2D75;--rose-deep:#E81A66;--accent:#ff9bbd;--accent-deep:#5f8e72;
+  --grad:linear-gradient(90deg,#171512,#171512);
+  --grad-btn:linear-gradient(90deg,#171512,#171512);
   --r:20px;--shadow:0 20px 50px -22px rgba(90,40,120,.28);
   --font:"Plus Jakarta Sans",-apple-system,sans-serif;
 }
@@ -47,7 +47,7 @@ input:focus{outline:none;border-color:var(--rose)}
 
 .loader{display:flex;gap:8px;justify-content:center;padding:80px 0}
 .loader span{width:11px;height:11px;border-radius:100px;background:var(--rose);animation:b 1s infinite alternate}
-.loader span:nth-child(2){background:var(--violet);animation-delay:.2s}
+.loader span:nth-child(2){background:var(--accent);animation-delay:.2s}
 .loader span:nth-child(3){background:var(--rose);animation-delay:.4s}
 @keyframes b{to{transform:translateY(-7px);opacity:.5}}
 
@@ -64,13 +64,13 @@ tr:last-child td{border-bottom:none}
 .plan-tag{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:100px}
 .plan-tag.free{background:var(--bg);color:var(--gris)}
 .plan-tag.premium{background:var(--grad);color:#fff}
-.motif-tag{font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:100px;white-space:nowrap;background:var(--bg);color:var(--violet-deep)}
+.motif-tag{font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:100px;white-space:nowrap;background:var(--bg);color:var(--accent-deep)}
 .motif-tag.resilier{background:#FFECF1;color:var(--rose-deep)}
 .motif-tag.facturation{background:#FFF4E2;color:#A66A00}
 .msg-cell{max-width:240px;color:var(--gris);font-size:12.5px;line-height:1.45}
 .topnav{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .topnav button{background:none;border:none;color:var(--gris);font-size:13px;font-weight:600;text-decoration:underline;cursor:pointer;font-family:var(--font)}
-.stripe-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--violet-deep)}
+.stripe-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--accent-deep)}
 .refresh{background:var(--bg);border:none;border-radius:100px;padding:8px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--font)}
 
 
@@ -192,12 +192,105 @@ section,.section,.panel{border-radius:36px!important}
   .stat b{font-size:42px!important}
 }
 
+
+
+/* WEREINLOVE GLOBAL FINAL - NO ACCENT */
+:root{
+  --bg:#f5f1ee!important;
+  --white:#fffdfb!important;
+  --ink:#151412!important;
+  --gris:#8d8780!important;
+  --rose:#ff5f95!important;
+  --rose-deep:#ff5f95!important;
+  --accent:#171512!important;
+  --accent-deep:#5f8e72!important;
+  --grad:linear-gradient(90deg,#ff6f9d,#ffb3c8)!important;
+  --grad-soft:linear-gradient(160deg,rgba(255,111,157,.10),rgba(255,179,200,.12))!important;
+  --grad-btn:linear-gradient(90deg,#171512,#171512)!important;
+  --wil-cream:#f5f1ee!important;
+  --wil-card:#fffdfb!important;
+  --wil-ink:#151412!important;
+  --wil-muted:#8d8780!important;
+  --wil-line:#ded8d1!important;
+  --wil-black:#171512!important;
+  --wil-green:#5f8e72!important;
+  --wil-pink:#ff5f95!important;
+}
+html{background:#f5f1ee!important;color-scheme:light!important}
+body{
+  background:#f5f1ee!important;
+  color:#151412!important;
+}
+.grad-txt,
+h1 .grad,
+.story-title .grad,
+.score-hero .big,
+.mv-big,
+.magic-brandbar .url,
+.list-item .pct,
+.stat b{
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+  color:#151412!important;
+}
+.btn,.btn-accent,.nav-link.cta,.offer-tag,.uni-badge,.modal-badge{
+  background:#171512!important;
+  color:#fff!important;
+  box-shadow:0 18px 52px rgba(23,21,18,.16)!important;
+}
+.btn-ghost,.btn-google,.secondary,.ghost{
+  background:#fff!important;
+  color:#151412!important;
+  border:1px solid #ded8d1!important;
+  box-shadow:none!important;
+}
+.card,.panel,.box,.modal-card,.offer,.pcard,.auth-card,.screen-card,details,.stat{
+  background:rgba(255,253,251,.94)!important;
+  border-color:#ded8d1!important;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:#171512!important;
+  box-shadow:0 0 0 4px rgba(23,21,18,.08)!important;
+}
+.magic-front{
+  background:#171512!important;
+}
+.magic-back,.magic-inner{
+  background:#fffdfb!important;
+  color:#151412!important;
+}
+.magic-brandbar{
+  background:#171512!important;
+  color:#fff!important;
+}
+.mv-pcts .p.pb,.mv-pcts .p.pa,.mv-names .nb,.mv-names .na,.pacte.p-b b,.pacte.p-a b{
+  color:#151412!important;
+  background:none!important;
+}
+.mv-bar .a,.mv-bar .b,.vbar .a,.vbar .b,.progress span.done,.pc-fill,.uni-row .fill,.mv-unirow .fill{
+  background:#171512!important;
+}
+.msg-a,.msg-b,.insight{
+  background:#f0ebe5!important;
+  border-color:#ded8d1!important;
+}
+.loader span,.loader span:nth-child(2),.loader span:nth-child(3){
+  background:#171512!important;
+}
+.hero::before,.hero::after{
+  display:none!important;
+}
+svg [fill="#ff9bbd"]{
+  fill:#ff9bbd!important;
+}
+
 </style>
 </head>
 <body>
 
 <header>
-  <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
+  <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#ff9bbd" fill-opacity=".85"/></svg>
   <span class="txt">WereInLove</span>
   <span class="tag">🔒 Tableau de bord privé</span>
 </header>

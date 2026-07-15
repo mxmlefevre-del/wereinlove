@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light">
 <title>WereInLove — Test de compatibilité</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,16 +11,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#07050B;--white:#14101C;--ink:#F8F4FF;--gris:#B7ADC9;
-  --rose:#FF2D75;--rose-deep:#FF6A9E;--violet:#9B7CFF;--violet-deep:#BBA7FF;
-  --grad:linear-gradient(90deg,var(--rose),var(--violet));
-  --grad-btn:linear-gradient(90deg,#FF2D75,#C13BEF);
+  --bg:#f5f1ee;--white:#fffdfb;--ink:#151412;--gris:#8d8780;
+  --rose:#ff5f95;--rose-deep:#ff5f95;--accent:#151412;--accent-deep:#8d8780;
+  --grad:linear-gradient(90deg,#151412,#151412);
+  --grad-btn:linear-gradient(90deg,#171512,#171512);
   --r:22px;--shadow:0 26px 70px -28px rgba(0,0,0,.85);
   --font:"Plus Jakarta Sans",-apple-system,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{color-scheme:dark;background:var(--bg)}
-body{font-family:var(--font);background:radial-gradient(circle at 50% -10%,rgba(255,45,117,.18),transparent 36%),radial-gradient(circle at 85% 12%,rgba(124,77,255,.18),transparent 32%),var(--bg)!important;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh}
+html{color-scheme:light;background:var(--bg)}
+body{font-family:var(--font);background:var(--bg)!important;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh}
 ::selection{background:var(--rose);color:#fff}
 
 header{display:flex;flex-direction:column;align-items:center;padding:24px 20px 8px;text-align:center}
@@ -65,7 +65,7 @@ input::placeholder{color:rgba(248,244,255,.42)}
 
 .topbar{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
 .topbar .out{font-size:13px;color:var(--gris);background:none;border:none;cursor:pointer;font-family:var(--font);font-weight:600;text-decoration:underline}
-.topnav a{color:var(--violet-deep);text-decoration:none;font-size:13px;font-weight:700}
+.topnav a{color:var(--accent-deep);text-decoration:none;font-size:13px;font-weight:700}
 
 /* quiz */
 .progress{display:flex;gap:6px;margin-top:20px}
@@ -100,7 +100,7 @@ input::placeholder{color:rgba(248,244,255,.42)}
 
 .loader{display:flex;gap:8px;justify-content:center;padding:60px 0}
 .loader span{width:12px;height:12px;border-radius:100px;background:var(--rose);animation:b 1s infinite alternate}
-.loader span:nth-child(2){background:var(--violet);animation-delay:.2s}
+.loader span:nth-child(2){background:var(--wil-black);animation-delay:.2s}
 .loader span:nth-child(3){background:var(--rose);animation-delay:.4s}
 @keyframes b{to{transform:translateY(-8px);opacity:.5}}
 
@@ -109,7 +109,7 @@ input::placeholder{color:rgba(248,244,255,.42)}
 .magic-card{position:relative;width:100%;min-height:520px;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.2,.8,.25,1);cursor:pointer}
 .magic-card.flipped{transform:rotateY(180deg);cursor:default}
 .magic-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;overflow:hidden;box-shadow:0 30px 80px -28px rgba(0,0,0,.88);border:1px solid rgba(255,255,255,.10)}
-.magic-front{background:radial-gradient(circle at 50% 18%,rgba(255,45,117,.30),transparent 30%),linear-gradient(150deg,#08050E 0%,#1D122B 55%,#331A47 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#fff;text-align:center;padding:30px}
+.magic-front{background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.78),transparent 34%),linear-gradient(150deg,#08050E 0%,#171512 55%,#171512 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#fff;text-align:center;padding:30px}
 .magic-front .mf-logo{width:86px;filter:drop-shadow(0 8px 24px rgba(255,45,117,.55));animation:mf-float 2.6s ease-in-out infinite}
 @keyframes mf-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .magic-front .mf-brand{font-weight:800;font-size:19px}
@@ -118,7 +118,7 @@ input::placeholder{color:rgba(248,244,255,.42)}
 @keyframes mf-pulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
 .magic-back{background:linear-gradient(180deg,#171120,#0E0A14);transform:rotateY(180deg);display:flex;flex-direction:column}
 .magic-inner{flex:1;padding:26px 22px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;overflow-y:auto}
-.magic-brandbar{background:linear-gradient(90deg,#09060F,#221333);color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;font-weight:800;font-size:14px}
+.magic-brandbar{background:linear-gradient(90deg,#09060F,#171512);color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;font-weight:800;font-size:14px}
 .magic-brandbar svg{width:24px;height:auto}
 .magic-brandbar .url{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
 .sparkle{position:absolute;pointer-events:none;z-index:50;animation:spark-fly 1.4s ease-out forwards}
@@ -271,16 +271,589 @@ main,.app,.screen,.container{
   main,.app,.screen,.container{width:calc(100vw - 24px)!important}
 }
 
+/* WEREINLOVE COMPAT FINAL CLEANUP */
+:root{
+  --bg:var(--wil-cream)!important;
+  --white:var(--wil-card)!important;
+  --ink:var(--wil-ink)!important;
+  --gris:var(--wil-muted)!important;
+  --rose:var(--wil-pink)!important;
+  --rose-deep:var(--wil-pink)!important;
+  --accent:var(--wil-ink)!important;
+  --accent-deep:var(--wil-muted)!important;
+  --grad:linear-gradient(90deg,var(--wil-ink),var(--wil-ink))!important;
+  --grad-btn:linear-gradient(90deg,var(--wil-black),var(--wil-black))!important;
+}
+html{background:var(--wil-cream)!important;color-scheme:light!important}
+body{
+  min-height:100svh!important;
+  padding-top:132px!important;
+  background:
+    radial-gradient(circle at 50% -8%,rgba(255,255,255,.86),transparent 36%),
+    var(--wil-cream)!important;
+}
+header{
+  position:fixed!important;
+  top:28px!important;
+  left:0!important;
+  right:0!important;
+  z-index:100!important;
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  padding:0!important;
+  text-align:left!important;
+  pointer-events:none!important;
+}
+header .logo{
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  transform:none!important;
+  display:inline-flex!important;
+  flex-direction:row!important;
+  justify-content:center!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-width:250px!important;
+  min-height:74px!important;
+  padding:12px 30px!important;
+  background:rgba(255,255,255,.88)!important;
+  border:1px solid var(--wil-line)!important;
+  border-radius:999px!important;
+  box-shadow:0 28px 80px rgba(28,22,18,.14)!important;
+  color:var(--wil-ink)!important;
+  pointer-events:auto!important;
+}
+header .logo .txt{
+  display:inline-block!important;
+  color:var(--wil-ink)!important;
+  font-size:19px!important;
+  font-weight:850!important;
+  letter-spacing:-.045em!important;
+  opacity:1!important;
+}
+header .logo::before{
+  flex:0 0 auto!important;
+  margin:0!important;
+}
+main{
+  width:min(760px,calc(100vw - 36px))!important;
+  max-width:none!important;
+  margin:0 auto!important;
+  padding:72px 0 96px!important;
+}
+.topbar{
+  width:min(760px,100%)!important;
+  margin:0 auto 30px!important;
+  display:grid!important;
+  grid-template-columns:1fr auto 1fr!important;
+  align-items:center!important;
+  gap:18px!important;
+}
+#hello{
+  color:var(--wil-muted)!important;
+  font-size:14px!important;
+  font-weight:650!important;
+}
+.topnav{
+  justify-self:center!important;
+}
+.topnav a{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:44px!important;
+  padding:0 22px!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  border:1px solid var(--wil-line)!important;
+  color:var(--wil-ink)!important;
+  box-shadow:0 14px 34px rgba(28,22,18,.08)!important;
+  font-size:14px!important;
+  font-weight:800!important;
+}
+.topbar .out{
+  justify-self:end!important;
+  color:var(--wil-muted)!important;
+  font-size:14px!important;
+  font-weight:750!important;
+}
+.screen{
+  width:100%!important;
+}
+.screen.active{
+  display:block!important;
+}
+.card{
+  width:100%!important;
+  margin:0 auto!important;
+  padding:44px 46px!important;
+  background:rgba(255,255,255,.92)!important;
+  border:1px solid var(--wil-line)!important;
+  border-radius:34px!important;
+  box-shadow:0 32px 100px rgba(28,22,18,.14)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+h1{
+  color:var(--wil-ink)!important;
+  font-size:38px!important;
+  line-height:1.05!important;
+  letter-spacing:-.055em!important;
+}
+.grad-txt,
+.score-hero .big,
+.mv-big,
+.magic-brandbar .url{
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+  color:var(--wil-ink)!important;
+}
+.sub,.hint,.mv-title,.mv-names,.share-hint{
+  color:var(--wil-muted)!important;
+}
+input[type=text],
+input[type=email],
+input[type=password]{
+  height:58px!important;
+  background:#fff!important;
+  color:var(--wil-ink)!important;
+  border:1px solid var(--wil-line)!important;
+  box-shadow:none!important;
+}
+input:focus{
+  border-color:var(--wil-ink)!important;
+  box-shadow:0 0 0 4px rgba(23,21,18,.08)!important;
+}
+.btn,
+.btn:hover,
+.btn:focus{
+  background:var(--wil-black)!important;
+  color:#fff!important;
+  box-shadow:0 20px 60px rgba(23,21,18,.16)!important;
+  transform:none!important;
+}
+.btn-ghost,
+.btn-google{
+  background:#fff!important;
+  color:var(--wil-ink)!important;
+  border:1px solid var(--wil-line)!important;
+  box-shadow:none!important;
+}
+.divider{color:var(--wil-muted)!important}
+.divider::before,.divider::after{background:var(--wil-line)!important}
+.progress span,
+.uni-row .bar,
+.mv-unirow .bar{
+  background:#e8e1da!important;
+}
+.progress span.done,
+.uni-badge,
+.uni-row .fill,
+.mv-unirow .fill{
+  background:var(--wil-black)!important;
+  color:#fff!important;
+}
+.opt{
+  background:#fff!important;
+  color:var(--wil-ink)!important;
+  border:1px solid var(--wil-line)!important;
+}
+.opt.sel{
+  background:#f0ebe5!important;
+  border-color:var(--wil-black)!important;
+  box-shadow:0 0 0 3px rgba(23,21,18,.08)!important;
+}
+.opt .dot{border-color:var(--wil-green)!important}
+.opt.sel .dot{
+  border-color:var(--wil-green)!important;
+  background:var(--wil-green)!important;
+  box-shadow:inset 0 0 0 3px #fff!important;
+}
+.loader span,
+.loader span:nth-child(2),
+.loader span:nth-child(3){
+  background:var(--wil-black)!important;
+}
+.magic-front{
+  background:var(--wil-black)!important;
+}
+.magic-front .mf-logo,
+.magic-brandbar svg{
+  display:none!important;
+}
+.magic-front .mf-brand{
+  color:#fff!important;
+}
+.magic-front .mf-brand::before{
+  background:
+    radial-gradient(circle at 35% 50%, var(--wil-pink) 0 38%, transparent 40%),
+    radial-gradient(circle at 65% 50%, #ff9bbd 0 38%, transparent 40%)!important;
+}
+.magic-back{
+  background:#fff!important;
+  color:var(--wil-ink)!important;
+}
+.magic-brandbar{
+  background:var(--wil-black)!important;
+  color:#fff!important;
+}
+.magic-brandbar .url{
+  color:#fff!important;
+}
+@media(max-width:720px){
+  body{padding-top:104px!important}
+  header{top:18px!important}
+  header .logo{
+    min-width:0!important;
+    min-height:60px!important;
+    padding:10px 22px!important;
+  }
+  header .logo .txt{font-size:18px!important}
+  main{
+    width:calc(100vw - 24px)!important;
+    padding:54px 0 72px!important;
+  }
+  .topbar{
+    grid-template-columns:1fr!important;
+    justify-items:center!important;
+    gap:10px!important;
+    margin-bottom:24px!important;
+  }
+  .topbar .out{justify-self:center!important}
+  .card{
+    padding:32px 24px!important;
+    border-radius:30px!important;
+  }
+  h1{
+    font-size:clamp(34px,10vw,46px)!important;
+    line-height:1!important;
+  }
+}
+
+
+
+/* WEREINLOVE GLOBAL FINAL - NO ACCENT */
+:root{
+  --bg:#f5f1ee!important;
+  --white:#fffdfb!important;
+  --ink:#151412!important;
+  --gris:#8d8780!important;
+  --rose:#ff5f95!important;
+  --rose-deep:#ff5f95!important;
+  --accent:#171512!important;
+  --accent-deep:#5f8e72!important;
+  --grad:linear-gradient(90deg,#ff6f9d,#ffb3c8)!important;
+  --grad-soft:linear-gradient(160deg,rgba(255,111,157,.10),rgba(255,179,200,.12))!important;
+  --grad-btn:linear-gradient(90deg,#171512,#171512)!important;
+  --wil-cream:#f5f1ee!important;
+  --wil-card:#fffdfb!important;
+  --wil-ink:#151412!important;
+  --wil-muted:#8d8780!important;
+  --wil-line:#ded8d1!important;
+  --wil-black:#171512!important;
+  --wil-green:#5f8e72!important;
+  --wil-pink:#ff5f95!important;
+}
+html{background:#f5f1ee!important;color-scheme:light!important}
+body{
+  background:#f5f1ee!important;
+  color:#151412!important;
+}
+.grad-txt,
+h1 .grad,
+.story-title .grad,
+.score-hero .big,
+.mv-big,
+.magic-brandbar .url,
+.list-item .pct,
+.stat b{
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+  color:#151412!important;
+}
+.btn,.btn-accent,.nav-link.cta,.offer-tag,.uni-badge,.modal-badge{
+  background:#171512!important;
+  color:#fff!important;
+  box-shadow:0 18px 52px rgba(23,21,18,.16)!important;
+}
+.btn-ghost,.btn-google,.secondary,.ghost{
+  background:#fff!important;
+  color:#151412!important;
+  border:1px solid #ded8d1!important;
+  box-shadow:none!important;
+}
+.card,.panel,.box,.modal-card,.offer,.pcard,.auth-card,.screen-card,details,.stat{
+  background:rgba(255,253,251,.94)!important;
+  border-color:#ded8d1!important;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:#171512!important;
+  box-shadow:0 0 0 4px rgba(23,21,18,.08)!important;
+}
+.magic-front{
+  background:#171512!important;
+}
+.magic-back,.magic-inner{
+  background:#fffdfb!important;
+  color:#151412!important;
+}
+.magic-brandbar{
+  background:#171512!important;
+  color:#fff!important;
+}
+.mv-pcts .p.pb,.mv-pcts .p.pa,.mv-names .nb,.mv-names .na,.pacte.p-b b,.pacte.p-a b{
+  color:#151412!important;
+  background:none!important;
+}
+.mv-bar .a,.mv-bar .b,.vbar .a,.vbar .b,.progress span.done,.pc-fill,.uni-row .fill,.mv-unirow .fill{
+  background:#171512!important;
+}
+.msg-a,.msg-b,.insight{
+  background:#f0ebe5!important;
+  border-color:#ded8d1!important;
+}
+.loader span,.loader span:nth-child(2),.loader span:nth-child(3){
+  background:#171512!important;
+}
+.hero::before,.hero::after{
+  display:none!important;
+}
+svg [fill="#ff9bbd"]{
+  fill:#ff9bbd!important;
+}
+
+
+
+/* WEREINLOVE COMPAT LANDING VISUAL */
+body.compat-visual-page{
+  background:#f5f1ee!important;
+}
+.compat-hero{
+  width:min(1180px,calc(100vw - 40px));
+  margin:0 auto 44px;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);
+  align-items:stretch;
+  gap:22px;
+}
+.compat-hero-copy{
+  min-height:430px;
+  border-radius:38px;
+  background:#171512;
+  color:#fff;
+  padding:52px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  box-shadow:0 34px 110px rgba(23,21,18,.16);
+}
+.compat-hero-copy .eyebrow{
+  color:rgba(255,255,255,.56)!important;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-size:12px;
+  font-weight:850;
+  margin-bottom:22px;
+}
+.compat-hero-copy h1{
+  color:#fff!important;
+  font-size:clamp(54px,6vw,92px)!important;
+  line-height:.92!important;
+  letter-spacing:-.085em!important;
+  max-width:8.5ch;
+}
+.compat-hero-copy p{
+  margin-top:24px;
+  color:rgba(255,255,255,.68)!important;
+  font-size:22px!important;
+  line-height:1.38!important;
+  max-width:620px;
+}
+.compat-hero-media{
+  position:relative;
+  min-height:430px;
+  border-radius:38px;
+  overflow:hidden;
+  box-shadow:0 34px 110px rgba(23,21,18,.14);
+}
+.compat-hero-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.9) contrast(.94);
+}
+.compat-hero-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(23,21,18,.02),rgba(23,21,18,.24));
+}
+.compat-floating-note{
+  position:absolute;
+  left:24px;
+  right:24px;
+  bottom:24px;
+  z-index:2;
+  border-radius:28px;
+  padding:22px 24px;
+  background:rgba(255,253,251,.86);
+  border:1px solid rgba(255,255,255,.44);
+  backdrop-filter:blur(18px);
+  color:#151412;
+  font-size:18px;
+  line-height:1.35;
+  box-shadow:0 22px 70px rgba(23,21,18,.16);
+}
+.compat-floating-note b{display:block;margin-bottom:4px}
+body.compat-visual-page main{
+  padding-top:0!important;
+}
+body.compat-visual-page .topbar{
+  width:min(760px,calc(100vw - 36px))!important;
+}
+@media(max-width:900px){
+  .compat-hero{grid-template-columns:1fr;width:calc(100vw - 24px);gap:14px}
+  .compat-hero-copy{min-height:auto;padding:42px 28px;border-radius:32px}
+  .compat-hero-media{min-height:520px;border-radius:32px}
+}
+@media(max-width:640px){
+  .compat-hero-copy h1{font-size:clamp(44px,13vw,66px)!important}
+  .compat-hero-copy p{font-size:19px!important}
+  .compat-hero-media{min-height:430px}
+  .compat-floating-note{font-size:16px;left:16px;right:16px;bottom:16px}
+}
+
+/* WEREINLOVE FINAL READABILITY */
+.compat-hero-copy h1{
+  letter-spacing:-.045em!important;
+  word-spacing:.035em!important;
+  line-height:.96!important;
+  max-width:9.4ch!important;
+}
+@media(max-width:640px){
+  .compat-hero-copy h1{
+    letter-spacing:-.035em!important;
+    word-spacing:.02em!important;
+    line-height:1!important;
+    max-width:10ch!important;
+  }
+}
+
+/* WEREINLOVE FINAL COMPAT NAV */
+header.compat-nav-shell{
+  transition:transform .34s ease, opacity .34s ease!important;
+  will-change:transform,opacity;
+}
+header.compat-nav-shell.nav-hidden{
+  transform:translateY(-130%)!important;
+  opacity:0!important;
+}
+header.compat-nav-shell .compat-nav{
+  pointer-events:auto!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:4px!important;
+  min-height:70px!important;
+  padding:6px!important;
+  border-radius:999px!important;
+  background:rgba(255,253,251,.88)!important;
+  border:1px solid var(--wil-line)!important;
+  box-shadow:0 28px 80px rgba(28,22,18,.14)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+header.compat-nav-shell .compat-brand,
+header.compat-nav-shell .compat-home{
+  min-height:58px!important;
+  border-radius:999px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-decoration:none!important;
+  font-size:18px!important;
+  font-weight:850!important;
+  letter-spacing:-.045em!important;
+  white-space:nowrap!important;
+}
+header.compat-nav-shell .compat-brand{
+  min-width:220px!important;
+  padding:0 24px!important;
+  color:var(--wil-ink)!important;
+}
+header.compat-nav-shell .compat-brand::before{
+  content:""!important;
+  width:30px!important;
+  height:17px!important;
+  display:inline-block!important;
+  margin-right:10px!important;
+  border-radius:999px!important;
+  background:
+    radial-gradient(circle at 35% 50%, var(--wil-pink) 0 38%, transparent 40%),
+    radial-gradient(circle at 65% 50%, #ff9bbd 0 38%, transparent 40%)!important;
+}
+header.compat-nav-shell .compat-home{
+  min-width:150px!important;
+  padding:0 28px!important;
+  color:#fff!important;
+  background:var(--wil-black)!important;
+}
+@media(max-width:640px){
+  header.compat-nav-shell .compat-nav{
+    min-height:62px!important;
+    width:calc(100vw - 28px)!important;
+  }
+  header.compat-nav-shell .compat-brand,
+  header.compat-nav-shell .compat-home{
+    min-height:50px!important;
+    min-width:0!important;
+    flex:1 1 0!important;
+    font-size:16px!important;
+    padding:0 16px!important;
+  }
+}
+
 </style>
 </head>
-<body>
+<body class="compat-visual-page">
 
-<header>
-  <a class="logo" href="index.html">
-    <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#7C4DFF" fill-opacity=".85"/></svg>
-    <span class="txt">WereInLove</span>
-  </a>
+<header class="compat-nav-shell" id="compat-nav-shell">
+  <nav class="compat-nav" aria-label="Navigation principale">
+    <a class="compat-brand" href="index.html">WereInLove</a>
+    <a class="compat-home" href="index.html">Accueil</a>
+  </nav>
 </header>
+
+<script>
+(() => {
+  const nav = document.getElementById("compat-nav-shell");
+  if (!nav) return;
+  let lastY = window.scrollY;
+  const update = () => {
+    const y = window.scrollY;
+    nav.classList.toggle("nav-hidden", y > 90 && y > lastY);
+    lastY = y;
+  };
+  window.addEventListener("scroll", update, { passive: true });
+})();
+</script>
+
+
+<section class="compat-hero" aria-label="Test de compatibilité WereInLove">
+  <div class="compat-hero-copy">
+    <div class="eyebrow">Test de compatibilité</div>
+    <h1>Mesurez ce que vous vivez vraiment.</h1>
+    <p>Un test à faire avec votre conjoint ou votre crush pour comparer vos attentes, vos habitudes et votre façon d'aimer sans transformer ça en procès.</p>
+  </div>
+  <figure class="compat-hero-media">
+    <img src="wereinlove-assets/compatibility-new.jpg" alt="Couple proche, lumière douce">
+    <figcaption class="compat-floating-note"><b>Deux réponses. Une lecture commune.</b>WereInLove met en lumière vos accords, vos écarts et les sujets à aborder avec douceur.</figcaption>
+  </figure>
+</section>
 
 <main>
   <div class="topbar">
@@ -383,7 +956,7 @@ main,.app,.screen,.container{
         <div class="magic-face magic-front">
           <svg class="mf-logo" viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
-            <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/>
+            <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#ff9bbd" fill-opacity=".88"/>
             <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
           </svg>
           <div class="mf-brand">WereInLove</div>
@@ -399,7 +972,7 @@ main,.app,.screen,.container{
             <div id="r-bars" style="width:100%;margin-top:14px"></div>
           </div>
           <div class="magic-brandbar">
-            <svg viewBox="0 0 64 50" fill="none"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#7C4DFF" fill-opacity=".88"/></svg>
+            <svg viewBox="0 0 64 50" fill="none"><path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/><path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#ff9bbd" fill-opacity=".88"/></svg>
             <span class="url">wereinlove.app</span>
           </div>
         </div>
