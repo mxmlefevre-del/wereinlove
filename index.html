@@ -9,9 +9,9 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="WereInLove - Comprendre les personnes qui comptent">
   <meta property="og:description" content="Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.">
-  <meta property="og:image" content="wereinlove-assets/family.jpg">
+  <meta property="og:image" content="wereinlove-assets/family-field.jpg">
   <link rel="preload" as="video" href="wereinlove-assets/hero-video.mp4" type="video/mp4">
-  <link rel="preload" as="image" href="wereinlove-assets/family.jpg">
+  <link rel="preload" as="image" href="wereinlove-assets/family-field.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='30' r='17' fill='%23ff5d8f'/%3E%3Ccircle cx='40' cy='30' r='17' fill='%23ffb3c8' fill-opacity='.86'/%3E%3C/svg%3E">
   <style>
     :root {
@@ -1961,7 +1961,438 @@
         filter: none;
       }
     }
-  </style>
+  
+
+/* WEREINLOVE GLOBAL FINAL - NO ACCENT */
+:root{
+  --bg:#f5f1ee!important;
+  --white:#fffdfb!important;
+  --ink:#151412!important;
+  --gris:#8d8780!important;
+  --rose:#ff5f95!important;
+  --rose-deep:#ff5f95!important;
+  --accent:#171512!important;
+  --accent-deep:#5f8e72!important;
+  --grad:linear-gradient(90deg,#ff6f9d,#ffb3c8)!important;
+  --grad-soft:linear-gradient(160deg,rgba(255,111,157,.10),rgba(255,179,200,.12))!important;
+  --grad-btn:linear-gradient(90deg,#171512,#171512)!important;
+  --wil-cream:#f5f1ee!important;
+  --wil-card:#fffdfb!important;
+  --wil-ink:#151412!important;
+  --wil-muted:#8d8780!important;
+  --wil-line:#ded8d1!important;
+  --wil-black:#171512!important;
+  --wil-green:#5f8e72!important;
+  --wil-pink:#ff5f95!important;
+}
+html{background:#f5f1ee!important;color-scheme:light!important}
+body{
+  background:#f5f1ee!important;
+  color:#151412!important;
+}
+.grad-txt,
+h1 .grad,
+.story-title .grad,
+.score-hero .big,
+.mv-big,
+.magic-brandbar .url,
+.list-item .pct,
+.stat b{
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+  color:#151412!important;
+}
+.btn,.btn-accent,.nav-link.cta,.offer-tag,.uni-badge,.modal-badge{
+  background:#171512!important;
+  color:#fff!important;
+  box-shadow:0 18px 52px rgba(23,21,18,.16)!important;
+}
+.btn-ghost,.btn-google,.secondary,.ghost{
+  background:#fff!important;
+  color:#151412!important;
+  border:1px solid #ded8d1!important;
+  box-shadow:none!important;
+}
+.card,.panel,.box,.modal-card,.offer,.pcard,.auth-card,.screen-card,details,.stat{
+  background:rgba(255,253,251,.94)!important;
+  border-color:#ded8d1!important;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:#171512!important;
+  box-shadow:0 0 0 4px rgba(23,21,18,.08)!important;
+}
+.magic-front{
+  background:#171512!important;
+}
+.magic-back,.magic-inner{
+  background:#fffdfb!important;
+  color:#151412!important;
+}
+.magic-brandbar{
+  background:#171512!important;
+  color:#fff!important;
+}
+.mv-pcts .p.pb,.mv-pcts .p.pa,.mv-names .nb,.mv-names .na,.pacte.p-b b,.pacte.p-a b{
+  color:#151412!important;
+  background:none!important;
+}
+.mv-bar .a,.mv-bar .b,.vbar .a,.vbar .b,.progress span.done,.pc-fill,.uni-row .fill,.mv-unirow .fill{
+  background:#171512!important;
+}
+.msg-a,.msg-b,.insight{
+  background:#f0ebe5!important;
+  border-color:#ded8d1!important;
+}
+.phone-screen.dark .insight{
+  background:transparent!important;
+  border-color:rgba(255,255,255,.1)!important;
+  box-shadow:none!important;
+}
+.phone-screen.dark .insight strong,
+.phone-screen.dark .insight p{
+  color:inherit!important;
+}
+.phone-screen.dark .insight p{
+  color:rgba(255,255,255,.5)!important;
+}
+.loader span,.loader span:nth-child(2),.loader span:nth-child(3){
+  background:#171512!important;
+}
+.hero::before,.hero::after{
+  display:none!important;
+}
+svg [fill="#ff9bbd"]{
+  fill:#ff9bbd!important;
+}
+
+/* Final desktop/mobile tuning for the landing page rhythm. */
+.hero-content{
+  justify-content:center!important;
+  padding:120px clamp(24px,5vw,76px) 42px!important;
+}
+.hero h1,
+.hero-content h1{
+  max-width:820px!important;
+  font-size:clamp(52px,7.1vw,112px)!important;
+  line-height:.94!important;
+  letter-spacing:-.058em!important;
+}
+.hero-lede{
+  max-width:620px!important;
+  margin-top:24px!important;
+  font-size:clamp(17px,1.75vw,24px)!important;
+  line-height:1.45!important;
+  letter-spacing:-.025em!important;
+}
+.hero-actions{
+  margin-top:28px!important;
+}
+.hero .hero-actions .button{
+  min-height:54px!important;
+  min-width:190px!important;
+}
+.section-head h2,
+.story-copy h2,
+.sticky-copy h2,
+.analysis-copy h2,
+.pricing-top h2,
+.phone-copy h2,
+.final-inner h2,
+.bleed-inner h2{
+  font-size:clamp(38px,5.2vw,82px)!important;
+  letter-spacing:-.058em!important;
+}
+.section-head p,
+.story-copy p,
+.sticky-copy p,
+.analysis-copy p,
+.pricing-top p,
+.phone-copy p,
+.final-inner p,
+.bleed-inner p{
+  font-size:clamp(17px,1.7vw,23px)!important;
+}
+.bleed-photo{
+  --bleed-gap:0px;
+  --bleed-offset:0px;
+  --bleed-radius:0px;
+  --bleed-border:0;
+  --bleed-shadow:.04;
+  width:calc(100vw - var(--bleed-gap,0px))!important;
+  max-width:none!important;
+  margin-left:calc(50% - 50vw + var(--bleed-offset,0px))!important;
+  margin-right:0!important;
+  border-radius:var(--bleed-radius,0px)!important;
+  border:1px solid rgba(255,255,255,var(--bleed-border))!important;
+  box-shadow:0 34px 100px rgba(28,22,18,var(--bleed-shadow))!important;
+}
+@media(max-width:760px){
+  .hero-content{
+    justify-content:center!important;
+    padding:104px 24px 28px!important;
+  }
+  .hero h1,
+  .hero-content h1{
+    max-width:430px!important;
+    font-size:clamp(40px,10.5vw,58px)!important;
+    line-height:.98!important;
+    letter-spacing:-.052em!important;
+  }
+  .hero-lede{
+    max-width:390px!important;
+    margin-top:18px!important;
+    font-size:clamp(16px,4.5vw,19px)!important;
+  }
+  .hero .hero-actions{
+    margin-top:22px!important;
+  }
+  .hero .hero-actions .button{
+    min-height:52px!important;
+    font-size:13px!important;
+  }
+  .section-head h2,
+  .story-copy h2,
+  .sticky-copy h2,
+  .analysis-copy h2,
+  .pricing-top h2,
+  .phone-copy h2,
+  .final-inner h2,
+  .bleed-inner h2{
+    font-size:clamp(34px,9vw,52px)!important;
+  }
+  .section-head p,
+  .story-copy p,
+  .sticky-copy p,
+  .analysis-copy p,
+  .pricing-top p,
+  .phone-copy p,
+  .final-inner p,
+  .bleed-inner p{
+    font-size:18px!important;
+  }
+  .bleed-photo{
+    width:calc(100vw - var(--bleed-gap,0px))!important;
+    min-height:88svh!important;
+  }
+}
+
+/* Alignment and contrast fixes after the final visual pass. */
+html,
+body,
+.site-shell{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden!important;
+}
+.nav-wrap{
+  justify-content:center!important;
+}
+.nav{
+  margin-inline:auto!important;
+}
+.section-head,
+.story-copy,
+.sticky-copy,
+.analysis-copy,
+.pricing-top,
+.phone-copy,
+.final-inner,
+.bleed-inner{
+  text-wrap:balance;
+}
+.bleed-inner{
+  max-width:min(860px,calc(100vw - 52px))!important;
+  width:100%!important;
+  margin-inline:auto!important;
+}
+.bleed-inner h2,
+.bleed-inner p{
+  max-width:100%!important;
+  overflow-wrap:break-word!important;
+}
+.bleed-photo .stats{
+  width:min(860px,100%)!important;
+  justify-items:center!important;
+  overflow:hidden!important;
+}
+.bleed-photo .stat{
+  width:100%!important;
+  max-width:260px!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  text-align:center!important;
+}
+.bleed-photo .stat strong,
+.bleed-photo .stat b{
+  color:#fff!important;
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+}
+.bleed-photo .stat span{
+  color:rgba(255,255,255,.68)!important;
+}
+.experience-card.light-card{
+  color:#fff!important;
+  background:#171512!important;
+  border:0!important;
+}
+.experience-card.light-card::after{
+  background:
+    linear-gradient(0deg,rgba(15,10,8,.74),rgba(15,10,8,.04) 62%),
+    linear-gradient(90deg,rgba(15,10,8,.44),rgba(15,10,8,.02))!important;
+}
+.light-card .experience-content .eyebrow{
+  color:rgba(255,255,255,.58)!important;
+}
+.light-card .experience-content p{
+  color:rgba(255,255,255,.7)!important;
+}
+.light-card .experience-actions .button.ghost{
+  color:#fff!important;
+  background:rgba(255,255,255,.12)!important;
+  border-color:rgba(255,255,255,.18)!important;
+}
+.price{
+  font-size:clamp(46px,4.2vw,62px)!important;
+  letter-spacing:-.052em!important;
+}
+@media(max-width:920px){
+  .nav-wrap{
+    left:0!important;
+    right:0!important;
+    padding-inline:16px!important;
+  }
+  .nav{
+    max-width:calc(100vw - 32px)!important;
+  }
+  .hero-content{
+    align-items:center!important;
+    text-align:center!important;
+  }
+  .hero-lede{
+    margin-inline:auto!important;
+  }
+  .hero-actions{
+    justify-content:center!important;
+  }
+}
+@media(max-width:760px){
+  .bleed-inner h2{
+    font-size:clamp(34px,8.7vw,48px)!important;
+    line-height:1!important;
+    letter-spacing:-.052em!important;
+  }
+  .bleed-inner p{
+    font-size:17px!important;
+    line-height:1.45!important;
+  }
+  .bleed-photo .stats{
+    grid-template-columns:1fr!important;
+    gap:26px!important;
+    margin-top:42px!important;
+    padding-top:26px!important;
+  }
+  .bleed-photo .stat strong{
+    font-size:clamp(36px,11vw,52px)!important;
+  }
+  .price{
+    font-size:clamp(42px,12vw,56px)!important;
+  }
+}
+
+/* Final centering pass for narrow and intermediate viewports. */
+main,
+main > section{
+  width:100%!important;
+  max-width:100vw!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-sizing:border-box!important;
+}
+.section-head,
+.story-split,
+.how-grid,
+.phone-stage,
+.analysis-grid,
+.resolved-wrap,
+.experience-grid,
+.pricing-top,
+.plans,
+.final-cta,
+.footer-inner{
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-sizing:border-box!important;
+}
+.story-split,
+.how-grid,
+.analysis-grid,
+.pricing-top,
+.plans,
+.resolved-wrap,
+.experience-grid{
+  width:min(var(--section-max,1360px),calc(100vw - 48px))!important;
+}
+.story-split{
+  --section-max:1420px;
+}
+.analysis-grid{
+  --section-max:1460px;
+}
+.pricing-top,
+.plans{
+  --section-max:1160px;
+}
+.hero .hero-actions{
+  max-width:calc(100vw - 48px)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+@media(max-width:920px){
+  .hero .hero-actions{
+    width:min(430px,calc(100vw - 48px))!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:12px!important;
+  }
+  .hero .hero-actions .button{
+    width:100%!important;
+    min-width:0!important;
+    flex:none!important;
+  }
+}
+@media(max-width:760px){
+  .story-split,
+  .how-grid,
+  .analysis-grid,
+  .pricing-top,
+  .plans,
+  .resolved-wrap,
+  .experience-grid{
+    width:calc(100vw - 36px)!important;
+  }
+}
+@media(max-width:420px){
+  .story-split,
+  .how-grid,
+  .analysis-grid,
+  .pricing-top,
+  .plans,
+  .resolved-wrap,
+  .experience-grid{
+    width:calc(100vw - 28px)!important;
+  }
+  .hero .hero-actions{
+    width:calc(100vw - 36px)!important;
+    max-width:calc(100vw - 36px)!important;
+  }
+}
+
+</style>
 </head>
 <body>
   <div class="site-shell">
@@ -1982,7 +2413,7 @@
 
     <section class="hero" id="top" aria-label="Introduction">
       <div class="hero-media" data-hero-media>
-        <video class="hero-video" autoplay loop muted playsinline poster="wereinlove-assets/family.jpg">
+        <video class="hero-video" autoplay loop muted playsinline poster="wereinlove-assets/family-field.jpg">
           <source src="wereinlove-assets/hero-video.mp4" type="video/mp4">
         </video>
       </div>
@@ -1991,7 +2422,7 @@
         <h1 class="reveal">Comprendre les personnes qui comptent.</h1>
         <p class="hero-lede reveal">Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.</p>
         <div class="hero-actions reveal">
-          <a class="button light" href="app.html">Commencer gratuitement</a>
+          <a class="button light" href="app.html">Apaiser un conflit</a>
           <a class="button" href="compatibilite.html">Test de compatibilité</a>
         </div>
         <div class="scroll-seal" aria-hidden="true">
@@ -2008,12 +2439,12 @@
           <p>Deux versions d'une même histoire. Une lecture calme de ce qui s'est vraiment joué entre les mots.</p>
         </div>
         <div class="photo-rail" data-rail>
-          <figure class="rail-card"><img src="wereinlove-assets/family.jpg" alt="Une mère et son enfant allongés dans l'herbe" loading="eager"></figure>
-          <figure class="rail-card wide"><img src="wereinlove-assets/moon.jpg" alt="Une silhouette face au ciel bleu" loading="lazy"></figure>
-          <figure class="rail-card"><img src="wereinlove-assets/couple-sun.jpg" alt="Un couple dans la lumière du soleil" loading="lazy"></figure>
-          <figure class="rail-card"><img src="wereinlove-assets/couple-close.jpg" alt="Un couple dans un moment d'apaisement" loading="lazy"></figure>
-          <figure class="rail-card wide"><img src="wereinlove-assets/rest.jpg" alt="Un visage au repos dans une lumière chaude" loading="lazy"></figure>
-          <figure class="rail-card"><img src="wereinlove-assets/light.jpg" alt="Une pièce baignée de lumière" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/family-field.jpg" alt="Une famille avance dans un paysage doux" loading="eager"></figure>
+          <figure class="rail-card wide"><img src="wereinlove-assets/friends-sunset.jpg" alt="Des amis assis face au coucher du soleil" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/couple-chair.jpg" alt="Un couple rit dans un jardin" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/couple-evening.jpg" alt="Un couple proche dans une lumière du soir" loading="lazy"></figure>
+          <figure class="rail-card wide"><img src="wereinlove-assets/couple-car.jpg" alt="Un couple près d'une voiture au crépuscule" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/family-walk.jpg" alt="Un parent porte deux enfants dans une lumière d'été" loading="lazy"></figure>
         </div>
       </section>
 
@@ -2026,12 +2457,12 @@
           <p class="detail-note"><strong>Deux récits.</strong> Une synthèse qui distingue les faits, les émotions, les intentions et les malentendus.</p>
         </div>
         <figure class="feature-photo reveal">
-          <img class="family" src="wereinlove-assets/family.jpg" alt="Une mère et son enfant regardant l'objectif" loading="lazy">
+          <img class="family" src="wereinlove-assets/mother-daughter-sunset.jpg" alt="Une mère et sa fille dans la lumière du soir" loading="lazy">
         </figure>
       </section>
 
       <section class="bleed-photo reveal">
-        <img src="wereinlove-assets/couple-close.jpg" alt="Deux personnes proches, les yeux fermés" loading="lazy">
+        <img src="wereinlove-assets/couple-chair.jpg" alt="Un couple se retrouve dans un moment léger" loading="lazy">
         <div class="bleed-inner">
           <h2>On ne répare pas en gagnant. On répare en comprenant.</h2>
           <p>L'IA n'est pas le sujet. Elle sert seulement à rendre la conversation plus claire, plus douce et plus possible.</p>
@@ -2152,7 +2583,7 @@
             </div>
           </article>
           <article class="resolved-card reveal">
-            <img src="wereinlove-assets/couple-sun.jpg" alt="Un couple dans une lumière naturelle" loading="lazy">
+            <img src="wereinlove-assets/friends-sunset.jpg" alt="Des amis assis face au ciel du soir" loading="lazy">
             <div>
               <h3>Quand deux personnes veulent bien faire, mais pas de la même façon.</h3>
               <p>Nommer l'intention derrière le geste, pas seulement l'effet.</p>
@@ -2176,7 +2607,7 @@
         </div>
         <div class="experience-grid">
           <article class="experience-card reveal">
-            <img src="wereinlove-assets/story-cups.jpg" alt="Un couple assis avec deux tasses, dans une ambiance calme" loading="lazy">
+            <img src="wereinlove-assets/celebration-sunset.jpg" alt="Une célébration au coucher du soleil" loading="lazy">
             <div class="experience-content">
               <p class="eyebrow">Boîte à histoires</p>
               <h3>Des conflits déjà apaisés par WereInLove.</h3>
@@ -2188,7 +2619,7 @@
             </div>
           </article>
           <article class="experience-card light-card reveal">
-            <img src="wereinlove-assets/compatibility-bed.jpg" alt="Un couple allongé sur un lit dans une lumière douce" loading="lazy">
+            <img src="wereinlove-assets/couple-car.jpg" alt="Un couple se regarde près d'une voiture rouge" loading="lazy">
             <div class="experience-content">
               <p class="eyebrow">Test de compatibilité</p>
               <h3>À faire avec son conjoint. Ou avec son crush.</h3>
@@ -2364,28 +2795,30 @@
     function animateOnScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
       const heroHeight = hero.offsetHeight || window.innerHeight;
-      const progress = clamp(scrollY / Math.min(heroHeight, window.innerHeight * 1.05), 0, 1);
+      const progress = clamp(scrollY / Math.min(heroHeight, window.innerHeight * 0.82), 0, 1);
 
       if (motionOk && heroMedia) {
         const isMobile = window.innerWidth <= 560;
-        const scale = 1 - progress * (isMobile ? 0.26 : 0.38);
-        const radius = progress * (isMobile ? 34 : 64);
-        const translateY = progress * (isMobile ? 42 : 82);
+        const scale = 1 - progress * (isMobile ? 0.46 : 0.58);
+        const radius = progress * (isMobile ? 46 : 92);
+        const translateY = progress * (isMobile ? 58 : 130);
         heroMedia.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
         heroMedia.style.borderRadius = `${radius}px`;
         heroMedia.style.filter = `brightness(${1 - progress * (isMobile ? 0.08 : 0.12)})`;
       }
 
-      if (motionOk && bleedPhoto && window.innerWidth > 760) {
-        const start = bleedPhoto.offsetTop - window.innerHeight;
-        const end = bleedPhoto.offsetTop + bleedPhoto.offsetHeight * 0.35;
+      if (motionOk && bleedPhoto) {
+        const isSmall = window.innerWidth <= 760;
+        const start = bleedPhoto.offsetTop - window.innerHeight * 0.12;
+        const end = bleedPhoto.offsetTop + bleedPhoto.offsetHeight * 0.68;
         const local = clamp((scrollY - start) / Math.max(1, end - start), 0, 1);
         const eased = 1 - Math.pow(1 - local, 3);
-        bleedPhoto.style.setProperty("--bleed-gap", `${eased * 120}px`);
-        bleedPhoto.style.setProperty("--bleed-radius", `${eased * 42}px`);
-      } else if (bleedPhoto) {
-        bleedPhoto.style.setProperty("--bleed-gap", "36px");
-        bleedPhoto.style.setProperty("--bleed-radius", "32px");
+        const gap = eased * (isSmall ? 36 : 220);
+        bleedPhoto.style.setProperty("--bleed-gap", `${gap}px`);
+        bleedPhoto.style.setProperty("--bleed-offset", `${gap / 2}px`);
+        bleedPhoto.style.setProperty("--bleed-radius", `${eased * (isSmall ? 32 : 58)}px`);
+        bleedPhoto.style.setProperty("--bleed-border", `${eased}`);
+        bleedPhoto.style.setProperty("--bleed-shadow", `${0.04 + eased * 0.12}`);
       }
 
       if (motionOk && rail) {
