@@ -329,7 +329,7 @@ svg [fill="#ff9bbd"]{
         <button id="btn-logout">Se déconnecter</button>
       </div>
       <h1>Vue d'ensemble</h1>
-      <p class="sub">Données Firestore en direct. Pour les vrais chiffres de paiement, vérifie <a class="stripe-link" href="https://dashboard.stripe.com" target="_blank" rel="noopener">le dashboard Stripe →</a></p>
+      <p class="sub">Données Firestore en direct. Les comptes Firebase Auth purs ne sont visibles ici qu'après création ou mise à jour de leur fiche Firestore. Pour les vrais chiffres de paiement, vérifie <a class="stripe-link" href="https://dashboard.stripe.com" target="_blank" rel="noopener">le dashboard Stripe →</a></p>
 
       <div class="grid-stats" id="stats"></div>
 
@@ -345,11 +345,18 @@ svg [fill="#ff9bbd"]{
         <tbody id="demandes-table"></tbody>
       </table>
 
-      <div class="section-title">Derniers inscrits</div>
+      <div class="section-title">Tous les inscrits Firestore</div>
       <button class="refresh" id="btn-refresh">↻ Actualiser</button>
       <table>
         <thead><tr><th>Prénom</th><th>Nom</th><th>Email</th><th>Relation</th><th>Avec</th><th>Plan</th><th>Inscrit le</th></tr></thead>
         <tbody id="users-table"></tbody>
+      </table>
+
+      <div class="section-title">Contacts repérés partout</div>
+      <p class="sub" style="margin-top:-14px">Cette liste regroupe aussi les emails/noms trouvés dans les histoires, avis, demandes et partenariats.</p>
+      <table>
+        <thead><tr><th>Nom</th><th>Email</th><th>Source</th><th>Relation / info</th><th>Dernière trace</th></tr></thead>
+        <tbody id="contacts-table"></tbody>
       </table>
 
       <div class="read-errors" id="read-errors"></div>
@@ -481,7 +488,7 @@ async function loadDashboard(){
   }
 
   users.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
-  $("users-table").innerHTML = users.slice(0,50).map(u => `
+  $("users-table").innerHTML = users.map(u => `
     <tr>
       <td>${esc(u.prenom || "—")}</td>
       <td>${esc(u.nom || "—")}</td>
@@ -491,6 +498,82 @@ async function loadDashboard(){
       <td><span class="plan-tag ${(u.plan==='premium'||u.plan==='couple'||u.plan==='unlimited') ? 'premium':'free'}">${esc(u.plan || "gratuit")}</span></td>
       <td>${fmtDate(u.createdAt)}</td>
     </tr>`).join("") || `<tr><td colspan="7" style="color:var(--gris);text-align:center;padding:20px">Aucun inscrit pour l'instant.</td></tr>`;
+
+  const contactMap = new Map();
+  const traceTime = v => v?.seconds ? v.seconds : (typeof v === "number" ? Math.floor(v/1000) : 0);
+  const addContact = ({ key, name, email, source, info, date }) => {
+    const id = String(email || key || name || "").toLowerCase().trim();
+    if (!id) return;
+    const previous = contactMap.get(id);
+    const nextTime = traceTime(date);
+    const currentTime = traceTime(previous?.date);
+    const merged = {
+      name: name || previous?.name || "—",
+      email: email || previous?.email || "—",
+      source: previous?.source ? Array.from(new Set([...previous.source.split(" · "), source])).join(" · ") : source,
+      info: info || previous?.info || "—",
+      date: nextTime >= currentTime ? date : previous?.date
+    };
+    contactMap.set(id, merged);
+  };
+  users.forEach(u => addContact({
+    key: u.id,
+    name: [u.prenom, u.nom].filter(Boolean).join(" "),
+    email: u.email,
+    source: "Inscrit",
+    info: u.relationLabel || u.relationType || u.plan || "—",
+    date: u.lastSeenAt || u.createdAt || u.firstSeenAt
+  }));
+  disputes.forEach(d => {
+    addContact({
+      key: d.createdBy,
+      name: [d.creatorName, d.creatorProfile?.nom].filter(Boolean).join(" "),
+      email: d.creatorEmail || d.creatorProfile?.email,
+      source: "Histoire",
+      info: d.relationLabel || d.relationType || d.title,
+      date: d.createdAt
+    });
+    addContact({
+      key: d.partnerUid,
+      name: [d.partnerName, d.partnerProfile?.nom].filter(Boolean).join(" "),
+      email: d.partnerEmail || d.partnerProfile?.email,
+      source: "Histoire",
+      info: d.relationLabel || d.relationType || d.title,
+      date: d.createdAt
+    });
+  });
+  demandes.forEach(d => addContact({
+    key: d.id,
+    name: d.prenom,
+    email: d.email,
+    source: "Demande",
+    info: d.formule || d.plan || d.motif_label || d.motif,
+    date: d.createdAt
+  }));
+  requests.forEach(r => addContact({
+    name: r.name,
+    email: r.email,
+    source: "Partenariat",
+    info: r.media || r.role,
+    date: r.createdAt
+  }));
+  feedbacks.forEach(f => addContact({
+    key: f.byUid,
+    name: f.byName,
+    email: f.byEmail,
+    source: "Avis",
+    info: f.title || f.disputeId,
+    date: f.createdAt || f.ts
+  }));
+  const contacts = Array.from(contactMap.values()).sort((a,b) => traceTime(b.date) - traceTime(a.date));
+  $("contacts-table").innerHTML = contacts.map(c => `
+    <tr>
+      <td>${esc(c.name || "—")}</td>
+      <td>${c.email && c.email !== "—" ? `<a href="mailto:${esc(c.email)}">${esc(c.email)}</a>` : "—"}</td>
+      <td>${esc(c.source || "—")}</td>
+      <td>${esc(c.info || "—")}</td>
+      <td>${fmtDate(c.date)}</td>
+    </tr>`).join("") || `<tr><td colspan="5" style="color:var(--gris);text-align:center;padding:20px">Aucun contact repéré pour l'instant.</td></tr>`;
 
   disputes.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
   $("histories-list").innerHTML = disputes.map(d => {
