@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>WereInLove — La boîte à histoires</title>
+<meta name="description" content="La boîte à histoires — des histoires, deux versions, un verdict WereInLove.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#ff2d75;--accent:#ff9bbd;--ink:#fff;--muted:rgba(255,255,255,.66);--grad:linear-gradient(90deg,#171512,#171512);--font:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0} html,body{height:100%;background:#08060d;color:#fff;font-family:var(--font);overflow:hidden;-webkit-font-smoothing:antialiased} button{font-family:inherit} a{color:inherit;text-decoration:none}.feed{height:100svh;overflow-y:auto;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;background:#08060d}.feed-card{height:100svh;position:relative;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden;background:#09060e}.topbar{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 16px 12px;background:linear-gradient(180deg,rgba(0,0,0,.55),transparent);pointer-events:none}.topbar a{pointer-events:auto}.logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:14px;letter-spacing:-.03em}.logo svg{width:30px}.logo .in{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.close{width:36px;height:36px;border-radius:99px;background:rgba(255,255,255,.15);display:grid;place-items:center;backdrop-filter:blur(12px);font-weight:800}.cover-card{background:#000}.cover-card::before{content:"";position:absolute;inset:0;background:url('boite-dispute-cover.jpeg') center/cover no-repeat;animation:slowZoom 12s ease-in-out infinite alternate}.cover-card::after{content:"";position:absolute;inset:auto 0 0 0;height:22%;background:linear-gradient(0deg,#050308,transparent)}@keyframes slowZoom{from{transform:scale(1)}to{transform:scale(1.035)}}.carousel{height:100%;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}.carousel::-webkit-scrollbar{display:none}.slide{position:relative;flex:0 0 100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:left;padding:calc(70px + env(safe-area-inset-top)) 24px calc(82px + env(safe-area-inset-bottom));overflow:hidden}.slide::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.78),transparent 34%),linear-gradient(155deg,#100916,#1b0d25 50%,#08060d);z-index:0}.slide>*{position:relative;z-index:1}.cover-slide::before{background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.78),transparent 34%),linear-gradient(160deg,#19081b,#130c22 48%,#06050a)}.cover-wrap{width:min(430px,100%);min-height:68vh;display:flex;flex-direction:column;justify-content:flex-end}.cat-pill{align-self:flex-start;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.1);backdrop-filter:blur(16px);padding:8px 13px;border-radius:99px;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:900;color:rgba(255,255,255,.78);margin-bottom:16px}.big-emoji{font-size:54px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.35));margin-bottom:12px}.story-title{font-size:clamp(38px,11vw,66px);font-weight:900;line-height:.94;letter-spacing:-.07em;max-width:9ch}.story-title .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.hook{margin-top:20px;color:rgba(255,255,255,.86);font-size:18px;line-height:1.35;font-weight:700;max-width:24ch}.versus{margin-top:28px;display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900}.versus .vs{font-size:11px;color:rgba(255,255,255,.48);letter-spacing:.1em}.swipe{margin-top:22px;color:#fff;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:10px 15px;font-size:13px;font-weight:900;animation:nudge 1.7s infinite}@keyframes nudge{50%{transform:translateX(6px)}}.msg-title{position:absolute;top:calc(74px + env(safe-area-inset-top));left:24px;right:86px;color:rgba(255,255,255,.42);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}.chat{width:min(385px,100%);display:flex;flex-direction:column;gap:8px}.name{font-size:13px;font-weight:900;color:rgba(255,255,255,.54)}.bubble{border-radius:28px;padding:17px 19px;font-size:17px;line-height:1.46;box-shadow:0 18px 45px rgba(0,0,0,.22);max-height:55vh;overflow:auto}.bubble.a{align-self:flex-start;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.08);color:#f4f2f8;border-bottom-left-radius:7px;backdrop-filter:blur(6px)}.bubble.b{align-self:flex-end;background:linear-gradient(160deg,#198cff,#075ad1);color:#fff;border-bottom-right-radius:7px}.verdict-wrap{width:min(390px,100%);max-height:73vh;overflow:auto;padding-right:2px}.verdict-kicker{text-align:center;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.55);font-size:11px;font-weight:900}.scores{margin-top:10px;display:flex;align-items:center;justify-content:center;gap:12px}.score{font-size:42px;font-weight:900;letter-spacing:-.06em}.score.a{background:linear-gradient(90deg,#ff2d75,#ff8cb6);-webkit-background-clip:text;background-clip:text;color:transparent}.score.b{background:linear-gradient(90deg,#8d8780,#ff9bbd);-webkit-background-clip:text;background-clip:text;color:transparent}.scores .vs{font-size:12px;font-weight:900;color:rgba(255,255,255,.4)}.bar{height:12px;border-radius:99px;overflow:hidden;display:flex;margin:12px 0 18px;background:rgba(255,255,255,.1)}.bar .a{background:linear-gradient(90deg,#ff2d75,#ff8cb6)}.bar .b{background:linear-gradient(90deg,#8d8780,#ff9bbd)}.analysis{font-size:14.5px;line-height:1.62;color:rgba(255,255,255,.88);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.10);border-radius:24px;padding:18px}.mot{margin-top:15px;font-size:17px;line-height:1.35;font-weight:900}.dots{position:absolute;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:6px;z-index:4}.dot{width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,.28)}.dot.active{width:20px;background:#fff}.side-actions{position:absolute;right:12px;bottom:calc(92px + env(safe-area-inset-bottom));z-index:20;display:flex;flex-direction:column;align-items:center;gap:18px}.action{display:flex;flex-direction:column;align-items:center;gap:5px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45);font-size:11px;font-weight:900}.round{width:48px;height:48px;border-radius:999px;border:0;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;backdrop-filter:blur(14px);box-shadow:0 14px 35px rgba(0,0,0,.26);cursor:pointer}.round svg{width:25px;height:25px}.like-btn.liked{background:linear-gradient(90deg,#171512,#171512)}.like-btn.liked svg{fill:#fff;stroke:#fff}.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);z-index:200;background:rgba(28,22,40,.92);color:#fff;border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);padding:11px 16px;border-radius:999px;font-size:13px;font-weight:900;opacity:0;transition:.22s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}.end{display:grid;place-items:center;text-align:center;padding:30px;background:radial-gradient(circle at 50% 35%,#251433,#07050b)}.end h2{font-size:30px;line-height:1.05;letter-spacing:-.05em}.end p{margin-top:12px;color:rgba(255,255,255,.7);max-width:330px}.btn{display:inline-flex;margin-top:22px;padding:14px 22px;border-radius:99px;background:var(--grad);font-weight:900}.nav-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:18;width:40px;height:40px;border:0;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;display:none;font-size:24px;backdrop-filter:blur(12px)}.nav-arrow.left{left:10px}.nav-arrow.right{right:10px}@media(hover:hover) and (pointer:fine){.nav-arrow{display:block}}@media(max-width:380px){.bubble{font-size:15.5px}.story-title{font-size:40px}.side-actions{right:8px}.round{width:44px;height:44px}}
+
+
+/* WEREINLOVE DA 2026 */
+:root{
+  --wil-cream:#f5f1ee;
+  --wil-cream-2:#eee8e2;
+  --wil-ink:#151412;
+  --wil-muted:#8d8780;
+  --wil-line:#ded8d1;
+  --wil-card:#fffdfb;
+  --wil-black:#171512;
+  --wil-green:#5f8e72;
+  --wil-pink:#ff5f95;
+  --wil-shadow:0 28px 90px rgba(28,22,18,.12);
+  --wil-radius:32px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--wil-cream)!important;
+  color:var(--wil-ink)!important;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif!important;
+  letter-spacing:0!important;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button,.btn,.cta,.primary,.back,a.button,[type="submit"]{
+  border-radius:999px!important;
+  font-weight:800!important;
+  letter-spacing:-.02em!important;
+}
+.logo,.brand,.mf-brand{
+  color:var(--wil-ink)!important;
+  font-weight:850!important;
+  letter-spacing:-.045em!important;
+}
+.logo svg,.brand svg{display:none!important}
+.logo::before,.brand::before,.mf-brand::before{
+  content:"";
+  width:30px;
+  height:17px;
+  display:inline-block;
+  margin-right:10px;
+  border-radius:999px;
+  vertical-align:-2px;
+  background:
+    radial-gradient(circle at 35% 50%, var(--wil-pink) 0 38%, transparent 40%),
+    radial-gradient(circle at 65% 50%, #ff9bbd 0 38%, transparent 40%);
+}
+.in{background:none!important;color:inherit!important}
+.card,.panel,.box,.auth-card,.admin-card,details,.stat,.pricing-card,.story-card{
+  background:var(--wil-card)!important;
+  border:1px solid var(--wil-line)!important;
+  border-radius:var(--wil-radius)!important;
+  box-shadow:var(--wil-shadow)!important;
+}
+input,textarea,select{
+  background:#fff!important;
+  color:var(--wil-ink)!important;
+  border:1px solid var(--wil-line)!important;
+  border-radius:24px!important;
+}
+input::placeholder,textarea::placeholder{color:#c7c0b8!important}
+table{
+  background:#fff!important;
+  border-radius:24px!important;
+  overflow:hidden;
+  border-collapse:separate!important;
+  border-spacing:0!important;
+}
+th{color:var(--wil-muted)!important;text-transform:uppercase;letter-spacing:.16em!important;font-size:12px!important}
+td,th{border-color:var(--wil-line)!important}
+footer{
+  background:var(--wil-black)!important;
+  color:#fff!important;
+  border-radius:44px 44px 0 0!important;
+  margin-top:80px!important;
+}
+footer a{color:rgba(255,255,255,.74)!important}
+footer a:hover{color:#fff!important}
+@media(max-width:720px){
+  body{font-size:16px!important}
+  h1{font-size:clamp(44px,13vw,68px)!important;line-height:.95!important;letter-spacing:-.07em!important}
+  h2{font-size:clamp(32px,9vw,48px)!important;line-height:1!important}
+  p,li,summary{font-size:clamp(16px,4.7vw,22px)!important;line-height:1.55!important}
+  .logo::before,.brand::before,.mf-brand::before{width:24px;height:14px;margin-right:8px}
+}
+
+/* WEREINLOVE FEED DA */
+html,body{background:var(--wil-cream)!important;color:var(--wil-ink)!important}
+.feed{background:var(--wil-cream)!important}
+.feed-card{background:var(--wil-cream)!important;color:var(--wil-ink)!important}
+.topbar{
+  inset:24px 0 auto 0!important;
+  justify-content:center!important;
+  gap:12px!important;
+  padding:0!important;
+  background:transparent!important;
+}
+.topbar .logo{
+  height:64px!important;
+  padding:8px 24px!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.78)!important;
+  border:1px solid var(--wil-line)!important;
+  color:var(--wil-ink)!important;
+  box-shadow:0 26px 70px rgba(28,22,18,.14)!important;
+  backdrop-filter:blur(18px)!important;
+}
+.topbar .close{
+  width:64px!important;
+  height:64px!important;
+  background:var(--wil-black)!important;
+  color:#fff!important;
+}
+.slide::before{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,255,255,.9),transparent 34%),
+    linear-gradient(180deg,#fffaf7,var(--wil-cream))!important;
+}
+.cover-slide::before{
+  background:
+    linear-gradient(180deg,rgba(23,21,18,.12),rgba(23,21,18,.62)),
+    url('boite-dispute-cover.jpeg') center/cover no-repeat!important;
+}
+.cover-slide,.cover-slide *{color:#fff!important}
+.cat-pill{
+  background:rgba(255,255,255,.75)!important;
+  color:var(--wil-ink)!important;
+  border-color:rgba(255,255,255,.35)!important;
+}
+.msg-title,.verdict-kicker,.name{color:var(--wil-muted)!important}
+.bubble{
+  box-shadow:0 18px 50px rgba(28,22,18,.12)!important;
+}
+.bubble.a,.analysis{
+  background:#fff!important;
+  color:var(--wil-ink)!important;
+  border:1px solid var(--wil-line)!important;
+}
+.bubble.b{
+  background:var(--wil-black)!important;
+  color:#fff!important;
+}
+.score.a,.score.b,.story-title .grad{
+  background:none!important;
+  color:var(--wil-ink)!important;
+}
+.bar{background:#e6ded6!important}
+.bar .a,.bar .b{background:var(--wil-black)!important}
+.round,.nav-arrow{
+  background:rgba(23,21,18,.9)!important;
+  color:#fff!important;
+}
+.end{
+  background:var(--wil-black)!important;
+  color:#fff!important;
+}
+.btn{background:#fff!important;color:var(--wil-ink)!important}
+.toast{background:var(--wil-black)!important}
+@media(max-width:720px){
+  .topbar{top:18px!important}
+  .topbar .logo{height:58px!important}
+  .topbar .close{height:58px!important;width:58px!important}
+  .story-title{font-size:clamp(44px,14vw,64px)!important}
+}
+
+
+
+/* WEREINLOVE GLOBAL FINAL - NO ACCENT */
+:root{
+  --bg:#f5f1ee!important;
+  --white:#fffdfb!important;
+  --ink:#151412!important;
+  --gris:#8d8780!important;
+  --rose:#ff5f95!important;
+  --rose-deep:#ff5f95!important;
+  --accent:#171512!important;
+  --accent-deep:#5f8e72!important;
+  --grad:linear-gradient(90deg,#ff6f9d,#ffb3c8)!important;
+  --grad-soft:linear-gradient(160deg,rgba(255,111,157,.10),rgba(255,179,200,.12))!important;
+  --grad-btn:linear-gradient(90deg,#171512,#171512)!important;
+  --wil-cream:#f5f1ee!important;
+  --wil-card:#fffdfb!important;
+  --wil-ink:#151412!important;
+  --wil-muted:#8d8780!important;
+  --wil-line:#ded8d1!important;
+  --wil-black:#171512!important;
+  --wil-green:#5f8e72!important;
+  --wil-pink:#ff5f95!important;
+}
+html{background:#f5f1ee!important;color-scheme:light!important}
+body{
+  background:#f5f1ee!important;
+  color:#151412!important;
+}
+.grad-txt,
+h1 .grad,
+.story-title .grad,
+.score-hero .big,
+.mv-big,
+.magic-brandbar .url,
+.list-item .pct,
+.stat b{
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+  color:#151412!important;
+}
+.btn,.btn-accent,.nav-link.cta,.offer-tag,.uni-badge,.modal-badge{
+  background:#171512!important;
+  color:#fff!important;
+  box-shadow:0 18px 52px rgba(23,21,18,.16)!important;
+}
+.btn-ghost,.btn-google,.secondary,.ghost{
+  background:#fff!important;
+  color:#151412!important;
+  border:1px solid #ded8d1!important;
+  box-shadow:none!important;
+}
+.card,.panel,.box,.modal-card,.offer,.pcard,.auth-card,.screen-card,details,.stat{
+  background:rgba(255,253,251,.94)!important;
+  border-color:#ded8d1!important;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:#171512!important;
+  box-shadow:0 0 0 4px rgba(23,21,18,.08)!important;
+}
+.magic-front{
+  background:#171512!important;
+}
+.magic-back,.magic-inner{
+  background:#fffdfb!important;
+  color:#151412!important;
+}
+.magic-brandbar{
+  background:#171512!important;
+  color:#fff!important;
+}
+.mv-pcts .p.pb,.mv-pcts .p.pa,.mv-names .nb,.mv-names .na,.pacte.p-b b,.pacte.p-a b{
+  color:#151412!important;
+  background:none!important;
+}
+.mv-bar .a,.mv-bar .b,.vbar .a,.vbar .b,.progress span.done,.pc-fill,.uni-row .fill,.mv-unirow .fill{
+  background:#171512!important;
+}
+.msg-a,.msg-b,.insight{
+  background:#f0ebe5!important;
+  border-color:#ded8d1!important;
+}
+.loader span,.loader span:nth-child(2),.loader span:nth-child(3){
+  background:#171512!important;
+}
+.hero::before,.hero::after{
+  display:none!important;
+}
+svg [fill="#ff9bbd"]{
+  fill:#ff9bbd!important;
+}
+
+</style>
+</head>
+<body>
+<div class="topbar"><a class="logo" href="index.html" aria-label="Retour accueil"><svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#ff9bbd" fill-opacity=".85"/></svg><span>WereInLove</span></a><a href="index.html" class="close" aria-label="Fermer">✕</a></div>
+<div class="feed" id="feed"></div><div class="toast" id="toast">Lien copié ✓</div>
+<script>
+/* ============================================================
+   FIX DEFINITIF — chargement robuste de disputes-data.js
+   - Ne dépend plus de window.DISPUTES créé par <script src>
+   - Va chercher disputes-data.js directement
+   - Parse le tableau même si le serveur ne l'exécute pas comme script
+   - Supprime totalement l'appel à disputes-data-v2.js
+   ============================================================ */
+const feed=document.getElementById('feed');
+const toast=document.getElementById('toast');
+let DISPUTES=[];
+
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const heart=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>`;
+const shareIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>`;
+
+function fmt(n){return n>=1000?(Math.round(n/100)/10).toString().replace('.',',')+'k':String(n||0)}
+function dots(n,i){return `<div class="dots">${Array.from({length:n},(_,k)=>`<span class="dot ${k===i?'active':''}"></span>`).join('')}</div>`}
+function firstTitle(t){let parts=String(t||'').split(' ');let mid=Math.ceil(parts.length/2);return `${esc(parts.slice(0,mid).join(' '))}<br><span class="grad">${esc(parts.slice(mid).join(' '))}</span>`}
+function safeLikes(d,i){return Number.isFinite(+d.likes) ? +d.likes : 287 + ((i*137)%1204)}
+
+async function loadHistoires(){
+  // 1) Cas idéal : un autre script a déjà créé window.DISPUTES
+  if(Array.isArray(window.DISPUTES) && window.DISPUTES.length){
+    return window.DISPUTES;
+  }
+
+  // 2) Cas robuste : on lit le fichier comme du texte, puis on extrait le tableau
+  const url='./disputes-data.js?v=' + Date.now();
+  const res=await fetch(url,{cache:'no-store'});
+  if(!res.ok){
+    throw new Error('Impossible de charger disputes-data.js — statut HTTP '+res.status);
+  }
+  const txt=await res.text();
+
+  // Nettoyage basique d'un éventuel BOM
+  const clean=txt.replace(/^\uFEFF/, '').trim();
+
+  // Tentative A : extraire le tableau et le parser comme JSON
+  const match=clean.match(/window\.DISPUTES\s*=\s*(\[[\s\S]*\])\s*;?\s*$/);
+  if(match){
+    try{
+      const data=JSON.parse(match[1]);
+      if(Array.isArray(data) && data.length) return data;
+    }catch(e){
+      console.warn('JSON.parse impossible, tentative JS classique.', e);
+    }
+  }
+
+  // Tentative B : exécuter le JS dans une fonction isolée
+  try{
+    const fakeWindow={};
+    Function('window', clean + '; return window.DISPUTES;')(fakeWindow);
+    if(Array.isArray(fakeWindow.DISPUTES) && fakeWindow.DISPUTES.length){
+      return fakeWindow.DISPUTES;
+    }
+  }catch(e){
+    console.error('Erreur dans disputes-data.js :', e);
+    throw e;
+  }
+
+  throw new Error('disputes-data.js chargé, mais aucune histoire exploitable trouvée.');
+}
+
+function slides(d){
+  const msgs=Array.isArray(d.msgs)?d.msgs:[];
+  const n=1+msgs.length+1;
+  let out=`<div class="slide cover-slide"><div class="cover-wrap"><div class="cat-pill">${esc(d.cat)}</div><div class="big-emoji">${esc(d.emoji)}</div><h1 class="story-title">${firstTitle(d.title)}</h1><p class="hook">${esc(d.hook)}</p><div class="versus"><span>${esc(d.a)}</span><span class="vs">VS</span><span>${esc(d.b)}</span></div><div class="swipe">Glissez pour lire →</div></div>${dots(n,0)}</div>`;
+  msgs.forEach((m,i)=>{
+    out+=`<div class="slide"><div class="msg-title">${esc(d.title)}</div><div class="chat"><div class="name" style="align-self:${m.r==='A'?'flex-start':'flex-end'}">${esc(m.n)}</div><div class="bubble ${(m.r||'A').toLowerCase()}">${esc(m.t)}</div></div>${dots(n,i+1)}</div>`;
+  });
+  const v=d.v||{};
+  const pctA=Number.isFinite(+v.pctA)?+v.pctA:50;
+  const pctB=Number.isFinite(+v.pctB)?+v.pctB:100-pctA;
+  out+=`<div class="slide"><div class="verdict-wrap"><div class="verdict-kicker">⚖️ Le verdict WereInLove</div><div class="scores"><span class="score a">${pctA}%</span><span class="vs">VS</span><span class="score b">${pctB}%</span></div><div class="bar"><div class="a" style="width:${pctA}%"></div><div class="b" style="width:${pctB}%"></div></div><div class="analysis">${esc(v.analyse)}</div><div class="mot">${esc(v.mot)}</div></div>${dots(n,n-1)}</div>`;
+  return out;
+}
+
+function card(d,i){
+  const id=esc(d.id || ('d'+String(i+1).padStart(2,'0')));
+  const likes=safeLikes(d,i);
+  return `<section class="feed-card" id="${id}" data-id="${id}" data-index="${i}" data-likes="${likes}"><button class="nav-arrow left" aria-label="Précédent">‹</button><div class="carousel">${slides(d)}</div><button class="nav-arrow right" aria-label="Suivant">›</button><div class="side-actions"><div class="action"><button class="round like-btn" aria-label="J'aime">${heart}</button><span class="like-count">${fmt(likes)}</span></div><div class="action"><button class="round share-btn" aria-label="Partager">${shareIcon}</button><span>Partager</span></div></div></section>`;
+}
+
+function showToast(t='Lien copié ✓'){
+  toast.textContent=t;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),1600);
+}
+
+function bind(){
+  document.querySelectorAll('.feed-card[data-id]').forEach(card=>{
+    const index=+card.dataset.index;
+    const d=DISPUTES[index];
+    const id=card.dataset.id;
+    const likeBtn=card.querySelector('.like-btn');
+    const count=card.querySelector('.like-count');
+    const base=+card.dataset.likes;
+    const key='wil-liked-'+id;
+    let liked=localStorage.getItem(key)==='1';
+    let likes=base+(liked?1:0);
+    count.textContent=fmt(likes);
+    likeBtn.classList.toggle('liked',liked);
+    likeBtn.addEventListener('click',()=>{
+      liked=!liked;
+      localStorage.setItem(key,liked?'1':'0');
+      likes=base+(liked?1:0);
+      count.textContent=fmt(likes);
+      likeBtn.classList.toggle('liked',liked);
+    });
+    card.querySelector('.share-btn').addEventListener('click',async()=>{
+      const url=location.origin+location.pathname+'#'+id;
+      const title=d?.title||'La boîte à histoires';
+      try{
+        if(navigator.share){
+          await navigator.share({title, text:'La boîte à histoires — '+title, url});
+        }else{
+          await navigator.clipboard.writeText(url);
+          showToast();
+        }
+      }catch(e){
+        try{await navigator.clipboard.writeText(url);showToast();}
+        catch(_){showToast('Impossible de partager');}
+      }
+    });
+    const car=card.querySelector('.carousel');
+    const left=card.querySelector('.left');
+    const right=card.querySelector('.right');
+    const go=dir=>car.scrollBy({left:dir*car.clientWidth,behavior:'smooth'});
+    left.onclick=()=>go(-1);
+    right.onclick=()=>go(1);
+    car.addEventListener('scroll',()=>{
+      const current=Math.round(car.scrollLeft/car.clientWidth);
+      card.querySelectorAll('.dots').forEach(group=>{
+        group.querySelectorAll('.dot').forEach((dot,k)=>dot.classList.toggle('active',k===current));
+      });
+    }, {passive:true});
+  });
+  if(location.hash){
+    const el=document.querySelector(location.hash);
+    if(el)setTimeout(()=>el.scrollIntoView(),100);
+  }
+}
+
+function render(){
+  feed.innerHTML=`<section class="feed-card cover-card" aria-label="Page de garde"></section>`+
+    DISPUTES.map(card).join('')+
+    `<section class="feed-card end"><div><h2>Vous avez tout lu.</h2><p>Créez votre propre histoire et laissez WereInLove trancher avec les deux versions.</p><a class="btn" href="app.html">Créer mon histoire</a></div></section>`;
+  bind();
+}
+
+function renderError(err){
+  console.error(err);
+  feed.innerHTML=`<section class="feed-card end"><div><h2>Erreur de chargement</h2><p>${esc(err.message||err)}</p><p style="margin-top:10px;color:rgba(255,255,255,.55);font-size:13px">Vérifie que <strong>disputes-data.js</strong> est bien dans le même dossier que cette page.</p></div></section>`;
+}
+
+(async()=>{
+  try{
+    DISPUTES=await loadHistoires();
+    window.DISPUTES=DISPUTES;
+    render();
+  }catch(err){
+    renderError(err);
+  }
+})();
+</script>
+</body>
+</html>

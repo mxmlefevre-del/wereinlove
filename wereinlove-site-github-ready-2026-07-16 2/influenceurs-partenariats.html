@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="only light">
+  <title>Espace influenceur & partenariats - WereInLove</title>
+  <meta name="description" content="Programme partenaires WereInLove : parle de nous a ta communaute et suis tes demandes, abonnements et commissions.">
+  <style>
+    :root{
+      --cream:#f5f1ee;
+      --card:#fffdfb;
+      --ink:#151412;
+      --muted:#8d8780;
+      --line:#ded8d1;
+      --black:#171512;
+      --pink:#ff5f95;
+      --pink-soft:#ffb3c8;
+      --green:#5f8e72;
+      --shadow:0 34px 100px rgba(28,22,18,.13);
+      --font:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--cream);color-scheme:only light;scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
+      background:radial-gradient(circle at 50% -10%, rgba(255,255,255,.92), transparent 34%);
+    }
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    .nav-shell{
+      position:fixed;
+      top:24px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:40;
+      display:flex;
+      align-items:center;
+      gap:4px;
+      min-height:68px;
+      padding:6px;
+      border-radius:999px;
+      background:rgba(255,253,251,.86);
+      border:1px solid var(--line);
+      box-shadow:0 26px 70px rgba(28,22,18,.14);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      transition:transform .34s ease, opacity .34s ease;
+    }
+    .nav-shell.nav-hidden{transform:translate(-50%,-130%);opacity:0}
+    .brand,.nav-cta{
+      min-height:56px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      white-space:nowrap;
+      font-weight:850;
+      letter-spacing:-.045em;
+    }
+    .brand{min-width:220px;padding:0 24px}
+    .brand::before{
+      content:"";
+      width:30px;
+      height:17px;
+      margin-right:10px;
+      border-radius:999px;
+      background:
+        radial-gradient(circle at 35% 50%, var(--pink) 0 38%, transparent 40%),
+        radial-gradient(circle at 65% 50%, var(--pink-soft) 0 38%, transparent 40%);
+    }
+    .nav-cta{min-width:150px;padding:0 28px;background:var(--black);color:#fff}
+
+    main{padding-top:128px}
+    .screen{display:none}
+    .screen.active{display:block;animation:fade .28s ease}
+    @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .section{width:min(1280px,calc(100vw - 44px));margin-inline:auto}
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,.92fr) minmax(360px,1.08fr);
+      gap:16px;
+      min-height:720px;
+      margin-bottom:clamp(90px,12vw,160px);
+      align-items:stretch;
+    }
+    .hero-copy,.hero-media{
+      border-radius:42px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .hero-copy{
+      background:var(--black);
+      color:#fff;
+      padding:clamp(34px,5vw,70px);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+    .eyebrow{
+      margin:0 0 24px;
+      color:rgba(255,255,255,.56);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:12px;
+      font-weight:850;
+    }
+    .hero h1{
+      margin:0;
+      max-width:8.8ch;
+      font-size:clamp(58px,7vw,108px);
+      line-height:.94;
+      letter-spacing:-.06em;
+      font-weight:850;
+    }
+    .hero p{
+      max-width:620px;
+      margin:28px 0 0;
+      color:rgba(255,255,255,.68);
+      font-size:clamp(19px,2vw,26px);
+      line-height:1.42;
+      letter-spacing:-.035em;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+    .btn{
+      min-height:58px;
+      border:0;
+      border-radius:999px;
+      padding:0 28px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      font-weight:850;
+      letter-spacing:-.025em;
+      background:var(--black);
+      color:#fff;
+      box-shadow:0 20px 60px rgba(23,21,18,.16);
+    }
+    .btn.light{background:#fff;color:var(--ink)}
+    .btn.outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.24);box-shadow:none}
+    .btn.full{width:100%}
+    .hero-media{position:relative;min-height:720px;background:#d9d0c5}
+    .hero-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(.88) contrast(.95);
+    }
+    .hero-note{
+      position:absolute;
+      left:26px;
+      right:26px;
+      bottom:26px;
+      padding:24px 26px;
+      border-radius:30px;
+      background:rgba(255,253,251,.88);
+      border:1px solid rgba(255,255,255,.54);
+      backdrop-filter:blur(18px);
+      box-shadow:0 22px 70px rgba(23,21,18,.16);
+      font-size:18px;
+      line-height:1.36;
+    }
+    .hero-note b{display:block;margin-bottom:4px}
+
+    .center-head{text-align:center;margin:0 auto 44px;width:min(820px,calc(100vw - 44px))}
+    .center-head h2,.split-copy h2,.dark-card h2{
+      margin:0;
+      font-size:clamp(42px,5vw,82px);
+      line-height:.96;
+      letter-spacing:-.065em;
+      font-weight:850;
+    }
+    .center-head p,.split-copy p,.dark-card p{
+      margin:20px auto 0;
+      color:var(--muted);
+      font-size:clamp(18px,2vw,24px);
+      line-height:1.46;
+      letter-spacing:-.035em;
+    }
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-bottom:clamp(90px,12vw,160px);
+    }
+    .step{
+      min-height:320px;
+      padding:32px;
+      border-radius:34px;
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:0 24px 80px rgba(28,22,18,.09);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .step-num{font-size:13px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;font-weight:850}
+    .step h3{margin:0;font-size:clamp(26px,2.8vw,40px);line-height:1;letter-spacing:-.055em}
+    .step p{margin:16px 0 0;color:var(--muted);font-size:17px;line-height:1.44}
+
+    .split{
+      display:grid;
+      grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+      gap:18px;
+      align-items:stretch;
+      margin-bottom:clamp(90px,12vw,160px);
+    }
+    .dashboard-card{
+      min-height:560px;
+      border-radius:40px;
+      padding:34px;
+      background:var(--black);
+      color:#fff;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .dash-top{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      align-self:flex-start;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      color:rgba(255,255,255,.62);
+      font-size:13px;
+      font-weight:750;
+    }
+    .dash-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:32px}
+    .dash-stat,.chart-box{
+      border-radius:22px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      padding:20px;
+    }
+    .dash-stat b{display:block;font-size:38px;letter-spacing:-.06em;filter:blur(5px)}
+    .dash-stat span{display:block;color:rgba(255,255,255,.52);font-size:13px;margin-top:4px}
+    .chart-box{margin-top:14px}
+    .chart-box svg{display:block;width:100%;height:120px}
+    .payout{
+      margin-top:20px;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.12);
+      display:flex;
+      justify-content:space-between;
+      color:rgba(255,255,255,.62);
+      font-weight:750;
+    }
+    .payout b{color:#fff;filter:blur(5px)}
+    .split-copy{
+      padding:clamp(34px,5vw,64px);
+      border-radius:40px;
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .perks{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:22px}
+    .perks li{display:grid;grid-template-columns:54px 1fr;gap:16px;align-items:start}
+    .perk-icon{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      background:#f0ebe5;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+    }
+    .perks b{display:block;font-size:22px;letter-spacing:-.04em}
+    .perks p{margin:6px 0 0;font-size:17px;color:var(--muted);line-height:1.45}
+
+    .dark-card{
+      width:min(1020px,calc(100vw - 44px));
+      margin:0 auto clamp(80px,10vw,120px);
+      padding:clamp(34px,6vw,76px);
+      border-radius:42px;
+      background:var(--black);
+      color:#fff;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+    .dark-card h2{color:#fff}
+    .dark-card p{color:rgba(255,255,255,.66)}
+    .form-wrap{
+      display:none;
+      margin:40px auto 0;
+      width:min(640px,100%);
+      text-align:left;
+    }
+    .divider{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      color:rgba(255,255,255,.46);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-weight:850;
+      margin-bottom:20px;
+    }
+    .divider::before,.divider::after{content:"";height:1px;flex:1;background:rgba(255,255,255,.14)}
+    label{display:block;margin:16px 0 7px;font-weight:800;color:rgba(255,255,255,.78)}
+    input{
+      width:100%;
+      min-height:60px;
+      padding:0 22px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.17);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      outline:none;
+    }
+    input::placeholder{color:rgba(255,255,255,.32)}
+    input:focus{border-color:rgba(255,255,255,.48)}
+    .error,.success{display:none;margin-top:14px;padding:14px 16px;border-radius:18px;font-weight:750}
+    .error{background:rgba(255,95,149,.12);color:#ffb3c8;border:1px solid rgba(255,95,149,.28)}
+    .success{background:rgba(95,142,114,.16);color:#d9f0df;border:1px solid rgba(95,142,114,.38)}
+    .account-card{
+      width:min(680px,calc(100vw - 36px));
+      margin:0 auto 100px;
+      padding:clamp(30px,5vw,58px);
+      border-radius:38px;
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .account-card h1{margin:0;font-size:clamp(42px,6vw,68px);line-height:.96;letter-spacing:-.065em}
+    .tabs{display:flex;gap:6px;padding:6px;border-radius:999px;background:#f0ebe5;margin:28px 0}
+    .tab{flex:1;min-height:50px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:850;color:var(--muted);cursor:pointer}
+    .tab.active{background:#fff;color:var(--ink);box-shadow:0 10px 30px rgba(28,22,18,.08)}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+    .account-card label{color:var(--muted)}
+    .account-card input{background:#fff;color:var(--ink);border-color:var(--line)}
+    .account-card input::placeholder{color:#c7c0b8}
+    .back{display:inline-flex;margin-bottom:24px;border:0;background:transparent;color:var(--muted);font-weight:800;cursor:pointer}
+    .pending{text-align:center}
+    .partner-dashboard{width:min(1040px,calc(100vw - 36px));margin:0 auto 100px}
+    .dash-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+    .dash-panel{
+      border-radius:32px;
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:0 24px 80px rgba(28,22,18,.09);
+      padding:30px;
+    }
+    .dash-panel b{display:block;font-size:46px;letter-spacing:-.06em}
+    .dash-panel span{color:var(--muted);font-weight:750}
+    .dashboard-row{display:grid;grid-template-columns:.85fr 1.15fr;gap:14px;margin-top:14px}
+    .pie{width:130px;height:130px;border-radius:999px;background:#f0ebe5}
+    .legend{display:grid;gap:8px;margin-left:20px;color:var(--muted)}
+    .legend-row{display:flex;align-items:center;gap:8px}
+    .dot{width:12px;height:12px;border-radius:999px;background:var(--pink)}
+    .dot.green{background:var(--green)}
+    .chart-svg{width:100%;height:160px;display:block}
+    .footer-note{color:var(--muted);font-size:14px;margin-top:18px;line-height:1.5}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @media(max-width:920px){
+      .hero,.split,.dashboard-row{grid-template-columns:1fr}
+      .hero{min-height:auto}
+      .hero-copy,.hero-media{min-height:560px}
+      .steps{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .nav-shell{top:18px;width:calc(100vw - 28px);min-height:62px}
+      .brand,.nav-cta{min-height:50px;min-width:0;flex:1 1 0;padding:0 16px;font-size:16px}
+      main{padding-top:104px}
+      .section{width:calc(100vw - 24px)}
+      .hero-copy,.hero-media{border-radius:32px;min-height:520px}
+      .hero h1{font-size:clamp(52px,15vw,74px);letter-spacing:-.052em}
+      .hero-actions .btn{width:100%}
+      .dash-grid{grid-template-columns:1fr}
+      .dashboard-card,.split-copy,.dark-card{border-radius:32px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-shell" id="nav-shell" aria-label="Navigation principale">
+    <a class="brand" href="index.html">WereInLove</a>
+    <a class="nav-cta" href="index.html">Accueil</a>
+  </nav>
+
+  <main>
+    <div class="screen active" id="s-public">
+      <section class="hero section" aria-label="Programme partenaires WereInLove">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Programme partenaires</p>
+          <h1>Ton audience. Notre espace. Ta commission.</h1>
+          <p>WereInLove aide les personnes a sortir des malentendus. Toi, tu en parles a ta communaute, et tu touches une commission recurrente a chaque abonnement souscrit grace a toi.</p>
+          <div class="hero-actions">
+            <button class="btn light" id="btn-open-brochure">Demander la brochure</button>
+            <button class="btn outline" id="btn-open-account">Se connecter / s'inscrire</button>
+          </div>
+        </div>
+        <figure class="hero-media reveal">
+          <img src="wereinlove-assets/partner-event.png" alt="Presentation WereInLove devant une audience">
+          <figcaption class="hero-note"><b>Un sujet qui se raconte bien.</b>Un produit intime, visuel et simple a expliquer : deux versions, une lecture commune, une conversation qui peut reprendre.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <div class="center-head reveal">
+          <h2>Comment ca marche</h2>
+          <p>Un parcours simple, pense pour les createurs qui veulent recommander quelque chose d'utile sans transformer leur contenu en publicite lourde.</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal"><span class="step-num">01</span><div><h3>Tu partages ton lien</h3><p>Bio, story, description de video, newsletter ou podcast : tu gardes ton ton et ta facon d'en parler.</p></div></article>
+          <article class="step reveal"><span class="step-num">02</span><div><h3>Ta communaute s'abonne</h3><p>Les personnes qui viennent de ta part accedent a WereInLove et peuvent commencer une histoire.</p></div></article>
+          <article class="step reveal"><span class="step-num">03</span><div><h3>Tu suis tes commissions</h3><p>Ton espace partenaire regroupe inscriptions, abonnements et prochaine commission estimee.</p></div></article>
+        </div>
+      </section>
+
+      <section class="split section">
+        <div class="dashboard-card reveal">
+          <div>
+            <span class="dash-top">Apercu de ton espace</span>
+            <div class="dash-stats">
+              <div class="dash-stat"><b>128</b><span>Inscriptions</span></div>
+              <div class="dash-stat"><b>42</b><span>Abonnements</span></div>
+            </div>
+            <div class="chart-box">
+              <svg viewBox="0 0 320 120" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M8 92 L58 84 L108 86 L158 58 L208 62 L258 36 L312 30" fill="none" stroke="#ff5f95" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 102 L58 96 L108 92 L158 78 L208 72 L258 58 L312 48" fill="none" stroke="#5f8e72" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+              </svg>
+            </div>
+            <div class="payout"><span>Prochaine commission estimee</span><b>312,40 €</b></div>
+          </div>
+        </div>
+        <div class="split-copy reveal">
+          <h2>Ce que tu gagnes vraiment</h2>
+          <ul class="perks">
+            <li><span class="perk-icon">€</span><div><b>Une commission recurrente</b><p>Tant que la personne recommandee reste abonnee, tu continues a toucher ta part.</p></div></li>
+            <li><span class="perk-icon">+</span><div><b>Un avantage pour ton audience</b><p>Nous pouvons preparer une offre ou un angle dedie pour ta communaute.</p></div></li>
+            <li><span class="perk-icon">↗</span><div><b>Un tableau de bord dedie</b><p>Inscriptions, abonnements, prochains versements : tout reste visible au meme endroit.</p></div></li>
+            <li><span class="perk-icon">•</span><div><b>Un vrai accompagnement</b><p>Brochure, exemples de messages, angles de contenu et reponses rapides.</p></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="dark-card reveal">
+        <h2>Pret.e a en parler a ta communaute ?</h2>
+        <p>Demande la brochure complete : conditions, avantages, exemples concrets. Ou connecte-toi si ton espace partenaire existe deja.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <button class="btn light" id="btn-open-brochure-2">Demander la brochure</button>
+          <button class="btn outline" id="btn-open-account-2">Se connecter / s'inscrire</button>
+        </div>
+
+        <div class="form-wrap" id="brochure-block">
+          <div class="divider">Demande de brochure</div>
+          <label for="br-media">Nom du media / de la chaine / du compte</label>
+          <input type="text" id="br-media" placeholder="Ex : PodcastAmour, @tonpseudo...">
+          <label for="br-name">Ton nom</label>
+          <input type="text" id="br-name" placeholder="Prenom NOM">
+          <label for="br-role">Ton poste / role</label>
+          <input type="text" id="br-role" placeholder="Createur de contenu, responsable partenariats...">
+          <label for="br-email">Ton email</label>
+          <input type="email" id="br-email" placeholder="pour te renvoyer la brochure">
+          <div class="error" id="br-error"></div>
+          <div class="success" id="br-success">Demande envoyee. On revient vers toi rapidement avec la brochure complete.</div>
+          <button class="btn light full" id="btn-send-brochure" style="margin-top:18px">Envoyer ma demande</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="screen" id="s-account">
+      <section class="account-card">
+        <button class="back" id="back-to-public">Retour</button>
+        <h1>Espace partenaire</h1>
+        <div class="tabs">
+          <div class="tab active" data-tab="login">Se connecter</div>
+          <div class="tab" data-tab="signup">Creer mon compte</div>
+        </div>
+        <div class="tab-panel active" id="tab-login">
+          <label for="li-name">Identifiant</label>
+          <input type="text" id="li-name" placeholder="Nom du media ou pseudo">
+          <label for="li-pass">Mot de passe</label>
+          <input type="password" id="li-pass">
+          <div class="error" id="login-error"></div>
+          <button class="btn full" id="btn-login" style="margin-top:18px">Se connecter</button>
+        </div>
+        <div class="tab-panel" id="tab-signup">
+          <label for="su-name">Identifiant</label>
+          <input type="text" id="su-name" placeholder="Nom du media ou pseudo">
+          <label for="su-email">Ton email</label>
+          <input type="email" id="su-email" placeholder="ton@email.com">
+          <label for="su-pass">Mot de passe</label>
+          <input type="password" id="su-pass" placeholder="6 caracteres minimum">
+          <div class="error" id="signup-error"></div>
+          <button class="btn full" id="btn-signup" style="margin-top:18px">Creer mon compte</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="screen" id="s-pending">
+      <section class="account-card pending">
+        <h1>Compte cree, presque pret.</h1>
+        <p style="color:var(--muted);font-size:20px;line-height:1.45">Notre equipe finalise ton lien, tes avantages et ton tableau de bord. Tu recevras un email des que ton espace est actif.</p>
+        <button class="btn full" id="btn-logout-pending">Se deconnecter</button>
+      </section>
+    </div>
+
+    <div class="screen" id="s-dash">
+      <section class="partner-dashboard">
+        <div class="account-card" style="width:100%;margin-bottom:14px">
+          <button class="back" id="btn-logout" style="float:right">Se deconnecter</button>
+          <h1 id="inf-name">Partenaire</h1>
+          <p id="inf-handle" style="color:var(--muted);font-size:18px"></p>
+          <div class="dash-grid">
+            <div class="dash-panel"><b id="st-classic">0</b><span>Abonnements Relations essentielles</span></div>
+            <div class="dash-panel"><b id="st-premium">0</b><span>Abonnements Illimite</span></div>
+            <div class="dash-panel"><b id="st-total">0</b><span>Total inscriptions</span></div>
+          </div>
+        </div>
+        <div class="dashboard-row">
+          <div class="dash-panel">
+            <h3>Repartition des abonnements</h3>
+            <div style="display:flex;align-items:center;margin-top:20px">
+              <div class="pie" id="pie"></div>
+              <div class="legend">
+                <div class="legend-row"><span class="dot"></span>Essentiel <b id="leg-classic">0</b></div>
+                <div class="legend-row"><span class="dot green"></span>Illimite <b id="leg-premium">0</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="dash-panel">
+            <h3>Activite par mois</h3>
+            <svg class="chart-svg" id="chart" viewBox="0 0 300 120" preserveAspectRatio="none"></svg>
+          </div>
+        </div>
+        <div class="dashboard-row">
+          <div class="dash-panel"><span>Derniere mensualite versee</span><b id="last-amount">—</b><p class="footer-note" id="last-date"></p></div>
+          <div class="dash-panel"><span>Prochaine mensualite estimee</span><b id="next-amount">—</b><p class="footer-note" id="delta-wrap"></p><p class="footer-note" id="next-date-text">Date estimee non renseignee</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (() => {
+      const nav = document.getElementById("nav-shell");
+      let lastY = window.scrollY;
+      window.addEventListener("scroll", () => {
+        const y = window.scrollY;
+        nav.classList.toggle("nav-hidden", y > 90 && y > lastY);
+        lastY = y;
+      }, { passive:true });
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("visible"); });
+      }, { threshold:.14 });
+      document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    })();
+  </script>
+  <script type="module">
+    const firebaseConfig = {
+      apiKey: "AIzaSyDEUPsPd9UpVFFFpJO3XooVPkKUX4NLxHU",
+      authDomain: "wereinlove-93a23.firebaseapp.com",
+      projectId: "wereinlove-93a23",
+      appId: "1:224364413943:web:d0027db19a7c89cb17a4f2"
+    };
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut }
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, doc, getDoc, setDoc, addDoc, collection, getDocs, query, where, serverTimestamp }
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const $ = id => document.getElementById(id);
+    const show = id => { document.querySelectorAll(".screen").forEach(s => s.classList.remove("active")); $(id).classList.add("active"); window.scrollTo({ top:0 }); };
+    const esc = s => String(s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const fmtEUR = n => n.toLocaleString("fr-FR",{minimumFractionDigits:2, maximumFractionDigits:2}) + " €";
+    const fmtDate = ts => { if(!ts) return null; const d = ts.toDate ? ts.toDate() : new Date(ts); return d.toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"}); };
+
+    function slugToEmail(name){
+      const slug = name.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+      return slug + "@partner.wereinlove.local";
+    }
+    function openBrochure(){
+      $("brochure-block").style.display = "block";
+      $("brochure-block").scrollIntoView({behavior:"smooth", block:"start"});
+    }
+    $("btn-open-brochure").onclick = openBrochure;
+    $("btn-open-brochure-2").onclick = openBrochure;
+    $("btn-open-account").onclick = () => show("s-account");
+    $("btn-open-account-2").onclick = () => show("s-account");
+    $("back-to-public").onclick = () => show("s-public");
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.onclick = () => {
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+        tab.classList.add("active");
+        $("tab-" + tab.dataset.tab).classList.add("active");
+      };
+    });
+
+    $("btn-send-brochure").onclick = async () => {
+      $("br-error").style.display = "none";
+      $("br-success").style.display = "none";
+      const media = $("br-media").value.trim();
+      const name = $("br-name").value.trim();
+      const role = $("br-role").value.trim();
+      const email = $("br-email").value.trim();
+      if(!media || !name || !role || !email){
+        $("br-error").textContent = "Merci de remplir les 4 champs.";
+        $("br-error").style.display = "block";
+        return;
+      }
+      $("btn-send-brochure").disabled = true;
+      try{
+        await addDoc(collection(db,"partnershipRequests"), { media, name, role, email, createdAt:serverTimestamp(), status:"nouvelle" });
+        $("br-success").style.display = "block";
+        $("br-media").value = $("br-name").value = $("br-role").value = $("br-email").value = "";
+      }catch(e){
+        $("br-error").textContent = "Envoi impossible, reessaie dans un instant.";
+        $("br-error").style.display = "block";
+      }
+      $("btn-send-brochure").disabled = false;
+    };
+
+    $("btn-login").onclick = () => {
+      $("login-error").style.display = "none";
+      const name = $("li-name").value.trim();
+      const pass = $("li-pass").value;
+      if(!name || !pass){
+        $("login-error").textContent = "Renseigne ton identifiant et ton mot de passe.";
+        $("login-error").style.display = "block";
+        return;
+      }
+      signInWithEmailAndPassword(auth, slugToEmail(name), pass).catch(e => {
+        $("login-error").textContent = e.code === "auth/invalid-credential" ? "Identifiant ou mot de passe incorrect." : "Connexion impossible.";
+        $("login-error").style.display = "block";
+      });
+    };
+    $("li-pass").addEventListener("keydown", e => { if(e.key === "Enter") $("btn-login").click(); });
+
+    $("btn-signup").onclick = async () => {
+      $("signup-error").style.display = "none";
+      const name = $("su-name").value.trim();
+      const email = $("su-email").value.trim();
+      const pass = $("su-pass").value;
+      if(!name || !email || pass.length < 6){
+        $("signup-error").textContent = "Identifiant, email valide et mot de passe de 6 caracteres minimum.";
+        $("signup-error").style.display = "block";
+        return;
+      }
+      $("btn-signup").disabled = true;
+      try{
+        const cred = await createUserWithEmailAndPassword(auth, slugToEmail(name), pass);
+        await setDoc(doc(db,"influencers",cred.user.uid), { name, email, status:"pending", createdAt:serverTimestamp() });
+      }catch(e){
+        $("signup-error").textContent = e.code === "auth/email-already-in-use" ? "Cet identifiant est deja pris." : "Inscription impossible.";
+        $("signup-error").style.display = "block";
+      }
+      $("btn-signup").disabled = false;
+    };
+
+    onAuthStateChanged(auth, async user => {
+      if(!user) return show("s-public");
+      try{
+        const infSnap = await getDoc(doc(db,"influencers",user.uid));
+        if(!infSnap.exists()) return show("s-public");
+        const inf = infSnap.data();
+        if(inf.status !== "active" || !inf.code) return show("s-pending");
+        const usersSnap = await getDocs(query(collection(db,"users"), where("referredBy","==",inf.code)));
+        renderDashboard(inf, usersSnap.docs.map(d => d.data()));
+        show("s-dash");
+      }catch(e){
+        console.error(e);
+        show("s-public");
+      }
+    });
+    $("btn-logout").onclick = () => signOut(auth);
+    $("btn-logout-pending").onclick = () => signOut(auth);
+
+    function renderDashboard(inf, referred){
+      $("inf-name").textContent = inf.name || "Partenaire";
+      $("inf-handle").textContent = inf.email || "";
+      const classicPrice = inf.classicPrice ?? 3.99;
+      const premiumPrice = inf.premiumPrice ?? 14.99;
+      const commissionRate = inf.commissionRate ?? .20;
+      const classicCount = referred.filter(u => u.plan === "couple" || u.plan === "premium").length;
+      const premiumCount = referred.filter(u => u.plan === "unlimited").length;
+      const total = referred.length;
+      $("st-classic").textContent = classicCount;
+      $("st-premium").textContent = premiumCount;
+      $("st-total").textContent = total;
+      $("leg-classic").textContent = classicCount;
+      $("leg-premium").textContent = premiumCount;
+      const activePaid = classicCount + premiumCount;
+      const classicPct = activePaid ? classicCount / activePaid * 100 : 0;
+      $("pie").style.background = activePaid ? `conic-gradient(var(--pink) 0% ${classicPct}%, var(--green) ${classicPct}% 100%)` : "#f0ebe5";
+      const currentMRR = classicCount * classicPrice + premiumCount * premiumPrice;
+      const estimatedNext = currentMRR * commissionRate;
+      $("next-amount").textContent = fmtEUR(estimatedNext);
+      $("last-amount").textContent = inf.lastPayoutAmount != null ? fmtEUR(inf.lastPayoutAmount) : "Aucune";
+      $("last-date").textContent = inf.lastPayoutDate ? `versee le ${fmtDate(inf.lastPayoutDate)}` : "";
+      if(inf.lastPayoutSubCount != null){
+        const diff = activePaid - inf.lastPayoutSubCount;
+        $("delta-wrap").textContent = `${diff > 0 ? "+" : ""}${diff} abonnement${Math.abs(diff)>1 ? "s" : ""} vs dernier versement`;
+      }
+      if(inf.nextPayoutDate) $("next-date-text").textContent = `Estimee le ${fmtDate(inf.nextPayoutDate)}`;
+      drawChart(referred);
+    }
+
+    function drawChart(referred){
+      const now = new Date();
+      const months = [];
+      for(let i=5;i>=0;i--){
+        const d = new Date(now.getFullYear(), now.getMonth()-i, 1);
+        months.push({ key:`${d.getFullYear()}-${d.getMonth()}`, label:d.toLocaleDateString("fr-FR",{month:"short"}), count:0 });
+      }
+      referred.forEach(u => {
+        if(!u.createdAt) return;
+        const d = u.createdAt.toDate ? u.createdAt.toDate() : new Date(u.createdAt);
+        const item = months.find(m => m.key === `${d.getFullYear()}-${d.getMonth()}`);
+        if(item) item.count++;
+      });
+      const w = 300, h = 120, pad = 12;
+      const max = Math.max(1, ...months.map(m => m.count));
+      const step = (w - pad*2) / (months.length - 1);
+      const pts = months.map((m,i) => [pad + i*step, h - pad - (m.count/max)*(h-pad*2)]);
+      const path = pts.map((p,i) => `${i ? "L" : "M"}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
+      const dots = pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="#ff5f95"/>`).join("");
+      const labels = months.map((m,i) => `<text x="${pts[i][0]}" y="${h-1}" font-size="9" fill="#8d8780" text-anchor="middle">${esc(m.label)}</text>`).join("");
+      $("chart").innerHTML = `<path d="${path}" fill="none" stroke="#ff5f95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${dots}${labels}`;
+    }
+  </script>
+</body>
+</html>

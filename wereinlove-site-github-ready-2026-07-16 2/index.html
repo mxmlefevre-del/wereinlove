@@ -1,0 +1,3302 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>WereInLove - Comprendre les personnes qui comptent</title>
+  <meta name="description" content="WereInLove aide deux personnes a raconter leur version, comprendre ce qui les separe et retrouver une conversation plus juste.">
+  <meta name="theme-color" content="#F6F2EF">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WereInLove - Comprendre les personnes qui comptent">
+  <meta property="og:description" content="Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.">
+  <meta property="og:image" content="wereinlove-assets/family-field.jpg">
+  <link rel="preload" as="image" href="wereinlove-assets/family-field.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='30' r='17' fill='%23ff5d8f'/%3E%3Ccircle cx='40' cy='30' r='17' fill='%23ffb3c8' fill-opacity='.86'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f6f2ef;
+      --bg-soft: #eee8e2;
+      --ink: #181818;
+      --muted: #6e6a67;
+      --quiet: #9d9690;
+      --line: rgba(24, 24, 24, .12);
+      --line-strong: rgba(24, 24, 24, .2);
+      --paper: #fbfaf8;
+      --black: #1b1816;
+      --green: #6c927d;
+      --rose: #ff5d8f;
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --shadow: 0 34px 90px rgba(36, 28, 22, .12);
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+      overflow-x: clip;
+    }
+
+    body::selection {
+      background: var(--black);
+      color: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .site-shell {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .nav-wrap {
+      position: fixed;
+      top: max(18px, env(safe-area-inset-top));
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      padding: 0 20px;
+    }
+
+    .nav {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 58px;
+      padding: 5px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(76, 38, 19, .34);
+      box-shadow: 0 18px 50px rgba(30, 20, 14, .18);
+      -webkit-backdrop-filter: blur(22px) saturate(120%);
+      backdrop-filter: blur(22px) saturate(120%);
+      transition: color .35s ease, background .35s ease, border-color .35s ease, box-shadow .35s ease;
+    }
+
+    .nav.is-light {
+      color: var(--ink);
+      background: rgba(246, 242, 239, .78);
+      border-color: rgba(40, 30, 24, .12);
+      box-shadow: 0 20px 54px rgba(36, 28, 22, .13);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 116px;
+      height: 46px;
+      padding: 0 18px 0 20px;
+      font-size: 15px;
+      font-weight: 520;
+      letter-spacing: -.03em;
+      white-space: nowrap;
+    }
+
+    .mark {
+      width: 17px;
+      height: 17px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .mark::before,
+    .mark::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--rose);
+      opacity: .96;
+    }
+
+    .mark::before {
+      left: 0;
+      top: 3px;
+    }
+
+    .mark::after {
+      right: 0;
+      top: 3px;
+      background: #ffb2c7;
+      mix-blend-mode: screen;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      height: 42px;
+      padding: 0 17px;
+      border-radius: 999px;
+      color: currentColor;
+      opacity: .75;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: opacity .2s ease, background .2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .nav.is-light .nav-links a:hover {
+      background: rgba(24, 24, 24, .06);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 46px;
+      padding: 0 22px;
+      border-radius: 999px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 14px;
+      font-weight: 560;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+      transition: transform .2s ease, background .35s ease, color .35s ease;
+    }
+
+    .nav.is-light .nav-cta {
+      color: #fff;
+      background: var(--black);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--bg);
+    }
+
+    .hero-media {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      transform-origin: center top;
+      will-change: transform, border-radius, filter;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.92) contrast(1.02);
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(16, 12, 10, .72) 0%, rgba(16, 12, 10, .38) 46%, rgba(16, 12, 10, .2) 100%),
+        linear-gradient(0deg, rgba(14, 10, 8, .66) 0%, rgba(14, 10, 8, .08) 42%, rgba(14, 10, 8, .2) 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 160px clamp(24px, 5vw, 76px) clamp(42px, 7vw, 82px);
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      margin: 0 0 24px;
+      color: var(--quiet);
+      font-size: 13px;
+      font-weight: 560;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow {
+      color: rgba(255, 255, 255, .62);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(60px, 9.4vw, 148px);
+      line-height: .9;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .hero-lede {
+      max-width: 660px;
+      margin-top: 32px;
+      color: rgba(255, 255, 255, .72);
+      font-size: clamp(19px, 2.3vw, 30px);
+      line-height: 1.42;
+      letter-spacing: -.035em;
+      font-weight: 420;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-top: 42px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 28px;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      background: var(--black);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 560;
+      letter-spacing: -.01em;
+      box-shadow: 0 22px 60px rgba(24, 24, 24, .18);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 30px 70px rgba(24, 24, 24, .2);
+    }
+
+    .button.light {
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .hero .hero-actions {
+      gap: 12px;
+    }
+
+    .hero .hero-actions .button {
+      min-height: 50px;
+      min-width: 210px;
+      padding: 0 22px;
+    }
+
+    .text-link {
+      color: rgba(255, 255, 255, .72);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .text-link::after {
+      content: " ->";
+      opacity: .7;
+    }
+
+    .scroll-seal {
+      position: absolute;
+      right: clamp(28px, 6vw, 96px);
+      bottom: clamp(34px, 5vw, 72px);
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      color: rgba(255, 255, 255, .72);
+      border-radius: 999px;
+    }
+
+    .scroll-seal span {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: inherit;
+      animation: spin 18s linear infinite;
+    }
+
+    .scroll-seal span::before {
+      content: "COMPRENDRE - RELIER - APAISER - ";
+      position: absolute;
+      inset: 12px;
+      font-size: 7px;
+      letter-spacing: .26em;
+      line-height: 1;
+      text-align: center;
+      color: rgba(255, 255, 255, .62);
+    }
+
+    .scroll-seal b {
+      font-size: 24px;
+      font-weight: 360;
+      transform: rotate(45deg);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    main {
+      position: relative;
+      z-index: 4;
+      background: var(--bg);
+      padding-bottom: clamp(28px, 3.5vw, 56px);
+    }
+
+    .intro {
+      min-height: 95svh;
+      padding: clamp(110px, 17vw, 240px) 0 clamp(90px, 14vw, 180px);
+      overflow: hidden;
+    }
+
+    .section-head {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: clamp(44px, 7.6vw, 112px);
+      line-height: .93;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .section-head p {
+      max-width: 760px;
+      margin: 28px auto 0;
+      color: var(--quiet);
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 1.5;
+      letter-spacing: -.03em;
+    }
+
+    .photo-rail {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      margin-top: clamp(58px, 8vw, 96px);
+      padding: 0 24px;
+      transform: translate3d(var(--rail-x, 0), 0, 0);
+      will-change: transform;
+    }
+
+    .rail-card {
+      width: clamp(250px, 27vw, 420px);
+      height: clamp(340px, 34vw, 520px);
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--bg-soft);
+      box-shadow: 0 24px 70px rgba(36, 28, 22, .08);
+    }
+
+    .rail-card.wide {
+      width: clamp(360px, 42vw, 660px);
+    }
+
+    .rail-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.045);
+    }
+
+    .story-split {
+      width: min(1420px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: clamp(100px, 14vw, 190px) 0;
+      display: grid;
+      grid-template-columns: minmax(280px, .82fr) minmax(0, 1.38fr);
+      gap: clamp(36px, 7vw, 110px);
+      align-items: center;
+    }
+
+    .story-copy {
+      padding-left: clamp(12px, 2.8vw, 52px);
+    }
+
+    .story-copy h2 {
+      max-width: 650px;
+      font-size: clamp(42px, 5.4vw, 82px);
+      line-height: .98;
+      letter-spacing: -.07em;
+      font-weight: 560;
+    }
+
+    .story-copy p {
+      max-width: 560px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: clamp(18px, 1.7vw, 23px);
+      line-height: 1.58;
+      letter-spacing: -.025em;
+    }
+
+    .quiet-line {
+      width: min(100%, 520px);
+      height: 1px;
+      margin: 38px 0 0;
+      background: var(--line);
+    }
+
+    .detail-note {
+      max-width: 520px;
+      margin-top: 24px;
+      color: var(--quiet);
+      font-size: 17px;
+      line-height: 1.5;
+      letter-spacing: -.02em;
+    }
+
+    .detail-note strong {
+      color: var(--ink);
+      font-weight: 620;
+    }
+
+    .feature-photo {
+      position: relative;
+      min-height: clamp(520px, 68vw, 840px);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--bg-soft);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .feature-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      transform: scale(var(--photo-scale, 1.04));
+      will-change: transform;
+    }
+
+    .feature-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(20, 14, 11, .24), rgba(20, 14, 11, 0) 44%);
+      pointer-events: none;
+    }
+
+    .bleed-photo {
+      width: calc(100% - var(--bleed-gap, 0px));
+      max-width: none;
+      min-height: 96svh;
+      margin: 0 auto;
+      border-radius: var(--bleed-radius, 0px);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      place-items: center;
+      padding: clamp(48px, 8vw, 120px);
+      color: #fff;
+      background: var(--black);
+    }
+
+    .bleed-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(var(--photo-scale, 1.05));
+      will-change: transform;
+      z-index: -2;
+    }
+
+    .bleed-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(0deg, rgba(20, 12, 8, .42), rgba(20, 12, 8, .2)),
+        radial-gradient(circle at 50% 40%, rgba(20, 12, 8, .1), rgba(20, 12, 8, .52));
+      z-index: -1;
+    }
+
+    .bleed-inner {
+      width: min(760px, 100%);
+      text-align: center;
+    }
+
+    .bleed-inner h2 {
+      font-size: clamp(48px, 7vw, 106px);
+      line-height: .95;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .bleed-inner p {
+      max-width: 680px;
+      margin: 28px auto 0;
+      color: rgba(255, 255, 255, .72);
+      font-size: clamp(19px, 2.1vw, 28px);
+      line-height: 1.48;
+      letter-spacing: -.035em;
+    }
+
+    .stats {
+      width: min(980px, 100%);
+      margin: clamp(58px, 7vw, 86px) auto 0;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, .22);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      color: #fff;
+      font-size: clamp(38px, 4.6vw, 70px);
+      line-height: 1;
+      letter-spacing: -.055em;
+      font-weight: 460;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, .6);
+      font-size: 15px;
+      line-height: 1.42;
+      letter-spacing: -.015em;
+    }
+
+    .reviews-strip {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--black);
+      padding: 26px 0 10px;
+      border-bottom: 0;
+    }
+
+    .reviews-strip::before,
+    .reviews-strip::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: clamp(42px, 9vw, 160px);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .reviews-strip::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--bg), rgba(246, 242, 238, 0));
+    }
+
+    .reviews-strip::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--bg), rgba(246, 242, 238, 0));
+    }
+
+    .reviews-track {
+      display: flex;
+      gap: 14px;
+      width: max-content;
+      padding-left: 14px;
+      animation: reviews-marquee 44s linear infinite;
+    }
+
+    .review-card {
+      width: clamp(280px, 26vw, 410px);
+      padding: 8px 18px 12px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      flex: 0 0 auto;
+      text-align: center;
+    }
+
+    .review-stars {
+      display: block;
+      color: var(--black);
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: .18em;
+      margin-bottom: 10px;
+    }
+
+    .review-card blockquote {
+      margin: 0 auto;
+      color: rgba(28, 24, 21, .86);
+      font-size: 14px;
+      line-height: 1.38;
+      letter-spacing: -.012em;
+      max-width: 34ch;
+    }
+
+    .review-card figcaption {
+      margin-top: 10px;
+      color: rgba(28, 24, 21, .52);
+      font-size: 11px;
+      line-height: 1.2;
+      font-weight: 620;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    @keyframes reviews-marquee {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(calc(-50% - 7px), 0, 0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reviews-track {
+        animation: none;
+      }
+    }
+
+    .statement {
+      min-height: 48svh;
+      display: grid;
+      place-items: center;
+      padding: clamp(74px, 10vw, 132px) 24px;
+      text-align: center;
+    }
+
+    .statement h2 {
+      max-width: 1400px;
+      font-size: clamp(48px, 9vw, 154px);
+      line-height: .92;
+      letter-spacing: -.085em;
+      font-weight: 560;
+    }
+
+    .how {
+      padding: clamp(90px, 13vw, 180px) 0;
+    }
+
+    .how-grid {
+      width: min(1380px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(36px, 7vw, 100px);
+      align-items: start;
+    }
+
+    .sticky-copy {
+      position: sticky;
+      top: 130px;
+      padding-top: 20px;
+    }
+
+    .sticky-copy h2 {
+      max-width: 620px;
+      font-size: clamp(44px, 5.8vw, 92px);
+      line-height: .98;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .sticky-copy p {
+      max-width: 600px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: clamp(19px, 1.9vw, 26px);
+      line-height: 1.52;
+      letter-spacing: -.035em;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      min-height: 220px;
+      padding: clamp(28px, 4vw, 46px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(251, 250, 248, .56);
+      box-shadow: 0 18px 70px rgba(36, 28, 22, .04);
+    }
+
+    .step-num {
+      display: block;
+      margin-bottom: 38px;
+      color: var(--quiet);
+      font-size: 14px;
+      letter-spacing: .18em;
+      font-weight: 560;
+    }
+
+    .step h3 {
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      font-weight: 540;
+    }
+
+    .step p {
+      max-width: 540px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.5;
+      letter-spacing: -.02em;
+    }
+
+    .phones-section {
+      padding: clamp(90px, 13vw, 190px) 0;
+      overflow: hidden;
+    }
+
+    .phone-stage {
+      width: min(1320px, calc(100% - 28px));
+      min-height: 94svh;
+      margin: clamp(54px, 7vw, 90px) auto 0;
+      border-radius: var(--radius-xl);
+      background: var(--black);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      align-items: center;
+      gap: 20px;
+      padding: clamp(34px, 6vw, 84px);
+      box-shadow: 0 44px 110px rgba(36, 28, 22, .16);
+    }
+
+    .phone-stage::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -44% -20%;
+      height: 58%;
+      background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, .12), rgba(255, 255, 255, 0) 58%);
+      pointer-events: none;
+    }
+
+    .phone-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .phone-copy h2 {
+      max-width: 700px;
+      font-size: clamp(45px, 6vw, 92px);
+      line-height: .96;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .phone-copy p {
+      max-width: 640px;
+      margin-top: 28px;
+      color: rgba(255, 255, 255, .56);
+      font-size: clamp(19px, 1.9vw, 26px);
+      line-height: 1.55;
+      letter-spacing: -.035em;
+    }
+
+    .mode-tabs {
+      width: min(680px, 100%);
+      margin-top: clamp(42px, 6vw, 74px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      padding: 7px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .mode-tabs button {
+      min-height: 72px;
+      border: 0;
+      border-radius: 22px;
+      color: rgba(255, 255, 255, .45);
+      background: transparent;
+      cursor: pointer;
+      font-size: 18px;
+      letter-spacing: -.025em;
+    }
+
+    .mode-tabs button.is-active {
+      color: #fff;
+      background: rgba(255, 255, 255, .13);
+    }
+
+    .mode-tabs small {
+      margin-left: 6px;
+      color: rgba(255, 255, 255, .28);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .phone-visuals {
+      position: relative;
+      z-index: 1;
+      min-height: 640px;
+    }
+
+    .phone {
+      position: absolute;
+      width: min(330px, 42vw);
+      aspect-ratio: 9 / 18.6;
+      border-radius: 44px;
+      padding: 10px;
+      background: linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
+      box-shadow: 0 40px 100px rgba(0, 0, 0, .36);
+      border: 1px solid rgba(255, 255, 255, .14);
+    }
+
+    .phone.one {
+      left: 4%;
+      top: 11%;
+      transform: rotate(-8deg);
+    }
+
+    .phone.two {
+      right: 5%;
+      bottom: 4%;
+      transform: rotate(7deg);
+    }
+
+    .phone-screen {
+      height: 100%;
+      border-radius: 36px;
+      overflow: hidden;
+      background: #f8f4f0;
+      color: var(--ink);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .phone-screen.dark {
+      background: #201d1a;
+      color: #fff;
+    }
+
+    .phone-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--quiet);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .chat {
+      margin-top: auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    .bubble {
+      max-width: 92%;
+      padding: 14px 15px;
+      border-radius: 18px;
+      background: #ebe5df;
+      color: #312d29;
+      font-size: 15px;
+      line-height: 1.35;
+      letter-spacing: -.02em;
+    }
+
+    .bubble.you {
+      justify-self: end;
+      color: #fff;
+      background: var(--black);
+    }
+
+    .insight {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .insight strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: -.055em;
+      font-weight: 520;
+    }
+
+    .insight p {
+      margin-top: 12px;
+      color: rgba(255, 255, 255, .48);
+      font-size: 15px;
+      line-height: 1.42;
+    }
+
+    .analysis-section {
+      padding: clamp(90px, 13vw, 190px) 0;
+    }
+
+    .analysis-grid {
+      width: min(1360px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr);
+      gap: clamp(34px, 7vw, 96px);
+      align-items: center;
+    }
+
+    .analysis-copy h2 {
+      max-width: 720px;
+      font-size: clamp(44px, 6vw, 96px);
+      line-height: .97;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .analysis-copy p {
+      max-width: 660px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: clamp(19px, 1.9vw, 26px);
+      line-height: 1.54;
+      letter-spacing: -.035em;
+    }
+
+    .analysis-card {
+      border: 1px solid var(--line-strong);
+      border-radius: 28px;
+      background: rgba(251, 250, 248, .78);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .analysis-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 22px;
+      color: var(--quiet);
+      border-bottom: 1px solid var(--line);
+      font-size: 15px;
+      letter-spacing: -.01em;
+    }
+
+    .analysis-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    .analysis-body {
+      padding: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .analysis-message {
+      padding: 20px;
+      border-radius: 22px;
+      background: #ede7e1;
+      color: #2b2724;
+      font-size: 18px;
+      line-height: 1.45;
+      letter-spacing: -.025em;
+    }
+
+    .analysis-message strong {
+      font-weight: 650;
+    }
+
+    .analysis-message.ai {
+      background: var(--black);
+      color: #fff;
+    }
+
+    .analysis-message.ai strong {
+      color: #fff;
+    }
+
+    .analysis-action {
+      justify-self: end;
+      margin: 8px 0;
+      min-height: 52px;
+      padding: 0 21px;
+      border-radius: 18px;
+      background: var(--black);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 520;
+    }
+
+    .resolved {
+      padding: clamp(80px, 12vw, 170px) 0;
+    }
+
+    .resolved-grid {
+      width: min(1460px, calc(100% - 28px));
+      margin: clamp(54px, 8vw, 96px) auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .resolved-card {
+      min-height: 590px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+      background: var(--black);
+      isolation: isolate;
+    }
+
+    .resolved-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transform: scale(1.05);
+    }
+
+    .resolved-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(15, 10, 8, .7), rgba(15, 10, 8, .06) 62%);
+      z-index: -1;
+    }
+
+    .resolved-card h3 {
+      max-width: 330px;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1;
+      letter-spacing: -.06em;
+      font-weight: 540;
+    }
+
+    .resolved-card p {
+      max-width: 330px;
+      margin-top: 14px;
+      color: rgba(255, 255, 255, .68);
+      font-size: 16px;
+      line-height: 1.42;
+    }
+
+    .experiences {
+      padding: clamp(80px, 12vw, 170px) 0;
+    }
+
+    .experience-grid {
+      width: min(1360px, calc(100% - 48px));
+      margin: clamp(52px, 7vw, 88px) auto 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .experience-card {
+      min-height: clamp(620px, 58vw, 820px);
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      color: #fff;
+      background: var(--black);
+      isolation: isolate;
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(30px, 5vw, 62px);
+      box-shadow: 0 34px 90px rgba(36, 28, 22, .14);
+    }
+
+    .experience-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      z-index: -2;
+    }
+
+    .experience-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(0deg, rgba(15, 10, 8, .78), rgba(15, 10, 8, .08) 62%),
+        linear-gradient(90deg, rgba(15, 10, 8, .46), rgba(15, 10, 8, .08));
+    }
+
+    .experience-card.light-card {
+      color: var(--ink);
+      background: #eee9e2;
+      border: 1px solid var(--line);
+    }
+
+    .experience-card.light-card::after {
+      background:
+        linear-gradient(0deg, rgba(246, 242, 239, .96), rgba(246, 242, 239, .16) 62%),
+        linear-gradient(90deg, rgba(246, 242, 239, .86), rgba(246, 242, 239, .12));
+    }
+
+    .experience-content {
+      max-width: 600px;
+    }
+
+    .experience-content .eyebrow {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    .light-card .experience-content .eyebrow {
+      color: var(--quiet);
+    }
+
+    .experience-content h3 {
+      font-size: clamp(44px, 5vw, 82px);
+      line-height: .96;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .experience-content p {
+      margin-top: 22px;
+      color: rgba(255, 255, 255, .68);
+      font-size: clamp(18px, 1.7vw, 23px);
+      line-height: 1.5;
+      letter-spacing: -.03em;
+    }
+
+    .light-card .experience-content p {
+      color: var(--muted);
+    }
+
+    .experience-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .experience-actions .button {
+      min-height: 54px;
+      padding: 0 24px;
+      box-shadow: none;
+    }
+
+    .experience-actions .button.ghost {
+      color: #fff;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .light-card .experience-actions .button.ghost {
+      color: var(--ink);
+      background: transparent;
+      border-color: var(--line);
+    }
+
+    .pricing {
+      padding: clamp(90px, 13vw, 180px) 0;
+    }
+
+    .pricing-top {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr .78fr;
+      gap: clamp(30px, 7vw, 90px);
+      align-items: end;
+    }
+
+    .pricing-top h2 {
+      max-width: 760px;
+      font-size: clamp(44px, 5.8vw, 88px);
+      line-height: .98;
+      letter-spacing: -.075em;
+      font-weight: 560;
+    }
+
+    .pricing-top p {
+      color: var(--muted);
+      font-size: clamp(18px, 1.6vw, 22px);
+      line-height: 1.52;
+      letter-spacing: -.025em;
+    }
+
+    .plans {
+      width: min(1160px, calc(100% - 48px));
+      margin: clamp(42px, 6vw, 70px) auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .plan {
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(28px, 3.6vw, 46px);
+      border: 1px solid rgba(24, 24, 24, .1);
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 26px 80px rgba(36, 28, 22, .08);
+    }
+
+    .plan.dark {
+      color: #fff;
+      background: var(--black);
+      border-color: rgba(255, 255, 255, .08);
+      box-shadow: 0 34px 90px rgba(36, 28, 22, .18);
+    }
+
+    .plan-kicker {
+      color: var(--quiet);
+      font-size: 13px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 620;
+    }
+
+    .plan.dark .plan-kicker {
+      color: var(--green);
+    }
+
+    .plan h3 {
+      margin-top: 44px;
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -.045em;
+      font-weight: 520;
+    }
+
+    .plan-sub {
+      margin-top: 14px;
+      color: var(--quiet);
+      font-size: 17px;
+      letter-spacing: -.02em;
+    }
+
+    .price {
+      margin-top: 48px;
+      font-size: clamp(58px, 5.4vw, 78px);
+      line-height: 1;
+      letter-spacing: -.065em;
+      font-weight: 450;
+    }
+
+    .price small {
+      color: var(--quiet);
+      font-size: .34em;
+      letter-spacing: -.02em;
+    }
+
+    .plan-note {
+      margin-top: 22px;
+      color: var(--quiet);
+      font-size: 16px;
+    }
+
+    .was-price {
+      text-decoration: line-through;
+      text-decoration-thickness: 1.5px;
+      color: var(--quiet);
+    }
+
+    .plan hr {
+      width: 100%;
+      margin: 38px 0 30px;
+      border: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .plan.dark hr {
+      border-color: rgba(255, 255, 255, .12);
+    }
+
+    .plan ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .plan li {
+      position: relative;
+      padding-left: 34px;
+      color: #45413d;
+      font-size: 17px;
+      line-height: 1.35;
+      letter-spacing: -.025em;
+    }
+
+    .plan.dark li {
+      color: rgba(255, 255, 255, .62);
+    }
+
+    .plan li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .1em;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--green);
+      border-radius: 999px;
+    }
+
+    .plan .button {
+      width: 100%;
+      margin-top: auto;
+      box-shadow: none;
+    }
+
+    .plan:not(.dark) .button {
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid var(--line);
+    }
+
+    .final-cta {
+      width: min(1600px, calc(100% - 28px));
+      min-height: 92svh;
+      margin: 0 auto;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(34px, 6vw, 82px);
+      color: #fff;
+      background: var(--black);
+    }
+
+    .final-cta img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transform: scale(1.04);
+    }
+
+    .final-cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(15, 9, 7, .72), rgba(15, 9, 7, .2)), linear-gradient(0deg, rgba(15, 9, 7, .5), rgba(15, 9, 7, .08));
+      z-index: -1;
+    }
+
+    .final-inner {
+      max-width: 900px;
+    }
+
+    .final-inner h2 {
+      font-size: clamp(56px, 8vw, 124px);
+      line-height: .92;
+      letter-spacing: -.08em;
+      font-weight: 560;
+    }
+
+    .final-inner p {
+      max-width: 720px;
+      margin-top: 28px;
+      color: rgba(255, 255, 255, .72);
+      font-size: clamp(19px, 2.1vw, 28px);
+      line-height: 1.48;
+      letter-spacing: -.035em;
+    }
+
+    .site-footer {
+      position: relative;
+      z-index: 12;
+      min-height: 64svh;
+      margin-top: 0;
+      padding: clamp(82px, 10vw, 132px) clamp(24px, 5vw, 76px) clamp(52px, 7vw, 76px);
+      color: rgba(255, 255, 255, .72);
+      background: #14110f;
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .site-footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: #14110f;
+    }
+
+    .footer-inner {
+      width: min(1420px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(280px, 1.2fr) repeat(4, minmax(150px, .72fr));
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
+    }
+
+    .footer-brand {
+      max-width: 430px;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 560;
+      letter-spacing: -.045em;
+    }
+
+    .footer-logo .mark {
+      display: block;
+    }
+
+    .footer-brand p {
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .56);
+      font-size: 18px;
+      line-height: 1.52;
+      letter-spacing: -.03em;
+    }
+
+    .footer-column h3 {
+      margin: 0 0 18px;
+      color: rgba(255, 255, 255, .42);
+      font-size: 12px;
+      font-weight: 620;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .footer-column ul {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, .72);
+      font-size: 15px;
+      line-height: 1.35;
+      letter-spacing: -.015em;
+      transition: color .2s ease, opacity .2s ease;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: clamp(72px, 10vw, 128px);
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .4);
+      font-size: 13px;
+      letter-spacing: -.01em;
+    }
+
+    @media (max-width: 1180px) {
+      .footer-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(38px);
+      transition: opacity .9s ease, transform .9s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        height: 56px;
+      }
+
+      .brand {
+        min-width: auto;
+        padding: 0 16px 0 18px;
+        font-size: 17px;
+      }
+
+      .mark,
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        height: 46px;
+        padding: 0 24px;
+        font-size: 16px;
+      }
+
+      .hero-content {
+        padding: 132px 24px 36px;
+      }
+
+      h1 {
+        max-width: 520px;
+        font-size: clamp(48px, 12vw, 66px);
+        line-height: .94;
+        letter-spacing: -.072em;
+      }
+
+      .hero-lede {
+        margin-top: 28px;
+        font-size: 20px;
+        line-height: 1.44;
+      }
+
+      .hero-actions {
+        gap: 18px;
+        margin-top: 34px;
+      }
+
+      .button {
+        min-height: 58px;
+        padding: 0 26px;
+        font-size: 16px;
+      }
+
+      .text-link {
+        width: 100%;
+        font-size: 18px;
+      }
+
+      .scroll-seal {
+        display: none;
+      }
+
+      .section-head {
+        width: min(100% - 48px, 680px);
+      }
+
+      .section-head h2 {
+        font-size: clamp(38px, 10vw, 62px);
+        line-height: .95;
+      }
+
+      .section-head p {
+        font-size: 20px;
+        line-height: 1.45;
+      }
+
+      .photo-rail {
+        overflow: visible;
+        gap: 18px;
+        padding: 0 18px;
+      }
+
+      .rail-card,
+      .rail-card.wide {
+        width: 64vw;
+        height: 82vw;
+        min-width: 275px;
+        min-height: 355px;
+      }
+
+      .story-split,
+      .how-grid,
+      .analysis-grid,
+      .pricing-top {
+        width: calc(100% - 48px);
+        grid-template-columns: 1fr;
+      }
+
+      .story-split {
+        padding: 112px 0;
+      }
+
+      .story-copy {
+        padding-left: 0;
+      }
+
+      .story-copy h2,
+      .sticky-copy h2,
+      .analysis-copy h2,
+      .pricing-top h2 {
+        font-size: clamp(38px, 10vw, 62px);
+        line-height: .98;
+      }
+
+      .story-copy p,
+      .sticky-copy p,
+      .analysis-copy p,
+      .pricing-top p {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+
+      .feature-photo {
+        min-height: 74svh;
+        border-radius: 30px;
+      }
+
+      .bleed-photo {
+        width: calc(100% - 36px);
+        min-height: 92svh;
+        padding: 52px 22px;
+        border-radius: 32px;
+      }
+
+      .bleed-inner h2 {
+        font-size: clamp(38px, 10vw, 60px);
+      }
+
+      .bleed-inner p {
+        font-size: 20px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 18px;
+      }
+
+      .stat span {
+        font-size: 18px;
+      }
+
+      .statement {
+        min-height: 42svh;
+        padding: 72px 24px;
+      }
+
+      .statement h2 {
+        font-size: clamp(40px, 10.5vw, 66px);
+        line-height: .96;
+      }
+
+      .sticky-copy {
+        position: relative;
+        top: auto;
+      }
+
+      .step {
+        min-height: 250px;
+      }
+
+      .step h3 {
+        font-size: 32px;
+      }
+
+      .step p {
+        font-size: 18px;
+      }
+
+      .phone-stage {
+        width: calc(100% - 36px);
+        min-height: 100svh;
+        grid-template-columns: 1fr;
+        padding: 44px 22px;
+        border-radius: 32px;
+      }
+
+      .phone-copy h2 {
+        font-size: clamp(38px, 10vw, 62px);
+      }
+
+      .phone-copy p {
+        font-size: 19px;
+      }
+
+      .mode-tabs {
+        border-radius: 24px;
+      }
+
+      .mode-tabs button {
+        min-height: 58px;
+        font-size: 16px;
+      }
+
+      .mode-tabs small {
+        display: none;
+      }
+
+      .phone-visuals {
+        min-height: 560px;
+      }
+
+      .phone {
+        width: min(275px, 62vw);
+      }
+
+      .phone.one {
+        left: -2%;
+        top: 10%;
+      }
+
+      .phone.two {
+        right: -2%;
+        bottom: 0;
+      }
+
+      .analysis-card {
+        border-radius: 26px;
+      }
+
+      .analysis-body {
+        padding: 20px;
+      }
+
+      .analysis-message {
+        font-size: 17px;
+      }
+
+      .resolved-grid,
+      .experience-grid,
+      .plans {
+        width: calc(100% - 48px);
+        grid-template-columns: 1fr;
+      }
+
+      .experience-card {
+        min-height: 78svh;
+        border-radius: 30px;
+      }
+
+      .resolved-card {
+        min-height: 78svh;
+      }
+
+      .plans {
+        gap: 14px;
+      }
+
+      .plan {
+        min-height: 650px;
+        padding: 34px 30px;
+      }
+
+      .plan h3 {
+        font-size: 32px;
+      }
+
+      .plan-sub,
+      .plan-note,
+      .plan li {
+        font-size: 18px;
+      }
+
+      .price {
+        font-size: 60px;
+      }
+
+      .final-cta {
+        width: calc(100% - 28px);
+        min-height: 92svh;
+        padding: 44px 24px;
+        border-radius: 32px;
+      }
+
+      .final-inner h2 {
+        font-size: clamp(40px, 10.5vw, 64px);
+      }
+
+      .final-inner p {
+        font-size: 19px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-wrap {
+        top: max(18px, env(safe-area-inset-top));
+      }
+
+      .hero {
+        min-height: 100svh;
+      }
+
+      .hero-media {
+        position: fixed;
+      }
+
+      .hero-media::after {
+        background:
+          linear-gradient(0deg, rgba(18, 11, 8, .78) 0%, rgba(18, 11, 8, .24) 48%, rgba(18, 11, 8, .18) 100%),
+          linear-gradient(90deg, rgba(18, 11, 8, .42), rgba(18, 11, 8, .12));
+      }
+
+      .hero-content {
+        min-height: 100svh;
+        padding-bottom: 28px;
+      }
+
+      .hero-actions .button {
+        width: min(100%, 390px);
+      }
+
+      .hero .hero-actions {
+        width: 100%;
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
+
+      .hero .hero-actions .button {
+        flex: 1 1 0;
+        width: auto;
+        min-height: 58px;
+        min-width: 0;
+        padding: 0 10px;
+        font-size: 13px;
+        line-height: 1.12;
+        text-align: center;
+        white-space: normal;
+      }
+
+      .intro {
+        padding-top: 118px;
+      }
+
+      .story-split {
+        width: calc(100% - 36px);
+      }
+
+      .feature-photo {
+        min-height: 680px;
+      }
+
+      .feature-photo img.couple-close {
+        object-position: 50% 35%;
+      }
+
+      .feature-photo img.family {
+        object-position: 48% 50%;
+      }
+
+      .feature-photo img.couple-sun {
+        object-position: 54% 50%;
+      }
+
+      .analysis-grid,
+      .how-grid,
+      .pricing-top {
+        width: calc(100% - 36px);
+      }
+
+      .stats {
+        margin-top: 54px;
+      }
+
+      .stat strong {
+        font-size: 54px;
+      }
+
+      .analysis-action {
+        justify-self: stretch;
+        justify-content: center;
+      }
+
+      .experience-grid {
+        width: calc(100% - 36px);
+      }
+
+      .experience-card {
+        min-height: 680px;
+        padding: 34px 24px;
+      }
+
+      .experience-content h3 {
+        font-size: clamp(34px, 9.4vw, 54px);
+      }
+
+      .experience-content p {
+        font-size: 18px;
+      }
+
+      .experience-actions .button {
+        width: 100%;
+      }
+
+      .site-footer {
+        min-height: auto;
+        margin-top: 0;
+        padding: 64px 24px 36px;
+        border-radius: 30px 30px 0 0;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .footer-brand p {
+        font-size: 17px;
+      }
+
+      .phone-screen {
+        padding: 18px;
+      }
+
+      .bubble {
+        font-size: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+    }
+  
+
+/* WEREINLOVE GLOBAL FINAL - NO ACCENT */
+:root{
+  --bg:#f5f1ee!important;
+  --white:#fffdfb!important;
+  --ink:#151412!important;
+  --gris:#8d8780!important;
+  --rose:#ff5f95!important;
+  --rose-deep:#ff5f95!important;
+  --accent:#171512!important;
+  --accent-deep:#5f8e72!important;
+  --grad:linear-gradient(90deg,#ff6f9d,#ffb3c8)!important;
+  --grad-soft:linear-gradient(160deg,rgba(255,111,157,.10),rgba(255,179,200,.12))!important;
+  --grad-btn:linear-gradient(90deg,#171512,#171512)!important;
+  --wil-cream:#f5f1ee!important;
+  --wil-card:#fffdfb!important;
+  --wil-ink:#151412!important;
+  --wil-muted:#8d8780!important;
+  --wil-line:#ded8d1!important;
+  --wil-black:#171512!important;
+  --wil-green:#5f8e72!important;
+  --wil-pink:#ff5f95!important;
+}
+html{background:#f5f1ee!important;color-scheme:light!important}
+body{
+  background:#f5f1ee!important;
+  color:#151412!important;
+}
+.grad-txt,
+h1 .grad,
+.story-title .grad,
+.score-hero .big,
+.mv-big,
+.magic-brandbar .url,
+.list-item .pct,
+.stat b{
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+  color:#151412!important;
+}
+.btn,.btn-accent,.nav-link.cta,.offer-tag,.uni-badge,.modal-badge{
+  background:#171512!important;
+  color:#fff!important;
+  box-shadow:0 18px 52px rgba(23,21,18,.16)!important;
+}
+.btn-ghost,.btn-google,.secondary,.ghost{
+  background:#fff!important;
+  color:#151412!important;
+  border:1px solid #ded8d1!important;
+  box-shadow:none!important;
+}
+.card,.panel,.box,.modal-card,.offer,.pcard,.auth-card,.screen-card,details,.stat{
+  background:rgba(255,253,251,.94)!important;
+  border-color:#ded8d1!important;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:#171512!important;
+  box-shadow:0 0 0 4px rgba(23,21,18,.08)!important;
+}
+.magic-front{
+  background:#171512!important;
+}
+.magic-back,.magic-inner{
+  background:#fffdfb!important;
+  color:#151412!important;
+}
+.magic-brandbar{
+  background:#171512!important;
+  color:#fff!important;
+}
+.mv-pcts .p.pb,.mv-pcts .p.pa,.mv-names .nb,.mv-names .na,.pacte.p-b b,.pacte.p-a b{
+  color:#151412!important;
+  background:none!important;
+}
+.mv-bar .a,.mv-bar .b,.vbar .a,.vbar .b,.progress span.done,.pc-fill,.uni-row .fill,.mv-unirow .fill{
+  background:#171512!important;
+}
+.msg-a,.msg-b,.insight{
+  background:#f0ebe5!important;
+  border-color:#ded8d1!important;
+}
+.phone-screen.dark .insight{
+  background:transparent!important;
+  border-color:rgba(255,255,255,.1)!important;
+  box-shadow:none!important;
+}
+.phone-screen.dark .insight strong,
+.phone-screen.dark .insight p{
+  color:inherit!important;
+}
+.phone-screen.dark .insight p{
+  color:rgba(255,255,255,.5)!important;
+}
+.loader span,.loader span:nth-child(2),.loader span:nth-child(3){
+  background:#171512!important;
+}
+.hero::before,.hero::after{
+  display:none!important;
+}
+svg [fill="#ff9bbd"]{
+  fill:#ff9bbd!important;
+}
+
+/* Final desktop/mobile tuning for the landing page rhythm. */
+.hero-content{
+  justify-content:center!important;
+  padding:120px clamp(24px,5vw,76px) 42px!important;
+}
+.hero h1,
+.hero-content h1{
+  max-width:820px!important;
+  font-size:clamp(52px,7.1vw,112px)!important;
+  line-height:.94!important;
+  letter-spacing:-.058em!important;
+}
+.hero-lede{
+  max-width:620px!important;
+  margin-top:24px!important;
+  font-size:clamp(17px,1.75vw,24px)!important;
+  line-height:1.45!important;
+  letter-spacing:-.025em!important;
+}
+.hero-actions{
+  margin-top:28px!important;
+}
+.hero .hero-actions .button{
+  min-height:54px!important;
+  min-width:190px!important;
+}
+.section-head h2,
+.story-copy h2,
+.sticky-copy h2,
+.analysis-copy h2,
+.pricing-top h2,
+.phone-copy h2,
+.final-inner h2,
+.bleed-inner h2{
+  font-size:clamp(38px,5.2vw,82px)!important;
+  letter-spacing:-.058em!important;
+}
+.section-head p,
+.story-copy p,
+.sticky-copy p,
+.analysis-copy p,
+.pricing-top p,
+.phone-copy p,
+.final-inner p,
+.bleed-inner p{
+  font-size:clamp(17px,1.7vw,23px)!important;
+}
+.bleed-photo{
+  --bleed-gap:0px;
+  --bleed-offset:0px;
+  --bleed-radius:0px;
+  --bleed-border:0;
+  --bleed-shadow:.04;
+  width:calc(100vw - var(--bleed-gap,0px))!important;
+  max-width:none!important;
+  margin-left:calc(50% - 50vw + var(--bleed-offset,0px))!important;
+  margin-right:0!important;
+  border-radius:var(--bleed-radius,0px)!important;
+  border:1px solid rgba(255,255,255,var(--bleed-border))!important;
+  box-shadow:0 34px 100px rgba(28,22,18,var(--bleed-shadow))!important;
+}
+.bleed-track{
+  height:168svh!important;
+  margin:0!important;
+  padding:0!important;
+  position:relative!important;
+  width:100vw!important;
+  margin-left:calc(50% - 50vw)!important;
+}
+.bleed-track .bleed-photo{
+  position:relative!important;
+  top:0!important;
+  height:100svh!important;
+  min-height:100svh!important;
+  width:calc(100vw - var(--bleed-gap,0px))!important;
+  margin-left:var(--bleed-offset,0px)!important;
+  margin-right:0!important;
+}
+.bleed-track .bleed-photo.is-fixed{
+  position:fixed!important;
+  top:0!important;
+  left:0!important;
+  z-index:5!important;
+}
+.bleed-track .bleed-photo.is-ended{
+  position:absolute!important;
+  top:auto!important;
+  bottom:0!important;
+  left:0!important;
+}
+.bleed-photo.reveal{
+  transform:none!important;
+}
+@media(max-width:760px){
+  .hero-content{
+    justify-content:center!important;
+    padding:104px 24px 28px!important;
+  }
+  .hero h1,
+  .hero-content h1{
+    max-width:430px!important;
+    font-size:clamp(40px,10.5vw,58px)!important;
+    line-height:.98!important;
+    letter-spacing:-.052em!important;
+  }
+  .hero-lede{
+    max-width:390px!important;
+    margin-top:18px!important;
+    font-size:clamp(16px,4.5vw,19px)!important;
+  }
+  .hero .hero-actions{
+    margin-top:22px!important;
+  }
+  .hero .hero-actions .button{
+    min-height:52px!important;
+    font-size:13px!important;
+  }
+  .section-head h2,
+  .story-copy h2,
+  .sticky-copy h2,
+  .analysis-copy h2,
+  .pricing-top h2,
+  .phone-copy h2,
+  .final-inner h2,
+  .bleed-inner h2{
+    font-size:clamp(34px,9vw,52px)!important;
+  }
+  .section-head p,
+  .story-copy p,
+  .sticky-copy p,
+  .analysis-copy p,
+  .pricing-top p,
+  .phone-copy p,
+  .final-inner p,
+  .bleed-inner p{
+    font-size:18px!important;
+  }
+  .bleed-photo{
+    width:calc(100vw - var(--bleed-gap,0px))!important;
+    min-height:88svh!important;
+  }
+  .bleed-track{
+    height:160svh!important;
+  }
+  .bleed-track .bleed-photo{
+    height:100svh!important;
+    min-height:100svh!important;
+  }
+}
+
+/* Alignment and contrast fixes after the final visual pass. */
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden!important;
+}
+.site-shell{
+  width:100%;
+  max-width:100%;
+  overflow:visible!important;
+}
+.nav-wrap{
+  justify-content:center!important;
+}
+.nav{
+  margin-inline:auto!important;
+}
+.section-head,
+.story-copy,
+.sticky-copy,
+.analysis-copy,
+.pricing-top,
+.phone-copy,
+.final-inner,
+.bleed-inner{
+  text-wrap:balance;
+}
+.bleed-inner{
+  max-width:min(860px,calc(100vw - 52px))!important;
+  width:100%!important;
+  margin-inline:auto!important;
+}
+.bleed-inner h2,
+.bleed-inner p{
+  max-width:100%!important;
+  overflow-wrap:break-word!important;
+}
+.bleed-photo .stats{
+  width:min(860px,100%)!important;
+  justify-items:center!important;
+  overflow:hidden!important;
+}
+.bleed-photo .stat{
+  width:100%!important;
+  max-width:260px!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  text-align:center!important;
+}
+.bleed-photo .stat strong,
+.bleed-photo .stat b{
+  color:#fff!important;
+  background:none!important;
+  -webkit-background-clip:initial!important;
+  background-clip:initial!important;
+}
+.bleed-photo .stat span{
+  color:rgba(255,255,255,.68)!important;
+}
+.experience-card.light-card{
+  color:#fff!important;
+  background:#171512!important;
+  border:0!important;
+}
+.experience-card.light-card::after{
+  background:
+    linear-gradient(0deg,rgba(15,10,8,.74),rgba(15,10,8,.04) 62%),
+    linear-gradient(90deg,rgba(15,10,8,.44),rgba(15,10,8,.02))!important;
+}
+.light-card .experience-content .eyebrow{
+  color:rgba(255,255,255,.58)!important;
+}
+.light-card .experience-content p{
+  color:rgba(255,255,255,.7)!important;
+}
+.light-card .experience-actions .button.ghost{
+  color:#fff!important;
+  background:rgba(255,255,255,.12)!important;
+  border-color:rgba(255,255,255,.18)!important;
+}
+.price{
+  font-size:clamp(46px,4.2vw,62px)!important;
+  letter-spacing:-.052em!important;
+}
+@media(max-width:920px){
+  .nav-wrap{
+    left:0!important;
+    right:0!important;
+    padding-inline:16px!important;
+  }
+  .nav{
+    max-width:calc(100vw - 32px)!important;
+  }
+  .hero-content{
+    align-items:center!important;
+    text-align:center!important;
+  }
+  .hero-lede{
+    margin-inline:auto!important;
+  }
+  .hero-actions{
+    justify-content:center!important;
+  }
+}
+@media(max-width:1360px){
+  .story-split{
+    width:min(920px,calc(100vw - 56px))!important;
+    grid-template-columns:1fr!important;
+    justify-items:center!important;
+    text-align:center!important;
+    gap:42px!important;
+  }
+  .story-copy{
+    width:100%!important;
+    max-width:760px!important;
+    padding-left:0!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  .story-copy h2,
+  .story-copy p,
+  .detail-note{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  .quiet-line{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  .feature-photo{
+    width:100%!important;
+    max-width:780px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+@media(max-width:760px){
+  .bleed-inner h2{
+    font-size:clamp(34px,8.7vw,48px)!important;
+    line-height:1!important;
+    letter-spacing:-.052em!important;
+  }
+  .bleed-inner p{
+    font-size:17px!important;
+    line-height:1.45!important;
+  }
+  .bleed-photo .stats{
+    grid-template-columns:1fr!important;
+    gap:26px!important;
+    margin-top:42px!important;
+    padding-top:26px!important;
+  }
+  .bleed-photo .stat strong{
+    font-size:clamp(36px,11vw,52px)!important;
+  }
+  .price{
+    font-size:clamp(42px,12vw,56px)!important;
+  }
+}
+
+/* Final centering pass for narrow and intermediate viewports. */
+main,
+main > section{
+  width:100%!important;
+  max-width:100vw!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-sizing:border-box!important;
+}
+.section-head,
+.story-split,
+.how-grid,
+.phone-stage,
+.analysis-grid,
+.resolved-wrap,
+.experience-grid,
+.pricing-top,
+.plans,
+.final-cta,
+.footer-inner{
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-sizing:border-box!important;
+}
+.story-split,
+.how-grid,
+.analysis-grid,
+.pricing-top,
+.plans,
+.resolved-wrap,
+.experience-grid{
+  width:min(var(--section-max,1360px),calc(100vw - 48px))!important;
+}
+.story-split{
+  --section-max:1420px;
+}
+.analysis-grid{
+  --section-max:1460px;
+}
+.pricing-top,
+.plans{
+  --section-max:1160px;
+}
+.hero .hero-actions{
+  max-width:calc(100vw - 48px)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+@media(max-width:920px){
+  .hero .hero-actions{
+    width:min(430px,calc(100vw - 48px))!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:12px!important;
+  }
+  .hero .hero-actions .button{
+    width:100%!important;
+    min-width:0!important;
+    flex:none!important;
+  }
+}
+@media(max-width:760px){
+  .story-split,
+  .how-grid,
+  .analysis-grid,
+  .pricing-top,
+  .plans,
+  .resolved-wrap,
+  .experience-grid{
+    width:calc(100vw - 36px)!important;
+  }
+}
+@media(max-width:420px){
+  .story-split,
+  .how-grid,
+  .analysis-grid,
+  .pricing-top,
+  .plans,
+  .resolved-wrap,
+  .experience-grid{
+    width:calc(100vw - 28px)!important;
+  }
+  .hero .hero-actions{
+    width:calc(100vw - 36px)!important;
+    max-width:calc(100vw - 36px)!important;
+  }
+}
+
+/* True final override: keep narrative sections visually centered and calmer. */
+.section-head{
+  text-align:center!important;
+}
+@media(max-width:1360px){
+  .story-split{
+    --section-max:900px!important;
+    width:min(900px,calc(100vw - 64px))!important;
+    grid-template-columns:1fr!important;
+    justify-items:center!important;
+    text-align:center!important;
+    gap:44px!important;
+  }
+  .story-copy{
+    width:100%!important;
+    max-width:760px!important;
+    padding-left:0!important;
+    margin-inline:auto!important;
+  }
+  .story-copy h2,
+  .story-copy p,
+  .detail-note,
+  .quiet-line{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  .story-split .feature-photo{
+    width:100%!important;
+    max-width:720px!important;
+    min-height:clamp(420px,48vw,600px)!important;
+    aspect-ratio:4/3!important;
+    margin-inline:auto!important;
+  }
+  .story-split .feature-photo img{
+    min-height:100%!important;
+  }
+}
+@media(max-width:760px){
+  .story-split{
+    width:min(430px,calc(100vw - 76px))!important;
+    padding-top:92px!important;
+    padding-bottom:92px!important;
+    gap:34px!important;
+  }
+  .story-copy{
+    max-width:100%!important;
+  }
+  .story-copy h2{
+    font-size:clamp(34px,8.8vw,48px)!important;
+    line-height:1.02!important;
+  }
+  .story-copy p,
+  .detail-note{
+    font-size:17px!important;
+    line-height:1.5!important;
+  }
+  .story-split .feature-photo{
+    width:min(100%,390px)!important;
+    max-width:390px!important;
+    min-height:0!important;
+    height:auto!important;
+    aspect-ratio:4/5!important;
+    border-radius:30px!important;
+  }
+  .story-split .feature-photo img{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    object-fit:cover!important;
+    transform:scale(1.02)!important;
+  }
+}
+@media(max-width:480px){
+  .story-split{
+    width:calc(100vw - 56px)!important;
+  }
+  .story-split .feature-photo{
+    width:100%!important;
+    max-width:340px!important;
+  }
+}
+
+/* Final spacing pass: tighter review bridge and no dead air after the bleed section. */
+.reviews-strip{
+  padding:14px 0 2px!important;
+  margin:0!important;
+}
+.reviews-track{
+  align-items:center!important;
+  padding-left:max(18px,calc((100vw - 410px) / 2))!important;
+}
+.review-card{
+  padding-top:2px!important;
+  padding-bottom:6px!important;
+}
+.intro{
+  min-height:auto!important;
+  padding-top:clamp(34px,5vw,72px)!important;
+}
+.bleed-track{
+  height:168svh!important;
+  margin-bottom:0!important;
+}
+.statement{
+  min-height:auto!important;
+  padding-top:clamp(38px,5vw,74px)!important;
+  padding-bottom:clamp(64px,8vw,120px)!important;
+}
+@media(max-width:760px){
+  .reviews-strip{
+    padding:12px 0 0!important;
+  }
+  .review-card{
+    width:300px!important;
+  }
+  .intro{
+    padding-top:38px!important;
+  }
+  .bleed-track{
+    height:160svh!important;
+  }
+  .statement{
+    padding-top:34px!important;
+    padding-bottom:72px!important;
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="nav-wrap" aria-label="Navigation principale">
+      <nav class="nav" data-nav>
+        <a class="brand" href="#top" aria-label="WereInLove">
+          <span class="mark" aria-hidden="true"></span>
+          <span>WereInLove</span>
+        </a>
+        <div class="nav-links" aria-label="Sections">
+          <a href="#vision">Vision</a>
+          <a href="#fonctionnement">Fonctionnement</a>
+          <a href="#tarifs">Tarifs</a>
+        </div>
+        <a class="nav-cta" href="app.html">Espace client</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero-media" data-hero-media>
+        <video class="hero-video" autoplay loop muted playsinline poster="wereinlove-assets/family-field.jpg">
+          <!-- Version GitHub : la vidéo lourde est retirée. Ajoutez ici une URL Cloudinary/Bunny si besoin. -->
+        </video>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow reveal">WereInLove</p>
+        <h1 class="reveal">Comprendre les personnes qui comptent.</h1>
+        <p class="hero-lede reveal">Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.</p>
+        <div class="hero-actions reveal">
+          <a class="button light" href="app.html">Apaiser un conflit</a>
+          <a class="button" href="compatibilite.html">Test de compatibilité</a>
+        </div>
+        <div class="scroll-seal" aria-hidden="true">
+          <span></span>
+          <b>+</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews-strip" aria-label="Avis utilisateurs">
+      <div class="reviews-track" aria-hidden="true">
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« À 1 h du matin, impossible d'appeler un psy. On était en plein conflit, et ça nous a vraiment aidés à prendre du recul. »</blockquote>
+          <figcaption>Utilisateur vérifié</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« J'ai enfin compris pourquoi ma fille réagissait comme ça. »</blockquote>
+          <figcaption>Mère d'une adolescente</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« On tournait en rond depuis des jours. L'IA nous a aidés à voir le malentendu. »</blockquote>
+          <figcaption>En couple depuis 8 ans</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« Ça m'a obligé à écouter son point de vue jusqu'au bout. »</blockquote>
+          <figcaption>Thomas</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« Je pensais avoir raison. Finalement, j'ai compris ce qu'elle ressentait. »</blockquote>
+          <figcaption>Léo</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« En dix minutes, la discussion était beaucoup plus apaisée. »</blockquote>
+          <figcaption>Sophie</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« À 1 h du matin, impossible d'appeler un psy. On était en plein conflit, et ça nous a vraiment aidés à prendre du recul. »</blockquote>
+          <figcaption>Utilisateur vérifié</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« J'ai enfin compris pourquoi ma fille réagissait comme ça. »</blockquote>
+          <figcaption>Mère d'une adolescente</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« On tournait en rond depuis des jours. L'IA nous a aidés à voir le malentendu. »</blockquote>
+          <figcaption>En couple depuis 8 ans</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« Ça m'a obligé à écouter son point de vue jusqu'au bout. »</blockquote>
+          <figcaption>Thomas</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« Je pensais avoir raison. Finalement, j'ai compris ce qu'elle ressentait. »</blockquote>
+          <figcaption>Léo</figcaption>
+        </figure>
+        <figure class="review-card">
+          <span class="review-stars">★★★★★</span>
+          <blockquote>« En dix minutes, la discussion était beaucoup plus apaisée. »</blockquote>
+          <figcaption>Sophie</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <main>
+      <section class="intro" id="vision">
+        <div class="section-head reveal">
+          <h2>Une relation change quand chacun se sent enfin entendu.</h2>
+          <p>Deux versions d'une même histoire. Une lecture calme de ce qui s'est vraiment joué entre les mots.</p>
+        </div>
+        <div class="photo-rail" data-rail>
+          <figure class="rail-card"><img src="wereinlove-assets/family-field.jpg" alt="Une famille avance dans un paysage doux" loading="eager"></figure>
+          <figure class="rail-card wide"><img src="wereinlove-assets/friends-sunset.jpg" alt="Des amis assis face au coucher du soleil" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/couple-chair.jpg" alt="Un couple rit dans un jardin" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/couple-evening.jpg" alt="Un couple proche dans une lumière du soir" loading="lazy"></figure>
+          <figure class="rail-card wide"><img src="wereinlove-assets/couple-car.jpg" alt="Un couple près d'une voiture au crépuscule" loading="lazy"></figure>
+          <figure class="rail-card"><img src="wereinlove-assets/family-walk.jpg" alt="Un parent porte deux enfants dans une lumière d'été" loading="lazy"></figure>
+        </div>
+      </section>
+
+      <section class="story-split">
+        <div class="story-copy reveal">
+          <p class="eyebrow">Familles</p>
+          <h2>Ce que l'autre voulait dire n'est pas toujours ce que l'on a entendu.</h2>
+          <p>WereInLove aide parents, enfants, amis, couples et proches à déposer leur version sans être interrompus.</p>
+          <div class="quiet-line"></div>
+          <p class="detail-note"><strong>Deux récits.</strong> Une synthèse qui distingue les faits, les émotions, les intentions et les malentendus.</p>
+        </div>
+        <figure class="feature-photo reveal">
+          <img class="family" src="wereinlove-assets/mother-daughter-sunset.jpg" alt="Une mère et sa fille dans la lumière du soir" loading="lazy">
+        </figure>
+      </section>
+
+      <section class="bleed-track" data-bleed-track>
+        <div class="bleed-photo reveal">
+          <img src="wereinlove-assets/couple-chair.jpg" alt="Un couple se retrouve dans un moment léger" loading="lazy">
+          <div class="bleed-inner">
+            <h2>On ne répare pas en gagnant. On répare en comprenant.</h2>
+            <p>L'IA n'est pas le sujet. Elle sert seulement à rendre la conversation plus claire, plus douce et plus possible.</p>
+            <div class="stats">
+              <div class="stat"><strong>1M</strong><span>de vues sur TikTok</span></div>
+              <div class="stat"><strong>50K+</strong><span>followers sur Instagram</span></div>
+              <div class="stat"><strong>3600+</strong><span>histoires écrites</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="statement">
+        <h2 class="reveal">La dispute n'est qu'un signal. Le vrai sujet, c'est le lien.</h2>
+      </section>
+
+      <section class="how" id="fonctionnement">
+        <div class="how-grid">
+          <div class="sticky-copy reveal">
+            <p class="eyebrow">Comment ça marche</p>
+            <h2>Chacun raconte. WereInLove remet de la clarté.</h2>
+            <p>Le produit transforme deux ressentis séparés en une conversation plus lisible, sans désigner un coupable.</p>
+          </div>
+          <div class="steps">
+            <article class="step reveal">
+              <span class="step-num">01</span>
+              <h3>Une personne raconte sa version.</h3>
+              <p>Ce qu'elle a vécu, ce qu'elle a compris, ce qu'elle n'a pas réussi à dire.</p>
+            </article>
+            <article class="step reveal">
+              <span class="step-num">02</span>
+              <h3>L'autre partage la sienne.</h3>
+              <p>Les deux récits restent distincts. Aucun n'efface l'autre. Chacun garde sa place.</p>
+            </article>
+            <article class="step reveal">
+              <span class="step-num">03</span>
+              <h3>L'analyse fait apparaître les écarts.</h3>
+              <p>Malentendus, émotions, responsabilités, besoins cachés et prochaines phrases possibles.</p>
+            </article>
+            <article class="step reveal">
+              <span class="step-num">04</span>
+              <h3>Le dialogue peut reprendre.</h3>
+              <p>Pas avec une réponse magique. Avec une façon plus juste de se rejoindre.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="phones-section">
+        <div class="section-head reveal">
+          <p class="eyebrow">Dans votre poche</p>
+          <h2>Une interface faite pour écrire quand les mots sont difficiles.</h2>
+          <p>Simple, calme, privée. Un espace qui invite à formuler plutôt qu'à réagir.</p>
+        </div>
+        <div class="phone-stage reveal">
+          <div class="phone-copy">
+            <p class="eyebrow">Deux points de vue</p>
+            <h2>Chacun écrit sa version. L'IA écoute les deux.</h2>
+            <p>WereInLove ne cherche pas qui a raison. Il rapproche deux récits, repère ce qui s'est mal compris et vous aide à y voir clair.</p>
+            <div class="mode-tabs" role="tablist" aria-label="Exemples de relations">
+              <button class="is-active" type="button" data-story="couple">Couple</button>
+              <button type="button" data-story="amis">Amis</button>
+              <button type="button" data-story="famille">Famille</button>
+            </div>
+          </div>
+          <div class="phone-visuals" aria-hidden="true">
+            <div class="phone one">
+              <div class="phone-screen">
+                <div class="phone-top"><span data-phone-a-label>Version A</span><span>18:42</span></div>
+                <div class="chat">
+                  <div class="bubble" data-message-a>Je n'avais pas besoin que tu règles tout.</div>
+                  <div class="bubble you" data-message-b>Je croyais que tu attendais une solution.</div>
+                  <div class="bubble" data-message-c>J'avais surtout besoin que tu restes avec moi.</div>
+                </div>
+              </div>
+            </div>
+            <div class="phone two">
+              <div class="phone-screen dark">
+                <div class="phone-top"><span>Écoute croisée</span><span data-relation-label>Couple</span></div>
+                <div class="insight">
+                  <strong data-insight-title>Le conflit porte moins sur la décision que sur le sentiment d'être seul avec elle.</strong>
+                  <p data-insight-text>L'IA met en regard les deux versions: l'un voulait aider vite, l'autre attendait d'abord une présence.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="analysis-section">
+        <div class="analysis-grid">
+          <div class="analysis-copy reveal">
+            <p class="eyebrow">Analyse</p>
+            <h2>Les émotions, les responsabilités et les mots possibles au même endroit.</h2>
+            <p>WereInLove ne remplace pas la conversation. Il prépare un terrain où elle peut redevenir humaine.</p>
+          </div>
+          <div class="analysis-card reveal">
+            <div class="analysis-bar"><span class="analysis-dot"></span><span>WereInLove - Lecture croisée</span></div>
+            <div class="analysis-body">
+              <div class="analysis-message"><strong>Chloé :</strong> “Quand tu réponds plus tard, j'ai l'impression de ne pas compter.”</div>
+              <div class="analysis-message"><strong>Esteban :</strong> “Je me tais pour éviter d'empirer les choses, pas pour m'éloigner.”</div>
+              <div class="analysis-message ai"><strong>WereInLove :</strong> Chloé cherche une preuve de présence. Esteban, lui, prend du recul pour éviter d'abîmer davantage la relation. Le conflit ne parle donc pas seulement du délai de réponse, mais de deux façons différentes de protéger le lien.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="resolved" id="histoires-resolues">
+        <div class="section-head reveal">
+          <p class="eyebrow">Histoires résolues</p>
+          <h2>Pour les conversations que l'on repousse parce qu'elles comptent trop.</h2>
+        </div>
+        <div class="resolved-grid">
+          <article class="resolved-card reveal">
+            <img src="wereinlove-assets/rest.jpg" alt="Un visage calme dans une lumière chaude" loading="lazy">
+            <div>
+              <h3>Quand le silence dure plus longtemps que la dispute.</h3>
+              <p>Retrouver une phrase d'ouverture qui ne rallume pas tout.</p>
+            </div>
+          </article>
+          <article class="resolved-card reveal">
+            <img src="wereinlove-assets/friends-sunset.jpg" alt="Des amis assis face au ciel du soir" loading="lazy">
+            <div>
+              <h3>Quand deux personnes veulent bien faire, mais pas de la même façon.</h3>
+              <p>Nommer l'intention derrière le geste, pas seulement l'effet.</p>
+            </div>
+          </article>
+          <article class="resolved-card reveal">
+            <img src="wereinlove-assets/light.jpg" alt="Lumière douce sur un mur en bois" loading="lazy">
+            <div>
+              <h3>Quand il faut laisser redescendre avant de se reparler.</h3>
+              <p>Clarifier sans presser. Revenir sans forcer.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="experiences" id="experiences">
+        <div class="section-head reveal">
+          <p class="eyebrow">Expériences</p>
+          <h2>Deux façons simples d'ouvrir une vraie conversation.</h2>
+          <p>Pour déposer ce que l'on n'arrive pas à dire, ou découvrir ce qui nous relie avant même que l'histoire commence.</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card reveal">
+            <img src="wereinlove-assets/celebration-sunset.jpg" alt="Une célébration au coucher du soleil" loading="lazy">
+            <div class="experience-content">
+              <p class="eyebrow">Boîte à histoires</p>
+              <h3>Des conflits déjà apaisés par WereInLove.</h3>
+              <p>Des histoires publiées avec l'accord des utilisateurs, pour montrer comment deux versions d'une même situation peuvent devenir plus claires, plus justes et plus faciles à reparler.</p>
+              <div class="experience-actions">
+                <a class="button light" href="boite-a-disputes.html">Lire les histoires</a>
+                <a class="button ghost" href="#fonctionnement">Comprendre la méthode</a>
+              </div>
+            </div>
+          </article>
+          <article class="experience-card light-card reveal">
+            <img src="wereinlove-assets/couple-car.jpg" alt="Un couple se regarde près d'une voiture rouge" loading="lazy">
+            <div class="experience-content">
+              <p class="eyebrow">Test de compatibilité</p>
+              <h3>À faire avec son conjoint. Ou avec son crush.</h3>
+              <p>Un test doux pour explorer vos façons d'aimer, de parler, de vous rassurer et de gérer les désaccords. Pas pour prédire une relation. Pour mieux la comprendre.</p>
+              <div class="experience-actions">
+                <a class="button" href="compatibilite.html">Faire le test</a>
+                <a class="button ghost" href="#tarifs">Voir les offres</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="pricing" id="tarifs">
+        <div class="pricing-top reveal">
+          <div>
+            <p class="eyebrow">Tarifs</p>
+            <h2>Une seule vraie conversation peut changer beaucoup plus qu'une journée.</h2>
+          </div>
+          <p>Commencez gratuitement. Passez à un accompagnement plus profond quand une relation mérite plus qu'une réponse rapide.</p>
+        </div>
+        <div class="plans">
+          <article class="plan reveal">
+            <span class="plan-kicker">Découverte</span>
+            <h3>Découverte</h3>
+            <p class="plan-sub">Vos deux premières histoires, sans carte bancaire</p>
+            <div class="price">0€</div>
+            <p class="plan-note">Pour essayer WereInLove librement</p>
+            <hr>
+            <ul>
+              <li>2 histoires complètes offertes</li>
+              <li>Aucune carte bancaire demandée</li>
+              <li>Les deux versions + 3 réponses chacun</li>
+              <li>Analyse complète de WereInLove</li>
+            </ul>
+            <a class="button" href="app.html">Essayer gratuitement</a>
+          </article>
+          <article class="plan dark reveal">
+            <span class="plan-kicker">Formule la plus populaire</span>
+            <h3>Relations essentielles</h3>
+            <p class="plan-sub">Pour apaiser les conflits qui comptent</p>
+            <div class="price">3,99€<small>/mois</small></div>
+            <p class="plan-note"><span class="was-price">9,99€</span> · jusqu'à 30 conflits apaisés par mois</p>
+            <hr>
+            <ul>
+              <li>30 analyses par mois, pour toutes vos relations</li>
+              <li>WereInLove vous aide à mieux comprendre vos schémas récurrents</li>
+              <li>Résiliable à tout moment</li>
+            </ul>
+            <a class="button light" href="app.html">S'abonner</a>
+          </article>
+          <article class="plan reveal">
+            <span class="plan-kicker">Illimité</span>
+            <h3>Illimité</h3>
+            <p class="plan-sub">Pour comprendre sans compter</p>
+            <div class="price">14,99€<small>/mois</small></div>
+            <p class="plan-note">Analyses sans aucune limite</p>
+            <hr>
+            <ul>
+              <li>Analyses illimitées</li>
+              <li>Toutes les fonctionnalités incluses</li>
+              <li>Résiliable à tout moment</li>
+            </ul>
+            <a class="button" href="app.html">Passer à l'illimité</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <img src="wereinlove-assets/moon.jpg" alt="Une silhouette face au ciel" loading="lazy">
+        <div class="final-inner reveal">
+          <h2>Commencer par comprendre. Puis seulement répondre.</h2>
+          <p>WereInLove est là pour les liens que vous ne voulez pas laisser se perdre dans un malentendu.</p>
+          <div class="hero-actions">
+            <a class="button light" href="app.html">Commencer gratuitement</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="footer-logo" href="#top" aria-label="WereInLove">
+              <span class="mark" aria-hidden="true"></span>
+              <span>WereInLove</span>
+            </a>
+            <p>Un espace calme pour raconter deux versions d'une même histoire, comprendre ce qui s'est joué et retrouver une conversation possible.</p>
+          </div>
+
+          <nav class="footer-column" aria-label="Produit">
+            <h3>Produit</h3>
+            <ul>
+              <li><a href="#fonctionnement">Comment ça marche</a></li>
+              <li><a href="#tarifs">Tarifs</a></li>
+              <li><a href="app.html">Apaiser un conflit</a></li>
+              <li><a href="#vision">Notre vision</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-column" aria-label="Ressources">
+            <h3>Ressources</h3>
+            <ul>
+              <li><a href="#histoires-resolues">Histoires résolues</a></li>
+              <li><a href="boite-a-disputes.html">Boîte à histoires</a></li>
+              <li><a href="compatibilite.html">Test de compatibilité</a></li>
+              <li><a href="faq.html">Foire aux questions</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="influenceurs-partenariats.html">Espace influenceur & partenariats</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-column" aria-label="Légal">
+            <h3>Légal</h3>
+            <ul>
+              <li><a href="conditions-generales-de-vente.html">Condition générale de vente</a></li>
+              <li><a href="mentions-legales.html">Mentions légales</a></li>
+              <li><a href="confidentialite.html">Confidentialité</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-column" aria-label="Social">
+            <h3>Social</h3>
+            <ul>
+              <li><a href="https://www.tiktok.com/@wereinlove" target="_blank" rel="noreferrer">Notre TikTok</a></li>
+              <li><a href="#top">Retour en haut</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 WereInLove. Tous droits réservés.</span>
+          <span>Comprendre les personnes qui comptent.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const nav = document.querySelector("[data-nav]");
+    const hero = document.querySelector(".hero");
+    const heroMedia = document.querySelector("[data-hero-media]");
+    const heroVideo = document.querySelector(".hero-video");
+    const bleedTrack = document.querySelector("[data-bleed-track]");
+    const bleedPhoto = document.querySelector(".bleed-photo");
+    const rail = document.querySelector("[data-rail]");
+    const revealEls = document.querySelectorAll(".reveal");
+    const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+
+    revealEls.forEach((el) => revealObserver.observe(el));
+
+    const lightObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        nav.classList.toggle("is-light", !entry.isIntersecting);
+      });
+    }, { threshold: 0.2 });
+
+    lightObserver.observe(hero);
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function animateOnScroll() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const heroHeight = hero.offsetHeight || window.innerHeight;
+      const progress = clamp(scrollY / Math.min(heroHeight, window.innerHeight * 0.82), 0, 1);
+
+      if (motionOk && heroMedia) {
+        const isMobile = window.innerWidth <= 560;
+        const scale = 1 - progress * (isMobile ? 0.46 : 0.58);
+        const radius = progress * (isMobile ? 46 : 92);
+        const translateY = progress * (isMobile ? 58 : 130);
+        heroMedia.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+        heroMedia.style.borderRadius = `${radius}px`;
+        heroMedia.style.filter = `brightness(${1 - progress * (isMobile ? 0.08 : 0.12)})`;
+      }
+
+      if (motionOk && bleedPhoto && bleedTrack) {
+        const isSmall = window.innerWidth <= 760;
+        const trackTop = bleedTrack.getBoundingClientRect().top + scrollY;
+        const fixedStart = trackTop;
+        const fixedEnd = trackTop + Math.max(1, bleedTrack.offsetHeight - window.innerHeight);
+        bleedPhoto.classList.toggle("is-fixed", scrollY >= fixedStart && scrollY < fixedEnd);
+        bleedPhoto.classList.toggle("is-ended", scrollY >= fixedEnd);
+        const start = fixedStart;
+        const end = fixedEnd;
+        const local = clamp((scrollY - start) / Math.max(1, end - start), 0, 1);
+        const hold = isSmall ? 0.1 : 0.12;
+        const span = isSmall ? 0.86 : 0.84;
+        const delayed = clamp((local - hold) / span, 0, 1);
+        const eased = 1 - Math.pow(1 - delayed, 3);
+        const gap = eased * (isSmall ? 84 : 260);
+        bleedPhoto.style.setProperty("--bleed-gap", `${gap}px`);
+        bleedPhoto.style.setProperty("--bleed-offset", `${gap / 2}px`);
+        bleedPhoto.style.setProperty("--bleed-radius", `${eased * (isSmall ? 40 : 64)}px`);
+        bleedPhoto.style.setProperty("--bleed-border", `${eased}`);
+        bleedPhoto.style.setProperty("--bleed-shadow", `${0.04 + eased * 0.12}`);
+      }
+
+      if (motionOk && rail) {
+        const rect = rail.parentElement.getBoundingClientRect();
+        const local = clamp((window.innerHeight - rect.top) / (window.innerHeight + rect.height), 0, 1);
+        const maxMove = Math.max(0, rail.scrollWidth - window.innerWidth + 48);
+        rail.style.setProperty("--rail-x", `${-maxMove * local * 0.82}px`);
+      }
+
+      if (motionOk) {
+        document.querySelectorAll(".feature-photo img, .bleed-photo img").forEach((img) => {
+          const rect = img.parentElement.getBoundingClientRect();
+          const local = clamp((window.innerHeight - rect.top) / (window.innerHeight + rect.height), 0, 1);
+          img.parentElement.style.setProperty("--photo-scale", String(1.08 - local * 0.05));
+        });
+      }
+    }
+
+    let ticking = false;
+    function requestTick() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          animateOnScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    animateOnScroll();
+    window.addEventListener("scroll", requestTick, { passive: true });
+    window.addEventListener("resize", requestTick);
+    window.addEventListener("load", requestTick);
+    window.addEventListener("pageshow", requestTick);
+    window.addEventListener("hashchange", requestTick);
+    window.setTimeout(requestTick, 80);
+
+    const relationshipStories = {
+      couple: {
+        label: "Couple",
+        phoneLabel: "Version A",
+        messages: [
+          "Je n'avais pas besoin que tu règles tout.",
+          "Je croyais que tu attendais une solution.",
+          "J'avais surtout besoin que tu restes avec moi."
+        ],
+        insight: "Le conflit porte moins sur la décision que sur le sentiment d'être seul avec elle.",
+        detail: "L'IA met en regard les deux versions: l'un voulait aider vite, l'autre attendait d'abord une présence."
+      },
+      amis: {
+        label: "Amis",
+        phoneLabel: "Version A",
+        messages: [
+          "J'ai eu l'impression d'être mis de côté.",
+          "Je pensais que tu avais besoin d'espace.",
+          "J'aurais aimé que tu viennes me parler directement."
+        ],
+        insight: "Le malentendu vient d'un silence interprété comme de la distance.",
+        detail: "L'IA montre que l'un cherchait à respecter une limite, pendant que l'autre vivait ce retrait comme un abandon."
+      },
+      famille: {
+        label: "Famille",
+        phoneLabel: "Version A",
+        messages: [
+          "Quand tu me conseilles tout de suite, je me sens jugé.",
+          "Je voulais simplement t'éviter de souffrir encore.",
+          "J'avais besoin que tu comprennes avant de me corriger."
+        ],
+        insight: "Les deux versions parlent d'amour, mais pas avec le même langage.",
+        detail: "L'IA distingue l'intention de protéger et le besoin d'être reconnu comme capable de choisir."
+      }
+    };
+
+    const storyFields = {
+      phoneLabel: document.querySelector("[data-phone-a-label]"),
+      relationLabel: document.querySelector("[data-relation-label]"),
+      messages: [
+        document.querySelector("[data-message-a]"),
+        document.querySelector("[data-message-b]"),
+        document.querySelector("[data-message-c]")
+      ],
+      insight: document.querySelector("[data-insight-title]"),
+      detail: document.querySelector("[data-insight-text]")
+    };
+
+    function setRelationshipStory(storyName) {
+      const story = relationshipStories[storyName] || relationshipStories.couple;
+      if (storyFields.phoneLabel) storyFields.phoneLabel.textContent = story.phoneLabel;
+      if (storyFields.relationLabel) storyFields.relationLabel.textContent = story.label;
+      storyFields.messages.forEach((field, index) => {
+        if (field) field.textContent = story.messages[index];
+      });
+      if (storyFields.insight) storyFields.insight.textContent = story.insight;
+      if (storyFields.detail) storyFields.detail.textContent = story.detail;
+    }
+
+    document.querySelectorAll(".mode-tabs button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".mode-tabs button").forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+        setRelationshipStory(button.dataset.story);
+      });
+    });
+
+    if (heroVideo) {
+      heroVideo.muted = true;
+      heroVideo.playsInline = true;
+      const startHeroVideo = () => heroVideo.play().catch(() => {});
+      startHeroVideo();
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) startHeroVideo();
+      });
+    }
+  </script>
+</body>
+</html>
