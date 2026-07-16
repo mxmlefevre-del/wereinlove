@@ -1305,7 +1305,7 @@ function renderResult(){
   const best = entries.reduce((a,b)=>b[1]>a[1]?b:a);
   const worst = entries.reduce((a,b)=>b[1]<a[1]?b:a);
   $("r-force").innerHTML = `<b>💪 Votre force : ${UNI_LABELS[best[0]]} (${best[1]}%)</b>C'est là que vos deux visions se rejoignent le plus. Appuyez-vous dessus.`;
-  $("r-chantier").innerHTML = `<b>🔧 Votre chantier : ${UNI_LABELS[worst[0]]} (${worst[1]}%)</b>Vos réponses divergent ici — le sujet parfait pour votre prochaine vraie conversation (ou votre prochaine dispute WereInLove 😉).`;
+  $("r-chantier").innerHTML = `<b>🔧 Votre chantier : ${UNI_LABELS[worst[0]]} (${worst[1]}%)</b>Vos réponses divergent ici — le sujet parfait pour votre prochaine vraie conversation (ou votre prochaine histoire WereInLove).`;
 
   const card = $("magic-card");
   card.classList.remove("flipped");

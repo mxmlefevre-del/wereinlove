@@ -975,14 +975,14 @@ svg [fill="#ff9bbd"]{
       <label for="oq-prenom">Votre prénom</label>
       <input type="text" id="oq-prenom" placeholder="Esteban" maxlength="30">
       <div class="error" id="oq-error"></div>
-      <button class="btn" id="btn-onboard-quick">Découvrir la dispute</button>
+      <button class="btn" id="btn-onboard-quick">Découvrir le conflit</button>
     </div>
   </div>
 
-  <!-- ÉCRAN : CRÉER UNE DISPUTE -->
+  <!-- ÉCRAN : APAISER UN CONFLIT -->
   <div class="screen" id="s-create">
     <div class="card">
-      <h1>Créer une <span class="grad-txt">dispute</span></h1>
+      <h1>Apaiser un <span class="grad-txt">conflit</span></h1>
       <p class="sub">Racontez ce qui s'est passé, avec vos mots, sans filtre. Votre partenaire ne verra votre version qu'au moment où vous lui enverrez le lien.</p>
       <label for="c-title">Donnez-lui un titre</label>
       <input type="text" id="c-title" placeholder="Ex : La soirée annulée" maxlength="60">
@@ -994,14 +994,14 @@ svg [fill="#ff9bbd"]{
       <div class="count"><span id="c-count">0</span>/2000</div>
       <div class="pillnote">💡 <span>Après la réponse de votre partenaire, vous pourrez <b>compléter votre point de vue jusqu'à 3 fois</b> avant le verdict de l'IA.</span></div>
       <div class="error" id="c-error"></div>
-      <button class="btn" id="btn-create">Créer ma dispute</button>
+      <button class="btn" id="btn-create">Apaiser ce conflit</button>
     </div>
   </div>
 
   <!-- ÉCRAN : LIEN À PARTAGER -->
   <div class="screen" id="s-share">
     <div class="card">
-      <h1>Dispute créée ✅</h1>
+      <h1>Conflit prêt à être apaisé</h1>
       <p class="sub">Envoyez ce lien unique à <b id="sh-partner">votre partenaire</b>. Cette personne pourra lire votre version et donner la sienne, dès qu'elle sera prête.</p>
       <div class="linkbox">
         <input type="text" id="sh-link" readonly>
@@ -1011,7 +1011,7 @@ svg [fill="#ff9bbd"]{
         <a class="btn btn-ghost btn-sm" id="btn-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
         <a class="btn btn-ghost btn-sm" id="btn-sms">📱 SMS</a>
       </div>
-      <button class="btn btn-ghost" id="btn-goto-dispute" style="margin-top:24px">Voir ma dispute</button>
+      <button class="btn btn-ghost" id="btn-goto-dispute" style="margin-top:24px">Voir mon conflit</button>
     </div>
   </div>
 
@@ -1090,7 +1090,7 @@ svg [fill="#ff9bbd"]{
       <div class="card" id="consent-card">
         <h2>🍿 On adore votre histoire</h2>
         <p style="margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--gris)">
-          On aimerait peut-être la partager, anonymisée, dans notre <b>Boîte à disputes</b> pour inspirer d'autres couples.
+          On aimerait peut-être la partager, anonymisée, dans notre <b>Boîte à histoires</b> pour inspirer d'autres personnes.
           Seul votre <b>prénom</b> serait affiché — jamais votre nom, votre photo, ni aucune info permettant de vous identifier.
           Vous décidez, et vous pouvez changer d'avis à tout moment en nous écrivant.
         </p>
@@ -1107,7 +1107,7 @@ svg [fill="#ff9bbd"]{
         <h2 style="margin-top:26px;font-size:17px">Et maintenant, on vous rabiboche 💞</h2>
         <div class="pacte" id="v-pacte-a"></div>
         <div class="pacte p-b" id="v-pacte-b"></div>
-        <button class="btn" id="btn-new">Créer une nouvelle dispute</button>
+        <button class="btn" id="btn-new">Apaiser un nouveau conflit</button>
       </div>
     </div>
   </div>
@@ -1204,7 +1204,7 @@ if (!DEMO) onAuthStateChanged(auth, async user => {
   if (!user) {
     $("btn-logout").style.display="none";
     $("hello").textContent="";
-    if (disputeId) { $("auth-title").textContent="On vous attend 💌"; $("auth-sub").textContent="Créez votre accès en 10 secondes pour découvrir la dispute."; }
+    if (disputeId) { $("auth-title").textContent="On vous attend"; $("auth-sub").textContent="Créez votre accès en 10 secondes pour découvrir le conflit."; }
     show("s-auth");
     return;
   }
@@ -1323,13 +1323,13 @@ async function reviewAndChoose(rawText, authorName, recipientName){
   return await showReviewModal(rawText, wilText);
 }
 
-/* ---------- CRÉATION DE DISPUTE ---------- */
+/* ---------- CRÉATION DU CONFLIT ---------- */
 $("c-text").addEventListener("input", e => $("c-count").textContent = e.target.value.length);
 setupMic("mic-c-text","c-text", () => $("c-count").textContent = $("c-text").value.length);
 $("btn-create").onclick = async () => {
   clearErr("c-error");
   const title=$("c-title").value.trim(), text=$("c-text").value.trim();
-  if(!title) return err("c-error","Donnez un titre à votre dispute.");
+  if(!title) return err("c-error","Donnez un titre à votre conflit.");
   if(text.length<40) return err("c-error","Racontez un peu plus — l'IA a besoin de matière (40 caractères minimum).");
   $("btn-create").disabled = true;
   $("btn-create").textContent = "L'IA relit votre message…";
@@ -1337,7 +1337,7 @@ $("btn-create").onclick = async () => {
     const finalText = await reviewAndChoose(text, profile.prenom, profile.partnerPrenom);
     if (finalText === null) { // annulé : on revient au formulaire, rien n'est envoyé
       $("btn-create").disabled = false;
-      $("btn-create").textContent = "Créer ma dispute";
+      $("btn-create").textContent = "Apaiser ce conflit";
       return;
     }
     const ref = await addDoc(collection(db,"disputes"), {
@@ -1362,7 +1362,7 @@ $("btn-create").onclick = async () => {
     show("s-share");
   } catch(e){ err("c-error","Création impossible : "+e.message); }
   $("btn-create").disabled = false;
-  $("btn-create").textContent = "Créer ma dispute";
+  $("btn-create").textContent = "Apaiser ce conflit";
 };
 $("btn-copy").onclick = async () => {
   await navigator.clipboard.writeText($("sh-link").value);
@@ -1536,7 +1536,7 @@ function renderConsent(){
     yesBtn.classList.toggle("selected", dispute.shareConsent===true);
     noBtn.classList.toggle("selected", dispute.shareConsent===false);
     if (dispute.shareConsent===true){ status.textContent="Merci ! Votre choix est enregistré : partage autorisé (prénom seul)."; status.classList.add("show"); }
-    else if (dispute.shareConsent===false){ status.textContent="C'est noté, votre dispute restera privée."; status.classList.add("show"); }
+    else if (dispute.shareConsent===false){ status.textContent="C'est noté, votre histoire restera privée."; status.classList.add("show"); }
     else status.classList.remove("show");
   }
   paint();

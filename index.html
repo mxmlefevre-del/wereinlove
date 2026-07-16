@@ -2554,6 +2554,49 @@ main > section{
   }
 }
 
+/* Restore the guided-scroll section: the title stays anchored while the steps move. */
+.how{
+  padding-top:clamp(54px,7vw,98px)!important;
+  padding-bottom:clamp(72px,10vw,140px)!important;
+}
+.how-grid{
+  display:grid!important;
+  grid-template-columns:minmax(300px,.82fr) minmax(360px,1fr)!important;
+  align-items:start!important;
+  gap:clamp(42px,7vw,104px)!important;
+}
+.sticky-copy{
+  position:sticky!important;
+  top:132px!important;
+  align-self:start!important;
+}
+.steps{
+  display:grid!important;
+  gap:clamp(18px,2.2vw,30px)!important;
+}
+.step{
+  min-height:min(58vh,520px)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+@media(max-width:920px){
+  .how{
+    padding-top:58px!important;
+  }
+  .how-grid{
+    display:block!important;
+    width:min(760px,calc(100vw - 36px))!important;
+  }
+  .sticky-copy{
+    position:static!important;
+    margin-bottom:26px!important;
+  }
+  .step{
+    min-height:auto!important;
+  }
+}
+
 /* True final override: keep narrative sections visually centered and calmer. */
 .section-head{
   text-align:center!important;
@@ -2696,14 +2739,15 @@ main > section{
           <a href="#fonctionnement">Fonctionnement</a>
           <a href="#tarifs">Tarifs</a>
         </div>
-        <a class="nav-cta" href="app.html">Espace client</a>
+        <a class="nav-cta" href="espace-client.html">Espace client</a>
       </nav>
     </header>
 
     <section class="hero" id="top" aria-label="Introduction">
       <div class="hero-media" data-hero-media>
         <video class="hero-video" autoplay loop muted playsinline poster="wereinlove-assets/family-field.jpg">
-          <!-- Version GitHub : la vidéo lourde est retirée. Ajoutez ici une URL Cloudinary/Bunny si besoin. -->
+          <source src="hero-video.mp4" type="video/mp4">
+          <source src="wereinlove-assets/hero-video.mp4" type="video/mp4">
         </video>
       </div>
       <div class="hero-content">
@@ -3174,14 +3218,14 @@ main > section{
         const start = fixedStart;
         const end = fixedEnd;
         const local = clamp((scrollY - start) / Math.max(1, end - start), 0, 1);
-        const hold = isSmall ? 0.1 : 0.12;
-        const span = isSmall ? 0.86 : 0.84;
+        const hold = isSmall ? 0.18 : 0.12;
+        const span = isSmall ? 0.92 : 0.84;
         const delayed = clamp((local - hold) / span, 0, 1);
         const eased = 1 - Math.pow(1 - delayed, 3);
-        const gap = eased * (isSmall ? 84 : 260);
+        const gap = eased * (isSmall ? 34 : 260);
         bleedPhoto.style.setProperty("--bleed-gap", `${gap}px`);
         bleedPhoto.style.setProperty("--bleed-offset", `${gap / 2}px`);
-        bleedPhoto.style.setProperty("--bleed-radius", `${eased * (isSmall ? 40 : 64)}px`);
+        bleedPhoto.style.setProperty("--bleed-radius", `${eased * (isSmall ? 22 : 64)}px`);
         bleedPhoto.style.setProperty("--bleed-border", `${eased}`);
         bleedPhoto.style.setProperty("--bleed-shadow", `${0.04 + eased * 0.12}`);
       }
