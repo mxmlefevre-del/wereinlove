@@ -1031,7 +1031,58 @@ svg [fill="#ff9bbd"]{
   <div class="screen" id="s-create">
     <div class="card">
       <h1>Apaiser un <span class="grad-txt">conflit</span></h1>
-      <p class="sub">Racontez ce qui s'est passé, avec vos mots, sans filtre. L'autre personne ne verra votre version qu'au moment où vous lui enverrez le lien.</p>
+      <p class="sub">Choisissez d'abord le lien concerné, puis racontez ce qui s'est passé avec vos mots. L'autre personne ne verra votre version qu'au moment où vous lui enverrez le lien.</p>
+      <label>La relation concernée</label>
+      <div class="relation-tabs" id="create-relation-tabs">
+        <button class="relation-tab active" type="button" data-type="couple">Couple</button>
+        <button class="relation-tab" type="button" data-type="amis">Amis</button>
+        <button class="relation-tab" type="button" data-type="famille">Famille</button>
+      </div>
+      <label for="c-person" id="c-person-label">Le prénom de votre partenaire</label>
+      <input type="text" id="c-person" placeholder="Esteban" maxlength="30">
+      <div class="relation-fields active" id="create-fields-couple">
+        <label for="c-duree">Depuis combien de temps êtes-vous ensemble ?</label>
+        <select id="c-duree">
+          <option value="">Choisir…</option>
+          <option>Moins de 6 mois</option>
+          <option>6 mois à 2 ans</option>
+          <option>2 à 5 ans</option>
+          <option>5 à 10 ans</option>
+          <option>Plus de 10 ans</option>
+        </select>
+        <label for="c-vie">Vous vivez…</label>
+        <select id="c-vie">
+          <option value="">Choisir…</option>
+          <option>Ensemble</option>
+          <option>Chacun chez soi</option>
+          <option>À distance</option>
+        </select>
+      </div>
+      <div class="relation-fields" id="create-fields-amis">
+        <label for="c-amis-duree">Depuis combien de temps êtes-vous amis ?</label>
+        <select id="c-amis-duree">
+          <option value="">Choisir…</option>
+          <option>Moins de 6 mois</option>
+          <option>6 mois à 2 ans</option>
+          <option>2 à 5 ans</option>
+          <option>5 à 10 ans</option>
+          <option>Plus de 10 ans</option>
+        </select>
+      </div>
+      <div class="relation-fields" id="create-fields-famille">
+        <label for="c-famille-lien">Quel membre de la famille ?</label>
+        <select id="c-famille-lien">
+          <option value="">Choisir…</option>
+          <option>Frère & soeur</option>
+          <option>Parent</option>
+          <option>Grand-parent</option>
+          <option>Cousins</option>
+          <option>Oncle & tante</option>
+          <option>Beau-frère & belle-soeur</option>
+          <option>Belle-mère & beau-père</option>
+          <option>Autre</option>
+        </select>
+      </div>
       <label for="c-title">Donnez-lui un titre</label>
       <input type="text" id="c-title" placeholder="Ex : La soirée annulée" maxlength="60">
       <label for="c-text">Votre version</label>
@@ -1220,6 +1271,7 @@ const show = id => {
 const err = (id,msg) => { const e=$(id); e.textContent=msg; e.classList.add("show"); };
 const clearErr = id => $(id).classList.remove("show");
 let selectedRelationType = "couple";
+let selectedCreateRelationType = "couple";
 let selectedFeedbackRating = 0;
 
 function authMeta(user=me){
@@ -1237,7 +1289,8 @@ function relationLabel(type){
 }
 
 function otherPersonName(){
-  return profile?.partnerPrenom || profile?.otherPrenom || "l'autre personne";
+  const createPerson = $("c-person")?.value?.trim();
+  return createPerson || profile?.partnerPrenom || profile?.otherPrenom || "l'autre personne";
 }
 
 function currentRelationContext(){
@@ -1288,7 +1341,82 @@ function setRelationType(type){
 }
 
 document.querySelectorAll(".relation-tab").forEach(btn => {
-  btn.onclick = () => setRelationType(btn.dataset.type);
+  if (btn.closest("#relation-tabs")) btn.onclick = () => setRelationType(btn.dataset.type);
+});
+
+function profileRelationContext(){
+  return profile?.relationContext || {
+    type: profile?.relationType || "couple",
+    label: relationLabel(profile?.relationType || "couple"),
+    duration: profile?.coupleDuree || profile?.amisDuree || null,
+    livingTogether: profile?.viePratique || null,
+    familyMember: profile?.familleLien || null
+  };
+}
+
+function currentCreateRelationContext(){
+  const type = selectedCreateRelationType;
+  if (type === "amis") {
+    return {
+      type,
+      label: "Amis",
+      duration: $("c-amis-duree").value || null,
+      livingTogether: null,
+      familyMember: null
+    };
+  }
+  if (type === "famille") {
+    return {
+      type,
+      label: "Famille",
+      duration: null,
+      livingTogether: null,
+      familyMember: $("c-famille-lien").value || null
+    };
+  }
+  return {
+    type: "couple",
+    label: "Couple",
+    duration: $("c-duree").value || null,
+    livingTogether: $("c-vie").value || null,
+    familyMember: null
+  };
+}
+
+function setCreateRelationType(type){
+  selectedCreateRelationType = type;
+  document.querySelectorAll("#create-relation-tabs .relation-tab").forEach(btn => btn.classList.toggle("active", btn.dataset.type === type));
+  document.querySelectorAll('[id^="create-fields-"]').forEach(el => el.classList.remove("active"));
+  $(`create-fields-${type}`).classList.add("active");
+  if (type === "amis") {
+    $("c-person-label").textContent = "Le prénom de votre ami·e";
+    $("c-person").placeholder = "Camille";
+  } else if (type === "famille") {
+    $("c-person-label").textContent = "Le prénom de la personne";
+    $("c-person").placeholder = "Louise";
+  } else {
+    $("c-person-label").textContent = "Le prénom de votre partenaire";
+    $("c-person").placeholder = "Esteban";
+  }
+}
+
+function hydrateCreateRelationFromProfile(){
+  const ctx = profileRelationContext();
+  const type = ctx.type || "couple";
+  setCreateRelationType(type);
+  $("c-person").value = profile?.otherPrenom || profile?.partnerPrenom || "";
+  if (type === "couple") {
+    $("c-duree").value = ctx.duration || profile?.coupleDuree || "";
+    $("c-vie").value = ctx.livingTogether || profile?.viePratique || "";
+  } else if (type === "amis") {
+    $("c-amis-duree").value = ctx.duration || profile?.amisDuree || "";
+  } else if (type === "famille") {
+    $("c-famille-lien").value = ctx.familyMember || profile?.familleLien || "";
+  }
+}
+
+document.querySelectorAll("#create-relation-tabs .relation-tab").forEach(btn => {
+  btn.onclick = () => setCreateRelationType(btn.dataset.type);
 });
 
 /* ---------- DICTÉE VOCALE (Web Speech API) ---------- */
@@ -1371,7 +1499,10 @@ if (!DEMO) onAuthStateChanged(auth, async user => {
 
 function route(){
   if (disputeId) openDispute(disputeId);
-  else show("s-create");
+  else {
+    hydrateCreateRelationFromProfile();
+    show("s-create");
+  }
 }
 
 $("btn-google").onclick = async () => {
@@ -1480,20 +1611,17 @@ $("c-text").addEventListener("input", e => $("c-count").textContent = e.target.v
 setupMic("mic-c-text","c-text", () => $("c-count").textContent = $("c-text").value.length);
 $("btn-create").onclick = async () => {
   clearErr("c-error");
-  const title=$("c-title").value.trim(), text=$("c-text").value.trim();
+  const title=$("c-title").value.trim(), text=$("c-text").value.trim(), recipient=$("c-person").value.trim();
+  const relationContext = currentCreateRelationContext();
+  if(!recipient) return err("c-error","Ajoutez le prénom de la personne concernée.");
+  if(relationContext.type==="couple" && (!relationContext.duration || !relationContext.livingTogether)) return err("c-error","Ajoutez la durée du couple et votre situation de vie.");
+  if(relationContext.type==="amis" && !relationContext.duration) return err("c-error","Ajoutez depuis combien de temps vous êtes amis.");
+  if(relationContext.type==="famille" && !relationContext.familyMember) return err("c-error","Choisissez le lien familial concerné.");
   if(!title) return err("c-error","Donnez un titre à votre conflit.");
   if(text.length<40) return err("c-error","Racontez un peu plus — l'IA a besoin de matière (40 caractères minimum).");
   $("btn-create").disabled = true;
   $("btn-create").textContent = "L'IA relit votre message…";
   try {
-    const recipient = otherPersonName();
-    const relationContext = profile.relationContext || {
-      type: profile.relationType || "couple",
-      label: relationLabel(profile.relationType || "couple"),
-      duration: profile.coupleDuree || profile.amisDuree || null,
-      livingTogether: profile.viePratique || null,
-      familyMember: profile.familleLien || null
-    };
     const finalText = await reviewAndChoose(text, profile.prenom, recipient);
     if (finalText === null) { // annulé : on revient au formulaire, rien n'est envoyé
       $("btn-create").disabled = false;
@@ -1512,7 +1640,7 @@ $("btn-create").onclick = async () => {
       relationLabel: relationContext.label,
       relationContext,
       participantUids: [me.uid],
-      participantEmails: me.email ? [me.email] : [],
+      participantEmails: (me.email || profile.email) ? [me.email || profile.email] : [],
       creatorProfile: {
         prenom: profile.prenom,
         nom: profile.nom || null,
@@ -1520,7 +1648,7 @@ $("btn-create").onclick = async () => {
         relationType: relationContext.type,
         relationContext
       },
-      coupleContext: { duree: profile.coupleDuree||relationContext.duration||null, vie: profile.viePratique||relationContext.livingTogether||null },
+      coupleContext: { duree: relationContext.duration || null, vie: relationContext.livingTogether || null },
       status: "waiting_partner",
       messages: [{ role:"A", name:profile.prenom, text:finalText, ts:Date.now() }],
       verdict: null,
