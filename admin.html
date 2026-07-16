@@ -72,6 +72,20 @@ tr:last-child td{border-bottom:none}
 .topnav button{background:none;border:none;color:var(--gris);font-size:13px;font-weight:600;text-decoration:underline;cursor:pointer;font-family:var(--font)}
 .stripe-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--accent-deep)}
 .refresh{background:var(--bg);border:none;border-radius:100px;padding:8px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--font)}
+.read-panel{display:grid;gap:14px;margin-top:14px}
+.history-card{padding:18px 18px 16px;background:#fffdfb;border:1px solid var(--wil-line);border-radius:24px;box-shadow:0 18px 60px rgba(28,22,18,.08)}
+.history-card summary{cursor:pointer;font-weight:850;font-size:15px;list-style:none}
+.history-card summary::-webkit-details-marker{display:none}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:14px 0}
+.kv{background:#f5f1ee;border-radius:16px;padding:10px 12px;font-size:12.5px;color:var(--wil-muted)}
+.kv b{display:block;color:var(--wil-ink);font-size:13px}
+.admin-msg{background:#f0ebe5;border-radius:18px;padding:12px 14px;margin-top:10px}
+.admin-msg b{display:block;margin-bottom:4px}
+.admin-verdict{background:#171512;color:#fff;border-radius:20px;padding:14px;margin-top:12px}
+.admin-verdict p{margin-top:8px;color:rgba(255,255,255,.76)}
+.feedback-line{border-top:1px solid var(--wil-line);margin-top:12px;padding-top:12px;color:var(--wil-muted)}
+.read-errors{display:none;background:#fff4e2;border:1px solid #ead1a2;color:#6d4700;border-radius:18px;padding:14px;margin:18px 0}
+.read-errors.show{display:block}
 
 
 /* WEREINLOVE DA 2026 */
@@ -334,8 +348,19 @@ svg [fill="#ff9bbd"]{
       <div class="section-title">Derniers inscrits</div>
       <button class="refresh" id="btn-refresh">↻ Actualiser</button>
       <table>
-        <thead><tr><th>Prénom</th><th>Email</th><th>Plan</th><th>Inscrit le</th></tr></thead>
+        <thead><tr><th>Prénom</th><th>Nom</th><th>Email</th><th>Relation</th><th>Avec</th><th>Plan</th><th>Inscrit le</th></tr></thead>
         <tbody id="users-table"></tbody>
+      </table>
+
+      <div class="read-errors" id="read-errors"></div>
+
+      <div class="section-title">Histoires complètes</div>
+      <div class="read-panel" id="histories-list"></div>
+
+      <div class="section-title">Avis utilisateurs</div>
+      <table>
+        <thead><tr><th>Note</th><th>Utilisateur</th><th>Email</th><th>Histoire</th><th>Commentaire</th><th>Date</th></tr></thead>
+        <tbody id="feedback-table"></tbody>
       </table>
     </div>
   </div>
@@ -391,19 +416,22 @@ $("in-pass").addEventListener("keydown", e => { if(e.key==="Enter") $("btn-login
 $("btn-logout").onclick = () => { signOut(auth); show("s-auth"); $("in-pass").value=""; };
 
 async function loadDashboard(){
-  const safe = async (p, fb) => { try { return await p; } catch(e){ console.warn(e); return fb; } };
+  const readErrors = [];
+  const safe = async (label, p, fb) => { try { return await p; } catch(e){ console.warn(e); readErrors.push(`${label} : ${e.code || e.message}`); return fb; } };
 
-  const usersSnap = await safe(getDocs(collection(db,"users")), { docs:[] });
-  const disputesSnap = await safe(getDocs(collection(db,"disputes")), { docs:[] });
-  const compatSnap = await safe(getDocs(collection(db,"compat")), { docs:[] });
-  const requestsSnap = await safe(getDocs(collection(db,"partnershipRequests")), { docs:[] });
-  const demandesSnap = await safe(getDocs(collection(db,"demandes")), { docs:[] });
+  const usersSnap = await safe("Utilisateurs", getDocs(collection(db,"users")), { docs:[] });
+  const disputesSnap = await safe("Histoires", getDocs(collection(db,"disputes")), { docs:[] });
+  const compatSnap = await safe("Compatibilité", getDocs(collection(db,"compat")), { docs:[] });
+  const requestsSnap = await safe("Partenariats", getDocs(collection(db,"partnershipRequests")), { docs:[] });
+  const demandesSnap = await safe("Demandes", getDocs(collection(db,"demandes")), { docs:[] });
+  const feedbackSnap = await safe("Avis", getDocs(collection(db,"feedbacks")), { docs:[] });
 
   const users = usersSnap.docs.map(d => ({ id:d.id, ...d.data() }));
-  const disputes = disputesSnap.docs.map(d => d.data());
+  const disputes = disputesSnap.docs.map(d => ({ id:d.id, ...d.data() }));
   const compat = compatSnap.docs.map(d => d.data());
   const requests = requestsSnap.docs.map(d => d.data());
   const demandes = demandesSnap.docs.map(d => ({ id:d.id, ...d.data() }));
+  const feedbacks = feedbackSnap.docs.map(d => ({ id:d.id, ...d.data() }));
 
   const totalUsers = users.length;
   const premiumUsers = users.filter(u => u.plan === "premium" || u.plan === "couple" || u.plan === "unlimited").length;
@@ -416,7 +444,7 @@ async function loadDashboard(){
     <div class="stat"><b>${disputes.length}</b><span>Histoires écrites</span></div>
     <div class="stat"><b>${resolvedHistoires}</b><span>Verdicts rendus</span></div>
     <div class="stat"><b>${compat.length}</b><span>Tests de compatibilité</span></div>
-    <div class="stat"><b>${sharedConsent}</b><span>Consentements boîte à histoiress</span></div>
+    <div class="stat"><b>${sharedConsent}</b><span>Consentements boîte à histoires</span></div>
   `;
 
   requests.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
@@ -444,14 +472,62 @@ async function loadDashboard(){
       <td>${fmtDate(d.createdAt)}</td>
     </tr>`).join("") || `<tr><td colspan="6" style="color:var(--gris);text-align:center;padding:20px">Aucune demande d'abonnement pour l'instant.</td></tr>`;
 
+  const errorsBox = $("read-errors");
+  if (readErrors.length) {
+    errorsBox.innerHTML = `<b>Certaines données sont bloquées par les règles Firebase :</b><br>${readErrors.map(esc).join("<br>")}`;
+    errorsBox.classList.add("show");
+  } else {
+    errorsBox.classList.remove("show");
+  }
+
   users.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
   $("users-table").innerHTML = users.slice(0,50).map(u => `
     <tr>
       <td>${esc(u.prenom || "—")}</td>
+      <td>${esc(u.nom || "—")}</td>
       <td>${esc(u.email || "—")}</td>
+      <td>${esc(u.relationLabel || u.relationType || "—")}</td>
+      <td>${esc(u.otherPrenom || u.partnerPrenom || "—")}</td>
       <td><span class="plan-tag ${(u.plan==='premium'||u.plan==='couple'||u.plan==='unlimited') ? 'premium':'free'}">${esc(u.plan || "gratuit")}</span></td>
       <td>${fmtDate(u.createdAt)}</td>
-    </tr>`).join("") || `<tr><td colspan="4" style="color:var(--gris);text-align:center;padding:20px">Aucun inscrit pour l'instant.</td></tr>`;
+    </tr>`).join("") || `<tr><td colspan="7" style="color:var(--gris);text-align:center;padding:20px">Aucun inscrit pour l'instant.</td></tr>`;
+
+  disputes.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+  $("histories-list").innerHTML = disputes.map(d => {
+    const relation = d.relationLabel || d.relationType || "—";
+    const ctx = d.relationContext || d.coupleContext || {};
+    const fb = Array.isArray(d.feedbacks) ? d.feedbacks : [];
+    return `
+      <details class="history-card">
+        <summary>${esc(d.title || "Sans titre")} <span style="color:var(--wil-muted);font-weight:700">· ${esc(relation)} · ${esc(d.status || "—")}</span></summary>
+        <div class="meta-grid">
+          <div class="kv"><b>ID</b>${esc(d.id)}</div>
+          <div class="kv"><b>Créateur</b>${esc([d.creatorName, d.creatorProfile?.nom].filter(Boolean).join(" ") || "—")}<br>${esc(d.creatorEmail || d.creatorProfile?.email || "—")}</div>
+          <div class="kv"><b>Autre personne</b>${esc([d.partnerName, d.partnerProfile?.nom].filter(Boolean).join(" ") || "—")}<br>${esc(d.partnerEmail || d.partnerProfile?.email || "—")}</div>
+          <div class="kv"><b>Contexte</b>${esc(ctx.duration || ctx.duree || ctx.familyMember || "—")} ${ctx.livingTogether || ctx.vie ? "· "+esc(ctx.livingTogether || ctx.vie) : ""}</div>
+          <div class="kv"><b>Créée le</b>${fmtDate(d.createdAt)}</div>
+          <div class="kv"><b>Consentement</b>${d.shareConsent===true ? "Oui" : d.shareConsent===false ? "Non" : "—"}</div>
+        </div>
+        ${(d.messages||[]).map(m => `<div class="admin-msg"><b>${esc(m.name || m.role || "—")}</b>${esc(m.text || "")}</div>`).join("")}
+        ${d.verdict ? `<div class="admin-verdict"><b>Verdict</b><p>${esc(d.verdict.analyse || d.verdict.motDeLaFin || JSON.stringify(d.verdict))}</p></div>` : ""}
+        ${fb.length ? `<div class="feedback-line"><b>Avis :</b> ${fb.map(f => `${"★".repeat(Number(f.rating)||0)} ${esc(f.byName||"")} ${f.comment ? " — "+esc(f.comment) : ""}`).join("<br>")}</div>` : ""}
+      </details>`;
+  }).join("") || `<div style="color:var(--gris);text-align:center;padding:24px">Aucune histoire pour l'instant.</div>`;
+
+  const allFeedbacks = [
+    ...feedbacks,
+    ...disputes.flatMap(d => (Array.isArray(d.feedbacks) ? d.feedbacks.map(f => ({...f, title:d.title, disputeId:d.id})) : []))
+  ];
+  allFeedbacks.sort((a,b) => (b.createdAt?.seconds || b.ts || 0) - (a.createdAt?.seconds || a.ts || 0));
+  $("feedback-table").innerHTML = allFeedbacks.map(f => `
+    <tr>
+      <td>${"★".repeat(Number(f.rating)||0) || "—"}</td>
+      <td>${esc(f.byName || "—")}</td>
+      <td>${esc(f.byEmail || "—")}</td>
+      <td>${esc(f.title || f.disputeId || "—")}</td>
+      <td class="msg-cell">${esc(f.comment || "—")}</td>
+      <td>${fmtDate(f.createdAt || f.ts)}</td>
+    </tr>`).join("") || `<tr><td colspan="6" style="color:var(--gris);text-align:center;padding:20px">Aucun avis pour l'instant.</td></tr>`;
 }
 $("btn-refresh").onclick = () => loadDashboard();
 </script>

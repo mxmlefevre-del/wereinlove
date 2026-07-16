@@ -879,6 +879,17 @@ svg [fill="#ff9bbd"]{
 .hero-card,.hero,.card{
   box-shadow:0 32px 100px rgba(28,22,18,.12)!important;
 }
+.relation-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 18px}
+.relation-tab{border:1px solid var(--wil-line);background:#fff;color:var(--wil-ink);border-radius:999px;padding:12px 10px;font:800 14px/1 var(--font);cursor:pointer}
+.relation-tab.active{background:var(--wil-black);color:#fff;border-color:var(--wil-black)}
+.relation-fields{display:none}
+.relation-fields.active{display:block}
+.feedback-card{margin-top:22px}
+.stars{display:flex;gap:8px;margin:14px 0}
+.star-btn{width:46px;height:46px;border-radius:999px;border:1px solid var(--wil-line);background:#fff;color:#151412;font-size:22px;line-height:1;cursor:pointer}
+.star-btn.active{background:#171512;color:#fff;border-color:#171512}
+.feedback-status{display:none;color:var(--wil-green);font-weight:800;margin-top:10px}
+.feedback-status.show{display:block}
 
 </style>
 </head>
@@ -941,29 +952,64 @@ svg [fill="#ff9bbd"]{
   <div class="screen" id="s-onboard">
     <div class="card">
       <h1>Faisons <span class="grad-txt">connaissance</span></h1>
-      <p class="sub">Trois questions pour que l'IA comprenne votre couple. Plus elle vous connaît, mieux elle vous réconcilie.</p>
+      <p class="sub">Quelques questions pour que l'IA comprenne le lien concerné. Plus elle connaît le contexte, mieux elle peut aider.</p>
       <label for="ob-prenom">Votre prénom</label>
       <input type="text" id="ob-prenom" placeholder="Chloé" maxlength="30">
+      <label for="ob-nom">Votre nom <span style="color:var(--gris);font-weight:600">(optionnel)</span></label>
+      <input type="text" id="ob-nom" placeholder="Dupont" maxlength="50">
+      <label>La relation concernée</label>
+      <div class="relation-tabs" id="relation-tabs">
+        <button class="relation-tab active" type="button" data-type="couple">Couple</button>
+        <button class="relation-tab" type="button" data-type="amis">Amis</button>
+        <button class="relation-tab" type="button" data-type="famille">Famille</button>
+      </div>
       <label for="ob-partner">Le prénom de votre partenaire</label>
       <input type="text" id="ob-partner" placeholder="Esteban" maxlength="30">
-      <label for="ob-duree">Depuis combien de temps êtes-vous en couple ?</label>
-      <select id="ob-duree">
-        <option value="">Choisir…</option>
-        <option>Moins de 6 mois</option>
-        <option>6 mois à 2 ans</option>
-        <option>2 à 5 ans</option>
-        <option>5 à 10 ans</option>
-        <option>Plus de 10 ans</option>
-      </select>
-      <label for="ob-vie">Vous vivez…</label>
-      <select id="ob-vie">
-        <option value="">Choisir…</option>
-        <option>Ensemble</option>
-        <option>Chacun chez soi</option>
-        <option>À distance</option>
-      </select>
+      <div class="relation-fields active" id="fields-couple">
+        <label for="ob-duree">Depuis combien de temps êtes-vous ensemble ?</label>
+        <select id="ob-duree">
+          <option value="">Choisir…</option>
+          <option>Moins de 6 mois</option>
+          <option>6 mois à 2 ans</option>
+          <option>2 à 5 ans</option>
+          <option>5 à 10 ans</option>
+          <option>Plus de 10 ans</option>
+        </select>
+        <label for="ob-vie">Vous vivez…</label>
+        <select id="ob-vie">
+          <option value="">Choisir…</option>
+          <option>Ensemble</option>
+          <option>Chacun chez soi</option>
+          <option>À distance</option>
+        </select>
+      </div>
+      <div class="relation-fields" id="fields-amis">
+        <label for="ob-amis-duree">Depuis combien de temps êtes-vous amis ?</label>
+        <select id="ob-amis-duree">
+          <option value="">Choisir…</option>
+          <option>Moins de 6 mois</option>
+          <option>6 mois à 2 ans</option>
+          <option>2 à 5 ans</option>
+          <option>5 à 10 ans</option>
+          <option>Plus de 10 ans</option>
+        </select>
+      </div>
+      <div class="relation-fields" id="fields-famille">
+        <label for="ob-famille-lien">Quel membre de la famille ?</label>
+        <select id="ob-famille-lien">
+          <option value="">Choisir…</option>
+          <option>Frère & soeur</option>
+          <option>Parent</option>
+          <option>Grand-parent</option>
+          <option>Cousins</option>
+          <option>Oncle & tante</option>
+          <option>Beau-frère & belle-soeur</option>
+          <option>Belle-mère & beau-père</option>
+          <option>Autre</option>
+        </select>
+      </div>
       <div class="error" id="ob-error"></div>
-      <button class="btn" id="btn-onboard">C'est parti 💘</button>
+      <button class="btn" id="btn-onboard">C'est parti</button>
     </div>
   </div>
 
@@ -974,6 +1020,8 @@ svg [fill="#ff9bbd"]{
       <p class="sub" id="oq-sub">Quelqu'un veut vous entendre. Juste votre prénom et c'est parti.</p>
       <label for="oq-prenom">Votre prénom</label>
       <input type="text" id="oq-prenom" placeholder="Esteban" maxlength="30">
+      <label for="oq-nom">Votre nom <span style="color:var(--gris);font-weight:600">(optionnel)</span></label>
+      <input type="text" id="oq-nom" placeholder="Martin" maxlength="50">
       <div class="error" id="oq-error"></div>
       <button class="btn" id="btn-onboard-quick">Découvrir le conflit</button>
     </div>
@@ -983,7 +1031,7 @@ svg [fill="#ff9bbd"]{
   <div class="screen" id="s-create">
     <div class="card">
       <h1>Apaiser un <span class="grad-txt">conflit</span></h1>
-      <p class="sub">Racontez ce qui s'est passé, avec vos mots, sans filtre. Votre partenaire ne verra votre version qu'au moment où vous lui enverrez le lien.</p>
+      <p class="sub">Racontez ce qui s'est passé, avec vos mots, sans filtre. L'autre personne ne verra votre version qu'au moment où vous lui enverrez le lien.</p>
       <label for="c-title">Donnez-lui un titre</label>
       <input type="text" id="c-title" placeholder="Ex : La soirée annulée" maxlength="60">
       <label for="c-text">Votre version</label>
@@ -992,7 +1040,7 @@ svg [fill="#ff9bbd"]{
         <button type="button" class="btn-mic" id="mic-c-text" title="Dicter à la voix">🎤</button>
       </div>
       <div class="count"><span id="c-count">0</span>/2000</div>
-      <div class="pillnote">💡 <span>Après la réponse de votre partenaire, vous pourrez <b>compléter votre point de vue jusqu'à 3 fois</b> avant le verdict de l'IA.</span></div>
+      <div class="pillnote">💡 <span>Après la réponse de l'autre personne, vous pourrez <b>compléter votre point de vue jusqu'à 3 fois</b> avant le verdict de l'IA.</span></div>
       <div class="error" id="c-error"></div>
       <button class="btn" id="btn-create">Apaiser ce conflit</button>
     </div>
@@ -1002,7 +1050,7 @@ svg [fill="#ff9bbd"]{
   <div class="screen" id="s-share">
     <div class="card">
       <h1>Conflit prêt à être apaisé</h1>
-      <p class="sub">Envoyez ce lien unique à <b id="sh-partner">votre partenaire</b>. Cette personne pourra lire votre version et donner la sienne, dès qu'elle sera prête.</p>
+      <p class="sub">Envoyez ce lien unique à <b id="sh-partner">l'autre personne</b>. Elle pourra lire votre version et donner la sienne, dès qu'elle sera prête.</p>
       <div class="linkbox">
         <input type="text" id="sh-link" readonly>
         <button class="btn btn-sm" id="btn-copy">Copier</button>
@@ -1109,6 +1157,16 @@ svg [fill="#ff9bbd"]{
         <div class="pacte p-b" id="v-pacte-b"></div>
         <button class="btn" id="btn-new">Apaiser un nouveau conflit</button>
       </div>
+
+      <div class="card feedback-card" id="feedback-card">
+        <h2>Est-ce que WereInLove vous a aidé aujourd'hui ?</h2>
+        <p class="sub">Votre retour nous aide à rendre l'expérience plus juste, plus claire et plus humaine.</p>
+        <div class="stars" id="fb-stars" aria-label="Note de 1 à 5 étoiles"></div>
+        <label for="fb-comment">Un commentaire pour nous aider à nous améliorer</label>
+        <textarea id="fb-comment" maxlength="800" placeholder="Ce qui vous a aidé, ce qui manquait, ce qui pourrait être plus clair…"></textarea>
+        <button class="btn" id="btn-feedback">Envoyer mon avis</button>
+        <p class="feedback-status" id="feedback-status">Merci, votre avis est enregistré.</p>
+      </div>
     </div>
   </div>
 </main>
@@ -1161,6 +1219,77 @@ const show = id => {
 };
 const err = (id,msg) => { const e=$(id); e.textContent=msg; e.classList.add("show"); };
 const clearErr = id => $(id).classList.remove("show");
+let selectedRelationType = "couple";
+let selectedFeedbackRating = 0;
+
+function authMeta(user=me){
+  return {
+    uid: user?.uid || null,
+    email: user?.email || null,
+    authName: user?.displayName || null,
+    providerIds: user?.providerData?.map(p=>p.providerId) || [],
+    lastSeenAt: serverTimestamp()
+  };
+}
+
+function relationLabel(type){
+  return type === "amis" ? "Amis" : type === "famille" ? "Famille" : "Couple";
+}
+
+function otherPersonName(){
+  return profile?.partnerPrenom || profile?.otherPrenom || "l'autre personne";
+}
+
+function currentRelationContext(){
+  const type = selectedRelationType;
+  if (type === "amis") {
+    return {
+      type,
+      label: "Amis",
+      duration: $("ob-amis-duree").value || null,
+      livingTogether: null,
+      familyMember: null
+    };
+  }
+  if (type === "famille") {
+    return {
+      type,
+      label: "Famille",
+      duration: null,
+      livingTogether: null,
+      familyMember: $("ob-famille-lien").value || null
+    };
+  }
+  return {
+    type: "couple",
+    label: "Couple",
+    duration: $("ob-duree").value || null,
+    livingTogether: $("ob-vie").value || null,
+    familyMember: null
+  };
+}
+
+function setRelationType(type){
+  selectedRelationType = type;
+  document.querySelectorAll(".relation-tab").forEach(btn => btn.classList.toggle("active", btn.dataset.type === type));
+  document.querySelectorAll(".relation-fields").forEach(el => el.classList.remove("active"));
+  $(`fields-${type}`).classList.add("active");
+  const label = document.querySelector('label[for="ob-partner"]');
+  if (type === "amis") {
+    label.textContent = "Le prénom de votre ami·e";
+    $("ob-partner").placeholder = "Camille";
+  } else if (type === "famille") {
+    label.textContent = "Le prénom de la personne";
+    $("ob-partner").placeholder = "Louise";
+  } else {
+    label.textContent = "Le prénom de votre partenaire";
+    $("ob-partner").placeholder = "Esteban";
+  }
+}
+
+document.querySelectorAll(".relation-tab").forEach(btn => {
+  btn.onclick = () => setRelationType(btn.dataset.type);
+});
 
 /* ---------- DICTÉE VOCALE (Web Speech API) ---------- */
 function setupMic(micId, textareaId, onInput){
@@ -1211,8 +1340,12 @@ if (!DEMO) onAuthStateChanged(auth, async user => {
   $("btn-logout").style.display="block";
   const snap = await getDoc(doc(db,"users",user.uid));
   profile = snap.exists() ? snap.data() : null;
+  await setDoc(doc(db,"users",user.uid), {
+    ...authMeta(user),
+    firstSeenAt: profile?.createdAt || serverTimestamp()
+  }, { merge:true });
 
-  if (!profile) {
+  if (!profile || !profile.prenom) {
     // Nouveau compte : onboarding complet si créateur, express si invité par lien
     if (disputeId) {
       // On a déjà le prénom donné par le créateur : on pré-remplit au lieu de le redemander.
@@ -1231,6 +1364,7 @@ if (!DEMO) onAuthStateChanged(auth, async user => {
     show(disputeId ? "s-onboard-quick" : "s-onboard");
     return;
   }
+  profile = { ...profile, ...authMeta(user) };
   $("hello").textContent = `Connecté·e : ${profile.prenom}`;
   route();
 });
@@ -1274,20 +1408,38 @@ $("btn-logout").onclick = () => signOut(auth);
 /* ---------- ONBOARDING ---------- */
 $("btn-onboard").onclick = async () => {
   clearErr("ob-error");
-  const prenom=$("ob-prenom").value.trim(), partner=$("ob-partner").value.trim();
-  const duree=$("ob-duree").value, vie=$("ob-vie").value;
-  if(!prenom||!partner||!duree||!vie) return err("ob-error","Répondez aux quatre questions — l'IA en a besoin pour bien vous comprendre.");
-  profile = { prenom, partnerPrenom:partner, coupleDuree:duree, viePratique:vie, createdAt:serverTimestamp() };
-  await setDoc(doc(db,"users",me.uid), profile);
+  const prenom=$("ob-prenom").value.trim(), nom=$("ob-nom").value.trim(), partner=$("ob-partner").value.trim();
+  const relationContext = currentRelationContext();
+  if(!prenom||!partner) return err("ob-error","Ajoutez les deux prénoms pour continuer.");
+  if(relationContext.type==="couple" && (!relationContext.duration || !relationContext.livingTogether)) return err("ob-error","Ajoutez la durée du couple et votre situation de vie.");
+  if(relationContext.type==="amis" && !relationContext.duration) return err("ob-error","Ajoutez depuis combien de temps vous êtes amis.");
+  if(relationContext.type==="famille" && !relationContext.familyMember) return err("ob-error","Choisissez le lien familial concerné.");
+  profile = {
+    ...authMeta(me),
+    prenom,
+    nom,
+    partnerPrenom:partner,
+    otherPrenom:partner,
+    relationType: relationContext.type,
+    relationLabel: relationContext.label,
+    relationContext,
+    coupleDuree: relationContext.type==="couple" ? relationContext.duration : null,
+    viePratique: relationContext.type==="couple" ? relationContext.livingTogether : null,
+    amisDuree: relationContext.type==="amis" ? relationContext.duration : null,
+    familleLien: relationContext.type==="famille" ? relationContext.familyMember : null,
+    createdAt:serverTimestamp()
+  };
+  await setDoc(doc(db,"users",me.uid), profile, { merge:true });
   $("hello").textContent = `Connecté·e : ${prenom}`;
   route();
 };
 $("btn-onboard-quick").onclick = async () => {
   clearErr("oq-error");
   const prenom=$("oq-prenom").value.trim();
+  const nom=$("oq-nom").value.trim();
   if(!prenom) return err("oq-error","Il nous faut juste votre prénom.");
-  profile = { prenom, invited:true, createdAt:serverTimestamp() };
-  await setDoc(doc(db,"users",me.uid), profile);
+  profile = { ...authMeta(me), prenom, nom, invited:true, createdAt:serverTimestamp() };
+  await setDoc(doc(db,"users",me.uid), profile, { merge:true });
   $("hello").textContent = `Connecté·e : ${prenom}`;
   route();
 };
@@ -1334,7 +1486,15 @@ $("btn-create").onclick = async () => {
   $("btn-create").disabled = true;
   $("btn-create").textContent = "L'IA relit votre message…";
   try {
-    const finalText = await reviewAndChoose(text, profile.prenom, profile.partnerPrenom);
+    const recipient = otherPersonName();
+    const relationContext = profile.relationContext || {
+      type: profile.relationType || "couple",
+      label: relationLabel(profile.relationType || "couple"),
+      duration: profile.coupleDuree || profile.amisDuree || null,
+      livingTogether: profile.viePratique || null,
+      familyMember: profile.familleLien || null
+    };
+    const finalText = await reviewAndChoose(text, profile.prenom, recipient);
     if (finalText === null) { // annulé : on revient au formulaire, rien n'est envoyé
       $("btn-create").disabled = false;
       $("btn-create").textContent = "Apaiser ce conflit";
@@ -1343,19 +1503,34 @@ $("btn-create").onclick = async () => {
     const ref = await addDoc(collection(db,"disputes"), {
       title,
       createdBy: me.uid,
+      creatorEmail: me.email || profile.email || null,
       creatorName: profile.prenom,
-      partnerName: profile.partnerPrenom || "votre partenaire",
+      partnerName: recipient,
       partnerUid: null,
-      coupleContext: { duree: profile.coupleDuree||null, vie: profile.viePratique||null },
+      partnerEmail: null,
+      relationType: relationContext.type,
+      relationLabel: relationContext.label,
+      relationContext,
+      participantUids: [me.uid],
+      participantEmails: me.email ? [me.email] : [],
+      creatorProfile: {
+        prenom: profile.prenom,
+        nom: profile.nom || null,
+        email: me.email || profile.email || null,
+        relationType: relationContext.type,
+        relationContext
+      },
+      coupleContext: { duree: profile.coupleDuree||relationContext.duration||null, vie: profile.viePratique||relationContext.livingTogether||null },
       status: "waiting_partner",
       messages: [{ role:"A", name:profile.prenom, text:finalText, ts:Date.now() }],
       verdict: null,
+      feedbacks: [],
       createdAt: serverTimestamp()
     });
     const link = location.origin + location.pathname + "?d=" + ref.id;
     $("sh-link").value = link;
-    $("sh-partner").textContent = profile.partnerPrenom || "votre partenaire";
-    const msg = encodeURIComponent(`${profile.prenom} a quelque chose à te dire sur WereInLove 💌 Découvre sa version et donne la tienne : ${link}`);
+    $("sh-partner").textContent = recipient;
+    const msg = encodeURIComponent(`${profile.prenom} a quelque chose à te dire sur WereInLove. Découvre sa version et donne la tienne : ${link}`);
     $("btn-wa").href = "https://wa.me/?text="+msg;
     $("btn-sms").href = "sms:?&body="+msg;
     $("btn-goto-dispute").onclick = () => location.href = link;
@@ -1379,7 +1554,20 @@ async function openDispute(id){
 
     // Le partenaire qui ouvre le lien devient le participant B
     if (!dispute.partnerUid && me.uid !== dispute.createdBy) {
-      await updateDoc(doc(db,"disputes",id), { partnerUid: me.uid, partnerName: profile.prenom, status:"in_progress" });
+      const patch = {
+        partnerUid: me.uid,
+        partnerName: profile.prenom,
+        partnerEmail: me.email || profile.email || null,
+        partnerProfile: {
+          prenom: profile.prenom,
+          nom: profile.nom || null,
+          email: me.email || profile.email || null
+        },
+        participantUids: arrayUnion(me.uid),
+        status:"in_progress"
+      };
+      if (me.email || profile.email) patch.participantEmails = arrayUnion(me.email || profile.email);
+      await updateDoc(doc(db,"disputes",id), patch);
       return; // le snapshot suivant re-rendra
     }
     render();
@@ -1478,7 +1666,7 @@ $("btn-verdict").onclick = async () => {
         disputeId: dispute.id,
         title: dispute.title,
         nameA: dispute.creatorName, nameB: dispute.partnerName,
-        context: dispute.coupleContext,
+        context: dispute.relationContext || dispute.coupleContext,
         messages: dispute.messages.map(m=>({role:m.role,name:m.name,text:m.text}))
       })
     });
@@ -1506,6 +1694,7 @@ function renderVerdict(){
   $("v-pacte-a").innerHTML = `<b>Le pacte de ${escapeHtml(dispute.creatorName)}</b>${escapeHtml(v.pacteA)}`;
   $("v-pacte-b").innerHTML = `<b>Le pacte de ${escapeHtml(dispute.partnerName)}</b>${escapeHtml(v.pacteB)}`;
   renderConsent();
+  renderFeedback();
   $("btn-new").onclick = () => location.href = location.pathname + (DEMO ? "?demo=1" : "");
 
   // Réinitialise l'état de la carte (au cas où on revient dessus)
@@ -1525,6 +1714,52 @@ function renderVerdict(){
     `${dispute.creatorName} ${v.pctA}% vs ${dispute.partnerName} ${v.pctB}% — verdict rendu sur WereInLove 💘`
   );
   show("s-verdict");
+}
+
+function renderFeedback(){
+  const box = $("fb-stars");
+  if (!box) return;
+  selectedFeedbackRating = 0;
+  box.innerHTML = [1,2,3,4,5].map(n => `<button class="star-btn" type="button" data-rate="${n}" aria-label="${n} étoile${n>1?"s":""}">★</button>`).join("");
+  box.querySelectorAll(".star-btn").forEach(btn => {
+    btn.onclick = () => {
+      selectedFeedbackRating = Number(btn.dataset.rate);
+      box.querySelectorAll(".star-btn").forEach(b => b.classList.toggle("active", Number(b.dataset.rate) <= selectedFeedbackRating));
+    };
+  });
+  $("feedback-status").classList.remove("show");
+  $("btn-feedback").disabled = false;
+  $("btn-feedback").onclick = async () => {
+    if (!selectedFeedbackRating) { alert("Choisissez une note de 1 à 5 étoiles."); return; }
+    const feedback = {
+      rating: selectedFeedbackRating,
+      comment: $("fb-comment").value.trim(),
+      byUid: me?.uid || null,
+      byName: profile?.prenom || null,
+      byEmail: me?.email || profile?.email || null,
+      relationType: dispute?.relationType || dispute?.relationContext?.type || null,
+      ts: Date.now()
+    };
+    $("btn-feedback").disabled = true;
+    try{
+      if (!DEMO) {
+        await updateDoc(doc(db,"disputes",dispute.id), {
+          feedbacks: arrayUnion(feedback),
+          lastFeedbackAt: serverTimestamp()
+        });
+        await addDoc(collection(db,"feedbacks"), {
+          ...feedback,
+          disputeId: dispute.id,
+          title: dispute.title,
+          createdAt: serverTimestamp()
+        });
+      }
+      $("feedback-status").classList.add("show");
+    } catch(e){
+      alert("Impossible d'enregistrer votre avis pour le moment.");
+      $("btn-feedback").disabled = false;
+    }
+  };
 }
 
 /* ---------- CONSENTEMENT : PUBLICATION DANS LA BOÎTE À DISPUTES ---------- */
