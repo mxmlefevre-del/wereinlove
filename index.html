@@ -2554,11 +2554,10 @@ main > section{
   }
 }
 
-/* Guided-scroll section: the left message stays anchored while the right cards pass. */
+/* Guided-scroll section: the left message is pinned while the right cards glide. */
 .how{
-  padding-top:clamp(54px,7vw,98px)!important;
-  padding-bottom:clamp(72px,10vw,140px)!important;
-  min-height:auto!important;
+  padding:0!important;
+  min-height:var(--guided-height, 3400px)!important;
   position:relative!important;
 }
 .how-grid{
@@ -2566,12 +2565,17 @@ main > section{
   grid-template-columns:minmax(300px,.82fr) minmax(360px,1fr)!important;
   align-items:start!important;
   gap:clamp(42px,7vw,104px)!important;
-  position:relative!important;
-  min-height:auto!important;
+  position:sticky!important;
+  top:0!important;
+  min-height:100svh!important;
+  width:min(1380px, calc(100% - 48px))!important;
+  margin:0 auto!important;
+  align-content:center!important;
+  overflow:hidden!important;
 }
 .sticky-copy{
-  position:sticky!important;
-  top:150px!important;
+  position:relative!important;
+  top:auto!important;
   align-self:start!important;
   min-height:min(62vh,620px)!important;
   display:flex!important;
@@ -2579,29 +2583,33 @@ main > section{
   justify-content:center!important;
 }
 .steps{
-  display:grid!important;
-  gap:clamp(18px,2.2vw,30px)!important;
+  --guided-y:0px;
+  display:block!important;
+  gap:0!important;
   position:relative!important;
-  min-height:auto!important;
+  height:var(--guided-card-height, 460px)!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  will-change:transform!important;
 }
 .step{
   position:relative!important;
   inset:auto!important;
-  min-height:clamp(320px,54vh,520px)!important;
+  min-height:0!important;
+  height:var(--guided-card-height, 460px)!important;
+  margin:0 0 var(--guided-gap, 28px)!important;
   display:flex!important;
   flex-direction:column!important;
   justify-content:center!important;
   opacity:1!important;
-  transform:none!important;
+  transform:translate3d(0, var(--guided-y), 0)!important;
   pointer-events:auto!important;
-  transition:box-shadow .35s ease, transform .35s ease!important;
+  transition:box-shadow .35s ease!important;
+  will-change:transform!important;
 }
 @media(min-width:921px){
   .step:hover{
-    transform:translateY(-4px)!important;
-  }
-  .steps .step:not(:last-child){
-    margin-bottom:clamp(18px,5vh,56px)!important;
+    box-shadow:0 24px 90px rgba(36,28,22,.08)!important;
   }
 }
 @media(max-width:920px){
@@ -2625,7 +2633,9 @@ main > section{
   .steps{
     display:grid!important;
     gap:18px!important;
+    height:auto!important;
     min-height:auto!important;
+    overflow:visible!important;
   }
   .step{
     position:relative!important;
@@ -2633,6 +2643,8 @@ main > section{
     opacity:1!important;
     transform:none!important;
     pointer-events:auto!important;
+    height:auto!important;
+    margin:0!important;
     min-height:auto!important;
   }
 }
@@ -2785,7 +2797,8 @@ main > section{
 
     <section class="hero" id="top" aria-label="Introduction">
       <div class="hero-media" data-hero-media>
-        <video class="hero-video" autoplay loop muted playsinline poster="wereinlove-assets/family-field.jpg">
+        <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="wereinlove-assets/family-field.jpg">
+          <source src="mobile-hero.mp4" type="video/mp4" media="(max-width: 760px)">
           <source src="hero-video.mp4" type="video/mp4">
           <source src="wereinlove-assets/hero-video.mp4" type="video/mp4">
         </video>
@@ -3208,6 +3221,7 @@ main > section{
     const bleedPhoto = document.querySelector(".bleed-photo");
     const rail = document.querySelector("[data-rail]");
     const guidedSection = document.querySelector(".how");
+    const guidedStepsWrap = document.querySelector(".steps");
     const guidedSteps = Array.from(document.querySelectorAll(".steps .step"));
     const revealEls = document.querySelectorAll(".reveal");
     const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -3235,8 +3249,31 @@ main > section{
       return Math.min(Math.max(value, min), max);
     }
 
-    function updateGuidedSteps() {
-      guidedSteps.forEach((step) => step.classList.remove("is-active", "is-before"));
+    function updateGuidedSteps(scrollY) {
+      if (!guidedSection || !guidedStepsWrap || !guidedSteps.length) return;
+
+      if (!motionOk || window.innerWidth <= 920) {
+        guidedSection.style.removeProperty("--guided-height");
+        guidedSection.style.removeProperty("--guided-card-height");
+        guidedSection.style.removeProperty("--guided-gap");
+        guidedStepsWrap.style.removeProperty("--guided-y");
+        return;
+      }
+
+      const cardHeight = Math.round(clamp(window.innerHeight * 0.54, 320, 520));
+      const gap = Math.round(clamp(window.innerHeight * 0.035, 24, 38));
+      const transitions = Math.max(0, guidedSteps.length - 1);
+      const scrollLength = Math.round(transitions * window.innerHeight * 0.78);
+      const sectionHeight = Math.round(window.innerHeight + scrollLength);
+      const sectionTop = guidedSection.getBoundingClientRect().top + scrollY;
+      const local = clamp(scrollY - sectionTop, 0, scrollLength);
+      const progress = scrollLength ? local / scrollLength : 0;
+      const y = -progress * transitions * (cardHeight + gap);
+
+      guidedSection.style.setProperty("--guided-height", `${sectionHeight}px`);
+      guidedSection.style.setProperty("--guided-card-height", `${cardHeight}px`);
+      guidedSection.style.setProperty("--guided-gap", `${gap}px`);
+      guidedStepsWrap.style.setProperty("--guided-y", `${y}px`);
     }
 
     function animateOnScroll() {
