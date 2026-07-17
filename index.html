@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>WereInLove - Comprendre les personnes qui comptent</title>
-  <meta name="description" content="WereInLove aide deux personnes a raconter leur version, comprendre ce qui les separe et retrouver une conversation plus juste.">
+  <title>WereInLove™ - Comprendre les personnes qui comptent</title>
+  <meta name="description" content="WereInLove™ aide deux personnes a raconter leur version, comprendre ce qui les separe et retrouver une conversation plus juste.">
   <meta name="theme-color" content="#F6F2EF">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="WereInLove - Comprendre les personnes qui comptent">
+  <meta property="og:title" content="WereInLove™ - Comprendre les personnes qui comptent">
   <meta property="og:description" content="Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.">
   <meta property="og:image" content="wereinlove-assets/family-field.jpg">
   <link rel="preload" as="image" href="wereinlove-assets/family-field.jpg">
@@ -2554,45 +2554,85 @@ main > section{
   }
 }
 
-/* Restore the guided-scroll section: the title stays anchored while the steps move. */
+/* Guided-scroll section: the left message stays anchored while the right cards pass. */
 .how{
   padding-top:clamp(54px,7vw,98px)!important;
   padding-bottom:clamp(72px,10vw,140px)!important;
+  min-height:auto!important;
+  position:relative!important;
 }
 .how-grid{
   display:grid!important;
   grid-template-columns:minmax(300px,.82fr) minmax(360px,1fr)!important;
   align-items:start!important;
   gap:clamp(42px,7vw,104px)!important;
+  position:relative!important;
+  min-height:auto!important;
 }
 .sticky-copy{
   position:sticky!important;
-  top:132px!important;
+  top:150px!important;
   align-self:start!important;
-}
-.steps{
-  display:grid!important;
-  gap:clamp(18px,2.2vw,30px)!important;
-}
-.step{
-  min-height:min(58vh,520px)!important;
+  min-height:min(62vh,620px)!important;
   display:flex!important;
   flex-direction:column!important;
   justify-content:center!important;
 }
+.steps{
+  display:grid!important;
+  gap:clamp(18px,2.2vw,30px)!important;
+  position:relative!important;
+  min-height:auto!important;
+}
+.step{
+  position:relative!important;
+  inset:auto!important;
+  min-height:clamp(320px,54vh,520px)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  opacity:1!important;
+  transform:none!important;
+  pointer-events:auto!important;
+  transition:box-shadow .35s ease, transform .35s ease!important;
+}
+@media(min-width:921px){
+  .step:hover{
+    transform:translateY(-4px)!important;
+  }
+  .steps .step:not(:last-child){
+    margin-bottom:clamp(18px,5vh,56px)!important;
+  }
+}
 @media(max-width:920px){
   .how{
     padding-top:58px!important;
+    padding-bottom:72px!important;
+    min-height:auto!important;
   }
   .how-grid{
     display:block!important;
     width:min(760px,calc(100vw - 36px))!important;
+    position:static!important;
+    min-height:auto!important;
   }
   .sticky-copy{
     position:static!important;
     margin-bottom:26px!important;
+    min-height:auto!important;
+    display:block!important;
+  }
+  .steps{
+    display:grid!important;
+    gap:18px!important;
+    min-height:auto!important;
   }
   .step{
+    position:relative!important;
+    inset:auto!important;
+    opacity:1!important;
+    transform:none!important;
+    pointer-events:auto!important;
     min-height:auto!important;
   }
 }
@@ -2730,9 +2770,9 @@ main > section{
   <div class="site-shell">
     <header class="nav-wrap" aria-label="Navigation principale">
       <nav class="nav" data-nav>
-        <a class="brand" href="#top" aria-label="WereInLove">
+        <a class="brand" href="#top" aria-label="WereInLove™">
           <span class="mark" aria-hidden="true"></span>
-          <span>WereInLove</span>
+          <span>WereInLove™</span>
         </a>
         <div class="nav-links" aria-label="Sections">
           <a href="#vision">Vision</a>
@@ -2751,7 +2791,7 @@ main > section{
         </video>
       </div>
       <div class="hero-content">
-        <p class="eyebrow reveal">WereInLove</p>
+        <p class="eyebrow reveal">WereInLove™</p>
         <h1 class="reveal">Comprendre les personnes qui comptent.</h1>
         <p class="hero-lede reveal">Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.</p>
         <div class="hero-actions reveal">
@@ -2850,7 +2890,7 @@ main > section{
         <div class="story-copy reveal">
           <p class="eyebrow">Familles</p>
           <h2>Ce que l'autre voulait dire n'est pas toujours ce que l'on a entendu.</h2>
-          <p>WereInLove aide parents, enfants, amis, couples et proches à déposer leur version sans être interrompus.</p>
+          <p>WereInLove™ aide parents, enfants, amis, couples et proches à déposer leur version sans être interrompus.</p>
           <div class="quiet-line"></div>
           <p class="detail-note"><strong>Deux récits.</strong> Une synthèse qui distingue les faits, les émotions, les intentions et les malentendus.</p>
         </div>
@@ -2882,7 +2922,7 @@ main > section{
         <div class="how-grid">
           <div class="sticky-copy reveal">
             <p class="eyebrow">Comment ça marche</p>
-            <h2>Chacun raconte. WereInLove remet de la clarté.</h2>
+            <h2>Chacun raconte. WereInLove™ remet de la clarté.</h2>
             <p>Le produit transforme deux ressentis séparés en une conversation plus lisible, sans désigner un coupable.</p>
           </div>
           <div class="steps">
@@ -2920,7 +2960,7 @@ main > section{
           <div class="phone-copy">
             <p class="eyebrow">Deux points de vue</p>
             <h2>Chacun écrit sa version. L'IA écoute les deux.</h2>
-            <p>WereInLove ne cherche pas qui a raison. Il rapproche deux récits, repère ce qui s'est mal compris et vous aide à y voir clair.</p>
+            <p>WereInLove™ ne cherche pas qui a raison. Il rapproche deux récits, repère ce qui s'est mal compris et vous aide à y voir clair.</p>
             <div class="mode-tabs" role="tablist" aria-label="Exemples de relations">
               <button class="is-active" type="button" data-story="couple">Couple</button>
               <button type="button" data-story="amis">Amis</button>
@@ -2956,14 +2996,14 @@ main > section{
           <div class="analysis-copy reveal">
             <p class="eyebrow">Analyse</p>
             <h2>Les émotions, les responsabilités et les mots possibles au même endroit.</h2>
-            <p>WereInLove ne remplace pas la conversation. Il prépare un terrain où elle peut redevenir humaine.</p>
+            <p>WereInLove™ ne remplace pas la conversation. Il prépare un terrain où elle peut redevenir humaine.</p>
           </div>
           <div class="analysis-card reveal">
-            <div class="analysis-bar"><span class="analysis-dot"></span><span>WereInLove - Lecture croisée</span></div>
+            <div class="analysis-bar"><span class="analysis-dot"></span><span>WereInLove™ - Lecture croisée</span></div>
             <div class="analysis-body">
               <div class="analysis-message"><strong>Chloé :</strong> “Quand tu réponds plus tard, j'ai l'impression de ne pas compter.”</div>
               <div class="analysis-message"><strong>Esteban :</strong> “Je me tais pour éviter d'empirer les choses, pas pour m'éloigner.”</div>
-              <div class="analysis-message ai"><strong>WereInLove :</strong> Chloé cherche une preuve de présence. Esteban, lui, prend du recul pour éviter d'abîmer davantage la relation. Le conflit ne parle donc pas seulement du délai de réponse, mais de deux façons différentes de protéger le lien.</div>
+              <div class="analysis-message ai"><strong>WereInLove™ :</strong> Chloé cherche une preuve de présence. Esteban, lui, prend du recul pour éviter d'abîmer davantage la relation. Le conflit ne parle donc pas seulement du délai de réponse, mais de deux façons différentes de protéger le lien.</div>
             </div>
           </div>
         </div>
@@ -3010,7 +3050,7 @@ main > section{
             <img src="wereinlove-assets/celebration-sunset.jpg" alt="Une célébration au coucher du soleil" loading="lazy">
             <div class="experience-content">
               <p class="eyebrow">Boîte à histoires</p>
-              <h3>Des conflits déjà apaisés par WereInLove.</h3>
+              <h3>Des conflits déjà apaisés par WereInLove™.</h3>
               <p>Des histoires publiées avec l'accord des utilisateurs, pour montrer comment deux versions d'une même situation peuvent devenir plus claires, plus justes et plus faciles à reparler.</p>
               <div class="experience-actions">
                 <a class="button light" href="boite-a-disputes.html">Lire les histoires</a>
@@ -3047,13 +3087,13 @@ main > section{
             <h3>Découverte</h3>
             <p class="plan-sub">Vos deux premières histoires, sans carte bancaire</p>
             <div class="price">0€</div>
-            <p class="plan-note">Pour essayer WereInLove librement</p>
+            <p class="plan-note">Pour essayer WereInLove™ librement</p>
             <hr>
             <ul>
               <li>2 histoires complètes offertes</li>
               <li>Aucune carte bancaire demandée</li>
               <li>Les deux versions + 3 réponses chacun</li>
-              <li>Analyse complète de WereInLove</li>
+              <li>Analyse complète de WereInLove™</li>
             </ul>
             <a class="button" href="app.html">Essayer gratuitement</a>
           </article>
@@ -3066,7 +3106,7 @@ main > section{
             <hr>
             <ul>
               <li>30 analyses par mois, pour toutes vos relations</li>
-              <li>WereInLove vous aide à mieux comprendre vos schémas récurrents</li>
+              <li>WereInLove™ vous aide à mieux comprendre vos schémas récurrents</li>
               <li>Résiliable à tout moment</li>
             </ul>
             <a class="button light" href="app.html">S'abonner</a>
@@ -3092,7 +3132,7 @@ main > section{
         <img src="wereinlove-assets/moon.jpg" alt="Une silhouette face au ciel" loading="lazy">
         <div class="final-inner reveal">
           <h2>Commencer par comprendre. Puis seulement répondre.</h2>
-          <p>WereInLove est là pour les liens que vous ne voulez pas laisser se perdre dans un malentendu.</p>
+          <p>WereInLove™ est là pour les liens que vous ne voulez pas laisser se perdre dans un malentendu.</p>
           <div class="hero-actions">
             <a class="button light" href="app.html">Commencer gratuitement</a>
           </div>
@@ -3104,9 +3144,9 @@ main > section{
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-brand">
-            <a class="footer-logo" href="#top" aria-label="WereInLove">
+            <a class="footer-logo" href="#top" aria-label="WereInLove™">
               <span class="mark" aria-hidden="true"></span>
-              <span>WereInLove</span>
+              <span>WereInLove™</span>
             </a>
             <p>Un espace calme pour raconter deux versions d'une même histoire, comprendre ce qui s'est joué et retrouver une conversation possible.</p>
           </div>
@@ -3152,7 +3192,7 @@ main > section{
         </div>
 
         <div class="footer-bottom">
-          <span>© 2026 WereInLove. Tous droits réservés.</span>
+          <span>© 2026 WereInLove™. Tous droits réservés.</span>
           <span>Comprendre les personnes qui comptent.</span>
         </div>
       </div>
@@ -3167,6 +3207,8 @@ main > section{
     const bleedTrack = document.querySelector("[data-bleed-track]");
     const bleedPhoto = document.querySelector(".bleed-photo");
     const rail = document.querySelector("[data-rail]");
+    const guidedSection = document.querySelector(".how");
+    const guidedSteps = Array.from(document.querySelectorAll(".steps .step"));
     const revealEls = document.querySelectorAll(".reveal");
     const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -3193,10 +3235,16 @@ main > section{
       return Math.min(Math.max(value, min), max);
     }
 
+    function updateGuidedSteps() {
+      guidedSteps.forEach((step) => step.classList.remove("is-active", "is-before"));
+    }
+
     function animateOnScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
       const heroHeight = hero.offsetHeight || window.innerHeight;
       const progress = clamp(scrollY / Math.min(heroHeight, window.innerHeight * 0.82), 0, 1);
+
+      updateGuidedSteps(scrollY);
 
       if (motionOk && heroMedia) {
         const isMobile = window.innerWidth <= 560;
