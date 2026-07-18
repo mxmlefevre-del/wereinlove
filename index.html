@@ -2554,98 +2554,104 @@ main > section{
   }
 }
 
-/* Guided-scroll section: the left message is pinned while the right cards glide. */
+/* How-it-works section: compact, readable and deliberately non-blocking. */
 .how{
-  padding:0!important;
-  min-height:var(--guided-height, 3400px)!important;
+  padding:clamp(52px,7vw,104px) 0!important;
+  min-height:auto!important;
   position:relative!important;
 }
 .how-grid{
-  display:grid!important;
-  grid-template-columns:minmax(300px,.82fr) minmax(360px,1fr)!important;
-  align-items:start!important;
-  gap:clamp(42px,7vw,104px)!important;
-  position:sticky!important;
-  top:0!important;
-  min-height:100svh!important;
-  width:min(1380px, calc(100% - 48px))!important;
+  display:block!important;
+  position:relative!important;
+  min-height:auto!important;
+  width:min(1180px, calc(100% - 56px))!important;
   margin:0 auto!important;
-  align-content:center!important;
-  overflow:hidden!important;
+  overflow:visible!important;
 }
 .sticky-copy{
   position:relative!important;
   top:auto!important;
-  align-self:start!important;
-  min-height:min(62vh,620px)!important;
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important;
+  width:min(900px,100%)!important;
+  min-height:auto!important;
+  margin:0 auto clamp(28px,4vw,54px)!important;
+  display:block!important;
+  text-align:center!important;
+}
+.sticky-copy h2{
+  max-width:900px!important;
+  margin-inline:auto!important;
+  font-size:clamp(42px,6vw,84px)!important;
+  line-height:.96!important;
+}
+.sticky-copy p{
+  max-width:680px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
 }
 .steps{
-  --guided-y:0px;
-  display:block!important;
-  gap:0!important;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;
   position:relative!important;
-  height:var(--guided-card-height, 460px)!important;
-  min-height:0!important;
-  overflow:hidden!important;
-  will-change:transform!important;
+  height:auto!important;
+  min-height:auto!important;
+  overflow:visible!important;
 }
 .step{
   position:relative!important;
   inset:auto!important;
-  min-height:0!important;
-  height:var(--guided-card-height, 460px)!important;
-  margin:0 0 var(--guided-gap, 28px)!important;
+  min-height:260px!important;
+  height:auto!important;
+  margin:0!important;
+  padding:clamp(24px,2.5vw,36px)!important;
   display:flex!important;
   flex-direction:column!important;
-  justify-content:center!important;
+  justify-content:space-between!important;
   opacity:1!important;
-  transform:translate3d(0, var(--guided-y), 0)!important;
+  transform:none!important;
   pointer-events:auto!important;
-  transition:box-shadow .35s ease!important;
-  will-change:transform!important;
+  transition:box-shadow .35s ease, transform .35s ease!important;
 }
-@media(min-width:921px){
-  .step:hover{
-    box-shadow:0 24px 90px rgba(36,28,22,.08)!important;
+.step:hover{
+  box-shadow:0 24px 90px rgba(36,28,22,.08)!important;
+  transform:translateY(-4px)!important;
+}
+.step-num{
+  margin-bottom:26px!important;
+}
+.step h3{
+  font-size:clamp(24px,2.1vw,34px)!important;
+  line-height:1.02!important;
+}
+.step p{
+  font-size:clamp(15px,1.1vw,18px)!important;
+  line-height:1.45!important;
+}
+@media(max-width:1180px){
+  .steps{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
   }
 }
-@media(max-width:920px){
+@media(max-width:760px){
   .how{
-    padding-top:58px!important;
-    padding-bottom:72px!important;
-    min-height:auto!important;
+    padding:48px 0 58px!important;
   }
   .how-grid{
-    display:block!important;
-    width:min(760px,calc(100vw - 36px))!important;
-    position:static!important;
-    min-height:auto!important;
+    width:min(430px,calc(100vw - 36px))!important;
   }
   .sticky-copy{
-    position:static!important;
-    margin-bottom:26px!important;
-    min-height:auto!important;
-    display:block!important;
+    margin-bottom:22px!important;
+  }
+  .sticky-copy h2{
+    font-size:clamp(34px,9vw,48px)!important;
   }
   .steps{
-    display:grid!important;
-    gap:18px!important;
-    height:auto!important;
-    min-height:auto!important;
-    overflow:visible!important;
+    grid-template-columns:1fr!important;
+    gap:12px!important;
   }
   .step{
-    position:relative!important;
-    inset:auto!important;
-    opacity:1!important;
-    transform:none!important;
-    pointer-events:auto!important;
-    height:auto!important;
-    margin:0!important;
-    min-height:auto!important;
+    min-height:180px!important;
+    border-radius:28px!important;
   }
 }
 
@@ -2773,6 +2779,89 @@ main > section{
   .statement{
     padding-top:34px!important;
     padding-bottom:72px!important;
+  }
+}
+
+/* Latest layout pass: tighter flow, lighter mobile cards, no scroll capture. */
+.photo-rail{
+  margin-top:clamp(28px,4vw,56px)!important;
+}
+.intro{
+  padding-bottom:clamp(34px,5vw,72px)!important;
+}
+.story-split{
+  margin-top:clamp(18px,3vw,42px)!important;
+}
+.bleed-track{
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  width:100vw!important;
+  margin-left:calc(50% - 50vw)!important;
+  overflow:visible!important;
+}
+.bleed-track .bleed-photo,
+.bleed-track .bleed-photo.is-fixed,
+.bleed-track .bleed-photo.is-ended{
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  bottom:auto!important;
+  z-index:auto!important;
+  height:min(94svh,980px)!important;
+  min-height:min(94svh,980px)!important;
+  width:calc(100vw - var(--bleed-gap,0px))!important;
+  margin-left:calc(var(--bleed-offset,0px))!important;
+  margin-right:0!important;
+}
+.statement{
+  padding-top:clamp(22px,3vw,44px)!important;
+}
+@media(max-width:760px){
+  .intro{
+    padding-top:24px!important;
+    padding-bottom:26px!important;
+  }
+  .photo-rail{
+    margin-top:22px!important;
+  }
+  .story-split{
+    margin-top:10px!important;
+  }
+  .bleed-track .bleed-photo,
+  .bleed-track .bleed-photo.is-fixed,
+  .bleed-track .bleed-photo.is-ended{
+    height:82svh!important;
+    min-height:82svh!important;
+  }
+  .statement{
+    padding-top:20px!important;
+    padding-bottom:48px!important;
+  }
+  .resolved{
+    padding:52px 0!important;
+  }
+  .resolved-grid{
+    width:min(430px,calc(100vw - 36px))!important;
+    margin-top:24px!important;
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+  }
+  .resolved-card{
+    min-height:210px!important;
+    border-radius:30px!important;
+    padding:22px!important;
+  }
+  .resolved-card h3{
+    max-width:310px!important;
+    font-size:clamp(25px,7.6vw,36px)!important;
+    line-height:1.02!important;
+  }
+  .resolved-card p{
+    max-width:300px!important;
+    margin-top:10px!important;
+    font-size:15px!important;
   }
 }
 
@@ -2959,47 +3048,6 @@ main > section{
               <h3>Le dialogue peut reprendre.</h3>
               <p>Pas avec une réponse magique. Avec une façon plus juste de se rejoindre.</p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="phones-section">
-        <div class="section-head reveal">
-          <p class="eyebrow">Dans votre poche</p>
-          <h2>Une interface faite pour écrire quand les mots sont difficiles.</h2>
-          <p>Simple, calme, privée. Un espace qui invite à formuler plutôt qu'à réagir.</p>
-        </div>
-        <div class="phone-stage reveal">
-          <div class="phone-copy">
-            <p class="eyebrow">Deux points de vue</p>
-            <h2>Chacun écrit sa version. L'IA écoute les deux.</h2>
-            <p>WereInLove™ ne cherche pas qui a raison. Il rapproche deux récits, repère ce qui s'est mal compris et vous aide à y voir clair.</p>
-            <div class="mode-tabs" role="tablist" aria-label="Exemples de relations">
-              <button class="is-active" type="button" data-story="couple">Couple</button>
-              <button type="button" data-story="amis">Amis</button>
-              <button type="button" data-story="famille">Famille</button>
-            </div>
-          </div>
-          <div class="phone-visuals" aria-hidden="true">
-            <div class="phone one">
-              <div class="phone-screen">
-                <div class="phone-top"><span data-phone-a-label>Version A</span><span>18:42</span></div>
-                <div class="chat">
-                  <div class="bubble" data-message-a>Je n'avais pas besoin que tu règles tout.</div>
-                  <div class="bubble you" data-message-b>Je croyais que tu attendais une solution.</div>
-                  <div class="bubble" data-message-c>J'avais surtout besoin que tu restes avec moi.</div>
-                </div>
-              </div>
-            </div>
-            <div class="phone two">
-              <div class="phone-screen dark">
-                <div class="phone-top"><span>Écoute croisée</span><span data-relation-label>Couple</span></div>
-                <div class="insight">
-                  <strong data-insight-title>Le conflit porte moins sur la décision que sur le sentiment d'être seul avec elle.</strong>
-                  <p data-insight-text>L'IA met en regard les deux versions: l'un voulait aider vite, l'autre attendait d'abord une présence.</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -3220,9 +3268,6 @@ main > section{
     const bleedTrack = document.querySelector("[data-bleed-track]");
     const bleedPhoto = document.querySelector(".bleed-photo");
     const rail = document.querySelector("[data-rail]");
-    const guidedSection = document.querySelector(".how");
-    const guidedStepsWrap = document.querySelector(".steps");
-    const guidedSteps = Array.from(document.querySelectorAll(".steps .step"));
     const revealEls = document.querySelectorAll(".reveal");
     const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -3249,39 +3294,10 @@ main > section{
       return Math.min(Math.max(value, min), max);
     }
 
-    function updateGuidedSteps(scrollY) {
-      if (!guidedSection || !guidedStepsWrap || !guidedSteps.length) return;
-
-      if (!motionOk || window.innerWidth <= 920) {
-        guidedSection.style.removeProperty("--guided-height");
-        guidedSection.style.removeProperty("--guided-card-height");
-        guidedSection.style.removeProperty("--guided-gap");
-        guidedStepsWrap.style.removeProperty("--guided-y");
-        return;
-      }
-
-      const cardHeight = Math.round(clamp(window.innerHeight * 0.54, 320, 520));
-      const gap = Math.round(clamp(window.innerHeight * 0.035, 24, 38));
-      const transitions = Math.max(0, guidedSteps.length - 1);
-      const scrollLength = Math.round(transitions * window.innerHeight * 0.78);
-      const sectionHeight = Math.round(window.innerHeight + scrollLength);
-      const sectionTop = guidedSection.getBoundingClientRect().top + scrollY;
-      const local = clamp(scrollY - sectionTop, 0, scrollLength);
-      const progress = scrollLength ? local / scrollLength : 0;
-      const y = -progress * transitions * (cardHeight + gap);
-
-      guidedSection.style.setProperty("--guided-height", `${sectionHeight}px`);
-      guidedSection.style.setProperty("--guided-card-height", `${cardHeight}px`);
-      guidedSection.style.setProperty("--guided-gap", `${gap}px`);
-      guidedStepsWrap.style.setProperty("--guided-y", `${y}px`);
-    }
-
     function animateOnScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
       const heroHeight = hero.offsetHeight || window.innerHeight;
       const progress = clamp(scrollY / Math.min(heroHeight, window.innerHeight * 0.82), 0, 1);
-
-      updateGuidedSteps(scrollY);
 
       if (motionOk && heroMedia) {
         const isMobile = window.innerWidth <= 560;
@@ -3293,26 +3309,18 @@ main > section{
         heroMedia.style.filter = `brightness(${1 - progress * (isMobile ? 0.08 : 0.12)})`;
       }
 
-      if (motionOk && bleedPhoto && bleedTrack) {
+      if (motionOk && bleedPhoto) {
         const isSmall = window.innerWidth <= 760;
-        const trackTop = bleedTrack.getBoundingClientRect().top + scrollY;
-        const fixedStart = trackTop;
-        const fixedEnd = trackTop + Math.max(1, bleedTrack.offsetHeight - window.innerHeight);
-        bleedPhoto.classList.toggle("is-fixed", scrollY >= fixedStart && scrollY < fixedEnd);
-        bleedPhoto.classList.toggle("is-ended", scrollY >= fixedEnd);
-        const start = fixedStart;
-        const end = fixedEnd;
-        const local = clamp((scrollY - start) / Math.max(1, end - start), 0, 1);
-        const hold = isSmall ? 0.18 : 0.12;
-        const span = isSmall ? 0.92 : 0.84;
-        const delayed = clamp((local - hold) / span, 0, 1);
-        const eased = 1 - Math.pow(1 - delayed, 3);
-        const gap = eased * (isSmall ? 34 : 260);
+        bleedPhoto.classList.remove("is-fixed", "is-ended");
+        const rect = bleedPhoto.getBoundingClientRect();
+        const local = clamp((window.innerHeight - rect.top) / Math.max(1, window.innerHeight + rect.height), 0, 1);
+        const eased = 1 - Math.pow(1 - local, 3);
+        const gap = eased * (isSmall ? 18 : 110);
         bleedPhoto.style.setProperty("--bleed-gap", `${gap}px`);
         bleedPhoto.style.setProperty("--bleed-offset", `${gap / 2}px`);
-        bleedPhoto.style.setProperty("--bleed-radius", `${eased * (isSmall ? 22 : 64)}px`);
+        bleedPhoto.style.setProperty("--bleed-radius", `${eased * (isSmall ? 16 : 42)}px`);
         bleedPhoto.style.setProperty("--bleed-border", `${eased}`);
-        bleedPhoto.style.setProperty("--bleed-shadow", `${0.04 + eased * 0.12}`);
+        bleedPhoto.style.setProperty("--bleed-shadow", `${0.04 + eased * 0.08}`);
       }
 
       if (motionOk && rail) {
