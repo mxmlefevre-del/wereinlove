@@ -2865,6 +2865,67 @@ main > section{
   }
 }
 
+/* Subtle scroll life from the family section down. */
+@media (prefers-reduced-motion: no-preference){
+  .story-copy.in-view,
+  .feature-photo.in-view,
+  .analysis-copy.in-view,
+  .analysis-card.in-view,
+  .step.in-view,
+  .resolved-card.in-view,
+  .experience-card.in-view,
+  .plan.in-view,
+  .final-inner.in-view{
+    --scroll-depth:1;
+    transform:
+      translate3d(0, calc((1 - var(--scroll-depth)) * 18px), 0)
+      scale(calc(.986 + var(--scroll-depth) * .014))!important;
+    transition:
+      opacity .7s ease,
+      transform .16s linear,
+      box-shadow .35s ease!important;
+    will-change:transform;
+  }
+  .feature-photo.in-view,
+  .analysis-card.in-view,
+  .resolved-card.in-view,
+  .experience-card.in-view,
+  .plan.in-view{
+    box-shadow:
+      0 calc(18px + var(--scroll-depth,1) * 22px)
+      calc(54px + var(--scroll-depth,1) * 46px)
+      rgba(36,28,22,calc(.06 + var(--scroll-depth,1) * .08))!important;
+  }
+  .feature-photo img,
+  .resolved-card img,
+  .experience-card img{
+    transform:
+      translate3d(0, var(--photo-y, 0px), 0)
+      scale(var(--photo-scale, 1.05))!important;
+    transition:transform .16s linear!important;
+    will-change:transform;
+  }
+  .step.in-view:nth-child(2),
+  .step.in-view:nth-child(4){
+    transition-delay:.04s!important;
+  }
+}
+@media (max-width:760px) and (prefers-reduced-motion: no-preference){
+  .story-copy.in-view,
+  .feature-photo.in-view,
+  .analysis-copy.in-view,
+  .analysis-card.in-view,
+  .step.in-view,
+  .resolved-card.in-view,
+  .experience-card.in-view,
+  .plan.in-view,
+  .final-inner.in-view{
+    transform:
+      translate3d(0, calc((1 - var(--scroll-depth)) * 26px), 0)
+      scale(calc(.972 + var(--scroll-depth) * .028))!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -3269,6 +3330,8 @@ main > section{
     const bleedPhoto = document.querySelector(".bleed-photo");
     const rail = document.querySelector("[data-rail]");
     const revealEls = document.querySelectorAll(".reveal");
+    const depthEls = document.querySelectorAll(".story-copy, .feature-photo, .analysis-copy, .analysis-card, .step, .resolved-card, .experience-card, .plan, .final-inner");
+    const depthImages = document.querySelectorAll(".feature-photo img, .resolved-card img, .experience-card img, .bleed-photo img");
     const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -3331,10 +3394,19 @@ main > section{
       }
 
       if (motionOk) {
-        document.querySelectorAll(".feature-photo img, .bleed-photo img").forEach((img) => {
+        depthEls.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const local = clamp((window.innerHeight - rect.top) / Math.max(1, window.innerHeight * .92), 0, 1);
+          const eased = 1 - Math.pow(1 - local, 2);
+          el.style.setProperty("--scroll-depth", eased.toFixed(3));
+        });
+
+        depthImages.forEach((img) => {
           const rect = img.parentElement.getBoundingClientRect();
-          const local = clamp((window.innerHeight - rect.top) / (window.innerHeight + rect.height), 0, 1);
-          img.parentElement.style.setProperty("--photo-scale", String(1.08 - local * 0.05));
+          const local = clamp((window.innerHeight - rect.top) / Math.max(1, window.innerHeight + rect.height), 0, 1);
+          const parallax = (local - .5) * (window.innerWidth <= 760 ? 18 : 28);
+          img.parentElement.style.setProperty("--photo-scale", String(1.08 - local * 0.045));
+          img.parentElement.style.setProperty("--photo-y", `${parallax}px`);
         });
       }
     }
