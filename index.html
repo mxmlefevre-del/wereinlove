@@ -4465,6 +4465,147 @@ section {
   }
 }
 
+/* Final visual correction: larger floating nav and single-line pricing. */
+.nav {
+  width: min(100% - 48px, 390px) !important;
+  height: 48px !important;
+  padding: 4px !important;
+}
+
+.brand {
+  min-width: 0 !important;
+  gap: 8px !important;
+  padding: 0 18px !important;
+  font-size: 13px !important;
+}
+
+.mark {
+  width: 16px !important;
+  height: 12px !important;
+}
+
+.mark::before,
+.mark::after {
+  width: 12px !important;
+  height: 12px !important;
+  top: 0 !important;
+}
+
+.nav-cta {
+  height: 38px !important;
+  padding: 0 20px !important;
+  font-size: 13px !important;
+}
+
+.price {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: .12em !important;
+  white-space: nowrap !important;
+  font-size: clamp(48px, 4.6vw, 66px) !important;
+  line-height: .95 !important;
+  letter-spacing: -.055em !important;
+}
+
+.price small {
+  display: inline !important;
+  white-space: nowrap !important;
+  font-size: .34em !important;
+  letter-spacing: -.015em !important;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    width: min(100% - 36px, 520px) !important;
+    height: 58px !important;
+    padding: 5px !important;
+  }
+
+  .brand {
+    padding: 0 18px !important;
+    font-size: 16px !important;
+  }
+
+  .nav-cta {
+    height: 46px !important;
+    padding: 0 22px !important;
+    font-size: 15px !important;
+  }
+
+  .price {
+    font-size: clamp(46px, 12vw, 58px) !important;
+  }
+}
+
+/* Mobile polish: shorter island and reassurance visible on first paint. */
+@media (max-width: 760px) {
+  .nav {
+    width: auto !important;
+    max-width: calc(100% - 44px) !important;
+    height: 46px !important;
+    gap: 3px !important;
+    padding: 4px !important;
+  }
+
+  .brand {
+    padding: 0 5px 0 7px !important;
+    gap: 5px !important;
+    font-size: 12.5px !important;
+    letter-spacing: .01em !important;
+  }
+
+  .nav-cta {
+    height: 36px !important;
+    padding: 0 14px !important;
+    font-size: 12.5px !important;
+  }
+
+  .mark {
+    width: 14px !important;
+    height: 10px !important;
+  }
+
+  .mark::before,
+  .mark::after {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .hero-content {
+    padding-bottom: max(22px, calc(18px + env(safe-area-inset-bottom))) !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: clamp(54px, 7vh, 76px) !important;
+  }
+
+  .hero-proof {
+    margin-top: 18px !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  .hero-privacy {
+    margin-top: 10px !important;
+    max-width: 330px !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+  }
+
+  .hero-proof.reveal,
+  .hero-privacy.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav {
+    width: auto !important;
+    max-width: calc(100% - 36px) !important;
+  }
+}
+
 </style>
 </head>
 <body>
