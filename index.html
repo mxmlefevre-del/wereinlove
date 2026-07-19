@@ -4606,6 +4606,436 @@ section {
   }
 }
 
+/* Final micro-polish for the current landing pass. */
+.story-split .feature-photo img.family {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: inherit !important;
+}
+
+.solo-start-copy .eyebrow,
+.solo-start-copy h2,
+.solo-start-copy p {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.solo-start.in-view .solo-start-copy .eyebrow,
+.solo-start.in-view .solo-start-copy h2,
+.solo-start.in-view .solo-start-copy p {
+  opacity: 1;
+  transform: none;
+}
+
+.solo-start.in-view .solo-start-copy h2 {
+  transition-delay: .08s;
+}
+
+.solo-start.in-view .solo-start-copy p:not(.solo-note) {
+  transition-delay: .16s;
+}
+
+.solo-start.in-view .solo-start-copy .solo-note {
+  transition-delay: .24s;
+}
+
+.hero .hero-actions {
+  margin-top: clamp(56px, 7.2vw, 104px) !important;
+}
+
+.hero-proof {
+  margin-top: clamp(20px, 3vw, 34px) !important;
+}
+
+@media (max-width: 760px) {
+  .hero .hero-actions {
+    margin-top: clamp(42px, 5.8vh, 62px) !important;
+  }
+
+  .hero-proof {
+    margin-top: 14px !important;
+  }
+
+  .hero-privacy {
+    margin-top: 8px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solo-start-copy .eyebrow,
+  .solo-start-copy h2,
+  .solo-start-copy p {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Final requested alignment pass: compact island, higher hero CTA, taller family card. */
+.nav {
+  width: auto !important;
+  max-width: calc(100vw - 48px) !important;
+  height: 46px !important;
+  padding: 4px !important;
+  gap: 2px !important;
+}
+
+.brand {
+  height: 38px !important;
+  padding: 0 9px 0 10px !important;
+  gap: 6px !important;
+  font-size: 13px !important;
+  letter-spacing: .01em !important;
+}
+
+.nav-cta {
+  height: 38px !important;
+  padding: 0 18px !important;
+  font-size: 13px !important;
+}
+
+.hero .hero-actions {
+  margin-top: clamp(32px, 4.8vw, 66px) !important;
+}
+
+.hero-proof {
+  margin-top: clamp(14px, 1.8vw, 22px) !important;
+}
+
+.hero-privacy {
+  margin-top: clamp(8px, 1.1vw, 14px) !important;
+}
+
+.hero-proof.reveal,
+.hero-privacy.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.story-split .feature-photo {
+  min-height: clamp(740px, 56vw, 940px) !important;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    width: auto !important;
+    max-width: calc(100% - 44px) !important;
+    height: 44px !important;
+    padding: 4px !important;
+    gap: 2px !important;
+  }
+
+  .brand {
+    height: 34px !important;
+    padding: 0 6px !important;
+    gap: 5px !important;
+    font-size: 12px !important;
+  }
+
+  .nav-cta {
+    height: 34px !important;
+    padding: 0 13px !important;
+    font-size: 12px !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: clamp(30px, 4.2vh, 48px) !important;
+  }
+
+  .hero-proof {
+    margin-top: 12px !important;
+  }
+
+  .hero-privacy {
+    margin-top: 7px !important;
+  }
+
+  .story-split .feature-photo {
+    min-height: clamp(600px, 82vh, 760px) !important;
+  }
+}
+
+/* Final layout correction: shorter desktop island, higher hero proof, split family section. */
+.nav {
+  width: auto !important;
+  max-width: 330px !important;
+  height: 42px !important;
+  padding: 4px !important;
+  gap: 0 !important;
+}
+
+.brand {
+  min-width: 0 !important;
+  height: 34px !important;
+  padding: 0 8px 0 9px !important;
+  gap: 5px !important;
+  font-size: 12px !important;
+  letter-spacing: .02em !important;
+}
+
+.nav-cta {
+  height: 34px !important;
+  padding: 0 14px !important;
+  font-size: 12px !important;
+}
+
+.hero-content {
+  transform: translate3d(0, -28px, 0) !important;
+  padding-bottom: max(62px, calc(54px + env(safe-area-inset-bottom))) !important;
+}
+
+.hero .hero-actions {
+  margin-top: clamp(22px, 3.4vw, 44px) !important;
+}
+
+.hero-proof,
+.hero-privacy,
+.hero-actions.reveal,
+.hero-proof.reveal,
+.hero-privacy.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.hero-proof {
+  margin-top: 12px !important;
+}
+
+.hero-privacy {
+  margin-top: 7px !important;
+}
+
+.story-split {
+  width: min(100% - 64px, 1320px) !important;
+  margin-inline: auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, .95fr) minmax(360px, .72fr) !important;
+  align-items: center !important;
+  gap: clamp(34px, 5vw, 84px) !important;
+  padding-inline: 0 !important;
+}
+
+.story-split .story-copy {
+  max-width: 620px !important;
+  margin: 0 !important;
+  text-align: left !important;
+  justify-self: start !important;
+}
+
+.story-split .story-copy .eyebrow,
+.story-split .story-copy h2,
+.story-split .story-copy p,
+.story-split .story-copy .detail-note {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.story-split .feature-photo {
+  width: 100% !important;
+  max-width: 520px !important;
+  min-height: clamp(520px, 42vw, 700px) !important;
+  justify-self: end !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    max-width: calc(100% - 58px) !important;
+    height: 42px !important;
+  }
+
+  .brand {
+    height: 33px !important;
+    padding: 0 6px !important;
+    font-size: 11.5px !important;
+  }
+
+  .nav-cta {
+    height: 33px !important;
+    padding: 0 12px !important;
+    font-size: 11.5px !important;
+  }
+
+  .hero-content {
+    transform: translate3d(0, -38px, 0) !important;
+    padding-bottom: max(54px, calc(46px + env(safe-area-inset-bottom))) !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: clamp(20px, 3.2vh, 34px) !important;
+  }
+
+  .hero-proof {
+    margin-top: 10px !important;
+  }
+
+  .hero-privacy {
+    margin-top: 6px !important;
+  }
+
+  .story-split {
+    width: min(100% - 48px, 520px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  .story-split .story-copy,
+  .story-split .story-copy .eyebrow,
+  .story-split .story-copy h2,
+  .story-split .story-copy p,
+  .story-split .story-copy .detail-note {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .story-split .feature-photo {
+    width: 70% !important;
+    max-width: 360px !important;
+    min-height: clamp(360px, 58vh, 500px) !important;
+    margin-inline: auto !important;
+    justify-self: center !important;
+  }
+}
+
+/* Last visual pass requested on 2026-07-20: tighter island, higher hero, desktop split. */
+.nav {
+  max-width: 302px !important;
+  height: 42px !important;
+  padding: 4px !important;
+}
+
+.brand {
+  flex: 0 0 auto !important;
+  height: 34px !important;
+  padding: 0 7px !important;
+  font-size: 11.5px !important;
+  letter-spacing: .015em !important;
+}
+
+.nav-cta {
+  flex: 0 0 auto !important;
+  height: 34px !important;
+  padding: 0 13px !important;
+  font-size: 11.5px !important;
+}
+
+.hero-content {
+  transform: translate3d(0, -42px, 0) !important;
+  padding-bottom: max(86px, calc(74px + env(safe-area-inset-bottom))) !important;
+}
+
+.hero .hero-actions {
+  margin-top: clamp(14px, 2.2vw, 30px) !important;
+}
+
+.hero-proof,
+.hero-privacy,
+.hero-actions.reveal,
+.hero-proof.reveal,
+.hero-privacy.reveal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+.hero-proof {
+  margin-top: 10px !important;
+}
+
+.hero-privacy {
+  margin-top: 6px !important;
+}
+
+@media (min-width: 900px) {
+  .story-split {
+    width: min(100% - 96px, 1280px) !important;
+    display: grid !important;
+    grid-template-columns: minmax(440px, 1fr) minmax(320px, 460px) !important;
+    align-items: center !important;
+    gap: clamp(44px, 6vw, 104px) !important;
+    margin-inline: auto !important;
+    padding-inline: 0 !important;
+  }
+
+  .story-split .story-copy {
+    max-width: 660px !important;
+    margin: 0 !important;
+    justify-self: start !important;
+    text-align: left !important;
+  }
+
+  .story-split .story-copy .eyebrow,
+  .story-split .story-copy h2,
+  .story-split .story-copy p,
+  .story-split .story-copy .detail-note {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .story-split .feature-photo {
+    width: 100% !important;
+    max-width: 460px !important;
+    min-height: clamp(540px, 45vw, 680px) !important;
+    justify-self: end !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav {
+    max-width: calc(100% - 74px) !important;
+    height: 40px !important;
+    padding: 4px !important;
+  }
+
+  .brand {
+    height: 32px !important;
+    padding: 0 6px !important;
+    font-size: 11px !important;
+  }
+
+  .nav-cta {
+    height: 32px !important;
+    padding: 0 12px !important;
+    font-size: 11px !important;
+  }
+
+  .hero-content {
+    transform: translate3d(0, -50px, 0) !important;
+    padding-bottom: max(72px, calc(60px + env(safe-area-inset-bottom))) !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: clamp(16px, 2.6vh, 28px) !important;
+  }
+
+  .hero-proof {
+    margin-top: 9px !important;
+  }
+
+  .hero-privacy {
+    margin-top: 5px !important;
+  }
+
+  .story-split {
+    width: min(100% - 48px, 520px) !important;
+    gap: 28px !important;
+  }
+
+  .story-split .feature-photo {
+    width: 70% !important;
+    max-width: 340px !important;
+    min-height: clamp(330px, 50vh, 470px) !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4671,9 +5101,7 @@ section {
           <p class="detail-note"><strong>Deux récits.</strong> Une synthèse qui distingue les faits, les émotions, les intentions et les malentendus.</p>
         </div>
         <figure class="feature-photo reveal">
-          <video class="family" autoplay loop muted playsinline preload="metadata" poster="wereinlove-assets/mother-daughter-sunset.jpg" aria-label="Une relation familiale dans un moment calme">
-            <source src="wereinlove-assets/family-section-video.mp4" type="video/mp4">
-          </video>
+          <img class="family" src="wereinlove-assets/family-restaurant.png" alt="Un père et sa fille dans un moment tendre au restaurant" loading="lazy">
         </figure>
       </section>
 
@@ -5085,10 +5513,10 @@ section {
         const rect = bleedPhoto.getBoundingClientRect();
         const local = clamp((window.innerHeight - rect.top) / Math.max(1, window.innerHeight + rect.height), 0, 1);
         const eased = 1 - Math.pow(1 - local, 3);
-        const gap = eased * (isSmall ? 52 : 165);
+        const gap = eased * (isSmall ? 62 : 190);
         bleedPhoto.style.setProperty("--bleed-gap", `${gap}px`);
         bleedPhoto.style.setProperty("--bleed-offset", `${gap / 2}px`);
-        bleedPhoto.style.setProperty("--bleed-radius", `${eased * (isSmall ? 26 : 54)}px`);
+        bleedPhoto.style.setProperty("--bleed-radius", `${eased * (isSmall ? 32 : 62)}px`);
         bleedPhoto.style.setProperty("--bleed-border", `${eased}`);
         bleedPhoto.style.setProperty("--bleed-shadow", `${0.04 + eased * 0.1}`);
       }
@@ -5098,7 +5526,7 @@ section {
         const rect = section ? section.getBoundingClientRect() : rail.getBoundingClientRect();
         const local = clamp((window.innerHeight - rect.top) / Math.max(1, window.innerHeight + rect.height), 0, 1);
         const maxMove = Math.max(0, rail.scrollWidth - window.innerWidth + 48);
-        const strength = window.innerWidth <= 760 ? 0.18 : 0.24;
+        const strength = window.innerWidth <= 760 ? 0.24 : 0.3;
         rail.style.setProperty("--rail-x", `${-maxMove * local * strength}px`);
       } else if (rail) {
         rail.style.setProperty("--rail-x", "0px");
