@@ -205,6 +205,10 @@
       background: var(--black);
     }
 
+    .mobile-sticky-cta {
+      display: none;
+    }
+
     .nav-cta:hover {
       transform: translateY(-1px);
     }
@@ -518,7 +522,8 @@
       isolation: isolate;
     }
 
-    .feature-photo img {
+    .feature-photo img,
+    .feature-photo video {
       width: 100%;
       height: 100%;
       min-height: inherit;
@@ -2308,7 +2313,7 @@ html,
 body{
   width:100%;
   max-width:100%;
-  overflow-x:hidden!important;
+  overflow-x:clip!important;
 }
 .site-shell{
   width:100%;
@@ -2688,7 +2693,8 @@ main > section{
     aspect-ratio:4/3!important;
     margin-inline:auto!important;
   }
-  .story-split .feature-photo img{
+  .story-split .feature-photo img,
+  .story-split .feature-photo video{
     min-height:100%!important;
   }
 }
@@ -2719,7 +2725,8 @@ main > section{
     aspect-ratio:4/5!important;
     border-radius:30px!important;
   }
-  .story-split .feature-photo img{
+  .story-split .feature-photo img,
+  .story-split .feature-photo video{
     width:100%!important;
     height:100%!important;
     min-height:0!important;
@@ -2897,6 +2904,7 @@ main > section{
       rgba(36,28,22,calc(.06 + var(--scroll-depth,1) * .08))!important;
   }
   .feature-photo img,
+  .feature-photo video,
   .resolved-card img,
   .experience-card img{
     transform:
@@ -2993,6 +3001,1470 @@ main > section{
   }
 }
 
+/* Product demonstration: Lecture croisee. */
+.demo-section{
+  scroll-margin-top:150px;
+  padding:clamp(76px,10vw,148px) 0 clamp(88px,11vw,160px);
+  background:var(--bg);
+}
+.demo-head{
+  width:min(900px,calc(100vw - 48px));
+  margin:0 auto clamp(34px,5vw,58px);
+  text-align:center;
+}
+.demo-head .eyebrow{
+  margin-bottom:18px;
+}
+.demo-head h2{
+  margin:0;
+  font-size:clamp(42px,6vw,84px);
+  line-height:.98;
+  letter-spacing:-.068em;
+  font-weight:560;
+}
+.demo-head p{
+  max-width:720px;
+  margin:24px auto 0;
+  color:var(--muted);
+  font-size:clamp(18px,1.7vw,24px);
+  line-height:1.48;
+  letter-spacing:-.035em;
+}
+.demo-card{
+  width:min(1060px,calc(100vw - 48px));
+  margin:0 auto;
+  padding:clamp(22px,3.2vw,40px);
+  border:1px solid var(--line-strong);
+  border-radius:clamp(28px,4vw,44px);
+  background:rgba(255,255,255,.78);
+  box-shadow:0 34px 95px rgba(36,28,22,.13);
+  overflow:hidden;
+}
+.demo-interface{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 0 22px;
+  color:var(--quiet);
+  font-size:15px;
+  line-height:1.2;
+  letter-spacing:-.01em;
+}
+.demo-dot{
+  width:11px;
+  height:11px;
+  flex:0 0 auto;
+  border-radius:999px;
+  background:var(--green);
+}
+.demo-stack{
+  display:grid;
+  gap:14px;
+}
+.demo-bubble{
+  padding:clamp(20px,3vw,30px);
+  border-radius:clamp(22px,3vw,30px);
+  background:#eee8e2;
+  color:#2d2925;
+  font-size:clamp(18px,1.75vw,24px);
+  line-height:1.42;
+  letter-spacing:-.035em;
+}
+.demo-bubble strong{
+  font-weight:680;
+}
+.demo-processing{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:44px;
+  color:var(--quiet);
+  font-size:14px;
+  font-weight:620;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.demo-dots{
+  display:inline-flex;
+  gap:4px;
+}
+.demo-dots span{
+  width:5px;
+  height:5px;
+  border-radius:999px;
+  background:var(--quiet);
+  opacity:.4;
+}
+.demo-result{
+  padding:clamp(22px,3.4vw,36px);
+  border-radius:clamp(24px,3.3vw,34px);
+  color:#fff;
+  background:var(--black);
+  box-shadow:0 28px 80px rgba(18,15,13,.22);
+}
+.demo-result h3{
+  margin:0 0 18px;
+  font-size:clamp(20px,2vw,28px);
+  line-height:1;
+  letter-spacing:-.04em;
+}
+.demo-result p{
+  margin:0;
+  color:rgba(255,255,255,.72);
+  font-size:clamp(17px,1.6vw,22px);
+  line-height:1.46;
+  letter-spacing:-.035em;
+}
+.demo-result .demo-emphasis{
+  margin-top:16px;
+  color:#fff;
+  font-size:clamp(19px,1.85vw,25px);
+  line-height:1.36;
+  font-weight:560;
+}
+.demo-separator{
+  height:1px;
+  margin:24px 0;
+  background:rgba(255,255,255,.14);
+}
+.demo-label{
+  margin-bottom:12px!important;
+  color:rgba(255,255,255,.58)!important;
+  font-size:13px!important;
+  font-weight:620;
+  letter-spacing:.08em!important;
+  text-transform:uppercase;
+}
+.demo-suggestion{
+  padding:18px 20px;
+  border-radius:20px;
+  background:#fff;
+  color:var(--ink);
+  font-size:clamp(17px,1.5vw,21px);
+  line-height:1.42;
+  letter-spacing:-.035em;
+}
+.demo-actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:26px;
+}
+.demo-actions .button{
+  min-height:56px;
+  min-width:230px;
+}
+.demo-actions .button.ghost{
+  background:transparent!important;
+  border:1px solid var(--line-strong)!important;
+}
+.demo-trust{
+  margin:16px 0 0;
+  text-align:center;
+  color:var(--quiet);
+  font-size:13px;
+  line-height:1.4;
+}
+@media (prefers-reduced-motion:no-preference){
+  .demo-card .demo-step,
+  .demo-card .demo-processing,
+  .demo-card .demo-result,
+  .demo-card .demo-actions,
+  .demo-card .demo-trust{
+    opacity:0;
+    transform:translate3d(0,18px,0);
+  }
+  .demo-card.is-playing .demo-step,
+  .demo-card.is-playing .demo-processing,
+  .demo-card.is-playing .demo-result,
+  .demo-card.is-playing .demo-actions,
+  .demo-card.is-playing .demo-trust{
+    opacity:1;
+    transform:translate3d(0,0,0);
+    transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);
+  }
+  .demo-card.is-playing .demo-step:nth-child(2){
+    transition-delay:.4s;
+  }
+  .demo-card.is-playing .demo-processing{
+    transition-delay:.82s;
+  }
+  .demo-card.is-playing .demo-result{
+    transition-delay:2s;
+  }
+  .demo-card.is-playing .demo-actions{
+    transition-delay:2.18s;
+  }
+  .demo-card.is-playing .demo-trust{
+    transition-delay:2.28s;
+  }
+  .demo-card.is-playing .demo-dots span{
+    animation:demoDot 1.2s ease-in-out 1;
+  }
+  .demo-card.is-playing .demo-dots span:nth-child(2){
+    animation-delay:.15s;
+  }
+  .demo-card.is-playing .demo-dots span:nth-child(3){
+    animation-delay:.3s;
+  }
+}
+@keyframes demoDot{
+  0%,100%{opacity:.35; transform:translateY(0);}
+  36%{opacity:1; transform:translateY(-4px);}
+}
+.nav{
+  transition:color .35s ease, background .35s ease, border-color .35s ease, box-shadow .35s ease, transform .35s ease, opacity .35s ease!important;
+}
+.nav.is-scrolled{
+  transform:translateY(-3px) scale(.96);
+  opacity:.92;
+}
+@media(max-width:760px){
+  .demo-section{
+    scroll-margin-top:132px;
+    padding:108px 0 calc(84px + env(safe-area-inset-bottom));
+  }
+  .demo-head,
+  .demo-card{
+    width:calc(100vw - 48px);
+  }
+  .demo-head{
+    margin-bottom:28px;
+  }
+  .demo-head h2{
+    font-size:clamp(34px,9vw,48px);
+    line-height:1.02;
+    letter-spacing:-.058em;
+  }
+  .demo-head p{
+    margin-top:18px;
+    font-size:17px;
+    line-height:1.45;
+  }
+  .demo-card{
+    padding:18px;
+    border-radius:30px;
+  }
+  .demo-interface{
+    padding-bottom:16px;
+    font-size:14px;
+  }
+  .demo-stack{
+    gap:12px;
+  }
+  .demo-bubble{
+    padding:20px;
+    border-radius:22px;
+    font-size:17px;
+    line-height:1.44;
+  }
+  .demo-processing{
+    min-height:38px;
+    font-size:11px;
+  }
+  .demo-result{
+    padding:22px;
+    border-radius:24px;
+  }
+  .demo-result p{
+    font-size:16px;
+    line-height:1.48;
+  }
+  .demo-result .demo-emphasis{
+    font-size:18px;
+  }
+  .demo-suggestion{
+    padding:16px;
+    border-radius:18px;
+    font-size:16px;
+  }
+  .demo-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .demo-actions .button{
+    width:100%;
+    min-width:0;
+  }
+      .nav.is-scrolled{
+        transform:translateY(-8px) scale(.9);
+        opacity:.82;
+      }
+    }
+
+/* Conversion and overflow pass. Keeps wide effects inside their own sections. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(255, 93, 143, .7);
+  outline-offset: 4px;
+}
+
+.site-shell,
+main,
+.hero,
+.reviews-strip,
+.intro,
+.story-split,
+.bleed-track,
+.statement,
+.how,
+.solo-start,
+.demo-section,
+.analysis-benefits,
+.resolved,
+.experiences,
+.privacy-section,
+.pricing,
+.final-cta,
+.site-footer {
+  max-width: 100%;
+}
+
+section {
+  scroll-margin-top: 128px;
+}
+
+.nav {
+  max-width: calc(100vw - 32px);
+}
+
+.nav-links {
+  display: none !important;
+}
+
+.nav.is-hidden {
+  transform: translateY(calc(-130% - env(safe-area-inset-top))) scale(.92) !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.hero-secondary,
+.final-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  padding: 0 26px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .2);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.final-secondary {
+  color: #fff;
+}
+
+.hero-proof,
+.hero-privacy,
+.final-proof {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, .72);
+  font-size: 14px;
+  line-height: 1.45;
+  letter-spacing: -.02em;
+}
+
+.hero-privacy {
+  max-width: 620px;
+  color: rgba(255, 255, 255, .6);
+}
+
+.friction-note {
+  width: min(920px, calc(100% - 48px));
+  margin: clamp(28px, 4vw, 48px) auto clamp(18px, 3vw, 34px);
+  color: var(--muted);
+  text-align: center;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.45;
+  letter-spacing: -.04em;
+}
+
+.reviews-strip {
+  overflow: hidden !important;
+  padding: clamp(26px, 4vw, 48px) 0 clamp(36px, 5vw, 72px) !important;
+  background: var(--bg);
+}
+
+.reviews-intro {
+  width: min(820px, calc(100% - 48px));
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.reviews-intro h2 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 58px);
+  line-height: 1;
+  letter-spacing: -.06em;
+  font-weight: 560;
+}
+
+.reviews-intro p:not(.eyebrow) {
+  margin: 14px auto 0;
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.reviews-track {
+  display: flex !important;
+  gap: clamp(22px, 4vw, 42px) !important;
+  width: max-content !important;
+  max-width: none !important;
+  padding-inline: max(24px, calc((100vw - 1120px) / 2)) !important;
+  align-items: stretch !important;
+  animation: reviewMarquee 44s linear infinite;
+}
+
+.reviews-strip:hover .reviews-track {
+  animation-play-state: paused;
+}
+
+.review-card {
+  flex: 0 0 clamp(300px, 30vw, 420px) !important;
+  width: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  text-align: center !important;
+  color: var(--ink);
+}
+
+.review-card blockquote {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(17px, 1.6vw, 22px);
+  line-height: 1.38;
+  letter-spacing: -.04em;
+}
+
+.review-card figcaption {
+  margin-top: 14px;
+  color: var(--quiet);
+  font-size: 12px;
+  font-weight: 680;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+@keyframes reviewMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(calc(-50% - 20px), 0, 0); }
+}
+
+.photo-rail {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.photo-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.bleed-track {
+  width: 100% !important;
+  margin-left: 0 !important;
+  overflow: clip !important;
+}
+
+.bleed-track .bleed-photo,
+.bleed-track .bleed-photo.is-fixed,
+.bleed-track .bleed-photo.is-ended {
+  width: calc(100% - var(--bleed-gap, 0px)) !important;
+  margin-left: calc(var(--bleed-gap, 0px) / 2) !important;
+  margin-right: calc(var(--bleed-gap, 0px) / 2) !important;
+  border-radius: var(--bleed-radius, 0px) !important;
+}
+
+.solo-start {
+  width: min(1120px, calc(100% - 48px));
+  margin: clamp(28px, 5vw, 70px) auto clamp(82px, 10vw, 140px);
+  display: grid;
+  grid-template-columns: .85fr 1fr;
+  gap: clamp(28px, 6vw, 80px);
+  align-items: start;
+  padding: clamp(28px, 4vw, 54px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, .54);
+  box-shadow: 0 24px 70px rgba(36, 28, 22, .08);
+}
+
+.solo-start h2,
+.privacy-card h2 {
+  margin: 0;
+  font-size: clamp(34px, 4.6vw, 70px);
+  line-height: 1;
+  letter-spacing: -.065em;
+  font-weight: 560;
+}
+
+.solo-start p:not(.eyebrow),
+.privacy-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(18px, 1.8vw, 23px);
+  line-height: 1.48;
+  letter-spacing: -.035em;
+}
+
+.solo-note {
+  margin-top: 18px !important;
+  color: var(--ink) !important;
+}
+
+.analysis-benefits {
+  padding: clamp(74px, 10vw, 148px) 0;
+}
+
+.benefit-grid {
+  width: min(1180px, calc(100% - 48px));
+  margin: clamp(30px, 5vw, 62px) auto 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.benefit-card {
+  min-height: 150px;
+  display: flex;
+  align-items: flex-end;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .58);
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.16;
+  letter-spacing: -.035em;
+  font-weight: 560;
+}
+
+.privacy-section {
+  padding: clamp(20px, 4vw, 42px) 0 clamp(74px, 10vw, 140px);
+}
+
+.privacy-card {
+  width: min(1080px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: clamp(30px, 5vw, 64px);
+  border-radius: var(--radius-xl);
+  color: #fff;
+  background: var(--black);
+  box-shadow: 0 34px 90px rgba(36, 28, 22, .14);
+}
+
+.privacy-card .eyebrow,
+.privacy-card p {
+  color: rgba(255, 255, 255, .62);
+}
+
+.privacy-card h2 {
+  color: #fff;
+}
+
+.privacy-card p {
+  max-width: 720px;
+  margin-top: 20px;
+}
+
+.privacy-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.privacy-card li {
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 20px;
+  color: rgba(255, 255, 255, .82);
+  line-height: 1.35;
+}
+
+.privacy-link {
+  display: inline-flex;
+  margin-top: 28px;
+  color: #fff;
+  font-weight: 620;
+}
+
+.price {
+  font-size: clamp(54px, 6.4vw, 92px) !important;
+}
+
+/* Final homepage tuning */
+.hero {
+  background: var(--bg) !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+.hero-media {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  transform-origin: center center !important;
+  overflow: hidden !important;
+}
+
+.hero-content {
+  z-index: 2 !important;
+  justify-content: center !important;
+  padding-top: clamp(128px, 12vw, 190px) !important;
+  padding-bottom: clamp(72px, 8vw, 112px) !important;
+}
+
+.hero h1 {
+  max-width: 980px !important;
+  font-size: clamp(52px, 7.2vw, 118px) !important;
+  line-height: .94 !important;
+}
+
+.hero-lede {
+  max-width: 760px !important;
+  margin-top: 26px !important;
+  font-size: clamp(18px, 1.8vw, 27px) !important;
+  line-height: 1.44 !important;
+}
+
+.hero .hero-actions {
+  margin-top: clamp(42px, 5.5vw, 74px) !important;
+}
+
+.intro {
+  min-height: auto !important;
+  padding: clamp(86px, 10vw, 150px) 0 clamp(72px, 8vw, 126px) !important;
+  overflow: hidden !important;
+}
+
+.intro .section-head {
+  position: relative;
+  z-index: 2;
+  padding-top: clamp(20px, 3vw, 44px);
+}
+
+.photo-rail {
+  width: max-content !important;
+  max-width: none !important;
+  overflow: visible !important;
+  display: flex !important;
+  gap: clamp(18px, 2.2vw, 32px) !important;
+  padding: 0 max(24px, calc((100vw - 1320px) / 2)) !important;
+  margin-top: clamp(42px, 6vw, 76px) !important;
+  transform: translate3d(var(--rail-x, 0), 0, 0) !important;
+}
+
+.rail-card {
+  flex: 0 0 auto !important;
+  width: clamp(230px, 21vw, 350px) !important;
+  height: clamp(340px, 31vw, 500px) !important;
+  border-radius: 28px !important;
+}
+
+.rail-card.wide {
+  width: clamp(340px, 34vw, 560px) !important;
+}
+
+.analysis-benefits {
+  padding: clamp(82px, 10vw, 150px) 0 clamp(70px, 9vw, 132px) !important;
+  scroll-margin-top: 140px;
+}
+
+.benefit-showcase {
+  width: min(1180px, calc(100% - 48px));
+  margin: clamp(34px, 5vw, 70px) auto 0;
+  display: grid;
+  grid-template-columns: minmax(280px, .9fr) minmax(0, 1.1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.benefit-lead-card,
+.benefit-card {
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 70px rgba(36, 28, 22, .08);
+}
+
+.benefit-lead-card {
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(30px, 4vw, 48px);
+  border-radius: 34px;
+  color: #fff;
+  background: var(--black);
+}
+
+.benefit-number,
+.benefit-card span {
+  color: var(--quiet);
+  font-size: 13px;
+  font-weight: 680;
+  letter-spacing: .18em;
+}
+
+.benefit-lead-card h3,
+.benefit-card h3 {
+  margin: 0;
+  color: inherit;
+  font-weight: 560;
+  letter-spacing: -.055em;
+}
+
+.benefit-lead-card h3 {
+  max-width: 420px;
+  font-size: clamp(34px, 4.4vw, 64px);
+  line-height: .98;
+}
+
+.benefit-lead-card p,
+.benefit-card p {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, .62);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.42;
+  letter-spacing: -.035em;
+}
+
+.benefit-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.benefit-card {
+  min-height: 210px !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+  padding: clamp(22px, 3vw, 30px) !important;
+  border-radius: 30px !important;
+  background: rgba(255, 255, 255, .72) !important;
+  color: var(--ink) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.benefit-card h3 {
+  margin-top: 34px;
+  font-size: clamp(23px, 2.2vw, 34px);
+  line-height: 1.02;
+}
+
+.benefit-card p {
+  color: var(--muted);
+  font-size: clamp(15px, 1.25vw, 18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefit-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .solo-start,
+  .pricing-top {
+    grid-template-columns: 1fr !important;
+  }
+
+  .privacy-card ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav-wrap {
+    padding: 0 max(18px, env(safe-area-inset-left)) 0 max(18px, env(safe-area-inset-right));
+  }
+
+  .nav {
+    width: min(100%, 560px);
+    height: 64px;
+  }
+
+  .brand {
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .nav-cta {
+    flex: 0 1 auto;
+    height: 54px;
+    padding: 0 24px;
+    font-size: 17px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-content {
+    padding: 118px max(24px, env(safe-area-inset-left)) 56px max(24px, env(safe-area-inset-right)) !important;
+  }
+
+  .hero h1 {
+    max-width: 360px !important;
+    font-size: clamp(34px, 8.4vw, 43px) !important;
+    line-height: 1.02 !important;
+  }
+
+  .hero-lede {
+    max-width: 350px !important;
+    margin-top: 20px !important;
+    font-size: 15.5px !important;
+    line-height: 1.48 !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: 44px !important;
+  }
+
+  .hero-secondary,
+  .final-secondary {
+    width: 100%;
+    color: #fff;
+    background: rgba(24, 24, 24, .92);
+    border-color: rgba(255, 255, 255, .1);
+  }
+
+  .mobile-sticky-cta {
+    position: fixed;
+    left: max(20px, env(safe-area-inset-left));
+    right: max(20px, env(safe-area-inset-right));
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    z-index: 26;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 58px;
+    border-radius: 999px;
+    color: #fff;
+    background: var(--black);
+    box-shadow: 0 20px 60px rgba(24, 24, 24, .28);
+    font-weight: 650;
+    transform: translate3d(0, 140%, 0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .35s ease, opacity .35s ease;
+  }
+
+  .mobile-sticky-cta.is-visible {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .friction-note {
+    width: calc(100% - 48px);
+    margin-top: 24px;
+    font-size: 17px;
+  }
+
+  .reviews-track {
+    width: 100% !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    animation: none !important;
+    padding-inline: 24px !important;
+  }
+
+  .review-card {
+    flex: 0 0 calc(100vw - 76px) !important;
+    scroll-snap-align: center;
+  }
+
+  .benefit-grid {
+    width: calc(100% - 48px);
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    padding: 78px 0 70px !important;
+  }
+
+  .intro .section-head {
+    width: calc(100% - 48px) !important;
+    padding-top: 0;
+  }
+
+  .intro .section-head h2 {
+    font-size: clamp(34px, 9vw, 48px) !important;
+    line-height: 1.02 !important;
+  }
+
+  .intro .section-head p {
+    margin-top: 18px !important;
+    font-size: 16px !important;
+  }
+
+  .photo-rail {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain !important;
+    scroll-snap-type: x mandatory;
+    padding: 0 24px !important;
+    gap: 16px !important;
+    transform: none !important;
+    margin-top: 34px !important;
+    scrollbar-width: none;
+  }
+
+  .photo-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rail-card,
+  .rail-card.wide {
+    width: min(72vw, 310px) !important;
+    height: clamp(300px, 56vh, 440px) !important;
+    scroll-snap-align: center;
+    border-radius: 26px !important;
+  }
+
+  .analysis-benefits {
+    padding: 70px 0 74px !important;
+  }
+
+  .benefit-showcase {
+    width: calc(100% - 48px);
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .benefit-lead-card {
+    min-height: 280px;
+    border-radius: 30px;
+  }
+
+  .benefit-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .benefit-card {
+    min-height: 154px !important;
+  }
+
+  .solo-start {
+    width: calc(100% - 48px);
+    margin-top: 42px;
+    padding: 26px;
+  }
+
+  .solo-start h2,
+  .privacy-card h2 {
+    font-size: clamp(32px, 9vw, 46px);
+  }
+
+  .privacy-card {
+    width: calc(100% - 48px);
+    padding: 28px;
+  }
+
+  .final-cta .hero-actions {
+    width: 100%;
+  }
+
+  .final-proof {
+    color: rgba(255, 255, 255, .68);
+    text-align: center;
+  }
+
+  .price {
+    font-size: clamp(48px, 14vw, 68px) !important;
+  }
+}
+
+/* Scroll-driven relationship carousel */
+.intro {
+  height: clamp(1040px, 190vh, 1680px) !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  overflow: clip !important;
+  scroll-margin-top: 140px;
+}
+
+.intro-sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(112px, 10vw, 150px) 0 clamp(66px, 7vw, 104px);
+}
+
+.intro .section-head {
+  width: min(1080px, calc(100% - 48px));
+  margin-inline: auto;
+  padding-top: 0 !important;
+}
+
+.intro .photo-rail {
+  width: max-content !important;
+  max-width: none !important;
+  overflow: visible !important;
+  overflow-x: visible !important;
+  scroll-snap-type: none !important;
+  padding: 0 max(24px, calc((100vw - 1320px) / 2)) !important;
+  transform: translate3d(var(--rail-x, 0px), 0, 0) !important;
+  transition: none !important;
+  will-change: transform;
+}
+
+.intro .rail-card {
+  width: clamp(230px, 20vw, 340px) !important;
+  height: clamp(330px, 30vw, 480px) !important;
+}
+
+.intro .rail-card.wide {
+  width: clamp(330px, 32vw, 520px) !important;
+}
+
+@media (max-width: 760px) {
+  .intro {
+    height: clamp(860px, 150vh, 1240px) !important;
+    padding: 0 !important;
+  }
+
+  .intro-sticky {
+    min-height: 100svh;
+    padding: max(92px, calc(74px + env(safe-area-inset-top))) 0 max(52px, calc(44px + env(safe-area-inset-bottom)));
+  }
+
+  .intro .section-head {
+    width: calc(100% - 48px);
+  }
+
+  .intro .section-head h2 {
+    font-size: clamp(38px, 12vw, 58px);
+    line-height: .95;
+  }
+
+  .intro .section-head p {
+    font-size: 18px;
+    line-height: 1.42;
+  }
+
+  .intro .photo-rail {
+    width: max-content !important;
+    max-width: none !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    padding: 0 24px !important;
+    gap: 16px !important;
+    margin-top: 34px !important;
+    transform: translate3d(var(--rail-x, 0px), 0, 0) !important;
+  }
+
+  .intro .rail-card,
+  .intro .rail-card.wide {
+    width: min(54vw, 220px) !important;
+    height: clamp(270px, 42vh, 380px) !important;
+    border-radius: 24px !important;
+  }
+
+  .intro .rail-card.wide {
+    width: min(68vw, 280px) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    height: auto !important;
+    overflow: hidden !important;
+    padding: clamp(80px, 10vw, 130px) 0 !important;
+  }
+
+  .intro-sticky {
+    position: relative;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .intro .photo-rail {
+    width: 100% !important;
+    overflow-x: auto !important;
+    transform: none !important;
+  }
+}
+
+/* Requested final balance: lighter nav, lower left hero, gentle image rail */
+.nav {
+  width: min(100% - 48px, 520px) !important;
+  height: 58px !important;
+  padding: 4px !important;
+}
+
+.brand {
+  gap: 10px !important;
+  padding: 0 22px !important;
+  font-size: 16px !important;
+}
+
+.mark {
+  width: 18px !important;
+  height: 13px !important;
+}
+
+.nav-cta {
+  height: 50px !important;
+  padding: 0 24px !important;
+  font-size: 16px !important;
+}
+
+.hero-content {
+  align-items: flex-start !important;
+  justify-content: center !important;
+  text-align: left !important;
+  padding-top: clamp(190px, 17vw, 270px) !important;
+  padding-left: max(56px, calc((100vw - 1320px) / 2 + 40px)) !important;
+  padding-right: max(32px, calc((100vw - 1320px) / 2 + 40px)) !important;
+}
+
+.hero h1 {
+  max-width: 850px !important;
+  font-size: clamp(48px, 6.4vw, 104px) !important;
+}
+
+.hero-lede {
+  max-width: 650px !important;
+}
+
+.hero .hero-actions {
+  margin-top: clamp(58px, 7vw, 96px) !important;
+}
+
+.hero .hero-primary {
+  min-width: min(420px, 100%) !important;
+}
+
+.intro {
+  height: auto !important;
+  min-height: auto !important;
+  padding: clamp(78px, 9vw, 132px) 0 clamp(66px, 8vw, 112px) !important;
+  overflow: hidden !important;
+}
+
+.intro-sticky {
+  position: relative !important;
+  top: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.intro .photo-rail {
+  width: max-content !important;
+  max-width: none !important;
+  overflow: visible !important;
+  overflow-x: visible !important;
+  scroll-snap-type: none !important;
+  transform: translate3d(var(--rail-x, 0px), 0, 0) !important;
+  will-change: transform;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    width: min(calc(100% - 42px), 390px) !important;
+    height: 56px !important;
+  }
+
+  .brand {
+    justify-content: center !important;
+    padding: 0 14px !important;
+    font-size: 16px !important;
+  }
+
+  .nav-cta {
+    height: 48px !important;
+    padding: 0 20px !important;
+    font-size: 15.5px !important;
+  }
+
+  .hero-content {
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding-top: max(164px, calc(130px + env(safe-area-inset-top))) !important;
+    padding-left: max(28px, env(safe-area-inset-left)) !important;
+    padding-right: max(28px, env(safe-area-inset-right)) !important;
+    padding-bottom: max(62px, calc(50px + env(safe-area-inset-bottom))) !important;
+  }
+
+  .hero h1 {
+    max-width: 340px !important;
+    font-size: clamp(34px, 8.8vw, 42px) !important;
+    line-height: 1.02 !important;
+  }
+
+  .hero-lede,
+  .hero-proof,
+  .hero-privacy {
+    max-width: 335px !important;
+    text-align: left !important;
+  }
+
+  .hero .hero-actions {
+    width: 100% !important;
+    margin-top: clamp(58px, 9vh, 86px) !important;
+  }
+
+  .hero .hero-primary {
+    width: min(100%, 380px) !important;
+    min-width: 0 !important;
+  }
+
+  .intro {
+    height: auto !important;
+    padding: 64px 0 62px !important;
+  }
+
+  .intro-sticky {
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  .intro .photo-rail {
+    width: max-content !important;
+    max-width: none !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    padding: 0 24px !important;
+    gap: 16px !important;
+    transform: translate3d(var(--rail-x, 0px), 0, 0) !important;
+  }
+
+  .intro .rail-card,
+  .intro .rail-card.wide {
+    width: min(58vw, 240px) !important;
+    height: clamp(260px, 42vh, 380px) !important;
+  }
+}
+
+/* Final requested homepage refinements */
+.nav {
+  width: min(100% - 48px, 304px) !important;
+  height: 36px !important;
+  padding: 3px !important;
+}
+
+.brand {
+  min-width: 0 !important;
+  gap: 7px !important;
+  padding: 0 12px !important;
+  font-size: 11px !important;
+  letter-spacing: -.035em !important;
+}
+
+.mark {
+  width: 14px !important;
+  height: 10px !important;
+}
+
+.mark::before,
+.mark::after {
+  width: 10px !important;
+  height: 10px !important;
+  top: 0 !important;
+}
+
+.nav-cta {
+  height: 30px !important;
+  padding: 0 14px !important;
+  font-size: 11px !important;
+}
+
+.hero-content {
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  padding-top: clamp(165px, 14vw, 230px) !important;
+  padding-bottom: clamp(42px, 4.8vw, 72px) !important;
+}
+
+.hero h1,
+.hero-lede {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+.hero .hero-actions {
+  margin-top: clamp(70px, 9vw, 126px) !important;
+}
+
+.hero-proof {
+  margin-top: clamp(28px, 4vw, 48px) !important;
+}
+
+.hero-proof,
+.hero-privacy {
+  width: 100% !important;
+  align-self: center !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.solo-start {
+  overflow: hidden;
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  background: var(--black) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,.08) !important;
+}
+
+.solo-start-media {
+  width: 100%;
+  min-height: 0;
+  margin: 0 !important;
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.solo-start-media img {
+  display: block;
+  width: 100%;
+  height: clamp(360px, 48vw, 620px);
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+}
+
+.solo-start-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(27,24,22,0) 34%, rgba(27,24,22,.86) 82%, rgba(27,24,22,1) 100%);
+}
+
+.solo-start-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: clamp(-120px, -8vw, -72px);
+  padding: 0 clamp(30px, 5vw, 72px) clamp(38px, 5vw, 68px);
+  position: relative;
+  z-index: 1;
+}
+
+.solo-start .eyebrow {
+  color: rgba(255,255,255,.58) !important;
+}
+
+.solo-start h2 {
+  color: #fff !important;
+}
+
+.solo-start p:not(.eyebrow) {
+  color: rgba(255,255,255,.68) !important;
+}
+
+.solo-start .solo-note {
+  color: #fff !important;
+}
+
+.statement {
+  min-height: 0 !important;
+  padding: clamp(52px, 7vw, 96px) 24px clamp(44px, 6vw, 86px) !important;
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    width: min(calc(100% - 72px), 272px) !important;
+    height: 36px !important;
+  }
+
+  .brand {
+    font-size: 10.5px !important;
+    padding: 0 9px !important;
+  }
+
+  .nav-cta {
+    height: 30px !important;
+    padding: 0 12px !important;
+    font-size: 10.5px !important;
+  }
+
+  .hero-content {
+    padding-top: max(150px, calc(118px + env(safe-area-inset-top))) !important;
+    padding-bottom: max(38px, calc(30px + env(safe-area-inset-bottom))) !important;
+  }
+
+  .hero .hero-actions {
+    margin-top: clamp(72px, 10vh, 108px) !important;
+  }
+
+  .hero-proof {
+    margin-top: 24px !important;
+  }
+
+  .solo-start {
+    grid-template-columns: 1fr !important;
+  }
+
+  .solo-start-media img {
+    height: clamp(300px, 74vw, 380px);
+    min-height: 0;
+    max-height: none;
+  }
+
+  .solo-start-copy {
+    margin-top: -74px;
+    padding: 0 28px 30px;
+  }
+
+  .resolved {
+    display: none !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -3001,33 +4473,29 @@ main > section{
       <nav class="nav" data-nav>
         <a class="brand" href="#top" aria-label="WereInLove™">
           <span class="mark" aria-hidden="true"></span>
-          <span>WereInLove™</span>
+          <span>WEREINLOVE™</span>
         </a>
-        <div class="nav-links" aria-label="Sections">
-          <a href="#vision">Vision</a>
-          <a href="#fonctionnement">Fonctionnement</a>
-          <a href="#tarifs">Tarifs</a>
-        </div>
         <a class="nav-cta" href="espace-client.html">Espace client</a>
       </nav>
     </header>
+    <a class="mobile-sticky-cta" href="app.html" data-mobile-cta>Commencer gratuitement</a>
 
     <section class="hero" id="top" aria-label="Introduction">
       <div class="hero-media" data-hero-media>
         <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="wereinlove-assets/family-field.jpg">
           <source src="mobile-hero.mp4" type="video/mp4" media="(max-width: 760px)">
           <source src="hero-video.mp4" type="video/mp4">
-          <source src="wereinlove-assets/hero-video.mp4" type="video/mp4">
         </video>
       </div>
       <div class="hero-content">
-        <p class="eyebrow reveal">WereInLove™</p>
+        <p class="eyebrow reveal">Pour les liens essentiels</p>
         <h1 class="reveal">Comprendre les personnes qui comptent.</h1>
-        <p class="hero-lede reveal">Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.</p>
+        <p class="hero-lede reveal">Chacun raconte sa version. WereInLove™ croise les deux points de vue et vous aide à reprendre le dialogue.</p>
         <div class="hero-actions reveal">
-          <a class="button light" href="app.html">Apaiser un conflit</a>
-          <a class="button" href="compatibilite.html">Test de compatibilité</a>
+          <a class="button light hero-primary" href="app.html" data-primary-cta>Commencer gratuitement</a>
         </div>
+        <p class="hero-proof reveal">2 analyses complètes offertes · Sans carte bancaire</p>
+        <p class="hero-privacy reveal">Vos récits restent privés. Rien n'est publié sans votre accord explicite.</p>
         <div class="scroll-seal" aria-hidden="true">
           <span></span>
           <b>+</b>
@@ -3035,84 +4503,21 @@ main > section{
       </div>
     </section>
 
-    <section class="reviews-strip" aria-label="Avis utilisateurs">
-      <div class="reviews-track" aria-hidden="true">
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« À 1 h du matin, impossible d'appeler un psy. On était en plein conflit, et ça nous a vraiment aidés à prendre du recul. »</blockquote>
-          <figcaption>Utilisateur vérifié</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« J'ai enfin compris pourquoi ma fille réagissait comme ça. »</blockquote>
-          <figcaption>Mère d'une adolescente</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« On tournait en rond depuis des jours. L'IA nous a aidés à voir le malentendu. »</blockquote>
-          <figcaption>En couple depuis 8 ans</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« Ça m'a obligé à écouter son point de vue jusqu'au bout. »</blockquote>
-          <figcaption>Thomas</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« Je pensais avoir raison. Finalement, j'ai compris ce qu'elle ressentait. »</blockquote>
-          <figcaption>Léo</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« En dix minutes, la discussion était beaucoup plus apaisée. »</blockquote>
-          <figcaption>Sophie</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« À 1 h du matin, impossible d'appeler un psy. On était en plein conflit, et ça nous a vraiment aidés à prendre du recul. »</blockquote>
-          <figcaption>Utilisateur vérifié</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« J'ai enfin compris pourquoi ma fille réagissait comme ça. »</blockquote>
-          <figcaption>Mère d'une adolescente</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« On tournait en rond depuis des jours. L'IA nous a aidés à voir le malentendu. »</blockquote>
-          <figcaption>En couple depuis 8 ans</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« Ça m'a obligé à écouter son point de vue jusqu'au bout. »</blockquote>
-          <figcaption>Thomas</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« Je pensais avoir raison. Finalement, j'ai compris ce qu'elle ressentait. »</blockquote>
-          <figcaption>Léo</figcaption>
-        </figure>
-        <figure class="review-card">
-          <span class="review-stars">★★★★★</span>
-          <blockquote>« En dix minutes, la discussion était beaucoup plus apaisée. »</blockquote>
-          <figcaption>Sophie</figcaption>
-        </figure>
-      </div>
-    </section>
-
     <main>
       <section class="intro" id="vision">
-        <div class="section-head reveal">
-          <h2>Une relation change quand chacun se sent enfin entendu.</h2>
-          <p>Deux versions d'une même histoire. Une lecture calme de ce qui s'est vraiment joué entre les mots.</p>
-        </div>
-        <div class="photo-rail" data-rail>
-          <figure class="rail-card"><img src="wereinlove-assets/family-field.jpg" alt="Une famille avance dans un paysage doux" loading="eager"></figure>
-          <figure class="rail-card wide"><img src="wereinlove-assets/friends-sunset.jpg" alt="Des amis assis face au coucher du soleil" loading="lazy"></figure>
-          <figure class="rail-card"><img src="wereinlove-assets/couple-chair.jpg" alt="Un couple rit dans un jardin" loading="lazy"></figure>
-          <figure class="rail-card"><img src="wereinlove-assets/couple-evening.jpg" alt="Un couple proche dans une lumière du soir" loading="lazy"></figure>
-          <figure class="rail-card wide"><img src="wereinlove-assets/couple-car.jpg" alt="Un couple près d'une voiture au crépuscule" loading="lazy"></figure>
-          <figure class="rail-card"><img src="wereinlove-assets/family-walk.jpg" alt="Un parent porte deux enfants dans une lumière d'été" loading="lazy"></figure>
+        <div class="intro-sticky">
+          <div class="section-head reveal">
+            <h2>Une relation change quand chacun se sent enfin entendu.</h2>
+            <p>Deux versions d'une même histoire. Une lecture calme de ce qui s'est vraiment joué entre les mots.</p>
+          </div>
+          <div class="photo-rail" data-rail>
+            <figure class="rail-card"><img src="wereinlove-assets/family-field.jpg" alt="Une famille avance dans un paysage doux" loading="eager"></figure>
+            <figure class="rail-card wide"><img src="wereinlove-assets/friends-sunset.jpg" alt="Des amis assis face au coucher du soleil" loading="lazy"></figure>
+            <figure class="rail-card"><img src="wereinlove-assets/couple-chair.jpg" alt="Un couple rit dans un jardin" loading="lazy"></figure>
+            <figure class="rail-card"><img src="wereinlove-assets/couple-evening.jpg" alt="Un couple proche dans une lumière du soir" loading="lazy"></figure>
+            <figure class="rail-card wide"><img src="wereinlove-assets/couple-car.jpg" alt="Un couple près d'une voiture au crépuscule" loading="lazy"></figure>
+            <figure class="rail-card"><img src="wereinlove-assets/family-walk.jpg" alt="Un parent porte deux enfants dans une lumière d'été" loading="lazy"></figure>
+          </div>
         </div>
       </section>
 
@@ -3125,7 +4530,9 @@ main > section{
           <p class="detail-note"><strong>Deux récits.</strong> Une synthèse qui distingue les faits, les émotions, les intentions et les malentendus.</p>
         </div>
         <figure class="feature-photo reveal">
-          <img class="family" src="wereinlove-assets/mother-daughter-sunset.jpg" alt="Une mère et sa fille dans la lumière du soir" loading="lazy">
+          <video class="family" autoplay loop muted playsinline preload="metadata" poster="wereinlove-assets/mother-daughter-sunset.jpg" aria-label="Une relation familiale dans un moment calme">
+            <source src="wereinlove-assets/family-section-video.mp4" type="video/mp4">
+          </video>
         </figure>
       </section>
 
@@ -3136,9 +4543,9 @@ main > section{
             <h2>On ne répare pas en gagnant. On répare en comprenant.</h2>
             <p>L'IA n'est pas le sujet. Elle sert seulement à rendre la conversation plus claire, plus douce et plus possible.</p>
             <div class="stats">
-              <div class="stat"><strong>1M</strong><span>de vues sur TikTok</span></div>
-              <div class="stat"><strong>50K+</strong><span>followers sur Instagram</span></div>
-              <div class="stat"><strong>300+</strong><span>histoires écrites</span></div>
+            <div class="stat"><strong>1M</strong><span>de vues sur TikTok</span></div>
+              <div class="stat"><strong>50 k+</strong><span>abonnés sur Instagram</span></div>
+              <div class="stat"><strong>80K</strong><span>ouvrages de psychologie intégrés à la formation de l'IA</span></div>
             </div>
           </div>
         </div>
@@ -3180,20 +4587,47 @@ main > section{
         </div>
       </section>
 
-      <section class="analysis-section">
-        <div class="analysis-grid">
-          <div class="analysis-copy reveal">
-            <p class="eyebrow">Analyse</p>
-            <h2>Les émotions, les responsabilités et les mots possibles au même endroit.</h2>
-            <p>WereInLove™ ne remplace pas la conversation. Il prépare un terrain où elle peut redevenir humaine.</p>
-          </div>
-          <div class="analysis-card reveal">
-            <div class="analysis-bar"><span class="analysis-dot"></span><span>WereInLove™ - Lecture croisée</span></div>
-            <div class="analysis-body">
-              <div class="analysis-message"><strong>Chloé :</strong> “Quand tu réponds plus tard, j'ai l'impression de ne pas compter.”</div>
-              <div class="analysis-message"><strong>Esteban :</strong> “Je me tais pour éviter d'empirer les choses, pas pour m'éloigner.”</div>
-              <div class="analysis-message ai"><strong>WereInLove™ :</strong> Chloé cherche une preuve de présence. Esteban, lui, prend du recul pour éviter d'abîmer davantage la relation. Le conflit ne parle donc pas seulement du délai de réponse, mais de deux façons différentes de protéger le lien.</div>
+      <section class="solo-start reveal">
+        <figure class="solo-start-media">
+          <img src="wereinlove-assets/start-alone.png" alt="Une personne seule sur son téléphone dans une lumière calme" loading="lazy">
+        </figure>
+        <div class="solo-start-copy">
+          <p class="eyebrow">Commencer seul</p>
+          <h2>Et si l'autre personne ne veut pas participer tout de suite ?</h2>
+          <p>Vous pouvez commencer seul. Déposer votre version permet déjà de clarifier ce que vous avez vécu et de préparer une façon plus calme de reprendre la conversation. Vous pourrez inviter l'autre personne ensuite.</p>
+          <p class="solo-note">L'analyse croisée devient complète lorsque chacun a partagé son point de vue.</p>
+        </div>
+      </section>
+
+      <section class="demo-section" id="analyse">
+        <div class="demo-head reveal">
+          <p class="eyebrow">DÉMONSTRATION</p>
+          <h2>Deux personnes. Deux façons de protéger la même relation.</h2>
+          <p>WereInLove™ croise les deux récits pour faire apparaître ce que chacun voulait réellement dire.</p>
+        </div>
+
+        <div class="demo-card reveal" data-demo-card>
+          <div class="demo-interface"><span class="demo-dot"></span><span>WereInLove™ — Lecture croisée</span></div>
+          <div class="demo-stack">
+            <div class="demo-bubble demo-step"><strong>Chloé</strong><br>« Quand tu refuses de parler après une dispute, j'ai l'impression que tu me punis et que notre relation ne compte plus. »</div>
+            <div class="demo-bubble demo-step"><strong>Esteban</strong><br>« Je me tais parce que j'ai peur de dire quelque chose de blessant. J'essaie de nous protéger, pas de t'ignorer. »</div>
+            <div class="demo-processing">
+              <span>Analyse des deux points de vue…</span>
+              <span class="demo-dots" aria-hidden="true"><span></span><span></span><span></span></span>
             </div>
+            <div class="demo-result">
+              <h3>WereInLove™</h3>
+              <p>Chloé interprète le silence comme un abandon. Esteban utilise le silence pour éviter d'aggraver le conflit.</p>
+              <p class="demo-emphasis">Vous cherchez tous les deux à protéger la relation, mais vos stratégies opposées produisent exactement l'effet inverse.</p>
+              <div class="demo-separator"></div>
+              <p class="demo-label">Phrase possible pour reprendre le dialogue :</p>
+              <div class="demo-suggestion">« J'ai besoin de quelques minutes pour me calmer, mais je ne suis pas en train de partir. On en reparle juste après. »</div>
+            </div>
+            <div class="demo-actions">
+              <a class="button" href="app.html">Essayer avec notre histoire</a>
+              <a class="button ghost" href="boite-a-disputes.html">Voir une analyse complète</a>
+            </div>
+            <p class="demo-trust">Deux premières analyses offertes · Aucune carte bancaire demandée</p>
           </div>
         </div>
       </section>
@@ -3262,6 +4696,20 @@ main > section{
         </div>
       </section>
 
+      <section class="privacy-section">
+        <div class="privacy-card reveal">
+          <p class="eyebrow">Confidentialité</p>
+          <h2>Votre histoire vous appartient.</h2>
+          <p>Ce que vous racontez sert uniquement à produire votre analyse et à vous aider à reprendre le dialogue.</p>
+          <ul>
+            <li>Vos récits restent privés</li>
+            <li>Rien n'est publié automatiquement</li>
+            <li>Une histoire ne peut être rendue publique qu'avec l'accord explicite des utilisateurs concernés</li>
+          </ul>
+          <a class="privacy-link" href="confidentialite.html">Consulter notre politique de confidentialité →</a>
+        </div>
+      </section>
+
       <section class="pricing" id="tarifs">
         <div class="pricing-top reveal">
           <div>
@@ -3274,42 +4722,42 @@ main > section{
           <article class="plan reveal">
             <span class="plan-kicker">Découverte</span>
             <h3>Découverte</h3>
-            <p class="plan-sub">Vos deux premières histoires, sans carte bancaire</p>
-            <div class="price">0€</div>
-            <p class="plan-note">Pour essayer WereInLove™ librement</p>
+            <p class="plan-sub">Découvrez le fonctionnement complet de WereInLove™.</p>
+            <div class="price">0 €</div>
             <hr>
             <ul>
-              <li>2 histoires complètes offertes</li>
+              <li>2 analyses complètes offertes</li>
+              <li>Les deux points de vue</li>
+              <li>Jusqu'à 3 réponses chacun</li>
+              <li>Une lecture complète de WereInLove™</li>
               <li>Aucune carte bancaire demandée</li>
-              <li>Les deux versions + 3 réponses chacun</li>
-              <li>Analyse complète de WereInLove™</li>
             </ul>
-            <a class="button" href="app.html">Essayer gratuitement</a>
+            <a class="button" href="app.html">Commencer gratuitement</a>
           </article>
           <article class="plan dark reveal">
             <span class="plan-kicker">Formule la plus populaire</span>
             <h3>Relations essentielles</h3>
-            <p class="plan-sub">Pour apaiser les conflits qui comptent</p>
-            <div class="price">3,99€<small>/mois</small></div>
-            <p class="plan-note"><span class="was-price">9,99€</span> · jusqu'à 30 conflits apaisés par mois</p>
+            <p class="plan-sub">Pour utiliser WereInLove™ lorsque vous en avez réellement besoin.</p>
+            <div class="price">3,99 €<small>/mois</small></div>
             <hr>
             <ul>
-              <li>30 analyses par mois, pour toutes vos relations</li>
-              <li>WereInLove™ vous aide à mieux comprendre vos schémas récurrents</li>
+              <li>Jusqu'à 30 analyses par mois</li>
+              <li>Pour toutes vos relations importantes</li>
+              <li>Toutes les fonctionnalités incluses</li>
               <li>Résiliable à tout moment</li>
             </ul>
-            <a class="button light" href="app.html">S'abonner</a>
+            <a class="button light" href="app.html">Choisir cette formule</a>
           </article>
           <article class="plan reveal">
             <span class="plan-kicker">Illimité</span>
             <h3>Illimité</h3>
-            <p class="plan-sub">Pour comprendre sans compter</p>
-            <div class="price">14,99€<small>/mois</small></div>
-            <p class="plan-note">Analyses sans aucune limite</p>
+            <p class="plan-sub">Pour les couples, familles ou proches qui souhaitent utiliser WereInLove™ régulièrement.</p>
+            <div class="price">14,99 €<small>/mois</small></div>
             <hr>
             <ul>
               <li>Analyses illimitées</li>
               <li>Toutes les fonctionnalités incluses</li>
+              <li>Toutes vos relations</li>
               <li>Résiliable à tout moment</li>
             </ul>
             <a class="button" href="app.html">Passer à l'illimité</a>
@@ -3320,11 +4768,13 @@ main > section{
       <section class="final-cta">
         <img src="wereinlove-assets/moon.jpg" alt="Une silhouette face au ciel" loading="lazy">
         <div class="final-inner reveal">
-          <h2>Commencer par comprendre. Puis seulement répondre.</h2>
-          <p>WereInLove™ est là pour les liens que vous ne voulez pas laisser se perdre dans un malentendu.</p>
+          <h2>Une relation importante mérite parfois une deuxième lecture.</h2>
+          <p>Racontez ce qui s'est passé. WereInLove™ vous aide à comprendre ce que chacun a vécu et à retrouver une conversation possible.</p>
           <div class="hero-actions">
-            <a class="button light" href="app.html">Commencer gratuitement</a>
+            <a class="button light" href="app.html" data-primary-cta>Commencer gratuitement</a>
+            <a class="final-secondary" href="compatibilite.html">Faire le test de compatibilité →</a>
           </div>
+          <p class="final-proof">2 analyses offertes · Sans carte bancaire · Vos récits restent privés</p>
         </div>
       </section>
     </main>
@@ -3335,7 +4785,7 @@ main > section{
           <div class="footer-brand">
             <a class="footer-logo" href="#top" aria-label="WereInLove™">
               <span class="mark" aria-hidden="true"></span>
-              <span>WereInLove™</span>
+              <span>WEREINLOVE™</span>
             </a>
             <p>Un espace calme pour raconter deux versions d'une même histoire, comprendre ce qui s'est joué et retrouver une conversation possible.</p>
           </div>
@@ -3345,7 +4795,7 @@ main > section{
             <ul>
               <li><a href="#fonctionnement">Comment ça marche</a></li>
               <li><a href="#tarifs">Tarifs</a></li>
-              <li><a href="app.html">Apaiser un conflit</a></li>
+              <li><a href="app.html">Commencer gratuitement</a></li>
               <li><a href="#vision">Notre vision</a></li>
             </ul>
           </nav>
@@ -3393,11 +4843,16 @@ main > section{
     const hero = document.querySelector(".hero");
     const heroMedia = document.querySelector("[data-hero-media]");
     const heroVideo = document.querySelector(".hero-video");
+    const mobileCta = document.querySelector("[data-mobile-cta]");
+    const primaryCtas = Array.from(document.querySelectorAll("[data-primary-cta]"));
+    const pricingSection = document.querySelector("#tarifs");
+    const footer = document.querySelector(".site-footer");
     const bleedTrack = document.querySelector("[data-bleed-track]");
     const bleedPhoto = document.querySelector(".bleed-photo");
     const rail = document.querySelector("[data-rail]");
+    const demoCard = document.querySelector("[data-demo-card]");
     const revealEls = document.querySelectorAll(".reveal");
-    const depthEls = document.querySelectorAll(".story-copy, .feature-photo, .analysis-copy, .analysis-card, .step, .resolved-card, .experience-card, .plan, .final-inner");
+    const depthEls = document.querySelectorAll(".story-copy, .feature-photo, .step, .resolved-card, .experience-card, .plan, .final-inner");
     const depthImages = document.querySelectorAll(".feature-photo img, .resolved-card img, .experience-card img, .bleed-photo img");
     const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -3412,6 +4867,22 @@ main > section{
 
     revealEls.forEach((el) => revealObserver.observe(el));
 
+    if (demoCard) {
+      if (motionOk) {
+        const demoObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-playing");
+              demoObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.26, rootMargin: "0px 0px -12% 0px" });
+        demoObserver.observe(demoCard);
+      } else {
+        demoCard.classList.add("is-playing");
+      }
+    }
+
     const lightObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         nav.classList.toggle("is-light", !entry.isIntersecting);
@@ -3424,10 +4895,38 @@ main > section{
       return Math.min(Math.max(value, min), max);
     }
 
+    let lastScrollY = window.scrollY || window.pageYOffset || 0;
+
+    function elementIntersectsViewport(el, topOffset = 90, bottomOffset = 90) {
+      if (!el) return false;
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight - bottomOffset && rect.bottom > topOffset;
+    }
+
     function animateOnScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
       const heroHeight = hero.offsetHeight || window.innerHeight;
       const progress = clamp(scrollY / Math.min(heroHeight, window.innerHeight * 0.82), 0, 1);
+      const isMobileViewport = window.innerWidth <= 760;
+      const scrollingDown = scrollY > lastScrollY + 4;
+      const scrollingUp = scrollY < lastScrollY - 4;
+
+      if (nav) {
+        nav.classList.toggle("is-scrolled", scrollY > 90);
+        if (isMobileViewport && scrollY > 160 && scrollingDown) {
+          nav.classList.add("is-hidden");
+        }
+        if (!isMobileViewport || scrollingUp || scrollY < 160) {
+          nav.classList.remove("is-hidden");
+        }
+      }
+
+      if (mobileCta) {
+        const primaryInView = primaryCtas.some((el) => elementIntersectsViewport(el, 80, 110));
+        const blockedBySection = elementIntersectsViewport(pricingSection, 40, 80) || elementIntersectsViewport(footer, 40, 40);
+        const shouldShow = isMobileViewport && scrollY > heroHeight * .78 && !primaryInView && !blockedBySection;
+        mobileCta.classList.toggle("is-visible", shouldShow);
+      }
 
       if (motionOk && heroMedia) {
         const isMobile = window.innerWidth <= 560;
@@ -3445,7 +4944,7 @@ main > section{
         const rect = bleedPhoto.getBoundingClientRect();
         const local = clamp((window.innerHeight - rect.top) / Math.max(1, window.innerHeight + rect.height), 0, 1);
         const eased = 1 - Math.pow(1 - local, 3);
-        const gap = eased * (isSmall ? 42 : 150);
+        const gap = eased * (isSmall ? 52 : 165);
         bleedPhoto.style.setProperty("--bleed-gap", `${gap}px`);
         bleedPhoto.style.setProperty("--bleed-offset", `${gap / 2}px`);
         bleedPhoto.style.setProperty("--bleed-radius", `${eased * (isSmall ? 26 : 54)}px`);
@@ -3454,10 +4953,14 @@ main > section{
       }
 
       if (motionOk && rail) {
-        const rect = rail.parentElement.getBoundingClientRect();
-        const local = clamp((window.innerHeight - rect.top) / (window.innerHeight + rect.height), 0, 1);
+        const section = rail.closest(".intro");
+        const rect = section ? section.getBoundingClientRect() : rail.getBoundingClientRect();
+        const local = clamp((window.innerHeight - rect.top) / Math.max(1, window.innerHeight + rect.height), 0, 1);
         const maxMove = Math.max(0, rail.scrollWidth - window.innerWidth + 48);
-        rail.style.setProperty("--rail-x", `${-maxMove * local * 0.82}px`);
+        const strength = window.innerWidth <= 760 ? 0.18 : 0.24;
+        rail.style.setProperty("--rail-x", `${-maxMove * local * strength}px`);
+      } else if (rail) {
+        rail.style.setProperty("--rail-x", "0px");
       }
 
       if (motionOk) {
@@ -3476,6 +4979,8 @@ main > section{
           img.parentElement.style.setProperty("--photo-y", `${parallax}px`);
         });
       }
+
+      lastScrollY = scrollY;
     }
 
     let ticking = false;
