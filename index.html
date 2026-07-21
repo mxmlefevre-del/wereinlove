@@ -9,11 +9,11 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="WereInLove™ - Comprendre les personnes qui comptent">
   <meta property="og:description" content="Les plus belles relations ne se construisent pas parce que l'on a raison. Elles se construisent parce que l'on finit par se comprendre.">
-  <meta property="og:image" content="wereinlove-assets/wereinlove-logo.png">
+  <meta property="og:image" content="wereinlove-assets/wereinlove-wordmark-red.png">
   <link rel="preload" as="image" href="wereinlove-assets/family-field.jpg">
-  <link rel="icon" type="image/png" href="wereinlove-assets/favicon.png">
-  <link rel="icon" href="wereinlove-assets/favicon.ico" sizes="any">
-  <link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="wereinlove-assets/favicon-heart-red.png">
+  <link rel="icon" href="wereinlove-assets/favicon-heart-red.ico" sizes="any">
+  <link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon-heart-red.png">
   <style>
     :root {
       --bg: #f6f2ef;
@@ -5412,14 +5412,209 @@ img.mf-logo {
   }
 }
 
+
+/* New WereInLove wordmark assets. */
+.site-footer {
+  padding-bottom: 0 !important;
+}
+
+.brand-wordmark-link {
+  min-width: 0 !important;
+  padding: 0 14px 0 16px !important;
+}
+
+.nav-wordmark {
+  display: block !important;
+  width: clamp(136px, 21vw, 184px) !important;
+  height: auto !important;
+  max-height: 28px !important;
+  object-fit: contain !important;
+}
+
+.footer-wordmark-link span {
+  color: #fff;
+}
+
+.footer-red-wordmark {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  max-width: none;
+  margin: clamp(42px, 6vw, 82px) 0 0 -50vw;
+  overflow: hidden;
+}
+
+.footer-red-wordmark img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 760px) {
+  .brand-wordmark-link {
+    padding: 0 10px 0 12px !important;
+  }
+
+  .nav-wordmark {
+    width: 128px !important;
+    max-height: 24px !important;
+  }
+
+  .footer-red-wordmark {
+    width: 100vw;
+    margin-top: 36px;
+  }
+}
+
+
+.brand-text-link {
+  min-width: 0 !important;
+  padding: 0 15px 0 17px !important;
+  font-size: 17px !important;
+  font-weight: 760 !important;
+  letter-spacing: -.04em !important;
+  color: #fff !important;
+}
+
+.brand-text-link span {
+  display: block !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 760px) {
+  .brand-text-link {
+    padding: 0 11px 0 13px !important;
+    font-size: 15px !important;
+  }
+}
+
+
+/* Shorter top navigation capsule. */
+.nav {
+  height: 52px !important;
+  padding: 4px !important;
+  gap: 2px !important;
+}
+
+.brand-text-link {
+  height: 42px !important;
+  padding: 0 12px 0 14px !important;
+  font-size: 16px !important;
+}
+
+.nav-cta {
+  height: 42px !important;
+  padding: 0 15px !important;
+  font-size: 15px !important;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    width: min(calc(100% - 92px), 280px) !important;
+    height: 48px !important;
+    padding: 4px !important;
+  }
+
+  .brand-text-link {
+    height: 40px !important;
+    padding: 0 9px 0 11px !important;
+    font-size: 14px !important;
+  }
+
+  .nav-cta {
+    height: 40px !important;
+    padding: 0 12px !important;
+    font-size: 14px !important;
+  }
+}
+
+
+/* Even shorter navigation capsule. */
+.nav {
+  height: 48px !important;
+  padding: 3px !important;
+  gap: 0 !important;
+}
+
+.brand-text-link {
+  height: 38px !important;
+  padding: 0 9px 0 11px !important;
+  font-size: 15px !important;
+}
+
+.nav-cta {
+  height: 38px !important;
+  padding: 0 12px !important;
+  font-size: 14px !important;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    width: min(calc(100% - 126px), 248px) !important;
+    height: 44px !important;
+    padding: 3px !important;
+  }
+
+  .brand-text-link {
+    height: 36px !important;
+    padding: 0 7px 0 9px !important;
+    font-size: 13px !important;
+  }
+
+  .nav-cta {
+    height: 36px !important;
+    padding: 0 9px !important;
+    font-size: 13px !important;
+  }
+}
+
+
+/* Ultra compact navigation capsule. */
+.nav {
+  height: 44px !important;
+  padding: 3px !important;
+  gap: 0 !important;
+}
+
+.brand-text-link {
+  height: 34px !important;
+  padding: 0 7px 0 9px !important;
+  font-size: 14px !important;
+}
+
+.nav-cta {
+  height: 34px !important;
+  padding: 0 9px !important;
+  font-size: 13px !important;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    width: min(calc(100% - 152px), 222px) !important;
+    height: 40px !important;
+    padding: 3px !important;
+  }
+
+  .brand-text-link {
+    height: 32px !important;
+    padding: 0 5px 0 7px !important;
+    font-size: 12px !important;
+  }
+
+  .nav-cta {
+    height: 32px !important;
+    padding: 0 7px !important;
+    font-size: 12px !important;
+  }
+}
+
 </style>
 </head>
 <body>
   <div class="site-shell">
     <header class="nav-wrap" aria-label="Navigation principale">
       <nav class="nav" data-nav>
-        <a class="brand" href="#top" aria-label="WereInLove™">
-          <img class="mark" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true">
+        <a class="brand brand-text-link" href="#top" aria-label="WereInLove™">
           <span>WEREINLOVE™</span>
         </a>
         <a class="nav-cta" href="espace-client.html">Espace client</a>
@@ -5734,8 +5929,7 @@ img.mf-logo {
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-brand">
-            <a class="footer-logo" href="#top" aria-label="WereInLove™">
-              <img class="mark" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true">
+            <a class="footer-logo footer-wordmark-link" href="#top" aria-label="WereInLove™">
               <span>WEREINLOVE™</span>
             </a>
             <p>Un espace calme pour raconter deux versions d'une même histoire, comprendre ce qui s'est joué et retrouver une conversation possible.</p>
@@ -5785,6 +5979,9 @@ img.mf-logo {
           <span>© 2026 WereInLove™. Tous droits réservés.</span>
           <span>Comprendre les personnes qui comptent.</span>
         </div>
+      </div>
+      <div class="footer-red-wordmark" aria-hidden="true">
+        <img src="wereinlove-assets/wereinlove-wordmark-red.png" alt="">
       </div>
     </footer>
   </div>
