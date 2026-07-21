@@ -6,10 +6,10 @@
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#F6F2EF">
 <title>WereInLove&trade; — La boîte à histoires</title>
-<meta name="description" content="La boîte à histoires — deux versions, un verdict, deux pactes.">
-<link rel="icon" type="image/png" href="wereinlove-assets/favicon.png">
-<link rel="icon" href="wereinlove-assets/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon.png">
+<meta name="description" content="La boîte à histoires — deux versions, une lecture claire, deux pactes.">
+<link rel="icon" type="image/png" href="wereinlove-assets/favicon-heart-red.png">
+<link rel="icon" href="wereinlove-assets/favicon-heart-red.ico" sizes="any">
+<link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon-heart-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -43,53 +43,52 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 ::selection{background:rgba(255,95,149,.22)}
 
 /* ============ AMBIENT BACKGROUND ============ */
-.ambient{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--cream)}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform}
-.blob.b1{width:52vmax;height:52vmax;left:-16vmax;top:-18vmax;background:radial-gradient(circle,#ffc2d6,#ffdfe9 60%,transparent 72%);animation:drift1 26s var(--ease) infinite alternate}
-.blob.b2{width:46vmax;height:46vmax;right:-14vmax;top:8vmax;background:radial-gradient(circle,#e6d8ff,#efe7ff 60%,transparent 72%);animation:drift2 30s var(--ease) infinite alternate}
-.blob.b3{width:44vmax;height:44vmax;left:6vmax;bottom:-20vmax;background:radial-gradient(circle,#ffe4c4,#fff0dd 60%,transparent 72%);animation:drift3 34s var(--ease) infinite alternate}
-@keyframes drift1{to{transform:translate(8vmax,6vmax) scale(1.12)}}
-@keyframes drift2{to{transform:translate(-7vmax,9vmax) scale(1.08)}}
-@keyframes drift3{to{transform:translate(6vmax,-7vmax) scale(1.14)}}
+.ambient{position:fixed;inset:0;z-index:0;overflow:hidden;background:
+  radial-gradient(900px 540px at 50% -120px,rgba(255,255,255,.94),rgba(255,255,255,0) 68%),
+  linear-gradient(180deg,#fbf7f2 0%,#f5eee7 48%,#efe6dc 100%)}
+.blob{display:none}
 
 /* ============ MENU ============ */
 .menu{position:relative;z-index:1;height:100svh;overflow-y:auto;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
-.menu-inner{max-width:1120px;margin:0 auto;padding:calc(26px + env(safe-area-inset-top)) 22px calc(60px + env(safe-area-inset-bottom))}
-.brandbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:44px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;letter-spacing:-.03em}
-.brand .mark{width:34px;height:30px;object-fit:contain;display:block;flex:0 0 auto}
-.brand-tag{font-size:12px;font-weight:700;color:var(--muted);padding:8px 13px;border-radius:99px;background:var(--glass);border:1px solid var(--glass-brd);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%)}
-.hero{margin-bottom:30px;animation:rise .8s var(--ease) both}
-.eyebrow{font-size:12.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--pink)}
-.hero h1{margin-top:14px;font-size:clamp(44px,8.4vw,84px);line-height:.92;letter-spacing:-.055em;font-weight:900}
-.hero p{margin-top:18px;max-width:34ch;font-size:clamp(16px,2.4vw,19px);line-height:1.5;color:var(--muted);font-weight:500}
+.menu-inner{max-width:1180px;margin:0 auto;padding:calc(22px + env(safe-area-inset-top)) 22px calc(64px + env(safe-area-inset-bottom))}
+.brandbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:54px}
+.brand{display:inline-flex;align-items:center;height:44px;padding:0 16px;border-radius:999px;background:rgba(28,22,18,.82);border:1px solid rgba(255,255,255,.18);box-shadow:0 18px 48px rgba(35,27,21,.12);color:#fff;font-weight:780;font-size:15px;letter-spacing:-.04em;backdrop-filter:blur(22px) saturate(130%);-webkit-backdrop-filter:blur(22px) saturate(130%)}
+.brand .mark{display:none}
+.brand-tag{font-size:12px;font-weight:750;color:rgba(22,21,19,.66);padding:9px 14px;border-radius:99px;background:rgba(255,255,255,.52);border:1px solid rgba(255,255,255,.68);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%)}
+.hero{margin-bottom:34px;animation:rise .8s var(--ease) both}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(22,21,19,.54)}
+.hero h1{margin-top:12px;font-size:clamp(48px,7.6vw,86px);line-height:.96;letter-spacing:-.055em;font-weight:850;max-width:10ch}
+.hero p{margin-top:18px;max-width:41ch;font-size:clamp(16px,2vw,20px);line-height:1.48;color:rgba(22,21,19,.58);font-weight:520;letter-spacing:-.025em}
 
-.filters{display:flex;gap:9px;overflow-x:auto;padding:6px 0 22px;scrollbar-width:none;-ms-overflow-style:none;position:sticky;top:0;z-index:5}
+.filter-row{position:sticky;top:0;z-index:5;margin-bottom:22px;padding-top:4px;background:linear-gradient(180deg,rgba(244,239,233,.95),rgba(244,239,233,.72) 72%,rgba(244,239,233,0));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.filter-head{display:none}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:6px 0 12px;scrollbar-width:none;-ms-overflow-style:none}
 .filters::-webkit-scrollbar{display:none}
-.chip{flex:0 0 auto;padding:11px 17px;border-radius:99px;font-size:14px;font-weight:700;color:var(--ink);white-space:nowrap;
-  background:var(--glass);border:1px solid var(--glass-brd);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);
-  transition:transform .35s var(--ease),background .3s,color .3s;box-shadow:0 6px 20px rgba(28,22,18,.06)}
+.filter-row::after{content:"";position:absolute;top:0;right:-1px;bottom:0;width:70px;pointer-events:none;background:linear-gradient(90deg,rgba(244,239,233,0),rgba(244,239,233,.98))}
+.chip{flex:0 0 auto;padding:10px 15px;border-radius:999px;font-size:13px;font-weight:740;color:rgba(22,21,19,.78);white-space:nowrap;
+  background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.72);backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);
+  transition:transform .35s var(--ease),background .3s,color .3s;box-shadow:0 6px 18px rgba(28,22,18,.045)}
 .chip:active{transform:scale(.94)}
 .chip.on{background:var(--black);color:#fff;border-color:var(--black)}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.tile{position:relative;text-align:left;border-radius:30px;padding:22px 22px 20px;overflow:hidden;isolation:isolate;
-  background:var(--glass);border:1px solid var(--glass-brd);
-  backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);
-  box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 20px 46px rgba(28,22,18,.10);
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.tile{position:relative;text-align:left;border-radius:22px;padding:22px;overflow:hidden;isolation:isolate;
+  background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.75);
+  backdrop-filter:blur(24px) saturate(145%);-webkit-backdrop-filter:blur(24px) saturate(145%);
+  box-shadow:0 1px 0 rgba(255,255,255,.82) inset,0 18px 42px rgba(40,31,24,.075);
   transition:transform .5s var(--ease),box-shadow .5s var(--ease);
-  animation:rise .7s var(--ease) both;min-height:216px;display:flex;flex-direction:column}
+  animation:rise .7s var(--ease) both;min-height:210px;display:flex;flex-direction:column}
 .tile::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;
   background:linear-gradient(150deg,rgba(255,255,255,.5),rgba(255,255,255,0) 46%)}
-.tile:hover{transform:translateY(-4px);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 30px 60px rgba(28,22,18,.16)}
+.tile:hover{transform:translateY(-3px);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 28px 58px rgba(28,22,18,.13)}
 .tile:active{transform:translateY(-1px) scale(.985)}
 .tile-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
 .tile-cat{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
   padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.7)}
 .tile-likes{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:800;color:var(--muted)}
 .tile-likes svg{width:15px;height:15px}
-.tile h3{font-size:22px;line-height:1.14;letter-spacing:-.035em;font-weight:800}
-.tile .hook{margin-top:10px;font-size:14.5px;line-height:1.45;color:var(--muted);font-weight:500;flex:1}
+.tile h3{font-size:22px;line-height:1.12;letter-spacing:-.04em;font-weight:820}
+.tile .hook{margin-top:10px;font-size:14.5px;line-height:1.48;color:rgba(22,21,19,.56);font-weight:500;flex:1}
 .tile-foot{margin-top:16px;display:flex;align-items:center;justify-content:space-between}
 .vs-mini{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:800}
 .vs-mini .s{color:rgba(22,21,19,.35);font-size:10px;font-weight:800;letter-spacing:.1em}
@@ -97,7 +96,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .open-hint{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:var(--ink);opacity:0;transform:translateX(-4px);transition:.4s var(--ease)}
 .tile:hover .open-hint{opacity:1;transform:translateX(0)}
 
-.menu-foot{margin-top:46px;text-align:center;color:var(--muted);font-size:13px;font-weight:600}
+.menu-foot{margin-top:48px;text-align:center;color:rgba(22,21,19,.5);font-size:13px;font-weight:650}
 
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
@@ -217,8 +216,20 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 
 @media(max-width:520px){
   .grid{grid-template-columns:1fr}
-  .brandbar{margin-bottom:30px}
-  .hero{margin-bottom:22px}
+  .menu-inner{padding-left:18px;padding-right:18px}
+  .brandbar{margin-bottom:36px}
+  .brand{height:40px;padding:0 13px;font-size:13px}
+  .brand-tag{font-size:11px;padding:8px 11px}
+  .hero{margin-bottom:24px}
+  .hero h1{font-size:clamp(50px,15vw,64px)}
+  .hero p{font-size:16px;max-width:32ch}
+  .filter-row{margin-left:-18px;margin-right:-18px;padding-left:18px}
+  .filter-head{display:flex;align-items:center;gap:8px;margin:0 0 2px;color:rgba(22,21,19,.52);font-size:12px;font-weight:760;letter-spacing:-.01em}
+  .filter-head svg{width:15px;height:15px;animation:nudge 1.7s var(--ease) infinite}
+  .filters{padding-bottom:14px;padding-right:70px}
+  .chip{font-size:13px;padding:10px 14px}
+  .tile{border-radius:20px;min-height:198px}
+  .open-hint{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -232,17 +243,24 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 <main class="menu" id="menu">
   <div class="menu-inner">
     <div class="brandbar">
-      <div class="brand"><img class="mark" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true"><span>WereInLove&trade;</span></div>
+      <div class="brand"><span>WEREINLOVE&trade;</span></div>
       <span class="brand-tag">Boîte à histoires</span>
     </div>
     <header class="hero">
-      <span class="eyebrow">Deux versions · un verdict</span>
+      <span class="eyebrow">Deux récits · deux pactes</span>
       <h1>La boîte<br>à histoires</h1>
-      <p>Des vraies disputes, anonymisées. Vous lisez les deux camps, l'IA tranche, et chacun repart avec son pacte. Choisissez une histoire.</p>
+      <p>Des histoires anonymisées où chacun raconte sa version. WereInLove™ croise les points de vue et propose deux pactes pour mieux se retrouver.</p>
     </header>
-    <nav class="filters" id="filters"></nav>
+    <div class="filter-row">
+      <div class="filter-head">
+        <span>Catégories</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        <span>glissez</span>
+      </div>
+      <nav class="filters" id="filters" aria-label="Catégories d'histoires"></nav>
+    </div>
     <section class="grid" id="grid"></section>
-    <footer class="menu-foot">Une histoire vous parle&nbsp;? Ouvrez-la, glissez, découvrez le verdict.</footer>
+    <footer class="menu-foot">Une histoire vous parle&nbsp;? Ouvrez-la, puis glissez pour lire les deux versions et les pactes.</footer>
   </div>
 </main>
 
@@ -382,10 +400,10 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
           '<div class="score '+(!aWin?'win':'lose')+'"><span class="n">'+pb+'%</span><span class="lbl">'+esc(d.b)+'</span></div>'+
         '</div>'+
         '<div class="vbar"><div class="fa" style="width:'+pa+'%"></div><div class="fb" style="width:'+pb+'%"></div></div>'+
-        '<div class="sect-lbl">Ce que l\'IA a vu</div>'+
+        '<div class="sect-lbl">Ce que WereInLove&trade; a vu</div>'+
         '<div class="analysis">'+esc(v.analyse)+'</div>'+
         '<div class="pactes">'+
-          '<div class="sect-lbl">Et maintenant, on vous rabiboche</div>'+
+          '<div class="sect-lbl">Les pactes pour la suite</div>'+
           '<div class="pacte pa"><div class="p-name">Le pacte de '+esc(d.a)+'</div><div class="p-txt">'+esc(v.pacteA)+'</div></div>'+
           '<div class="pacte pb"><div class="p-name">Le pacte de '+esc(d.b)+'</div><div class="p-txt">'+esc(v.pacteB)+'</div></div>'+
         '</div>'+
@@ -410,7 +428,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   function endReel(){
     return '<section class="reel end"><div class="inner">'+
       '<h2>Vous avez tout lu.</h2>'+
-      '<p>Chaque dispute a deux versions. La vôtre aussi mérite son verdict.</p>'+
+      '<p>Chaque histoire a deux versions. La vôtre aussi mérite une lecture plus claire.</p>'+
       '<button class="back" data-close>Revenir aux histoires</button>'+
     '</div></section>';
   }
@@ -441,7 +459,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
       reel.querySelector('.share-btn').addEventListener('click',function(){
         var d=DATA[+reel.dataset.i];
         var url=location.origin+location.pathname+'#'+id;
-        var payload={title:'WereInLove™ — '+(d?d.title:''),text:'Deux versions, un verdict.',url:url};
+        var payload={title:'WereInLove™ — '+(d?d.title:''),text:'Deux versions, deux pactes.',url:url};
         if(navigator.share){navigator.share(payload).catch(function(){});}
         else if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){showToast('Lien copié');},function(){showToast('Partage indisponible');});}
         else showToast(url);
