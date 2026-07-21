@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact - WereInLove</title>
-  <style>
+  
+<link rel="icon" type="image/png" href="wereinlove-assets/favicon.png">
+<link rel="icon" href="wereinlove-assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon.png">
+<style>
     :root { --bg:#f6f2ef; --ink:#181818; --muted:#77716b; --black:#171412; --line:rgba(24,24,24,.12); --rose:#ff5d8f; --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
     *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
     .nav{position:fixed;top:24px;left:50%;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:4px;padding:5px;border:1px solid var(--line);border-radius:999px;background:rgba(246,242,239,.82);backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(36,28,22,.12)}
@@ -118,10 +122,51 @@ svg [fill="#ff9bbd"]{
   fill:#ff9bbd!important;
 }
 
+
+/* WereInLove real logo rollout */
+img.brand-logo,
+.logo img.brand-logo,
+.brand img.brand-logo {
+  display: block !important;
+  width: 30px !important;
+  height: 26px !important;
+  object-fit: contain !important;
+  flex: 0 0 auto !important;
+}
+.logo::before,
+.brand::before,
+.mf-brand::before {
+  display: none !important;
+  content: none !important;
+}
+.logo-mark,
+.brand-mark {
+  display: none !important;
+}
+.logo svg,
+.brand svg {
+  display: none !important;
+}
+img.mf-logo {
+  display: block !important;
+  width: 86px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 8px 24px rgba(255,45,117,.38));
+}
+@media (max-width: 760px) {
+  img.brand-logo,
+  .logo img.brand-logo,
+  .brand img.brand-logo {
+    width: 26px !important;
+    height: 23px !important;
+  }
+}
+
 </style>
 </head>
 <body>
-  <nav class="nav"><a class="brand" href="index.html">WereInLove</a><a class="cta" href="index.html">Accueil</a></nav>
+  <nav class="nav"><a class="brand" href="index.html"><img class="brand-logo" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true">WereInLove</a><a class="cta" href="index.html">Accueil</a></nav>
   <main>
     <section class="panel contact-grid">
       <div class="contact-intro">

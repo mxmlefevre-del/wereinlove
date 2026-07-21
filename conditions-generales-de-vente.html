@@ -6,7 +6,9 @@
 <meta name="color-scheme" content="only light">
 <title>Condition générale de vente — WereInLove</title>
 <meta name="robots" content="index, follow">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='24' cy='28' r='18' fill='%23FF2D75'/%3E%3Ccircle cx='40' cy='28' r='18' fill='%237C4DFF' fill-opacity='.85'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="wereinlove-assets/favicon.png">
+<link rel="icon" href="wereinlove-assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -310,18 +312,54 @@ svg [fill="#ff9bbd"]{
   fill:#ff9bbd!important;
 }
 
+
+/* WereInLove real logo rollout */
+img.brand-logo,
+.logo img.brand-logo,
+.brand img.brand-logo {
+  display: block !important;
+  width: 30px !important;
+  height: 26px !important;
+  object-fit: contain !important;
+  flex: 0 0 auto !important;
+}
+.logo::before,
+.brand::before,
+.mf-brand::before {
+  display: none !important;
+  content: none !important;
+}
+.logo-mark,
+.brand-mark {
+  display: none !important;
+}
+.logo svg,
+.brand svg {
+  display: none !important;
+}
+img.mf-logo {
+  display: block !important;
+  width: 86px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 8px 24px rgba(255,45,117,.38));
+}
+@media (max-width: 760px) {
+  img.brand-logo,
+  .logo img.brand-logo,
+  .brand img.brand-logo {
+    width: 26px !important;
+    height: 23px !important;
+  }
+}
+
 </style>
 </head>
 <body>
 <header>
   <a class="back" href="index.html">← Retour au site</a>
   <a class="logo" href="index.html" aria-label="WereInLove">
-    <svg viewBox="0 0 64 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M24 2C12 2 3 10.6 3 21.4 3 28 6.5 33.7 12 37v8.4c0 1.6 1.9 2.5 3.2 1.5l8-6.2c.3 0 .5 0 .8 0 11.9 0 21-8.6 21-19.3S35.9 2 24 2Z" fill="#FF2D75"/>
-      <path d="M40 6c-11.9 0-21 8.6-21 19.4 0 10.7 9.1 19.3 21 19.3.3 0 .5 0 .8 0l8 6.2c1.3 1 3.2.1 3.2-1.5V41c5.5-3.3 9-9 9-15.6C61 14.6 51.9 6 40 6Z" fill="#ff9bbd" fill-opacity=".88"/>
-      <circle cx="25" cy="25" r="2.6" fill="#fff"/><circle cx="33" cy="25" r="2.6" fill="#fff"/><circle cx="41" cy="25" r="2.6" fill="#fff"/>
-    </svg>
-    <span class="txt">WereInLove</span>
+    <img class="brand-logo" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true"><span class="txt">WereInLove</span>
   </a>
 </header>
 <main>
@@ -376,7 +414,7 @@ svg [fill="#ff9bbd"]{
 </main>
 <footer>
   <div class="foot-brand">
-    <div class="logo"><span class="txt">WereInLove</span></div>
+    <div class="logo"><img class="brand-logo" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true"><span class="txt">WereInLove</span></div>
     <p>Un espace calme pour raconter deux versions d'une même histoire, comprendre ce qui s'est joué et retrouver une conversation possible.</p>
   </div>
   <div class="foot-links">

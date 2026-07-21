@@ -5197,6 +5197,58 @@ img.mark::after {
   }
 }
 
+
+/* WereInLove real logo rollout */
+img.brand-logo,
+.logo img.brand-logo,
+.brand img.brand-logo {
+  display: block !important;
+  width: 30px !important;
+  height: 26px !important;
+  object-fit: contain !important;
+  flex: 0 0 auto !important;
+}
+.logo::before,
+.brand::before,
+.mf-brand::before {
+  display: none !important;
+  content: none !important;
+}
+.logo-mark,
+.brand-mark {
+  display: none !important;
+}
+.logo svg,
+.brand svg {
+  display: none !important;
+}
+img.mf-logo {
+  display: block !important;
+  width: 86px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 8px 24px rgba(255,45,117,.38));
+}
+@media (max-width: 760px) {
+  img.brand-logo,
+  .logo img.brand-logo,
+  .brand img.brand-logo {
+    width: 26px !important;
+    height: 23px !important;
+  }
+}
+
+/* Slightly brighter hero video. */
+.hero-video {
+  filter: saturate(1.02) contrast(1.01) brightness(1.08) !important;
+}
+
+.hero-media::after {
+  background:
+    linear-gradient(90deg, rgba(16, 12, 10, .48) 0%, rgba(16, 12, 10, .24) 46%, rgba(16, 12, 10, .12) 100%),
+    linear-gradient(0deg, rgba(14, 10, 8, .48) 0%, rgba(14, 10, 8, .05) 42%, rgba(14, 10, 8, .12) 100%) !important;
+}
+
 </style>
 </head>
 <body>

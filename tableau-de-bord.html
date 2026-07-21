@@ -6,6 +6,10 @@
 <meta name="color-scheme" content="only light">
 <meta name="robots" content="noindex, nofollow">
 <title>WereInLove — Tableau de bord</title>
+
+<link rel="icon" type="image/png" href="wereinlove-assets/favicon.png">
+<link rel="icon" href="wereinlove-assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -281,12 +285,53 @@ svg [fill="#ff9bbd"]{
   fill:#ff9bbd!important;
 }
 
+
+/* WereInLove real logo rollout */
+img.brand-logo,
+.logo img.brand-logo,
+.brand img.brand-logo {
+  display: block !important;
+  width: 30px !important;
+  height: 26px !important;
+  object-fit: contain !important;
+  flex: 0 0 auto !important;
+}
+.logo::before,
+.brand::before,
+.mf-brand::before {
+  display: none !important;
+  content: none !important;
+}
+.logo-mark,
+.brand-mark {
+  display: none !important;
+}
+.logo svg,
+.brand svg {
+  display: none !important;
+}
+img.mf-logo {
+  display: block !important;
+  width: 86px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 8px 24px rgba(255,45,117,.38));
+}
+@media (max-width: 760px) {
+  img.brand-logo,
+  .logo img.brand-logo,
+  .brand img.brand-logo {
+    width: 26px !important;
+    height: 23px !important;
+  }
+}
+
 </style>
 </head>
 <body>
 
 <header>
-  <svg viewBox="0 0 64 44"><circle cx="24" cy="20" r="17" fill="#FF2D75"/><circle cx="40" cy="20" r="17" fill="#ff9bbd" fill-opacity=".85"/></svg>
+  <img class="brand-logo" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true">
   <span class="txt">WereInLove</span>
   <span class="tag">🔒 Tableau de bord privé</span>
 </header>
