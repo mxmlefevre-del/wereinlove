@@ -3031,58 +3031,126 @@ main > section{
   letter-spacing:-.035em;
 }
 .demo-card{
-  width:min(1060px,calc(100vw - 48px));
+  width:min(1160px,calc(100vw - 48px));
   margin:0 auto;
-  padding:clamp(22px,3.2vw,40px);
-  border:1px solid var(--line-strong);
-  border-radius:clamp(28px,4vw,44px);
-  background:rgba(255,255,255,.78);
-  box-shadow:0 34px 95px rgba(36,28,22,.13);
+  padding:clamp(30px,5vw,68px);
+  border:1px solid rgba(24,24,24,.1);
+  border-radius:clamp(32px,4vw,52px);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.92), rgba(255,255,255,0) 42%),
+    linear-gradient(145deg, #ece7e1, #fbfaf8 46%, #e5ddd5);
+  box-shadow:0 42px 110px rgba(36,28,22,.16);
   overflow:hidden;
+}
+.demo-phone{
+  width:min(430px,100%);
+  margin:0 auto;
+  position:relative;
+  aspect-ratio:9 / 19.45;
+  padding:12px;
+  border-radius:64px;
+  background:
+    linear-gradient(135deg, #f5f2ee 0%, #b7b0a8 28%, #fff 48%, #858078 72%, #ded8d1 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.74),
+    inset 0 0 0 4px rgba(24,24,24,.06),
+    0 44px 100px rgba(34,26,21,.3);
+}
+.demo-phone::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border-radius:56px;
+  border:1px solid rgba(255,255,255,.5);
+  pointer-events:none;
+  z-index:3;
+}
+.demo-phone::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:22px;
+  width:118px;
+  height:34px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:#111;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+  z-index:5;
+}
+.demo-screen{
+  position:relative;
+  height:100%;
+  padding:74px 18px 20px;
+  border-radius:52px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(255,93,143,.2), transparent 28%),
+    radial-gradient(circle at 88% 22%, rgba(108,146,125,.24), transparent 30%),
+    linear-gradient(180deg,#fbfaf8 0%,#f0eae4 58%,#e6ded7 100%);
+  color:var(--ink);
 }
 .demo-interface{
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap:10px;
-  padding:0 0 22px;
-  color:var(--quiet);
-  font-size:15px;
+  margin-bottom:18px;
+  color:#2a2622;
+  font-size:13px;
   line-height:1.2;
   letter-spacing:-.01em;
+  font-weight:680;
 }
-.demo-dot{
-  width:11px;
-  height:11px;
-  flex:0 0 auto;
-  border-radius:999px;
-  background:var(--green);
+.demo-interface span:last-child{
+  color:var(--quiet);
+  font-size:11px;
+  font-weight:620;
+  letter-spacing:.06em;
+  text-transform:uppercase;
 }
 .demo-stack{
   display:grid;
-  gap:14px;
+  gap:10px;
 }
 .demo-bubble{
-  padding:clamp(20px,3vw,30px);
-  border-radius:clamp(22px,3vw,30px);
-  background:#eee8e2;
+  width:88%;
+  padding:14px 15px;
+  border-radius:22px 22px 22px 7px;
+  background:rgba(255,255,255,.86);
   color:#2d2925;
-  font-size:clamp(18px,1.75vw,24px);
-  line-height:1.42;
-  letter-spacing:-.035em;
+  font-size:14px;
+  line-height:1.35;
+  letter-spacing:-.025em;
+  box-shadow:0 16px 34px rgba(36,28,22,.08);
 }
 .demo-bubble strong{
-  font-weight:680;
+  display:block;
+  margin-bottom:5px;
+  font-size:12px;
+  line-height:1;
+  color:var(--green);
+  font-weight:750;
+}
+.demo-bubble.esteban{
+  justify-self:end;
+  border-radius:22px 22px 7px 22px;
+  background:#191715;
+  color:#fff;
+}
+.demo-bubble.esteban strong{
+  color:#ffb2c7;
 }
 .demo-processing{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
-  min-height:44px;
+  gap:10px;
+  min-height:36px;
   color:var(--quiet);
-  font-size:14px;
-  font-weight:620;
-  letter-spacing:.08em;
+  font-size:10px;
+  font-weight:720;
+  letter-spacing:.12em;
   text-transform:uppercase;
 }
 .demo-dots{
@@ -3097,59 +3165,66 @@ main > section{
   opacity:.4;
 }
 .demo-result{
-  padding:clamp(22px,3.4vw,36px);
-  border-radius:clamp(24px,3.3vw,34px);
+  padding:16px;
+  border-radius:26px;
   color:#fff;
-  background:var(--black);
-  box-shadow:0 28px 80px rgba(18,15,13,.22);
+  background:linear-gradient(160deg,#1f1c19,#111);
+  box-shadow:0 24px 58px rgba(18,15,13,.22);
 }
 .demo-result h3{
-  margin:0 0 18px;
-  font-size:clamp(20px,2vw,28px);
+  margin:0 0 10px;
+  font-size:18px;
   line-height:1;
   letter-spacing:-.04em;
 }
 .demo-result p{
   margin:0;
-  color:rgba(255,255,255,.72);
-  font-size:clamp(17px,1.6vw,22px);
-  line-height:1.46;
-  letter-spacing:-.035em;
+  color:rgba(255,255,255,.7);
+  font-size:13px;
+  line-height:1.38;
+  letter-spacing:-.02em;
 }
 .demo-result .demo-emphasis{
-  margin-top:16px;
+  margin-top:9px;
   color:#fff;
-  font-size:clamp(19px,1.85vw,25px);
-  line-height:1.36;
-  font-weight:560;
+  font-size:14px;
+  line-height:1.32;
+  font-weight:620;
 }
 .demo-separator{
   height:1px;
-  margin:24px 0;
-  background:rgba(255,255,255,.14);
+  margin:14px 0;
+  background:rgba(255,255,255,.12);
 }
-.demo-label{
-  margin-bottom:12px!important;
-  color:rgba(255,255,255,.58)!important;
-  font-size:13px!important;
-  font-weight:620;
-  letter-spacing:.08em!important;
-  text-transform:uppercase;
+.demo-pacts{
+  display:grid;
+  gap:8px;
 }
-.demo-suggestion{
-  padding:18px 20px;
-  border-radius:20px;
-  background:#fff;
-  color:var(--ink);
-  font-size:clamp(17px,1.5vw,21px);
-  line-height:1.42;
-  letter-spacing:-.035em;
+.demo-pact{
+  padding:12px;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);
+}
+.demo-pact b{
+  display:block;
+  margin-bottom:5px;
+  color:#fff;
+  font-size:12px;
+  line-height:1.1;
+}
+.demo-pact span{
+  display:block;
+  color:rgba(255,255,255,.66);
+  font-size:12px;
+  line-height:1.32;
+  letter-spacing:-.015em;
 }
 .demo-actions{
   display:flex;
   justify-content:center;
   gap:12px;
-  margin-top:26px;
+  margin-top:clamp(26px,4vw,42px);
 }
 .demo-actions .button{
   min-height:56px;
@@ -3184,20 +3259,20 @@ main > section{
     transform:translate3d(0,0,0);
     transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);
   }
-  .demo-card.is-playing .demo-step:nth-child(2){
+  .demo-card.is-playing .demo-step.esteban{
     transition-delay:.4s;
   }
   .demo-card.is-playing .demo-processing{
-    transition-delay:.82s;
+    transition-delay:.95s;
   }
   .demo-card.is-playing .demo-result{
-    transition-delay:2s;
+    transition-delay:2.05s;
   }
   .demo-card.is-playing .demo-actions{
-    transition-delay:2.18s;
+    transition-delay:2.3s;
   }
   .demo-card.is-playing .demo-trust{
-    transition-delay:2.28s;
+    transition-delay:2.42s;
   }
   .demo-card.is-playing .demo-dots span{
     animation:demoDot 1.2s ease-in-out 1;
@@ -3243,41 +3318,72 @@ main > section{
     line-height:1.45;
   }
   .demo-card{
-    padding:18px;
-    border-radius:30px;
+    width:calc(100vw - 32px);
+    padding:18px 14px 22px;
+    border-radius:34px;
+  }
+  .demo-phone{
+    width:min(100%,350px);
+    padding:9px;
+    border-radius:52px;
+  }
+  .demo-phone::before{
+    inset:6px;
+    border-radius:46px;
+  }
+  .demo-phone::after{
+    top:17px;
+    width:98px;
+    height:29px;
+  }
+  .demo-screen{
+    padding:62px 14px 16px;
+    border-radius:44px;
   }
   .demo-interface{
-    padding-bottom:16px;
-    font-size:14px;
+    margin-bottom:14px;
+    font-size:12px;
   }
   .demo-stack{
-    gap:12px;
+    gap:8px;
   }
   .demo-bubble{
-    padding:20px;
-    border-radius:22px;
-    font-size:17px;
-    line-height:1.44;
+    padding:12px 13px;
+    border-radius:20px 20px 20px 7px;
+    font-size:13px;
+    line-height:1.33;
+  }
+  .demo-bubble.esteban{
+    border-radius:20px 20px 7px 20px;
   }
   .demo-processing{
-    min-height:38px;
-    font-size:11px;
+    min-height:30px;
+    font-size:9px;
   }
   .demo-result{
-    padding:22px;
-    border-radius:24px;
+    padding:13px;
+    border-radius:22px;
+  }
+  .demo-result h3{
+    font-size:16px;
   }
   .demo-result p{
-    font-size:16px;
-    line-height:1.48;
+    font-size:12px;
+    line-height:1.32;
   }
   .demo-result .demo-emphasis{
-    font-size:18px;
+    font-size:12.5px;
   }
-  .demo-suggestion{
-    padding:16px;
-    border-radius:18px;
-    font-size:16px;
+  .demo-separator{
+    margin:12px 0;
+  }
+  .demo-pact{
+    padding:9px 10px;
+    border-radius:16px;
+  }
+  .demo-pact b,
+  .demo-pact span{
+    font-size:11px;
   }
   .demo-actions{
     flex-direction:column;
@@ -5036,6 +5142,57 @@ section {
   }
 }
 
+@media (max-width: 760px) {
+  .hero-content {
+    justify-content: flex-start !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding-top: clamp(455px, 58vh, 520px) !important;
+    padding-bottom: max(34px, calc(26px + env(safe-area-inset-bottom))) !important;
+    transform: none !important;
+  }
+
+  .hero .eyebrow,
+  .hero h1,
+  .hero-lede {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero .eyebrow,
+  .hero h1 {
+    position: absolute !important;
+    left: max(24px, env(safe-area-inset-left)) !important;
+    right: max(24px, env(safe-area-inset-right)) !important;
+    width: auto !important;
+  }
+
+  .hero .eyebrow {
+    top: max(126px, calc(106px + env(safe-area-inset-top))) !important;
+  }
+
+  .hero h1 {
+    top: max(156px, calc(136px + env(safe-area-inset-top))) !important;
+    max-width: 360px !important;
+  }
+
+  .hero-lede {
+    margin-top: 0 !important;
+  }
+
+  .hero .hero-actions {
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 18px !important;
+  }
+
+  .hero .hero-actions .button {
+    width: min(100%, 280px) !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5089,6 +5246,45 @@ section {
             <figure class="rail-card wide"><img src="wereinlove-assets/couple-car.jpg" alt="Un couple près d'une voiture au crépuscule" loading="lazy"></figure>
             <figure class="rail-card"><img src="wereinlove-assets/family-walk.jpg" alt="Un parent porte deux enfants dans une lumière d'été" loading="lazy"></figure>
           </div>
+        </div>
+      </section>
+
+      <section class="demo-section" id="analyse">
+        <div class="demo-head reveal">
+          <p class="eyebrow">DÉMONSTRATION</p>
+          <h2>Deux personnes. Deux façons de protéger la même relation.</h2>
+          <p>WereInLove™ croise les deux récits pour faire apparaître ce que chacun voulait réellement dire.</p>
+        </div>
+
+        <div class="demo-card reveal" data-demo-card>
+          <div class="demo-phone" aria-label="Démonstration WereInLove sur iPhone 16 Pro">
+            <div class="demo-screen">
+              <div class="demo-interface"><span>WereInLove™</span><span>Lecture croisée</span></div>
+              <div class="demo-stack">
+                <div class="demo-bubble demo-step"><strong>Chloé</strong>« Quand tu refuses de parler après une dispute, j'ai l'impression que tu me punis et que notre relation ne compte plus. »</div>
+                <div class="demo-bubble demo-step esteban"><strong>Esteban</strong>« Je me tais parce que j'ai peur de dire quelque chose de blessant. J'essaie de nous protéger, pas de t'ignorer. »</div>
+                <div class="demo-processing">
+                  <span>Analyse des deux points de vue</span>
+                  <span class="demo-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                </div>
+                <div class="demo-result">
+                  <h3>Verdict WereInLove™</h3>
+                  <p>Chloé vit le silence comme une mise à distance. Esteban s'en sert pour éviter d'abîmer davantage la relation.</p>
+                  <p class="demo-emphasis">Le conflit ne vient pas d'un manque d'amour, mais de deux réflexes de protection qui se contredisent.</p>
+                  <div class="demo-separator"></div>
+                  <div class="demo-pacts">
+                    <div class="demo-pact"><b>Pacte de Chloé</b><span>Demander un délai clair avant d'interpréter le silence comme un abandon.</span></div>
+                    <div class="demo-pact"><b>Pacte d'Esteban</b><span>Dire qu'il revient, même brièvement, avant de prendre de la distance pour se calmer.</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-actions">
+            <a class="button" href="app.html">Essayer avec notre histoire</a>
+            <a class="button ghost" href="boite-a-disputes.html">Voir une analyse complète</a>
+          </div>
+          <p class="demo-trust">Deux premières analyses offertes · Aucune carte bancaire demandée</p>
         </div>
       </section>
 
@@ -5165,39 +5361,6 @@ section {
           <h2>Et si l'autre personne ne veut pas participer tout de suite ?</h2>
           <p>Vous pouvez commencer seul. Déposer votre version permet déjà de clarifier ce que vous avez vécu et de préparer une façon plus calme de reprendre la conversation. Vous pourrez inviter l'autre personne ensuite.</p>
           <p class="solo-note">L'analyse croisée devient complète lorsque chacun a partagé son point de vue.</p>
-        </div>
-      </section>
-
-      <section class="demo-section" id="analyse">
-        <div class="demo-head reveal">
-          <p class="eyebrow">DÉMONSTRATION</p>
-          <h2>Deux personnes. Deux façons de protéger la même relation.</h2>
-          <p>WereInLove™ croise les deux récits pour faire apparaître ce que chacun voulait réellement dire.</p>
-        </div>
-
-        <div class="demo-card reveal" data-demo-card>
-          <div class="demo-interface"><span class="demo-dot"></span><span>WereInLove™ — Lecture croisée</span></div>
-          <div class="demo-stack">
-            <div class="demo-bubble demo-step"><strong>Chloé</strong><br>« Quand tu refuses de parler après une dispute, j'ai l'impression que tu me punis et que notre relation ne compte plus. »</div>
-            <div class="demo-bubble demo-step"><strong>Esteban</strong><br>« Je me tais parce que j'ai peur de dire quelque chose de blessant. J'essaie de nous protéger, pas de t'ignorer. »</div>
-            <div class="demo-processing">
-              <span>Analyse des deux points de vue…</span>
-              <span class="demo-dots" aria-hidden="true"><span></span><span></span><span></span></span>
-            </div>
-            <div class="demo-result">
-              <h3>WereInLove™</h3>
-              <p>Chloé interprète le silence comme un abandon. Esteban utilise le silence pour éviter d'aggraver le conflit.</p>
-              <p class="demo-emphasis">Vous cherchez tous les deux à protéger la relation, mais vos stratégies opposées produisent exactement l'effet inverse.</p>
-              <div class="demo-separator"></div>
-              <p class="demo-label">Phrase possible pour reprendre le dialogue :</p>
-              <div class="demo-suggestion">« J'ai besoin de quelques minutes pour me calmer, mais je ne suis pas en train de partir. On en reparle juste après. »</div>
-            </div>
-            <div class="demo-actions">
-              <a class="button" href="app.html">Essayer avec notre histoire</a>
-              <a class="button ghost" href="boite-a-disputes.html">Voir une analyse complète</a>
-            </div>
-            <p class="demo-trust">Deux premières analyses offertes · Aucune carte bancaire demandée</p>
-          </div>
         </div>
       </section>
 
