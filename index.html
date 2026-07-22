@@ -5435,20 +5435,7 @@ img.mf-logo {
   color: #fff;
 }
 
-.footer-red-wordmark {
-  position: relative;
-  left: 50%;
-  width: 100vw;
-  max-width: none;
-  margin: clamp(42px, 6vw, 82px) 0 0 -50vw;
-  overflow: hidden;
-}
 
-.footer-red-wordmark img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
 @media (max-width: 760px) {
   .brand-wordmark-link {
@@ -5458,11 +5445,6 @@ img.mf-logo {
   .nav-wordmark {
     width: 128px !important;
     max-height: 24px !important;
-  }
-
-  .footer-red-wordmark {
-    width: 100vw;
-    margin-top: 36px;
   }
 }
 
@@ -5613,7 +5595,11 @@ img.mf-logo {
 .site-footer {
   padding-bottom: clamp(46px, 6vw, 76px) !important;
 }
-.footer-red-wordmark {
+
+
+/* Footer visual removed on all viewports. */
+.footer-red-wordmark,
+.footer-red-wordmark img {
   display: none !important;
 }
 
@@ -5629,7 +5615,11 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
 .site-footer {
   padding-bottom: clamp(46px, 6vw, 76px) !important;
 }
-.footer-red-wordmark {
+
+
+/* Footer visual removed on all viewports. */
+.footer-red-wordmark,
+.footer-red-wordmark img {
   display: none !important;
 }
 
