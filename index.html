@@ -5603,6 +5603,12 @@ img.mf-logo {
   display: none !important;
 }
 
+
+
+
+
+
+
 </style>
 
 <style id="wil-brand-uniformity">
@@ -5623,15 +5629,88 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
   display: none !important;
 }
 
+
+
+
+
+
+
+</style>
+
+<style id="wil-brand-logo-system">
+.wil-brand-lockup{display:inline-flex!important;align-items:center!important;gap:.38em!important;vertical-align:-.08em!important;white-space:nowrap!important}
+.wil-brand-lockup .wil-heart{display:inline-block!important;width:1.05em!important;height:1.12em!important;object-fit:contain!important;flex:0 0 auto!important;max-width:none!important}
+.wil-brand-lockup .wil-word{display:inline-block!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important}
+.logo .wil-brand-lockup,.brand .wil-brand-lockup,.footer-logo .wil-brand-lockup,.compat-brand .wil-brand-lockup,.mf-brand .wil-brand-lockup{gap:.45em!important}
+.logo .wil-heart,.brand .wil-heart,.footer-logo .wil-heart,.compat-brand .wil-heart,.mf-brand .wil-heart{width:1.18em!important;height:1.2em!important}
+
+
+</style>
+
+<style id="wil-index-nav-logo-final">
+/* Index: only the navigation keeps a logo. */
+.nav .wil-brand-lockup {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+.nav .wil-heart {
+  display: inline-block !important;
+  width: auto !important;
+  height: 1em !important;
+  max-height: 15px !important;
+  margin-right: 1px !important;
+  object-fit: contain !important;
+}
+.nav .wil-word {
+  line-height: 1 !important;
+}
+@media (max-width: 760px) {
+  .nav .wil-brand-lockup { gap: 4px !important; }
+  .nav .wil-heart { max-height: 13px !important; }
+}
+</style>
+
+<style id="wil-index-requested-logos">
+/* Index: requested logo only in nav, below hero title, and footer brand. */
+.hero-heart-logo {
+  display: block !important;
+  width: clamp(42px, 4.5vw, 70px) !important;
+  height: auto !important;
+  margin: clamp(14px, 2vw, 22px) auto 0 !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,.18));
+}
+.footer-logo .wil-brand-lockup {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+}
+.footer-logo .wil-heart {
+  width: auto !important;
+  height: 1em !important;
+  max-height: 24px !important;
+  object-fit: contain !important;
+}
+.footer-logo .wil-word {
+  line-height: 1 !important;
+}
+@media (max-width: 760px) {
+  .hero-heart-logo {
+    width: 46px !important;
+    margin-top: 12px !important;
+  }
+  .footer-logo .wil-heart {
+    max-height: 20px !important;
+  }
+}
 </style>
 </head>
 <body>
   <div class="site-shell">
     <header class="nav-wrap" aria-label="Navigation principale">
       <nav class="nav" data-nav>
-        <a class="brand brand-text-link" href="#top" aria-label="WereInLove™">
-          <span>WEREINLOVE™</span>
-        </a>
+        <a class="brand brand-text-link" href="#top" aria-label="WereInLove™"><span class="wil-brand-lockup wil-brand-lockup--white"><img class="wil-heart" src="wereinlove-assets/wil-heart-white.png" alt="" aria-hidden="true"><span class="wil-word">WEREINLOVE™</span></span></a>
         <a class="nav-cta" href="espace-client.html">Espace client</a>
       </nav>
     </header>
@@ -5647,6 +5726,7 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
       <div class="hero-content">
         <p class="eyebrow reveal">Pour les liens essentiels</p>
         <h1 class="reveal">Comprendre les personnes qui comptent.</h1>
+        <img class="hero-heart-logo reveal" src="wereinlove-assets/hero-red-heart-logo.png" alt="" aria-hidden="true">
         <p class="hero-lede reveal">Chacun raconte sa version. WereInLove™ vous aide à reprendre le dialogue.</p>
         <div class="hero-actions reveal">
           <a class="button light hero-primary" href="app.html" data-primary-cta>Commencer gratuitement</a>
@@ -5944,9 +6024,7 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-brand">
-            <a class="footer-logo footer-wordmark-link" href="#top" aria-label="WereInLove™">
-              <span>WEREINLOVE™</span>
-            </a>
+            <a class="footer-logo footer-wordmark-link" href="#top" aria-label="WereInLove™"><span class="wil-brand-lockup wil-brand-lockup--white"><img class="wil-heart" src="wereinlove-assets/wil-heart-white.png" alt="" aria-hidden="true"><span class="wil-word">WEREINLOVE™</span></span></a>
             <p>Un espace calme pour raconter deux versions d'une même histoire, comprendre ce qui s'est joué et retrouver une conversation possible.</p>
           </div>
 

@@ -361,12 +361,19 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
 .logo .txt,.brand .txt,.mf-brand,.compat-brand{font-weight:800!important;letter-spacing:-.04em!important}
 .brand-fallback{display:inline-flex;align-items:center;justify-content:center;font-weight:800;letter-spacing:-.04em;color:inherit}
 </style>
+
+<style id="wil-brand-logo-system">
+.wil-brand-lockup{display:inline-flex!important;align-items:center!important;gap:.38em!important;vertical-align:-.08em!important;white-space:nowrap!important}
+.wil-brand-lockup .wil-heart{display:inline-block!important;width:1.05em!important;height:1.12em!important;object-fit:contain!important;flex:0 0 auto!important;max-width:none!important}
+.wil-brand-lockup .wil-word{display:inline-block!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important}
+.logo .wil-brand-lockup,.brand .wil-brand-lockup,.footer-logo .wil-brand-lockup,.compat-brand .wil-brand-lockup,.mf-brand .wil-brand-lockup{gap:.45em!important}
+.logo .wil-heart,.brand .wil-heart,.footer-logo .wil-heart,.compat-brand .wil-heart,.mf-brand .wil-heart{width:1.18em!important;height:1.2em!important}
+</style>
 </head>
 <body>
 <header>
   <a class="back" href="index.html">← Retour au site</a>
-  <a class="logo" href="index.html" aria-label="WereInLove"><span class="txt">WEREINLOVE™</span>
-  </a>
+  <a class="logo" href="index.html" aria-label="WereInLove"><span class="wil-brand-lockup wil-brand-lockup--black"><img class="wil-heart" src="wereinlove-assets/wil-heart-black.png" alt="" aria-hidden="true"><span class="wil-word">WEREINLOVE™</span></span></a>
 </header>
 <main>
   <div class="card">
@@ -401,8 +408,7 @@ Contact : <a href="contact.html">la page contact</a></p>
   </div>
 </main>
 <footer>
-  <div class="foot-brand">
-    <div class="logo"><span class="txt">WEREINLOVE™</span></div>
+  <div class="foot-brand"><span class="wil-brand-lockup wil-brand-lockup--white"><img class="wil-heart" src="wereinlove-assets/wil-heart-white.png" alt="" aria-hidden="true"><span class="wil-word">WEREINLOVE™</span></span></div>
     <p>Un espace calme pour raconter deux versions d'une même histoire, comprendre ce qui s'est joué et retrouver une conversation possible.</p>
   </div>
   <div class="foot-links">
