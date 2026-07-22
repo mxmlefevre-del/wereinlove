@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <title>WereInLove — Espace client</title>
-<link rel="icon" type="image/png" href="wereinlove-assets/favicon.png">
-<link rel="icon" href="wereinlove-assets/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="wereinlove-assets/favicon-heart-red.png">
+<link rel="icon" href="wereinlove-assets/favicon-heart-red.ico" sizes="any">
+<link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon-heart-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1049,6 +1049,13 @@ img.mf-logo {
 }
 
 </style>
+
+<style id="wil-brand-uniformity">
+img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!important}
+.logo::before,.brand::before,.mf-brand::before,.compat-brand::before{display:none!important;content:none!important}
+.logo .txt,.brand .txt,.mf-brand,.compat-brand{font-weight:800!important;letter-spacing:-.04em!important}
+.brand-fallback{display:inline-flex;align-items:center;justify-content:center;font-weight:800;letter-spacing:-.04em;color:inherit}
+</style>
 </head>
 <body>
 
@@ -1056,8 +1063,7 @@ img.mf-logo {
 <div class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
-      <img class="brand-logo" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true">
-      <span class="txt">WereInLove</span>
+      <span class="txt">WEREINLOVE™</span>
     </a>
     <nav class="nav-actions">
       <a class="nav-link hide-sm" href="index.html">Accueil</a>
@@ -1313,7 +1319,7 @@ const clearErr = id => $(id).classList.remove("show");
 const norm = s => (s||"").trim().toLowerCase();
 const escapeHtml = s => String(s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-const LOGO_PH = `<img src="wereinlove-assets/wereinlove-logo.png" alt="" style="width:52%;height:auto;object-fit:contain">`;
+const LOGO_PH = ``;
 
 let me=null, profile=null;
 let partners=[], disputes=[], tests=[], currentPartnerKey=null;

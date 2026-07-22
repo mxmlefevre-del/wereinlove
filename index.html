@@ -5296,7 +5296,7 @@ img.mf-logo {
   }
 
   .hero-media {
-    background-image: url("wereinlove-assets/mobile-hero-generated-premium.png") !important;
+    background-image: url("wereinlove-assets/hero-video-fallback.png") !important;
     background-size: cover !important;
     background-position: center center !important;
   }
@@ -5608,6 +5608,31 @@ img.mf-logo {
   }
 }
 
+
+/* Footer image removed: restore comfortable bottom spacing. */
+.site-footer {
+  padding-bottom: clamp(46px, 6vw, 76px) !important;
+}
+.footer-red-wordmark {
+  display: none !important;
+}
+
+</style>
+
+<style id="wil-brand-uniformity">
+img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!important}
+.logo::before,.brand::before,.mf-brand::before,.compat-brand::before{display:none!important;content:none!important}
+.logo .txt,.brand .txt,.mf-brand,.compat-brand{font-weight:800!important;letter-spacing:-.04em!important}
+.brand-fallback{display:inline-flex;align-items:center;justify-content:center;font-weight:800;letter-spacing:-.04em;color:inherit}
+
+/* Footer image removed: restore comfortable bottom spacing. */
+.site-footer {
+  padding-bottom: clamp(46px, 6vw, 76px) !important;
+}
+.footer-red-wordmark {
+  display: none !important;
+}
+
 </style>
 </head>
 <body>
@@ -5624,7 +5649,7 @@ img.mf-logo {
 
     <section class="hero" id="top" aria-label="Introduction">
       <div class="hero-media" data-hero-media>
-        <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="wereinlove-assets/family-field.jpg">
+        <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="wereinlove-assets/hero-video-fallback.png">
           <source src="mobile-hero.mp4" type="video/mp4" media="(max-width: 760px)">
           <source src="hero-video.mp4" type="video/mp4">
         </video>
@@ -5979,9 +6004,6 @@ img.mf-logo {
           <span>© 2026 WereInLove™. Tous droits réservés.</span>
           <span>Comprendre les personnes qui comptent.</span>
         </div>
-      </div>
-      <div class="footer-red-wordmark" aria-hidden="true">
-        <img src="wereinlove-assets/wereinlove-wordmark-red.png" alt="">
       </div>
     </footer>
   </div>

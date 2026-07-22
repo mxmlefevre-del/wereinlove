@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <title>WereInLove — Test de compatibilité</title>
-<link rel="icon" type="image/png" href="wereinlove-assets/favicon.png">
-<link rel="icon" href="wereinlove-assets/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="wereinlove-assets/favicon-heart-red.png">
+<link rel="icon" href="wereinlove-assets/favicon-heart-red.ico" sizes="any">
+<link rel="apple-touch-icon" href="wereinlove-assets/apple-touch-icon-heart-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -861,12 +861,19 @@ img.mf-logo {
 }
 
 </style>
+
+<style id="wil-brand-uniformity">
+img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!important}
+.logo::before,.brand::before,.mf-brand::before,.compat-brand::before{display:none!important;content:none!important}
+.logo .txt,.brand .txt,.mf-brand,.compat-brand{font-weight:800!important;letter-spacing:-.04em!important}
+.brand-fallback{display:inline-flex;align-items:center;justify-content:center;font-weight:800;letter-spacing:-.04em;color:inherit}
+</style>
 </head>
 <body class="compat-visual-page">
 
 <header class="compat-nav-shell" id="compat-nav-shell">
   <nav class="compat-nav" aria-label="Navigation principale">
-    <a class="compat-brand" href="index.html">WereInLove</a>
+    <a class="compat-brand" href="index.html">WEREINLOVE™</a>
     <a class="compat-home" href="index.html">Accueil</a>
   </nav>
 </header>
@@ -997,8 +1004,7 @@ img.mf-logo {
     <div class="magic-zone">
       <div class="magic-card" id="magic-card">
         <div class="magic-face magic-front">
-          <img class="mf-logo" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true">
-          <div class="mf-brand">WereInLove</div>
+          <div class="mf-brand">WEREINLOVE™</div>
           <div style="font-size:15px;font-weight:700;opacity:.9">Votre compatibilité est prête…</div>
           <div class="mf-tap">👆 Touchez pour révéler</div>
         </div>
@@ -1011,7 +1017,6 @@ img.mf-logo {
             <div id="r-bars" style="width:100%;margin-top:14px"></div>
           </div>
           <div class="magic-brandbar">
-            <img class="brand-logo" src="wereinlove-assets/wereinlove-logo.png" alt="" aria-hidden="true">
             <span class="url">wereinlove.app</span>
           </div>
         </div>
