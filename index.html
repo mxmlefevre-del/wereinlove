@@ -5705,6 +5705,186 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
   }
 }
 </style>
+
+<style id="wil-pdf-hero-image">
+.hero-media {
+  background-image: url("wereinlove-assets/hero-home-desktop-upscale.jpg") !important;
+  background-size: cover !important;
+  background-position: center 38% !important;
+  background-repeat: no-repeat !important;
+}
+.hero-video {
+  display: none !important;
+}
+.hero-media::after {
+  background: none !important;
+  opacity: 0 !important;
+}
+.hero-content {
+  justify-content: flex-end !important;
+  padding-bottom: clamp(24px, 4vh, 58px) !important;
+}
+.hero-poster-art {
+  position: absolute !important;
+  left: 50% !important;
+  top: 66% !important;
+  z-index: 2 !important;
+  width: clamp(238px, 23.8vw, 442px) !important;
+  aspect-ratio: 1.88 / 1 !important;
+  transform: translate(-50%, -50%) !important;
+  pointer-events: none !important;
+  display: block !important;
+  background-image: url("wereinlove-assets/hero-poster-lockup.png") !important;
+  background-size: contain !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+.hero-lede {
+  display: none !important;
+}
+.hero-actions {
+  margin-top: 0 !important;
+}
+.hero-proof {
+  margin-top: 12px !important;
+}
+@media (max-width: 760px) {
+  .hero-media {
+    background-image: url("wereinlove-assets/hero-home-mobile.jpg") !important;
+    background-position: center top !important;
+  }
+  .hero-content {
+    min-height: 100svh !important;
+    padding: 0 22px calc(18px + env(safe-area-inset-bottom)) !important;
+  }
+  .hero-poster-art {
+    top: 74% !important;
+    width: min(64vw, 442px) !important;
+    aspect-ratio: 1.88 / 1 !important;
+    background-image: url("wereinlove-assets/hero-poster-lockup.png") !important;
+    background-size: contain !important;
+    background-position: center center !important;
+  }
+  .hero-actions {
+    width: min(82vw, 380px) !important;
+    margin-top: 0 !important;
+  }
+  .hero-primary {
+    width: 100% !important;
+  }
+  .hero-proof {
+    margin-top: 10px !important;
+  }
+}
+</style>
+
+
+<style id="wil-single-story-offer">
+.single-story-offer {
+  padding: clamp(72px, 10vw, 140px) 0 clamp(58px, 8vw, 110px);
+  background: linear-gradient(180deg, #f8f6f3 0%, #fff 100%);
+}
+.single-story-wrap {
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto;
+}
+.single-story-top {
+  display: grid;
+  grid-template-columns: 1fr .72fr;
+  gap: clamp(28px, 6vw, 86px);
+  align-items: end;
+  margin-bottom: clamp(26px, 4vw, 52px);
+}
+.single-story-top h2 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(44px, 5.8vw, 88px);
+  line-height: .98;
+  letter-spacing: 0;
+  font-weight: 620;
+}
+.single-story-top p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(16px, 1.35vw, 20px);
+  line-height: 1.55;
+}
+.single-plan-row {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(280px, 420px);
+  gap: clamp(18px, 3vw, 32px);
+  align-items: stretch;
+}
+.single-plan-note {
+  min-height: 100%;
+  border: 1px solid rgba(19,19,19,.08);
+  border-radius: 8px;
+  padding: clamp(24px, 4vw, 42px);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.single-plan-note p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.6;
+}
+.single-plan-note strong {
+  color: var(--ink);
+}
+.single-plan-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+.single-plan-badges span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-size: 13px;
+  font-weight: 760;
+  color: rgba(19,19,19,.7);
+  background: #fbfaf8;
+}
+.single-plan {
+  position: relative;
+  overflow: hidden;
+}
+.single-plan::after {
+  content: "";
+  position: absolute;
+  inset: auto -18% -38% 28%;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 49, 49, .14);
+  filter: blur(34px);
+  pointer-events: none;
+}
+.single-plan .price {
+  color: var(--accent);
+}
+.single-plan .button {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 860px) {
+  .single-story-wrap {
+    width: min(100% - 32px, 560px);
+  }
+  .single-story-top,
+  .single-plan-row {
+    grid-template-columns: 1fr;
+  }
+  .single-story-top h2 {
+    font-size: clamp(38px, 11vw, 62px);
+  }
+}
+</style>
+
 </head>
 <body>
   <div class="site-shell">
@@ -5714,25 +5894,18 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
         <a class="nav-cta" href="espace-client.html">Espace client</a>
       </nav>
     </header>
-    <a class="mobile-sticky-cta" href="app.html" data-mobile-cta>Commencer gratuitement</a>
+    <a class="mobile-sticky-cta" href="app.html" data-mobile-cta>Commencer maintenant</a>
 
     <section class="hero" id="top" aria-label="Introduction">
       <div class="hero-media" data-hero-media>
-        <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="wereinlove-assets/hero-video-fallback.png">
-          <source src="mobile-hero.mp4" type="video/mp4" media="(max-width: 760px)">
-          <source src="hero-video.mp4" type="video/mp4">
-        </video>
       </div>
+      <div class="hero-poster-art" aria-hidden="true"></div>
       <div class="hero-content">
-        <p class="eyebrow reveal">Pour les liens essentiels</p>
-        <h1 class="reveal">Comprendre les personnes qui comptent.</h1>
-        <img class="hero-heart-logo reveal" src="wereinlove-assets/hero-red-heart-logo.png" alt="" aria-hidden="true">
         <p class="hero-lede reveal">Chacun raconte sa version. WereInLove™ vous aide à reprendre le dialogue.</p>
         <div class="hero-actions reveal">
-          <a class="button light hero-primary" href="app.html" data-primary-cta>Commencer gratuitement</a>
+          <a class="button light hero-primary" href="app.html" data-primary-cta>Commencer maintenant</a>
         </div>
         <p class="hero-proof reveal">2 analyses offertes · Sans carte bancaire</p>
-        <p class="hero-privacy reveal">Vos récits restent privés. Rien n'est publié sans votre accord explicite.</p>
         <div class="scroll-seal" aria-hidden="true">
           <span></span>
           <b>+</b>
@@ -5744,7 +5917,7 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
       <section class="intro" id="vision">
         <div class="intro-sticky">
           <div class="section-head reveal">
-            <h2>Une relation change quand chacun se sent enfin entendu.</h2>
+            <h2>Chacun raconte sa version. WereInLove™ vous aide à reprendre le dialogue.</h2>
             <p>Deux versions d'une même histoire. Une lecture calme de ce qui s'est vraiment joué entre les mots.</p>
           </div>
           <div class="photo-rail" data-rail>
@@ -5797,38 +5970,6 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
         </div>
       </section>
 
-      <section class="story-split">
-        <div class="story-copy reveal">
-          <p class="eyebrow">Familles</p>
-          <h2>Ce que l'autre voulait dire n'est pas toujours ce que l'on a entendu.</h2>
-          <p>WereInLove™ aide parents, enfants, amis, couples et proches à déposer leur version sans être interrompus.</p>
-          <div class="quiet-line"></div>
-          <p class="detail-note"><strong>Deux récits.</strong> Une synthèse qui distingue les faits, les émotions, les intentions et les malentendus.</p>
-      </div>
-      <figure class="feature-photo reveal">
-        <img class="family" src="wereinlove-assets/family-friends-rooftop.jpg" alt="Deux proches discutent sur un toit au coucher du soleil" loading="lazy">
-      </figure>
-    </section>
-
-      <section class="bleed-track" data-bleed-track>
-        <div class="bleed-photo reveal">
-          <img src="wereinlove-assets/couple-chair.jpg" alt="Un couple se retrouve dans un moment léger" loading="lazy">
-          <div class="bleed-inner">
-            <h2>On ne répare pas en gagnant. On répare en comprenant.</h2>
-            <p>L'IA n'est pas le sujet. Elle sert seulement à rendre la conversation plus claire, plus douce et plus possible.</p>
-            <div class="stats">
-            <div class="stat"><strong>1M</strong><span>de vues sur TikTok</span></div>
-              <div class="stat"><strong>50 k+</strong><span>abonnés sur Instagram</span></div>
-              <div class="stat"><strong>80K</strong><span>ouvrages de psychologie intégrés à la formation de l'IA</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="statement">
-        <h2 class="reveal">La dispute n'est qu'un signal. Le vrai sujet, c'est le lien.</h2>
-      </section>
-
       <section class="how" id="fonctionnement">
         <div class="how-grid">
           <div class="sticky-copy reveal">
@@ -5859,6 +6000,39 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
             </article>
           </div>
         </div>
+      </section>
+
+
+      <section class="story-split">
+        <div class="story-copy reveal">
+          <p class="eyebrow">Familles</p>
+          <h2>Ce que l'autre voulait dire n'est pas toujours ce que l'on a entendu.</h2>
+          <p>WereInLove™ aide parents, enfants, amis, couples et proches à déposer leur version sans être interrompus.</p>
+          <div class="quiet-line"></div>
+          <p class="detail-note"><strong>Deux récits.</strong> Une synthèse qui distingue les faits, les émotions, les intentions et les malentendus.</p>
+      </div>
+      <figure class="feature-photo reveal">
+        <img class="family" src="wereinlove-assets/family-friends-rooftop.jpg" alt="Deux proches discutent sur un toit au coucher du soleil" loading="lazy">
+      </figure>
+    </section>
+
+      <section class="bleed-track" data-bleed-track>
+        <div class="bleed-photo reveal">
+          <img src="wereinlove-assets/couple-chair.jpg" alt="Un couple se retrouve dans un moment léger" loading="lazy">
+          <div class="bleed-inner">
+            <h2>On ne répare pas en gagnant. On répare en comprenant.</h2>
+            <p>L'IA n'est pas le sujet. Elle sert seulement à rendre la conversation plus claire, plus douce et plus possible.</p>
+            <div class="stats">
+            <div class="stat"><strong>1M</strong><span>de vues sur TikTok</span></div>
+              <div class="stat"><strong>50 k+</strong><span>abonnés sur Instagram</span></div>
+              <div class="stat"><strong>80K</strong><span>ouvrages de psychologie intégrés à la formation de l'IA</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="statement">
+        <h2 class="reveal">La dispute n'est qu'un signal. Le vrai sujet, c'est le lien.</h2>
       </section>
 
       <section class="solo-start reveal">
@@ -6006,6 +6180,45 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
         </div>
       </section>
 
+      <section class="single-story-offer" id="histoire-unique">
+        <div class="single-story-wrap">
+          <div class="single-story-top reveal">
+            <div>
+              <p class="eyebrow">Paiement unique</p>
+              <h2>Une analyse complète, sans abonnement.</h2>
+            </div>
+            <p>Pour une dispute précise, un silence qui dure, ou une conversation que vous voulez enfin comprendre sans vous engager chaque mois.</p>
+          </div>
+
+          <div class="single-plan-row">
+            <div class="single-plan-note reveal">
+              <p><strong>Une histoire unique</strong> vous donne accès à la lecture complète WereInLove™ : deux points de vue, verdict, émotion principale, malentendu central et pactes personnalisés pour mieux gérer les prochaines situations.</p>
+              <div class="single-plan-badges">
+                <span>Sans abonnement</span>
+                <span>Paiement unique</span>
+                <span>Analyse complète</span>
+              </div>
+            </div>
+
+            <article class="plan single-plan reveal">
+              <span class="plan-kicker">À la carte</span>
+              <h3>Une histoire</h3>
+              <p class="plan-sub">Pour analyser une seule situation importante, sans engagement.</p>
+              <div class="price">1,99 €</div>
+              <hr>
+              <ul>
+                <li>1 analyse complète</li>
+                <li>Les deux points de vue</li>
+                <li>Verdict WereInLove™</li>
+                <li>Pacte de chaque personne</li>
+                <li>Aucun abonnement</li>
+              </ul>
+              <a class="button" href="app.html?offre=histoire-unique" data-stripe-price-id="price_1TwRqNARnjPEH6yCm95qtrSP" data-stripe-product-id="prod_UwKVXndODfSsYh">Analyser une histoire</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="final-cta">
         <img src="wereinlove-assets/moon.jpg" alt="Une silhouette face au ciel" loading="lazy">
         <div class="final-inner reveal">
@@ -6084,6 +6297,7 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
     const mobileCta = document.querySelector("[data-mobile-cta]");
     const primaryCtas = Array.from(document.querySelectorAll("[data-primary-cta]"));
     const pricingSection = document.querySelector("#tarifs");
+    const singleOfferSection = document.querySelector("#histoire-unique");
     const footer = document.querySelector(".site-footer");
     const bleedTrack = document.querySelector("[data-bleed-track]");
     const bleedPhoto = document.querySelector(".bleed-photo");
@@ -6120,6 +6334,8 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
         demoCard.classList.add("is-playing");
       }
     }
+
+
 
     const lightObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -6161,7 +6377,7 @@ img.brand-logo,img.mf-logo,img.mark,.brand-mark,.logo-mark{display:none!importan
 
       if (mobileCta) {
         const primaryInView = primaryCtas.some((el) => elementIntersectsViewport(el, 80, 110));
-        const blockedBySection = elementIntersectsViewport(pricingSection, 40, 80) || elementIntersectsViewport(footer, 40, 40);
+        const blockedBySection = elementIntersectsViewport(singleOfferSection, 40, 80) || elementIntersectsViewport(pricingSection, 40, 80) || elementIntersectsViewport(footer, 40, 40);
         const shouldShow = isMobileViewport && scrollY > heroHeight * .78 && !primaryInView && !blockedBySection;
         mobileCta.classList.toggle("is-visible", shouldShow);
       }
